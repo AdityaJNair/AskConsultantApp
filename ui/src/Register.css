@@ -15,6 +15,10 @@
     font-size: 15px;
 }
 
+#register_panel h1{
+    text-align: center;
+}
+
 /*Info row*/
 #info_row{
     width:100%;
@@ -36,6 +40,7 @@
     height: 50px;
     float: left;
     padding-top: 10px;
+    text-align: left;
 }
 
 /*Personal information*/
