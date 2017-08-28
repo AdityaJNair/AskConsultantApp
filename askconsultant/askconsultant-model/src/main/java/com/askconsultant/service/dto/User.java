@@ -5,10 +5,10 @@ public class User {
 	public User(){		
 	}
 	
-	private String userID="test";
-	private String password="somepassword";
-	private String firstName="First";
-	private String lastName="Last";
+	private String userID="";
+	private String password="";
+	private String firstName="";
+	private String lastName="";
 	private String token="";
 	
 	public String getUserID() {
