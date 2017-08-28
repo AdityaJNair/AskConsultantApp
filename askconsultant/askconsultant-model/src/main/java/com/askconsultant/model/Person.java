@@ -14,7 +14,7 @@ public class Person {
 	public enum Gender{Male,Female,Other,Null}
 	public enum Status{Active,Inactive,Blacklist}
 
-	public Person(String firstName, String lastName, String prefName, String email, String password, Date dob, Date lastLogin, Gender gender, Status status){
+	public Person(String firstName, String lastName, String prefName, String email, String password, Date dob, Date lastLogin, Gender gender, Status status, UserType userType){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.prefName = prefName;
@@ -24,6 +24,7 @@ public class Person {
 		this.lastLogin = lastLogin;
 		this.gender = gender;
 		this.status = status;
+		
 	}
 	
 	@Id
@@ -39,6 +40,7 @@ public class Person {
 	private Date lastLogin;
 	private Gender gender;
 	private Status status;
+	private UserType userType;
 	
 	public Long getId(){
 		return id;
@@ -119,5 +121,12 @@ public class Person {
 	public void setStatus(Status status){
 		this.status = status;
 	}
-}
+	
+	public UserType getUserType(){
+		return userType;
+	}
 
+	public void setUserType(UserType userType){
+		this.userType = userType;
+	}
+}
