@@ -33,4 +33,8 @@ public class PersonDAO {
 	public Person updatePerson(Person person) {
 		return em.merge(person);
 	}
+	
+	public void deletePerson(Person person){
+		em.remove(person);
+	}
 }
