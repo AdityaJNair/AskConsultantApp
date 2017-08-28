@@ -40,12 +40,12 @@ class PersonalInfo extends Component {
 
                 <div id="info_row">
                     <div id="info_option"><p>Password:</p></div>
-                    <div id="info_input"><input  name="password" /></div>
+                    <div id="info_input" ><input type="password" name="password" /></div>
                 </div>
 
                 <div id="info_row">
                     <div id="info_option"><p>Confirm Password:</p></div>
-                    <div id="info_input"><input name="confirmpassword" /></div>
+                    <div id="info_input" type="password"><input type="password" name="confirmpassword" /></div>
                 </div>
 
             </div>

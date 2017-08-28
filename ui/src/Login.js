@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './Login.css';
 import { withRouter } from 'react-router-dom'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 
 class Header extends Component {
     render() {
@@ -40,9 +45,9 @@ class Login_input extends Component {
             <div id="login_input">
                 <form>
                     <label><b>Username : </b></label><input/> <br />
-                    <label><b>Password &nbsp;:&nbsp;</b></label><input/> <br />
+                    <label><b>Password &nbsp;:&nbsp;</b></label><input type="password" /> <br />
                     <button>Login</button>
-                    <button>Register</button><br />
+                    <Link to="/about"><button>Register</button></Link><br />
                     <a>Forgot my password</a>
                 </form>
 
