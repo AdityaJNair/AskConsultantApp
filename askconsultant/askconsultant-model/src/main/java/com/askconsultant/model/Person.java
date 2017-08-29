@@ -11,18 +11,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name="person")
 public class Person {
-	public enum Gender{Male,Female,Other,Null}
-	public enum Status{Active,Inactive,Blacklist}
 
-	public Person(String firstName, String lastName, String prefName, String email, String password, Date dob, Date lastLogin, Gender gender, Status status, UserType userType){
+	public Person(String firstName, String lastName, String prefName, String email, String password, Date dob, Date lastLogin, String status){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.prefName = prefName;
 		this.email = email;
 		this.password = password;
-		this.dob = dob;
 		this.lastLogin = lastLogin;
-		this.gender = gender;
 		this.status = status;
 		
 	}
@@ -36,11 +32,8 @@ public class Person {
 	private String prefName;
 	private String email;
 	private String password;
-	private Date dob;
 	private Date lastLogin;
-	private Gender gender;
-	private Status status;
-	private UserType userType;
+	private String status;
 	
 	public Long getId(){
 		return id;
@@ -90,14 +83,6 @@ public class Person {
 		this.password = password;
 	}
 	
-	public Date getDOB(){
-		return dob;
-	}
-	
-	public void setDOB(Date dob){
-		this.dob = dob;
-	}
-	
 	public Date getlastLogin(){
 		return lastLogin;
 	}
@@ -106,27 +91,12 @@ public class Person {
 		this.lastLogin = lastLogin;
 	}	
 	
-	public Gender getGender(){
-		return gender;
-	}
-	
-	public void setGender(Gender gender){
-		this.gender = gender;
-	}
-	
-	public Status getStatus(){
+	public String getStatus(){
 		return status;
 	}
 	
-	public void setStatus(Status status){
+	public void setStatus(String status){
 		this.status = status;
 	}
 	
-	public UserType getUserType(){
-		return userType;
-	}
-
-	public void setUserType(UserType userType){
-		this.userType = userType;
-	}
 }

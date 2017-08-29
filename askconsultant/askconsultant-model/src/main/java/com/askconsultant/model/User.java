@@ -1,5 +1,7 @@
 package com.askconsultant.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,24 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name = "UserType")
-public class UserType {
+@Table(name="user")
+public class User {
+	
 	@Id
 	@Column(name="usertype_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-}
-
-class User extends UserType{
+	private Long id;	
+	
 	private String industry;
 	private String interest;
 	private String howDidYouKnow;
+	private Date dob;
+	private String gender;
+
 	
-	public User(String industry, String interest, String howDidYouKnow){
+	public User(String industry, String interest, String howDidYouKnow, Date dob, String gender){
 		this.industry = industry;
 		this.interest = interest;
 		this.howDidYouKnow = howDidYouKnow;
+		this.dob = dob;
+		this.gender = gender;
 	}
 	
 	public String getIndustry(){
@@ -50,8 +57,19 @@ class User extends UserType{
 	public void setHow(String howDidYouKnow){
 		this.howDidYouKnow = howDidYouKnow;
 	}
-}
-
-class Employee extends UserType{
+	public String getGender(){
+		return gender;
+	}
 	
+	public void setGender(String gender){
+		this.gender = gender;
+	}
+	
+	public Date getDOB(){
+		return dob;
+	}
+	
+	public void setDOB(Date dob){
+		this.dob = dob;
+	}
 }
