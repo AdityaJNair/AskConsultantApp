@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './Login.css';
+import logo from './../images/logo.svg';
+import './LoginPage.css';
 import { withRouter } from 'react-router-dom'
 import {
     BrowserRouter as Router,

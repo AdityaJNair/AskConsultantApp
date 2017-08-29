@@ -8,9 +8,9 @@ import {
     Link
 } from 'react-router-dom'
 
-import Login from './Login';
+import Login from './containers/LoginPage';
 import  Register from './Register';
-import App from './App';
+import App from './containers/App';
 
 ReactDOM.render(
     <Router>
