@@ -1,6 +1,8 @@
 package com.askconsultant.model;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +16,10 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User {
 	
+	public User() {
+		super();
+	}
+
 	@Id
 	@Column(name="usertype_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
