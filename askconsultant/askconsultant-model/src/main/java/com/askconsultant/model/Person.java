@@ -12,6 +12,12 @@ import javax.persistence.Table;
 @Table(name="person")
 public class Person {
 
+	
+	
+	public Person() {
+		super();
+	}
+
 	public Person(String firstName, String lastName, String prefName, String email, String password, Date dob, Date lastLogin, String status){
 		this.firstName = firstName;
 		this.lastName = lastName;
