@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import logo from '../images/logo.svg';
 import './UserChatPage.css';
 import { withRouter } from 'react-router-dom'
-import ChatItem from "../component/ChatItem";
-import CreateConversationButton from "../component/CreateConversationButton";
-import ChatList from "../component/ChatList";
-import MessengerLeftColumn from "../component/MessengerLeftColumn";
-import MessengerView from "../component/MessengerView";
-import SearchFilter from "../component/SearchFilter";
-import MessengerTextComponent from "../component/MessengerTextComponent";
-import HorizontalNavBar from "../component/HorizontalNavBar";
+import ChatItem from "../component/messenger/ChatItem";
+import CreateConversationButton from "../component/messenger/CreateConversationButton";
+import ChatList from "../component/messenger/ChatList";
+import MessengerLeftColumn from "../component/messenger/MessengerLeftColumn";
+import MessengerView from "../component/messenger/MessengerView";
+import SearchFilter from "../component/messenger/SearchFilter";
+import MessengerTextComponent from "../component/messenger/MessengerTextComponent";
+import HorizontalNavBar from "../component/messenger/HorizontalNavBar";
 
 class UserChat extends Component{
     render() {
