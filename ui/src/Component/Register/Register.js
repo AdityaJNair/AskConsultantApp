@@ -1,58 +1,7 @@
 import React, { Component } from 'react';
 import './Register.css';
 import { withRouter } from 'react-router-dom'
-
-class PersonalInfo extends Component {
-    render() {
-        return (
-            <div id="personal_info">
-                <h1>Personal Information</h1>
-                <div id="info_row">
-                    <div id="info_option"><p>Full Name:</p></div>
-                    <div id="info_input"><input name="fullname" /></div>
-                </div>
-
-                <div id="info_row">
-                    <div id="info_option"><p>User Name:</p></div>
-                    <div id="info_input"><input  name="username" /></div>
-                </div>
-
-                <div id="info_row">
-                    <div id="info_option"><p>Date of Birth:</p></div>
-                    <div id="info_input"><input name="dateofbirth" /></div>
-                </div>
-
-                <div id="info_row">
-                    <div id="info_option"><p>Email:</p></div>
-                    <div id="info_input"><input  name="email" /></div>
-                </div>
-
-                <div id="info_row">
-                    <div id="info_option"><p>Gender:</p></div>
-                    <div id="info_input">
-                        <select name="gender">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="diverse">Gender diverse</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="info_row">
-                    <div id="info_option"><p>Password:</p></div>
-                    <div id="info_input" ><input type="password" name="password" /></div>
-                </div>
-
-                <div id="info_row">
-                    <div id="info_option"><p>Confirm Password:</p></div>
-                    <div id="info_input" type="password"><input type="password" name="confirmpassword" /></div>
-                </div>
-
-            </div>
-
-        );
-    }
-}
+import PersonalInformation from './PersonalInformation.js';
 
 class AdditionalInfo extends Component {
     render() {
@@ -118,7 +67,7 @@ class RegisterPanel extends Component {
             <div id="register_panel">
                 <h2>Register</h2>
                 <form>
-                    <PersonalInfo />
+                    <PersonalInformation />
                     <AdditionalInfo />
                     <Submit/>
                 </form>

@@ -1,9 +1,8 @@
 /*Main panel*/
 #register_panel{
     width: 50%;
-    height: 800px;
+    min-height: 800px;
     margin-left: 25%;
-    text-align: center;
     margin-top: 50px;
 }
 
