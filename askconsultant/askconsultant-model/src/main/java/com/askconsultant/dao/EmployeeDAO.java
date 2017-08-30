@@ -10,6 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
+import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.model.Employee;
 
 public class EmployeeDAO {
@@ -35,10 +36,9 @@ public class EmployeeDAO {
 		query.setParameter(params, userID);
 
 		List<Employee> queryResult = query.getResultList();
-		if (queryResult.isEmpty()) {
-			return queryResult.get(0);
-		} else
-			return new Employee();
+		if (queryResult.isEmpty()){
+			throw new InvalidUserException("Employee not present");
+		}else return queryResult.get(0);
 	}
 	
 }

@@ -23,7 +23,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	}
 
 	@Override
-	public User login(User user) {
+	public User login(User user) throws Exception{
 		try {
 			String password;
 			if (user.isEmployee()) {
@@ -42,6 +42,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 			else throw new InvalidUserException("User ID or Password Error");
 		} catch (InvalidUserException ue) {
 			throw new InvalidUserException("User does not exist");
+		} catch (Exception otherException) {
+			throw otherException;
 		}
 	}
 	

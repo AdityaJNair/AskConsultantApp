@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.model.User;
 
 public class TestUserDAO {
@@ -31,16 +32,16 @@ public class TestUserDAO {
 		em.close();
 		emf.close();
 	}
-	
+
 	@Test
-	public void addUser(){
+	public void addUser() {
 		User userForHappyPath = getUserForHappyPath();
-		try{
+		try {
 			em.getTransaction().begin();
 			User user = userDAO.addUser(userForHappyPath);
 			em.getTransaction().commit();
-			assertTrue(user.getId()!=0);
-		}catch(Exception e){
+			assertTrue(user.getId() != 0);
+		} catch (Exception e) {
 			fail();
 		}
 	}
@@ -52,5 +53,28 @@ public class TestUserDAO {
 		user.setEmail("someemail");
 		return user;
 	}
+
+	@Test
+	public void getUserByUserID_ValidUser() {
+		try {
+			em.getTransaction().begin();
+			User user = userDAO.addUser(getUserForHappyPath());
+			em.getTransaction().commit();
+			User userByUserID = userDAO.getUserByUserID(user.getUserid());
+			assertNotNull(userByUserID);
+		} catch (Exception e) {
+			fail();
+		}
+	}
 	
+	@Test
+	public void getUserByUserID_UserNotExist() {
+		try {
+			em.getTransaction().begin();
+			User userByUserID = userDAO.getUserByUserID("invalidUser");
+			fail();
+		} catch (Exception e) {
+			assertEquals("User not present", e.getMessage());
+		}
+	}
 }
