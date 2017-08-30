@@ -15,6 +15,7 @@ public class SessionJSONConverter {
 		final User user = new User();
 		user.setUserID(JsonReader.getStringOrNull(jsonObject, "userid"));
 		user.setPassword(JsonReader.getStringOrNull(jsonObject, "password"));
+		user.setEmployee((Boolean.parseBoolean(JsonReader.getStringOrNull(jsonObject, "isEmployee"))));
 		return user;
 	}
 	

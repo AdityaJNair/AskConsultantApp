@@ -10,11 +10,6 @@ import javax.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author yaseen
- * This class is the resource class for operations related to the User
- * TODO: Implement operations to register user
- */
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

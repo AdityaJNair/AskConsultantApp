@@ -10,6 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
+import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.model.User;
 
 public class UserDAO {
@@ -35,9 +36,8 @@ public class UserDAO {
 		query.setParameter(params, userID);
 
 		List<User> queryResult = query.getResultList();
-		if (queryResult.isEmpty()) {
-			return queryResult.get(0);
-		} else
-			return new User();
+		if (queryResult.isEmpty()){
+			throw new InvalidUserException("User not present");
+		}else return queryResult.get(0);
 	}
 }

@@ -2,6 +2,12 @@ package com.askconsultant.service.dto;
 
 public class User {
 
+	public boolean isEmployee() {
+		return isEmployee;
+	}
+	public void setEmployee(boolean isEmployee) {
+		this.isEmployee = isEmployee;
+	}
 	public User(){		
 	}
 	
@@ -10,6 +16,7 @@ public class User {
 	private String firstName="";
 	private String lastName="";
 	private String token="";
+	private boolean isEmployee=false;
 	
 	public String getUserID() {
 		return userID;
