@@ -6,11 +6,8 @@ import { withRouter } from 'react-router-dom'
 class App extends Component {
     render() {
         return (
-
-            <div class="canvas">
-
+            <div class="container">
             </div>
-
         );
     }
 }

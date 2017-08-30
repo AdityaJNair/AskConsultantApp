@@ -11,12 +11,17 @@ import {
 import Login from './containers/LoginPage';
 import  Register from './Register';
 import App from './containers/App';
+import ChatItem from "./component/ChatItem";
+import UserChat from "./containers/UserChatPage";
 
 ReactDOM.render(
     <Router>
         <div>
+            <UserChat/>
+            {/*
             <Route exact path="/" component={Login}/>
             <Route path="/about" component={Register}/>
+            */}
         </div>
     </Router>
     ,
