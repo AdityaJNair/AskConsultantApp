@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import ChatItem from './component';
+import ChatItem from './components';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

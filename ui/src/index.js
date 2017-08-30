@@ -11,7 +11,7 @@ import {
 import Login from './containers/LoginPage';
 import  Register from './Register';
 import App from './containers/App';
-import ChatItem from "./component/messenger/ChatItem";
+import ChatItem from "./components/messenger/ChatItem";
 import UserChat from "./containers/UserChatPage";
 
 ReactDOM.render(
