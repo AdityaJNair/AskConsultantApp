@@ -9,16 +9,12 @@ import {
 } from 'react-router-dom'
 
 import Login from './Login';
-import  Register from './Register';
+import  Register from './Component/Register/Register';
 import App from './App';
+import Mdtest from './Component/Register/Mdtest'
 
 ReactDOM.render(
-    <Router>
-        <div>
-            <Route exact path="/" component={Login}/>
-            <Route path="/about" component={Register}/>
-        </div>
-    </Router>
+    <Register />
     ,
     document.getElementById('root'));
 registerServiceWorker();
