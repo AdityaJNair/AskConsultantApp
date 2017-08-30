@@ -39,5 +39,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		return userDTO;
 
 	}
+	
+	
+	public String encryptPassword(String unencryptedPassword){
+		//TODO: Nathan/Dom will be implementing this
+		return "encryptedPassword";
+	}
 
 }
