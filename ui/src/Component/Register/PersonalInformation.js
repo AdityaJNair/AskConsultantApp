@@ -48,7 +48,7 @@ class PersonalInformation extends Component {
                     itemValue="abbreviation"
                     className="md-cell"
                     helpOnFocus
-                    helpText="Select some state for me"
+                    helpText="Select your gender"
                 />
 
                 <TextField
