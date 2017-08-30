@@ -1,9 +1,11 @@
 package com.askconsultant.resource.converter;
 
-import com.askconsultant.model.Message;
+import javax.enterprise.context.ApplicationScoped;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+@ApplicationScoped
 public class OperationFailureJSONConvertor {
 
 	public JsonElement convertToJsonElement(final String error){
