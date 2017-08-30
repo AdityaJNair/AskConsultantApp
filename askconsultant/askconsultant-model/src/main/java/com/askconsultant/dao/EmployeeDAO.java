@@ -10,34 +10,35 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
-import com.askconsultant.model.User;
+import com.askconsultant.model.Employee;
 
-public class UserDAO {
+public class EmployeeDAO {
 
 	@PersistenceContext
 	EntityManager em;
-
-	public User addUser(User user) {
-		em.persist(user);
-		return user;
+	
+	public Employee addEmployee(Employee employee) {
+		em.persist(employee);
+		return employee;
 	}
-
-	public User getUserByUserID(String userID) {
+	
+	public Employee getEmployeeByUserID(String userID) {
 		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
-		Root<User> root = criteriaQuery.from(User.class);
+		CriteriaQuery<Employee> criteriaQuery = criteriaBuilder.createQuery(Employee.class);
+		Root<Employee> root = criteriaQuery.from(Employee.class);
 		criteriaQuery.select(root);
 
 		ParameterExpression<String> params = criteriaBuilder.parameter(String.class);
 		criteriaQuery.where(criteriaBuilder.equal(root.get("userid"), params));
 
-		TypedQuery<User> query = em.createQuery(criteriaQuery);
+		TypedQuery<Employee> query = em.createQuery(criteriaQuery);
 		query.setParameter(params, userID);
 
-		List<User> queryResult = query.getResultList();
+		List<Employee> queryResult = query.getResultList();
 		if (queryResult.isEmpty()) {
 			return queryResult.get(0);
 		} else
-			return new User();
+			return new Employee();
 	}
+	
 }

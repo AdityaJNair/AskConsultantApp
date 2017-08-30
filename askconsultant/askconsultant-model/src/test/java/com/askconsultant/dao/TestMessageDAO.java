@@ -1,22 +1,5 @@
 package com.askconsultant.dao;
 
-import static com.askconsultant.common.MessageHelper.legalNewUserYesterday;
-import static com.askconsultant.common.MessageHelper.legalSmithNow;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.askconsultant.model.Message;
-
 public class TestMessageDAO {
 //	private EntityManagerFactory emf;
 //	private EntityManager em;

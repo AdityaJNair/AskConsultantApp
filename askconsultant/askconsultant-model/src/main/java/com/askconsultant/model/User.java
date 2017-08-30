@@ -2,9 +2,6 @@ package com.askconsultant.model;
 
 
 
-import java.sql.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,61 +18,36 @@ public class User {
 	}
 
 	@Id
-	@Column(name="usertype_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;	
 	
-	private String industry;
-	private String interest;
-	private String howDidYouKnow;
-	private Date dob;
-	private String gender;
-
-	
-	public User(String industry, String interest, String howDidYouKnow, Date dob, String gender){
-		this.industry = industry;
-		this.interest = interest;
-		this.howDidYouKnow = howDidYouKnow;
-		this.dob = dob;
-		this.gender = gender;
+	private String userid;
+	private String password;
+	private String email;
+	public Long getId() {
+		return id;
 	}
-	
-	public String getIndustry(){
-		return industry;
+	public void setId(Long id) {
+		this.id = id;
 	}
-	
-	public void setIndustry(String industry){
-		this.industry = industry;
+	public String getUserid() {
+		return userid;
 	}
-	
-	public String getInterest(){
-		return interest;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	
-	public void setInterest(String interest){
-		this.interest = interest;
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getHow(){
-		return howDidYouKnow;
-	}
 	
-	public void setHow(String howDidYouKnow){
-		this.howDidYouKnow = howDidYouKnow;
-	}
-	public String getGender(){
-		return gender;
-	}
-	
-	public void setGender(String gender){
-		this.gender = gender;
-	}
-	
-	public Date getDOB(){
-		return dob;
-	}
-	
-	public void setDOB(Date dob){
-		this.dob = dob;
-	}
 }
