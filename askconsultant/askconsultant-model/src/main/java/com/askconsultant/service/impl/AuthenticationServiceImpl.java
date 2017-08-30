@@ -25,25 +25,28 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	@Override
 	public User login(User user) {
 		try {
+			String password;
 			if (user.isEmployee()) {
 				Employee dbEmployee = employeeDAO.getEmployeeByUserID(user.getUserID());
+				password = dbEmployee.getPassword();
 			} else {
 				com.askconsultant.model.User dbUser = userDAO.getUserByUserID(user.getUserID());
+				password = dbUser.getPassword();
 			}
+			if(password.equals(this.encryptPassword(user.getPassword()))){
+				User userDTO = new User();
+				userDTO.setToken("securetoken");
+				userDTO.setUserID(user.getUserID());
+				return userDTO;
+			}
+			else throw new InvalidUserException("User ID or Password Error");
 		} catch (InvalidUserException ue) {
-			throw new InvalidUserException("Invalid user");
+			throw new InvalidUserException("User does not exist");
 		}
-		User userDTO = new User();
-		userDTO.setToken("securetoken");
-		userDTO.setUserID(user.getUserID());
-		return userDTO;
-
 	}
-	
 	
 	public String encryptPassword(String unencryptedPassword){
 		//TODO: Nathan/Dom will be implementing this
 		return "encryptedPassword";
 	}
-
 }

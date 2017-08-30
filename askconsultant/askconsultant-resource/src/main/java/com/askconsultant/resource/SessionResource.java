@@ -17,6 +17,7 @@ import com.askconsultant.resource.converter.OperationFailureJSONConvertor;
 import com.askconsultant.resource.converter.SessionJSONConverter;
 import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.dto.User;
+import com.askconsultant.common.ResourceConstants;
 
 @Path("/session")
 @Produces(MediaType.APPLICATION_JSON)
@@ -42,13 +43,13 @@ public class SessionResource {
 		try {
 			user = sessionJSONConverter.convert(json);
 			User loginResponse = authService.login(user);
-			return Response.status(201)
+			return Response.status(ResourceConstants.HTTP_RESPONSE_OK)
 					.entity(JsonWriter.writeToString(sessionJSONConverter.convertToJsonElement(loginResponse))).build();
 		} catch (InvalidUserException e) {
-			return Response.status(401)
+			return Response.status(ResourceConstants.HTTP_RESPONSE_UNAUTHORIZED_ERROR)
 					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage()))).build();
 		} catch (Exception e) {
-			return Response.status(201)
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
 					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage()))).build();
 		}
 		
