@@ -1,4 +1,4 @@
-package askconsultant.common;
+package com.askconsultant.common;
 
 import java.sql.Date;
 import java.time.LocalDate;

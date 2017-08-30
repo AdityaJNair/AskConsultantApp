@@ -1,7 +1,9 @@
-package askconsultant.message.dao;
+package com.askconsultant.dao;
 
-import static askconsultant.common.MessageHelper.*;
-import static org.junit.Assert.*;
+import static com.askconsultant.common.MessageHelper.legalNewUserYesterday;
+import static com.askconsultant.common.MessageHelper.legalSmithNow;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -13,31 +15,30 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.askconsultant.dao.MessageDAO;
 import com.askconsultant.model.Message;
 
 public class TestMessageDAO {
 //	private EntityManagerFactory emf;
 //	private EntityManager em;
 //	private MessageDAO messageDAO;
-//	
-//	@Before 
-//	public void initTestCase(){
+//
+//	@Before
+//	public void initTestCase() {
 //		emf = Persistence.createEntityManagerFactory("MessagePU");
 //		em = emf.createEntityManager();
 //		messageDAO = new MessageDAO();
-////		messageDAO.em = em;
+//		messageDAO.em = em;
 //	}
-//	
+//
 //	@After
-//	public void closeEntityManager(){
+//	public void closeEntityManager() {
 //		em.close();
 //		emf.close();
 //	}
-//	
+//
 //	@Test
-//	public void testAddMesssageAndDisplay(){
-//		try{
+//	public void testAddMesssageAndDisplay() {
+//		try {
 //			em.getTransaction().begin();
 //			Message message = messageDAO.addMesssage(legalSmithNow());
 //			assertNotNull(message);
@@ -45,15 +46,16 @@ public class TestMessageDAO {
 //			Message findByID = messageDAO.findByID(message.getId());
 //			assertNotNull(findByID);
 //			em.clear();
-//		}catch (Exception e) {
+//		} catch (Exception e) {
 //			fail("This should not have happened");
 //			e.printStackTrace();
 //			em.getTransaction().rollback();
 //		}
 //	}
-//	
-//	@Test public void listAllMessages(){
-//		try{
+//
+//	@Test
+//	public void listAllMessages() {
+//		try {
 //			em.getTransaction().begin();
 //			messageDAO.addMesssage(legalNewUserYesterday());
 //			messageDAO.addMesssage(legalSmithNow());
@@ -61,14 +63,11 @@ public class TestMessageDAO {
 //			List<Message> listAllMessages = messageDAO.listAllMessages();
 //			assertNotNull(listAllMessages);
 //			em.clear();
-//		}catch (Exception e) {
+//		} catch (Exception e) {
 //			fail("This should not have happened");
 //			e.printStackTrace();
 //			em.getTransaction().rollback();
 //		}
 //	}
-//	
-	
-	
-	
+
 }
