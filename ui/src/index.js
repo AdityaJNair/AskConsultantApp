@@ -11,7 +11,6 @@ import {
 import Login from './containers/LoginPage';
 import  Register from './components/Register/Register';
 import App from './containers/App';
-
 import UserChat from "./containers/UserChatPage";
 
 ReactDOM.render(
