@@ -22,6 +22,7 @@ import com.askconsultant.model.RegistrationDetails;
 import com.askconsultant.model.User;
 import com.askconsultant.resource.converter.OperationFailureJSONConvertor;
 import com.askconsultant.resource.converter.RegistrationJSONConverter;
+import com.askconsultant.service.RegistrationService;
 
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,6 +36,8 @@ public class UserResource {
 	@Inject
 	OperationFailureJSONConvertor opFailureJSONConverter;
 	
+	@Inject 
+	RegistrationService registrationService;
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -44,49 +47,16 @@ public class UserResource {
 		logger.debug("User login");
 
 		com.askconsultant.service.dto.User userDetails = registrationJSONConverter.convert(json);
-		
-		User user = new User();
-		String password = userDetails.getPassword();
-		user.setPassword(sha1(password));
-		user.setUserid(userDetails.getUserID());
-		user.setSource(userDetails.getSource());
-		user.setIndustry(userDetails.getIndustry());
-		user.setInterest(userDetails.getInterest());
-		user.setStatus("ACTIVE");	
-		
-		RegistrationDetails regDetails = new RegistrationDetails();
-		regDetails.setDateOfBirth(userDetails.getDateOfBirth());
-		regDetails.setEmail(userDetails.getEmail());
-		regDetails.setFirstName(userDetails.getFirstName());
-		regDetails.setLastName(userDetails.getLastName());
-		regDetails.setOccupation(userDetails.getOccupation());
-		regDetails.setGender(userDetails.getGender());
-		
+		registrationService.register(userDetails);
 		
 		try{
-			Response userResponse = Response.status(ResourceConstants.HTTP_RESPONSE_OK)
-					.entity(JsonWriter.writeToString(registrationJSONConverter.convertToJsonElement(user))).build();
 			
-			return Response.status(ResourceConstants.HTTP_RESPONSE_OK)
-					.entity(JsonWriter.writeToString(registrationJSONConverter.convertToJsonElement(regDetails))).build();
-		} catch (InvalidUserException e) {
-			return Response.status(ResourceConstants.HTTP_RESPONSE_UNAUTHORIZED_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage()))).build();
-		} catch (Exception e) {
-			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage()))).build();
+			return Response.status(ResourceConstants.HTTP_RESPONSE_OK).build();
+		}  catch (Exception e) {
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR).build();
 		}
 	}
-    static String sha1(String input) throws NoSuchAlgorithmException {
-        MessageDigest mDigest = MessageDigest.getInstance("SHA1");
-        byte[] result = mDigest.digest(input.getBytes());
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < result.length; i++) {
-            sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
-        }
-         
-        return sb.toString();
-    }
+    
 	
 	
 

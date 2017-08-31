@@ -27,6 +27,7 @@ public class RegistrationJSONConverter {
 		user.setIndustry(JsonReader.getStringOrNull(jsonObject, "industry"));
 		user.setInterest(JsonReader.getStringOrNull(jsonObject, "interest"));
 		user.setSource(JsonReader.getStringOrNull(jsonObject, "source"));
+		user.setPassword(JsonReader.getStringOrNull(jsonObject, "password"));
 		return user;
 	}
 	
