@@ -3,6 +3,7 @@ import './Register.css';
 
 import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import Button from 'react-md/lib/Buttons/Button';
+import {Link} from 'react-router-dom'
 
 class Submit extends Component {
     render() {
@@ -13,7 +14,7 @@ class Submit extends Component {
                     name="simpleCheckboxes"
                     label="I accept the Terms and Conditions"
                 />
-                <Button raised label="Submit" />
+                <Link to="/"><Button raised label="Submit" /></Link>
 
             </div>
 

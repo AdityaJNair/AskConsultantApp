@@ -11,10 +11,14 @@ import {
 import Login from './Login';
 import  Register from './Component/Register/Register';
 import App from './App';
-import Mdtest from './Component/Register/Mdtest'
 
 ReactDOM.render(
-    <Register />
+    <Router>
+        <div>
+            <Route exact path="/" component={Login}/>
+            <Route exact path="/register" component={Register}/>
+        </div>
+    </Router>
     ,
     document.getElementById('root'));
 registerServiceWorker();

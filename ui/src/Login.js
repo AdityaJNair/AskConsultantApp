@@ -1,38 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './Login.css';
-import { withRouter } from 'react-router-dom'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
-
-class Header extends Component {
-    render() {
-        return (
-            <div id="header">
-                <h1>Ask Consultant</h1>
-            </div>
-        );
-    }
-}
+import {Link} from 'react-router-dom'
+import TextField from 'react-md/lib/TextFields';
+import Button from 'react-md/lib/Buttons/Button';
 
 class Login_panel extends Component {
     render() {
         return (
             <div id="login_panel">
-                <span id = "title"><h1>Login</h1></span>
+                <div id="header">
+                    <h1>Login</h1>
+                </div>
                 <Login_input />
-            </div>
-        );
-    }
-}
-
-class Login_p extends Component {
-    render() {
-        return (
-            <div id="login_panel">
+                <Login_buttons />
 
             </div>
         );
@@ -43,25 +23,44 @@ class Login_input extends Component {
     render() {
         return (
             <div id="login_input">
-                <form>
-                    <label><b>Username : </b></label><input/> <br />
-                    <label><b>Password &nbsp;:&nbsp;</b></label><input type="password" /> <br />
-                    <button>Login</button>
-                    <Link to="/about"><button>Register</button></Link><br />
-                    <a>Forgot my password</a>
-                </form>
-
+                <TextField
+                    id="floatingCenterTitle"
+                    label="User Name"
+                    lineDirection="center"
+                    placeholder="Enter your user name"
+                    className="md-cell md-cell--bottom"
+                />
+                <TextField
+                    id="floatingCenterTitle"
+                    label="Password"
+                    lineDirection="center"
+                    placeholder="Enter your password"
+                    type="password"
+                    className="md-cell md-cell--bottom"
+                />
             </div>
         );
     }
 }
+
+class Login_buttons extends Component {
+    render() {
+        return (
+            <div id="login_buttons">
+                <Button raised label="Login" />
+                <Link to="/register"><Button raised label="Register" /></Link><br />
+                <a>Forgot my password</a>
+            </div>
+        );
+    }
+}
+
 
 class Login extends Component {
     render() {
         return (
 
             <div class="canvas">
-                <Header />
                 <Login_panel />
             </div>
 
