@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Style from "./CreateConversationButton.css"
 import Button from 'react-md/lib/Buttons/Button';
+import Divider from 'react-md/lib/Dividers/Divider'
 
 class CreateConversationButton extends Component {
     render() {
         return (
-            <div>
-                <Button raised secondary iconBefore={false} label="Create Conversation">add</Button>
+            <div id="conversation-button-container">
+                <Divider/>
+                <Button className="button" id="create-conversation-button" raised secondary iconBefore={false} label="Create Conversation">add</Button>
             </div>
         );
     }

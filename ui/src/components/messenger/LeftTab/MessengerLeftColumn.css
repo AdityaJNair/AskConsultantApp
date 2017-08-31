@@ -1,0 +1,12 @@
+#messenger-left-column{
+    float: left;
+    position: absolute;
+    height: auto;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 400px;
+    margin: 30px;
+    border-style: solid;
+}
