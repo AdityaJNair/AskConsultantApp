@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
 import './ChatItem.css'
+
+import Avatar from 'react-md/lib/Avatars/Avatar'
 import Chip from 'react-md/lib/Chips'
-import MenuButton from 'react-md/lib/Menus/MenuButton'
 import ListItem from 'react-md/lib/Lists/ListItem'
+import MenuButton from 'react-md/lib/Menus/MenuButton'
+
 
 class ChatItem extends Component {
     render(){
         return (
-            <div id="chat-item">
-                <div id="question">Question</div>
-
+            <div className="chat-item">
                 <MenuButton
-                    id="vert-menu"
+                    className="chat-item-menu"
                     icon
                     buttonChildren="more_vert"
-                    className="menu-example"
                     tooltipLabel="Open some menu"
                 >
                     <ListItem primaryText="Item One" />
                     <ListItem primaryText="Item Two" />
                     <ListItem primaryText="Item Three" />
                     <ListItem primaryText="Item Four" />
-                </MenuButton>                <div>Last Message</div>
-                <Chip label="#hashtag" />
-                <div>Last time message sent</div>
+                </MenuButton>
+                <a className="chat-avatar" href="#"><Avatar random>J</Avatar></a>
+                <ul>
+                    <li className="chat-item-list-item">Primary Text</li>
+                    <li className="chat-item-list-item">Secondary Text</li>
+                    <li className="chat-item-list-item">Timestamp</li>
+                </ul>
+                <Chip className="chat-item-hashtags" label="#hashtag" />
             </div>
         )
     }

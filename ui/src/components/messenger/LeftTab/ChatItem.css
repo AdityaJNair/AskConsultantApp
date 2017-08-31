@@ -1,6 +1,21 @@
-#chat-item{
-    width: 200px;
-    height: 100px;
-    background-color: red;
+.chat-item{
     border-style:solid;
+    background-color: salmon;
+}
+
+.chat-avatar{
+    float: left;
+}
+
+.md-menu-container{
+    float: right;
+}
+
+.chat-item-hashtags{
+    vertical-align: bottom;
+    height: 23px;
+}
+
+.chat-item-list-item{
+    margin: 30px;
 }
