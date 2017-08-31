@@ -15,11 +15,11 @@ class MessengerTextComponent extends Component {
                 >
                     <TextField
                         id="helpMultiline"
-                        placeholder="Type a message..."
-                        rows={1}
-                        maxRows={7}
-                        fullWidth={true}
-                        className="md-cell md-cell--top"
+                    placeholder="Type a message..."
+                    rows={1}
+                    maxRows={7}
+                    fullWidth={true}
+                    className="md-cell md-cell--top"
                     />
                     <Button Button icon secondary>send</Button>
                 </Paper>
