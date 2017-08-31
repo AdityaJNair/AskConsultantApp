@@ -11,13 +11,6 @@ class ChatItem extends Component {
     render(){
         return (
             <div className="chat-item">
-                <a className="chat-avatar" href="#"><Avatar random>J</Avatar></a>
-                <ul>
-                    <li>Primary Text</li>
-                    <li>Secondary Text</li>
-                    <li>Timestamp</li>
-                </ul>
-                <Chip className="chat-item-hashtags" label="#hashtag" />
                 <MenuButton
                     className="chat-item-menu"
                     icon
@@ -29,6 +22,13 @@ class ChatItem extends Component {
                     <ListItem primaryText="Item Three" />
                     <ListItem primaryText="Item Four" />
                 </MenuButton>
+                <a className="chat-avatar" href="#"><Avatar random>J</Avatar></a>
+                <ul>
+                    <li className="chat-item-list-item">Primary Text</li>
+                    <li className="chat-item-list-item">Secondary Text</li>
+                    <li className="chat-item-list-item">Timestamp</li>
+                </ul>
+                <Chip className="chat-item-hashtags" label="#hashtag" />
             </div>
         )
     }

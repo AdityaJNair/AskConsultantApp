@@ -7,10 +7,8 @@
     float: left;
 }
 
-.chat-item-menu{
-    position: fixed;
-    top: 0px;
-    right: 30px;
+.md-menu-container{
+    float: right;
 }
 
 .chat-item-hashtags{
@@ -18,6 +16,6 @@
     height: 23px;
 }
 
-ul li{
+.chat-item-list-item{
     margin: 30px;
 }
