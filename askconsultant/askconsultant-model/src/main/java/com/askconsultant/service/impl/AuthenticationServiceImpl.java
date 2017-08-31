@@ -12,10 +12,10 @@ import com.askconsultant.service.dto.User;
 public class AuthenticationServiceImpl implements AuthenticationService {
 
 	@Inject
-	private UserDAO userDAO;
+	UserDAO userDAO;
 
 	@Inject
-	private EmployeeDAO employeeDAO;
+	EmployeeDAO employeeDAO;
 
 	@Override
 	public boolean isAuthenticated(String auth) {
