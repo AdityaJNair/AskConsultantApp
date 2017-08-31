@@ -23,7 +23,27 @@ public class User {
 	
 	private String userid;
 	private String password;
-	private String email;
+	private String industry;
+	private String interest;
+	private String source;
+	public String getIndustry() {
+		return industry;
+	}
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+	public String getInterest() {
+		return interest;
+	}
+	public void setInterest(String interest) {
+		this.interest = interest;
+	}
+	public String getSource() {
+		return source;
+	}
+	public void setSource(String source) {
+		this.source = source;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -42,12 +62,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 
 	
 }

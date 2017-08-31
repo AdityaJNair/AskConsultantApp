@@ -50,7 +50,6 @@ public class TestUserDAO {
 		User user = new User();
 		user.setPassword("somepassword");
 		user.setUserid("someid");
-		user.setEmail("someemail");
 		return user;
 	}
 
