@@ -13,7 +13,7 @@ public class User {
 	public User(){		
 	}
 	
-	private String userID="";
+	private String userid="";
 	private String password="";
 	private String firstName="";
 	private String lastName="";
@@ -94,10 +94,10 @@ public class User {
 	
 	
 	public String getUserID() {
-		return userID;
+		return userid;
 	}
 	public void setUserID(String userID) {
-		this.userID = userID;
+		this.userid = userID;
 	}
 	public String getFirstName() {
 		return firstName;

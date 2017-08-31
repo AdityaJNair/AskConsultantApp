@@ -25,11 +25,11 @@ public class RegistrationDetails {
 	private String lastName;
 	private String preferredName;
 	private String email;
-	private Date lastLogin;
+
 	private Date dateOfBirth;
 	private String occupation;
 	private String gender;
-	private String status;
+
 	public Long getId() {
 		return id;
 	}
@@ -66,12 +66,7 @@ public class RegistrationDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getLastLogin() {
-		return lastLogin;
-	}
-	public void setLastLogin(Date lastLogin) {
-		this.lastLogin = lastLogin;
-	}
+	
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
@@ -90,11 +85,6 @@ public class RegistrationDetails {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+	
 	
 }

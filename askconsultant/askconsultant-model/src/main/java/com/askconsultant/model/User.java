@@ -2,6 +2,8 @@ package com.askconsultant.model;
 
 
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +28,8 @@ public class User {
 	private String industry;
 	private String interest;
 	private String source;
+	private String status;
+	private Date lastLogin;
 	public String getIndustry() {
 		return industry;
 	}
@@ -34,6 +38,18 @@ public class User {
 	}
 	public String getInterest() {
 		return interest;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public Date getLastLogin() {
+		return lastLogin;
+	}
+	public void setLastLogin(Date lastLogin) {
+		this.lastLogin = lastLogin;
 	}
 	public void setInterest(String interest) {
 		this.interest = interest;

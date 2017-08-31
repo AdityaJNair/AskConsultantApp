@@ -1,6 +1,7 @@
 package com.askconsultant.resource;
 
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -9,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,6 +52,7 @@ public class UserResource {
 		user.setSource(userDetails.getSource());
 		user.setIndustry(userDetails.getIndustry());
 		user.setInterest(userDetails.getInterest());
+		user.setStatus("ACTIVE");	
 		
 		RegistrationDetails regDetails = new RegistrationDetails();
 		regDetails.setDateOfBirth(userDetails.getDateOfBirth());
@@ -58,14 +61,14 @@ public class UserResource {
 		regDetails.setLastName(userDetails.getLastName());
 		regDetails.setOccupation(userDetails.getOccupation());
 		regDetails.setGender(userDetails.getGender());
-		regDetails.setStatus("ACTIVE");	
+		
 		
 		try{
 			Response userResponse = Response.status(ResourceConstants.HTTP_RESPONSE_OK)
-					.entity(JsonWriter.writeToString(registrationJSONConverter.convertToJsonElementUser(user)));
+					.entity(JsonWriter.writeToString(registrationJSONConverter.convertToJsonElement(user))).build();
 			
 			return Response.status(ResourceConstants.HTTP_RESPONSE_OK)
-					.entity(JsonWriter.writeToString(registrationJSONConverter.convertToJsonElementReg(regDetails)));
+					.entity(JsonWriter.writeToString(registrationJSONConverter.convertToJsonElement(regDetails))).build();
 		} catch (InvalidUserException e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_UNAUTHORIZED_ERROR)
 					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage()))).build();
@@ -74,7 +77,7 @@ public class UserResource {
 					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage()))).build();
 		}
 	}
-    static String sha1(String input) {
+    static String sha1(String input) throws NoSuchAlgorithmException {
         MessageDigest mDigest = MessageDigest.getInstance("SHA1");
         byte[] result = mDigest.digest(input.getBytes());
         StringBuffer sb = new StringBuffer();
