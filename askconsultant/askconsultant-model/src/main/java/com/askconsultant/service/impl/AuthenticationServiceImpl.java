@@ -1,5 +1,7 @@
 package com.askconsultant.service.impl;
 
+import java.security.NoSuchAlgorithmException;
+
 import javax.inject.Inject;
 
 import com.askconsultant.dao.EmployeeDAO;
@@ -47,8 +49,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		}
 	}
 	
-	public String encryptPassword(String unencryptedPassword){
-		//TODO: Nathan/Dom will be implementing this
-		return "encryptedPassword";
+	public String encryptPassword(String unencryptedPassword) throws NoSuchAlgorithmException{
+		String encryptedPassword = RegistrationServiceImpl.sha1(unencryptedPassword);
+		return encryptedPassword;
 	}
 }
