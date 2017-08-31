@@ -8,10 +8,6 @@ import {
     Link
 } from 'react-router-dom'
 
-import Login from './containers/LoginPage';
-import  Register from './Register';
-import App from './containers/App';
-
 import UserChat from "./containers/UserChatPage";
 
 ReactDOM.render(
