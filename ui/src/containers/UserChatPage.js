@@ -9,7 +9,7 @@ class UserChat extends Component{
         return (
             <div id="whole-page" class="canvas">
                 <HorizontalNavBar/>
-                <div id="main-view">
+                <div id="content">
                     <MessengerLeftColumn/>
                     <MessageWindow/>
                 </div>
