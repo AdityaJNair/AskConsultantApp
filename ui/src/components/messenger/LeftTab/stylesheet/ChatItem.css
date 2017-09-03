@@ -1,5 +1,6 @@
 .chat-item{
     border-style:solid;
+    border-color: blue;
     background-color: salmon;
 }
 
