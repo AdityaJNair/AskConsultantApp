@@ -1,7 +1,12 @@
-body {
+html, body , #root{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    height: 100%;
+}
+
+[data-reactroot], #whole-page, #main-view {
+    height: 100%;
 }
 
 #horizontal_nav {

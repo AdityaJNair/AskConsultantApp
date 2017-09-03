@@ -7,9 +7,9 @@ import MessageWindow from "../components/messenger/MessengerBox/MessageWindow";
 class UserChat extends Component{
     render() {
         return (
-            <div class="canvas">
+            <div id="whole-page" class="canvas">
                 <HorizontalNavBar/>
-                <div>
+                <div id="main-view">
                     <MessengerLeftColumn/>
                     <MessageWindow/>
                 </div>
