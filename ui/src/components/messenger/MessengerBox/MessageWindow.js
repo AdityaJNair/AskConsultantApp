@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Style from "./MessageWindow.css"
+import Style from "./stylesheet/MessageWindow.css"
 import MessageView from "./MessageView";
 import MessengerTextComponent from "./MessengerTextComponent";
 import NewConversationPage from "./NewConversationPage";

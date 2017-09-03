@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Register.css';
+import './stylesheet/Register.css';
 import { withRouter } from 'react-router-dom'
 import PersonalInformation from './PersonalInformation.js';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ChatItem.css'
+import './stylesheet/ChatItem.css'
 
 import Avatar from 'react-md/lib/Avatars/Avatar'
 import Chip from 'react-md/lib/Chips'

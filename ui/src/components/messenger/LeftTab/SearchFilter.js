@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SelectField from 'react-md/lib/SelectFields/SelectField'
 import TextField from 'react-md/lib/TextFields/TextField'
-import Style from './SearchFilter.css'
+import Style from './stylesheet/SearchFilter.css'
 
 class SearchFilter extends Component {
     render(){

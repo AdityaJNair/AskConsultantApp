@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import DatePicker from 'react-md/lib/Pickers/DatePickerContainer';
-import './Register.css';
+import './stylesheet/Register.css';
 
 const gender = ["Male", "Female", "Gender diverse"];
 

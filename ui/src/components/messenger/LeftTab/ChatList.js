@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ChatItem from "./ChatItem";
-import Style from "./ChatList.css"
+import Style from "./stylesheet/ChatList.css"
 
 class ChatList extends Component {
     render(){
