@@ -1,14 +1,14 @@
 #conversation-button-container{
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 100%;
+    height: 50px;
     position: absolute;
     left: 0;
     bottom: 0;
     text-align: center;
     float: left;
+    margin-bottom: 10px;
 }
 
-.md-divider {
-    margin: 10px;
+#create-conversation-button{
+    margin-top: 15px;
 }

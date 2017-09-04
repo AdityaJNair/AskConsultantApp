@@ -5,20 +5,14 @@ import Style from "./stylesheet/ChatList.css"
 class ChatList extends Component {
     render(){
         return (
-            <div id="chat-list">
-                <ChatItem/>
+            <div id="chat-list" style = {{height: 'calc(100% - 140px)'}}>
                 <ChatItem/>
             </div>
         )
-        chatlistSize();
     }
 
 
 }
 
-function chatlistSize() {
-    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    document.getElementById("chat-list").style.height = h - 120 + "px";
-}
 
 export default ChatList;

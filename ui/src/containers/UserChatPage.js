@@ -8,7 +8,7 @@ class UserChat extends Component{
     render() {
         return (
             <div class="canvas">
-
+                
                 <MessengerLeftColumn/>
 
             </div>
