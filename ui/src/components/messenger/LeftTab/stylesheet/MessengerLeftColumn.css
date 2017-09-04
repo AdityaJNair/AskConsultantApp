@@ -1,12 +1,8 @@
 #messenger-left-column{
     float: left;
-    position: absolute;
-    height: auto;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 400px;
-    margin: 30px;
+    width: 30%;
+    min-width: 350px;
     border-style: solid;
+    height: 100vh;
+    position: relative;
 }

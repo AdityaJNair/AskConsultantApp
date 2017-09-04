@@ -8,14 +8,20 @@ class UserChat extends Component{
     render() {
         return (
             <div class="canvas">
-                <HorizontalNavBar/>
+
                 <MessengerLeftColumn/>
-                <MessageWindow/>
+
             </div>
 
         );
     }
 }
-
+/*
+* <div class="canvas">
+                <HorizontalNavBar/>
+                <MessengerLeftColumn/>
+                <MessageWindow/>
+            </div>
+* */
 
 export default UserChat;

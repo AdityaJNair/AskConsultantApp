@@ -7,18 +7,19 @@ class SearchFilter extends Component {
     render(){
         return (
             <div id="search_filter">
-                <div>
-                    <TextField
-                        id="searchField"
-                        label="Search"
-                        lineDirection="center"
-                        placeholder="Search term goes here"
-                        className="md-cell md-cell--bottom"
-                        />
+                <div id="search_field">
+                    <div id="search_field_expand">
+                        <TextField
+                            id="searchField"
+                            label="Search"
+                            lineDirection="center"
+                            placeholder="Search term goes here"
+                            className="md-cell md-cell--bottom"
+                            />
+                    </div>
                 </div>
-                <div>
+                <div id="filter_dropdown">
                     <SelectField
-                        id="filter-dropdown"
                         label="Sort by..."
                     />
                 </div>
