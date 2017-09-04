@@ -10,7 +10,7 @@ class MessageBubbleContainer extends Component {
         return (
             <div id="message_bubble_container">
                 <ProfileImageBox/>
-                <MessageTextBubble/>
+                <MessageTextBubble tooltipLabel="7:00 pm" tooltipPosition="right"/>
             </div>
         )
     }

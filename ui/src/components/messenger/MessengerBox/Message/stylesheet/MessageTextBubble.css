@@ -1,8 +1,14 @@
-#message_text_bubble{
+.message-text-bubble{
     background-color: royalblue;
     color: white;
     width: 60%;
     border-radius: 13px;
     padding: 20px;
     float: left;
+    position:relative;
+}
+
+.md-tooltip-container{
+    height: 100%;
+    width: 100%;
 }
