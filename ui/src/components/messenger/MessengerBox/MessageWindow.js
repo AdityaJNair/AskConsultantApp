@@ -11,7 +11,6 @@ class MessageWindow extends Component {
             <div id="message-window">
                 <MessageView/>
                 <MessengerTextComponent/>
-                <NewConversationPage/>
             </div>
         )
     }

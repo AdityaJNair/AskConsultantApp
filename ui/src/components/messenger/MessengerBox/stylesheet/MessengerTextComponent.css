@@ -1,0 +1,32 @@
+.md-text-field-container{
+    width:100%;
+}
+
+#helpMultiline,.md-cell, .md-cell--top{
+    width:90%;
+    float:left;
+    margin:8px;
+}
+
+.md-divider{
+    margin:0px;
+}
+
+.md-divider--text-field{
+    width:90%;
+    margin-top:5px;
+}
+#buttonsend{
+    float:right;
+
+}
+
+#messenger_text_area{
+    position:relative;
+    border: 2px solid;
+
+}
+
+.clearfix{
+    clear:both
+}
