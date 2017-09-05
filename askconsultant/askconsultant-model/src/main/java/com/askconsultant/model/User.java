@@ -4,6 +4,7 @@ package com.askconsultant.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,13 +24,26 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;	
 	
+	@Column(nullable=false, length=50)
 	private String userid;
+	
+	@Column(nullable=false, length=50)
 	private String password;
+	
+	@Column(length=50)
 	private String industry;
+	
+	@Column(length=50)
 	private String interest;
+	
+	@Column(length=50)
 	private String source;
+	
+	@Column(length=50)
 	private String status;
+	
 	private Date lastLogin;
+	
 	public String getIndustry() {
 		return industry;
 	}

@@ -37,7 +37,7 @@ public class UserDAO {
 
 		List<User> queryResult = query.getResultList();
 		if (queryResult.isEmpty()){
-			throw new InvalidUserException("User not present");
+			throw new InvalidUserException(Constants.USER_NOT_PRESENT);
 		}else return queryResult.get(0);
 	}
 }

@@ -1,5 +1,6 @@
 package com.askconsultant.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +13,14 @@ public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
 	private Long id;
+	
+	@Column(nullable=false, length=50)
 	private String userid;
+	
+	@Column(nullable=false, length=50)
 	private String password;
+	
 	public Long getId() {
 		return id;
 	}

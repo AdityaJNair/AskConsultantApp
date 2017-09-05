@@ -1,23 +1,21 @@
 package com.askconsultant.common;
 
-import java.sql.Date;
-import java.time.LocalDate;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+import com.askconsultant.dao.Constants;
 import com.askconsultant.model.Message;
 
 public class MessageHelper {
 
-	public static Message legalSmithNow(){
-		
-		Message message = new Message("Legal", "This is how", "Smith", Date.valueOf(LocalDate.now()));
+	public static Message getMessageObjectWithAllData(long conversationId, String senderID) {
+		Message message = new Message();
+		message.setMessage("This is a test message");
+		message.setConversation(conversationId);
+		message.setSender(senderID);
+		message.setStatus(Constants.MESSAGE_STATUS_ACTIVE);
+		message.setCreateDateTime(Timestamp.valueOf(LocalDateTime.now()));
 		return message;
-		
 	}
-	
-	public static Message legalNewUserYesterday(){
-		
-		Message message = new Message("Legal", "How is this done?", "Smith", Date.valueOf(LocalDate.now().minusDays(1)));
-		return message;
-		
-	}
+
 }

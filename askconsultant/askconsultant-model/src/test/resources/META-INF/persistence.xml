@@ -9,6 +9,10 @@
 		<class>com.askconsultant.model.Employee</class>
 		<class>com.askconsultant.model.User</class>
 		<class>com.askconsultant.model.RegistrationDetails</class>
+		<class>com.askconsultant.model.Attachment</class>
+		<class>com.askconsultant.model.Conversation</class>
+		<class>com.askconsultant.model.ConversationProperties</class>
+		<class>com.askconsultant.model.MessageProperties</class>
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />

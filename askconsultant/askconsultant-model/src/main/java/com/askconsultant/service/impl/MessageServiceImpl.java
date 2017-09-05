@@ -1,7 +1,5 @@
 package com.askconsultant.service.impl;
 
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -19,10 +17,6 @@ public class MessageServiceImpl implements MessageService{
 	@Inject
 	private MessageDAO messageDAO;
  
-	@Override
-	public List<Message> listAllMessages(){
-		return messageDAO.listAllMessages();
-	}
 	
 	@Override
 	public Message addMessage(Message message){

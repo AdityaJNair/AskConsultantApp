@@ -1,17 +1,13 @@
 package com.askconsultant.resource;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.json.JSONWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,12 +38,5 @@ public class MessageResource {
 		return Response.status(201).entity(JsonWriter.writeToString(addMessage)).build();
 	}
 
-	@GET
-	public Response listMessages(final String json) throws Exception {
-		logger.debug("Listing messages");
-		List<Message> messages = messageService.listAllMessages();
-		return Response.status(201)
-				.entity(JsonWriter.writeToString(messagejsonconverter.convertToJsonElement(messages))).build();
-	}
 
 }
