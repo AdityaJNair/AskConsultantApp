@@ -8,14 +8,14 @@
     width:70%;
     height:100px;
     float: left;
+    color:white;
 }
 
 #search_field_expand{
-    width:210%;
+    width:100%;
 }
 
 #filter_dropdown{
-    width: 28%;
     height:100px;
-    float:left;
+    float: right;
 }

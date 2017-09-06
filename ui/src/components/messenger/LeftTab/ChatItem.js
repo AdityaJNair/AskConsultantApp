@@ -12,9 +12,6 @@ class ChatItem extends Component {
         return (
             <div className="chat-item">
                 <div id="chatItem_top">
-                    <div id = "avatar">
-                        <a className="chat-avatar" href="#"><Avatar random>J</Avatar></a>
-                    </div>
                     <div id = "question_title">
                         <h1>Title</h1>
                     </div>
