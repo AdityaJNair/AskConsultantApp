@@ -9,15 +9,19 @@ class UserChat extends Component{
         return (
             <div id="whole-page" class="canvas">
                 <HorizontalNavBar/>
-                <div id="content">
-                    <MessengerLeftColumn/>
-                    <MessageWindow/>
-                </div>
+                <MessengerLeftColumn/>
+                <MessageWindow/>
             </div>
 
         );
     }
 }
+/*
+* <div class="canvas">
 
+                <MessengerLeftColumn/>
+                <MessageWindow/>
+            </div>
+* */
 
 export default UserChat;

@@ -10,7 +10,6 @@ class MessengerLeftColumn extends Component {
         return (
             <div id="messenger-left-column">
                 <SearchFilter/>
-                <Divider/>
                 <ChatList/>
                 <CreateConversationButton/>
             </div>
