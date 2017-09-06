@@ -3,6 +3,10 @@ import java.util.List;
 
 import com.askconsultant.model.Message;
 
+/**
+ * Object based on this class will be used to transfer data back to the client for 
+ * conversations and messages combined together
+ */
 public class ConversationAndMessages {
 
 	private com.askconsultant.model.Conversation conversation;

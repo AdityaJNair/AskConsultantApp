@@ -12,6 +12,7 @@ import com.askconsultant.service.dto.User;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 public class TestAuthenticationServiceImpl {
@@ -90,6 +91,29 @@ public class TestAuthenticationServiceImpl {
 		}
 	}
 
+	@Test
+	public void createSecureTokenForUser() {
+		try {
+			String createSecureTokenForUser = AuthenticationServiceImpl.createSecureTokenForUser("userid");
+			System.out.println(createSecureTokenForUser);
+			assertTrue(createSecureTokenForUser.length()!=0);
+		} catch (UnsupportedEncodingException e) {
+			fail();
+		}
+	}
+	
+	@Test 
+	public void isAuthenticated() {
+		try {
+			String createSecureTokenForUser = AuthenticationServiceImpl.createSecureTokenForUser("userid");
+			boolean authenticated = authenticationService.isAuthenticated("userid", createSecureTokenForUser);
+			assertNotNull(authenticated);
+		} catch (UnsupportedEncodingException e) {
+			fail();
+		}
+	}
+	
+	
 	private User getUserForValidUser() {
 		User user = new User();
 		user.setEmployee(false);
@@ -109,4 +133,6 @@ public class TestAuthenticationServiceImpl {
 		dbEmployee.setPassword(RegistrationServiceImpl.sha1("password"));
 		return dbEmployee;
 	}
+	
+	
 }

@@ -12,6 +12,10 @@ import com.askconsultant.model.RegistrationDetails;
 import com.askconsultant.model.User;
 import com.askconsultant.service.RegistrationService;
 
+/**
+ * This class implements services for login and registration of users
+ *
+ */
 @Stateless
 public class RegistrationServiceImpl implements RegistrationService {
 	
@@ -25,6 +29,9 @@ public class RegistrationServiceImpl implements RegistrationService {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.askconsultant.service.RegistrationService#register(com.askconsultant.service.dto.User)
+	 */
 	public void register(com.askconsultant.service.dto.User userDetails) throws Exception{
 		
 		User user = new User();
@@ -50,6 +57,12 @@ public class RegistrationServiceImpl implements RegistrationService {
 		registrationDAO.addRegistrationDetails(regDetails);
 	}
 	
+	/**
+	 * Encrypts password using SHA1 algorithm
+	 * @param input
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 */
 	static String sha1(String input) throws NoSuchAlgorithmException {
         MessageDigest mDigest = MessageDigest.getInstance("SHA1");
         byte[] result = mDigest.digest(input.getBytes());
