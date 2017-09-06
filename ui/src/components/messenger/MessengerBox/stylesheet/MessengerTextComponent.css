@@ -8,13 +8,13 @@
 #textFieldEnter{
     float:left;
     margin:8px;
-    width: calc(100% - 64px);
+    width: calc(100% - 100px);
 }
 
 #helpMultiline{
 }
 .md-cell{
-    margin:0px;
+    margin:8px;
     width: 100%;
 }
 
