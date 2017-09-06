@@ -53,4 +53,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		String encryptedPassword = RegistrationServiceImpl.sha1(unencryptedPassword);
 		return encryptedPassword;
 	}
+
+	@Override
+	public boolean isEmployee(String userid) {
+		boolean isEmployee = false;
+		try {
+			employeeDAO.getEmployeeByUserID(userid);
+			return true;
+		} catch (Exception e) {
+			isEmployee=false;
+		}
+		return isEmployee;
+		
+	}
 }

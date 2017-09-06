@@ -16,18 +16,17 @@ public class MessageJSONConverter {
 	public Message convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final Message message = new Message();
-//		message.setChatName(JsonReader.getStringOrNull(jsonObject, "chatName"));
-//		message.setMessage(JsonReader.getStringOrNull(jsonObject, "message"));
-//		message.setUsername(JsonReader.getStringOrNull(jsonObject, "username"));
+		message.setMessage(JsonReader.getStringOrNull(jsonObject, "message"));
 		return message;
 	}
 	
 	public JsonElement convertToJsonElement(final Message message){
 		final JsonObject jsonObject = new JsonObject();
-//		jsonObject.addProperty("id", message.getId());
-//		jsonObject.addProperty("message", message.getMessage());
-//		jsonObject.addProperty("username", message.getUsername());
-//		jsonObject.addProperty("chatname", message.getChatName());
+		jsonObject.addProperty("id", message.getId());
+		jsonObject.addProperty("message", message.getMessage());
+		jsonObject.addProperty("user", message.getSender());
+		jsonObject.addProperty("datetime", message.getCreateDateTime().toString());
+		jsonObject.addProperty("conversationid", message.getConversation());
 		return jsonObject;
 	}
 	

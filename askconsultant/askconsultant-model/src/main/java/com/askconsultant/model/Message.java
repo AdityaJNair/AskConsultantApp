@@ -17,6 +17,11 @@ public class Message implements Serializable {
 
 	public Message() {
 	}
+	
+	public Message(long conversationId, long messageid) {
+		this.setConversation(conversationId);
+		this.setId(id);
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -27,6 +27,7 @@ public class Conversation implements Serializable {
 	private String name;
 	private String status;
 	private String archivinguser;
+	private String category;
 	private static final long serialVersionUID = 1L;
 
 	public String getStatus() {
@@ -71,6 +72,12 @@ public class Conversation implements Serializable {
 	}
 	public void setArchivinguser(String archivinguser) {
 		this.archivinguser = archivinguser;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
    
 }

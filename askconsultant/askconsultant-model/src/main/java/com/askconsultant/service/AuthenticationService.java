@@ -10,5 +10,7 @@ public interface AuthenticationService {
 	public boolean isAuthenticated(String auth);
 	
 	public User login(User user) throws Exception;
+	
+	public boolean isEmployee(String userid);
 
 }
