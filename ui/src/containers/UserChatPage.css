@@ -11,7 +11,7 @@ html, #root, [data-reactroot], #whole-page {
 
 #content{
     height: 100%;
-    padding-top: 43px;
+    padding-top: 60px;
 }
 
 #horizontal_nav {
@@ -19,9 +19,7 @@ html, #root, [data-reactroot], #whole-page {
     top: 0;
     width: 100%;
     height: 43px;
-    background-color: black;
     border-bottom: solid darkgreen 2px;
-    color: white;
 }
 
 #messenger-left-column {
