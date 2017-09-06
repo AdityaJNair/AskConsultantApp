@@ -2,23 +2,15 @@ import React, { Component } from 'react';
 import MessageTextBubble from "./MessageTextBubble";
 import ProfileImageBox from "./ProfileImageBox";
 import Paper from 'react-md/lib/Papers';
+import "./stylesheet/MessageBubbleContainer.css"
 
 
 class MessageBubbleContainer extends Component {
     render(){
         return (
             <div id="message_bubble_container">
-                <Paper
-                    key={5}
-                    zDepth={5}
-                    raiseOnHover={5 === 0}
-                    className="paper-example"
-                >
-                    <MessageTextBubble/>
-                    <ProfileImageBox/>
-                </Paper>
-
-
+                <ProfileImageBox/>
+                <MessageTextBubble tooltipLabel="7:00 pm" tooltipPosition="right"/>
             </div>
         )
     }
