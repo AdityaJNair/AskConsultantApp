@@ -16,12 +16,5 @@ class UserChat extends Component{
         );
     }
 }
-/*
-* <div class="canvas">
-
-                <MessengerLeftColumn/>
-                <MessageWindow/>
-            </div>
-* */
 
 export default UserChat;

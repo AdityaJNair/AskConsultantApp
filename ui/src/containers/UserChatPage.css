@@ -29,11 +29,11 @@ html, #root, [data-reactroot], #whole-page {
     height: 100%;
     border-style: solid;
     border-color: yellow;
-
-
+    position: relative;
 }
 
 #message-window{
+    position: relative;
     float:right;
     width: 75%;
     height: 100%;
