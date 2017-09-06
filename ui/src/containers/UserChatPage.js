@@ -8,7 +8,7 @@ class UserChat extends Component{
     render() {
         return (
             <div class="canvas">
-                
+                <HorizontalNavBar/>
                 <MessengerLeftColumn/>
 
             </div>
@@ -18,7 +18,7 @@ class UserChat extends Component{
 }
 /*
 * <div class="canvas">
-                <HorizontalNavBar/>
+
                 <MessengerLeftColumn/>
                 <MessageWindow/>
             </div>
