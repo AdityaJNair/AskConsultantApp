@@ -1,0 +1,18 @@
+#conversation-button-container{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    float: left;
+    border-top: solid grey;
+}
+
+.md-divider {
+    margin: 10px;
+}
+
+#create-conversation-button{
+    margin-top: 10px;
+    margin-bottom: 26px;
+}

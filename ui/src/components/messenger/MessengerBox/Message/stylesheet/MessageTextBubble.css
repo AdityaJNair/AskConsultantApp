@@ -1,0 +1,15 @@
+.message-text-bubble{
+    background-color: #86BC25;
+    color: white;
+    font-size: 12pt;
+    width: 60%;
+    border-radius: 13px;
+    padding: 20px;
+    float: left;
+    position:relative;
+}
+
+.md-tooltip-container{
+    height: 100%;
+    width: 100%;
+}
