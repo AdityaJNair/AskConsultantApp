@@ -7,6 +7,10 @@ class ChatList extends Component {
         return (
             <div id="chat-list" style = {{height: 'calc(100% - 140px)'}}>
                 <ChatItem/>
+                <ChatItem/><ChatItem/>
+                <ChatItem/><ChatItem/>
+                <ChatItem/><ChatItem/>
+                <ChatItem/>
             </div>
         )
     }

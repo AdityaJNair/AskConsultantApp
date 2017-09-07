@@ -1,12 +1,14 @@
 #search_filter{
+    position: relative;;
     width: 100%;
     height:80px;
     float: left;
+    border-bottom: solid grey;
 }
 
 #search_field{
     width:70%;
-    height:100px;
+    height: 100%;
     float: left;
     color:white;
 }
@@ -16,6 +18,6 @@
 }
 
 #filter_dropdown{
-    height:100px;
+    height: 100%;
     float: right;
 }
