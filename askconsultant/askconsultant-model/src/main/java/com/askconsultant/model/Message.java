@@ -1,7 +1,7 @@
 package com.askconsultant.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,27 +15,29 @@ public class Message implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public Message(String chatName, String message, String username, Date messageTime) {
-		this.chatName = chatName;
-		this.message = message;
-		this.username = username;
-		this.messageTime = messageTime;
-	}
-
 	public Message() {
+	}
+	
+	public Message(long conversationId, long messageid) {
+		this.setConversation(conversationId);
+		this.setId(id);
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String chatName;
+	private String sender;
 
+	private Timestamp createDateTime;
+
+	private long conversation;
+
+	private String status;
+	
 	private String message;
-
-	private String username;
-
-	private Date messageTime;
+	
+	private long attachmentId;
 
 	public Long getId() {
 		return id;
@@ -45,12 +47,36 @@ public class Message implements Serializable {
 		this.id = id;
 	}
 
-	public String getChatName() {
-		return chatName;
+	public String getSender() {
+		return sender;
 	}
 
-	public void setChatName(String chatName) {
-		this.chatName = chatName;
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+
+	public Timestamp getCreateDateTime() {
+		return createDateTime;
+	}
+
+	public void setCreateDateTime(Timestamp createDateTime) {
+		this.createDateTime = createDateTime;
+	}
+
+	public long getConversation() {
+		return conversation;
+	}
+
+	public void setConversation(long conversation) {
+		this.conversation = conversation;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getMessage() {
@@ -61,20 +87,17 @@ public class Message implements Serializable {
 		this.message = message;
 	}
 
-	public String getUsername() {
-		return username;
+	public long getAttachmentId() {
+		return attachmentId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAttachmentId(long attachmentId) {
+		this.attachmentId = attachmentId;
 	}
 
-	public Date getMessageTime() {
-		return messageTime;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public void setMessageTime(Date messageTime) {
-		this.messageTime = messageTime;
-	}
-
+	
 }

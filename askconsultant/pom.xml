@@ -113,6 +113,11 @@
 				<version>${project.version}</version>
 				<type>pom</type>
 			</dependency>
+			<dependency>
+			    <groupId>org.json</groupId>
+			    <artifactId>json</artifactId>
+			    <version>20090211</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

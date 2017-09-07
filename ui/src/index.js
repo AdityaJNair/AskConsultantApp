@@ -7,20 +7,18 @@ import {
     Route,
     Link
 } from 'react-router-dom'
-
-import Login from './containers/LoginPage';
-import  Register from './components/Register/Register';
+import RegisterPage from './containers/RegisterPage';
+import LoginPage from './containers/LoginPage';
+import UserChatPage from './containers/UserChatPage';
 import App from './containers/App';
 import UserChat from "./containers/UserChatPage";
 
 ReactDOM.render(
     <Router>
         <div>
-            <Login/>
-            {/*
-            <Route exact path="/" component={Login}/>
-            <Route path="/about" component={Register}/>
-            */}
+            <Route exact path="/" component={LoginPage}/>
+            <Route path="/register" component={RegisterPage}/>
+            <Route path="/messenger" component={UserChatPage}/>
         </div>
     </Router>
     ,
