@@ -7,6 +7,7 @@ import {
     Route,
     Link
 } from 'react-router-dom'
+import 'whatwg-fetch';
 
 class Header extends Component {
     render() {
@@ -40,6 +41,40 @@ class Login_p extends Component {
 }
 
 class Login_input extends Component {
+    constructor(){
+        super()
+    }
+    handleSubmit(){
+        var user =
+            { "userid": "dom22@gmail", "password": "password", "isEmployee":"false" }
+
+
+        var url = "https://45.76.113.175:8443/askconsultant/rest/session"
+        fetch(url, {
+            method: "POST",
+            headers: {
+                //'Access-Control-Allow-Origin': "*",
+                'Content-Type': 'application/json'
+               // 'Accept': 'application/json, text/plain, /'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(function(response) {
+                if (response.ok) {
+                    console.log("Perfect! Your settings are saved.");
+                    return response.json()
+                } else if (response.status === 401) {
+                    console.log("Oops! You are not authorized.");
+                }
+
+            }, function(e) {
+                console.log("Error submitting form!");
+
+            })
+            .then(function(json) {
+                console.log(json.token)
+            })
+    }
     render() {
         return (
             <div id="login_input">
@@ -47,7 +82,7 @@ class Login_input extends Component {
                     <label><b>Username : </b></label><input/> <br />
                     <label><b>Password &nbsp;:&nbsp;</b></label><input type="password" /> <br />
                     <button>Login</button>
-                    <Link to="/about"><button>Register</button></Link><br />
+                    <Link to="/about"><button onClick={this.handleSubmit.bind(this)>Register</button></Link><br />
                     <a>Forgot my password</a>
                 </form>
 
@@ -68,5 +103,6 @@ class Login extends Component {
         );
     }
 }
+
 
 export default Login;

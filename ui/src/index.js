@@ -16,7 +16,7 @@ import UserChat from "./containers/UserChatPage";
 ReactDOM.render(
     <Router>
         <div>
-            <UserChat/>
+            <Login/>
             {/*
             <Route exact path="/" component={Login}/>
             <Route path="/about" component={Register}/>
