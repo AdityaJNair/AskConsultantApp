@@ -51,6 +51,14 @@ public class ConversationResource {
 	@Inject
 	OperationFailureJSONConvertor opFailureJSONConverter;
 
+	
+	/**
+	 * Creates the conversation for a user 
+	 * @param userId
+	 * @param json
+	 * @return
+	 * @throws Exception
+	 */
 	@POST
 	public Response addConversation(@PathParam("userid") String userId,final String json) throws Exception {
 		logger.debug("Adding conversation");
@@ -61,6 +69,12 @@ public class ConversationResource {
 		return Response.status(201).entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(addedConversation))).build();
 	}
 	
+	/**
+	 * Lists all conversations, if the userid is an employee, then all conversations are listed, else only the 
+	 * conversations created by the user will be returned
+	 * @param userid
+	 * @return
+	 */
 	@GET
 	public Response listAllConversations(@PathParam("userid") String userid) {
 		List<Conversation> conversationlist = null;
@@ -72,6 +86,12 @@ public class ConversationResource {
 		return Response.status(201).entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversationlist))).build();
 	}
 	
+	/**
+	 * Retrieves conversation details for a specific conversation id
+	 * @param conversationid
+	 * @param userId
+	 * @return
+	 */
 	@GET
 	@Path("{conversationid}")
 	public Response getConversation(@PathParam("conversationid") long conversationid,@PathParam("userid") String userId) {
@@ -79,6 +99,11 @@ public class ConversationResource {
 		return Response.status(201).entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversation))).build();
 	}
 	
+	/**
+	 * Lists all messages for a given conversation id
+	 * @param conversationid
+	 * @return
+	 */
 	@GET
 	@Path("{conversationid}/message")
 	public Response listMessagesForConversation(@PathParam("conversationid") long conversationid) {
