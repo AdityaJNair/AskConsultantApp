@@ -26,6 +26,10 @@ import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.MessageService;
 
+/**
+ * Contains methods for processing conversations
+ *
+ */
 @Path("users/{userid}/conversation")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

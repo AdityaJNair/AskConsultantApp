@@ -19,6 +19,9 @@ import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.dto.User;
 import com.askconsultant.common.ResourceConstants;
 
+/**
+ * Contains methods for handling login session
+ */
 @Path("/session")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -36,6 +39,11 @@ public class SessionResource {
 	@Inject
 	OperationFailureJSONConvertor opFailureJSONConverter;
 	
+	/**
+	 * Creates session for the valid user after authentication
+	 * @param json
+	 * @return
+	 */
 	@POST
 	public Response createSession(final String json) {
 		logger.debug("User login");
