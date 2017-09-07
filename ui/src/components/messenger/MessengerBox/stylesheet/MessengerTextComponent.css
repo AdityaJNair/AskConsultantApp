@@ -1,0 +1,37 @@
+/*.md-text-field-container{
+    width:100%;
+}*/
+
+.md-cell--top{
+    float:left;
+}
+#textFieldEnter{
+    float:left;
+    margin:8px;
+    width: calc(100% - 100px);
+}
+
+#helpMultiline{
+}
+.md-cell{
+    margin:8px;
+    width: 100%;
+}
+
+#buttonsend{
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
+#messenger_text_area{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: solid grey;
+
+}
+
+.clearfix{
+    clear:both
+}

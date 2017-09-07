@@ -8,15 +8,19 @@ import {
     Link
 } from 'react-router-dom'
 
-import Login from './Login';
-import  Register from './Component/Register/Register';
-import App from './App';
+import Login from './containers/LoginPage';
+import  Register from './components/Register/Register';
+import App from './containers/App';
+import UserChat from "./containers/UserChatPage";
 
 ReactDOM.render(
     <Router>
         <div>
+            <UserChat/>
+            {/*
             <Route exact path="/" component={Login}/>
-            <Route exact path="/register" component={Register}/>
+            <Route path="/about" component={Register}/>
+            */}
         </div>
     </Router>
     ,
