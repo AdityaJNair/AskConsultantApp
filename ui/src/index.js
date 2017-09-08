@@ -10,9 +10,9 @@ import {
 import RegisterPage from './containers/User/RegisterPage';
 import LoginPage from './containers/User/LoginPage';
 import UserChatPage from './containers/User/UserChatPage';
-import App from './containers/App';
-import UserChat from "./containers/User/UserChatPage";
 import EmployeeLoginPage from "./containers/Employee/EmployeeLoginPage";
+import EmployeeRegistrationPage from "./containers/Employee/EmployeeRegistrationPage";
+import EmployeeChatPage from "./containers/Employee/EmployeeChatPage";
 
 ReactDOM.render(
     <Router>
@@ -20,8 +20,11 @@ ReactDOM.render(
             <Route exact path="/" component={LoginPage}/>
             <Route path="/register" component={RegisterPage}/>
             <Route path="/messenger" component={UserChatPage}/>
-            <Route path="/consultants" component={EmployeeLoginPage}/>
 
+            {/* The employees/consultants need to access this directly. No direct click to this place*/}
+            <Route path="/consultants" component={EmployeeLoginPage}/>
+            <Route path="/consultants_register" component={EmployeeRegistrationPage}/>
+            <Route path="/consultants_messenger" component={EmployeeChatPage}/>
         </div>
     </Router>
     ,
