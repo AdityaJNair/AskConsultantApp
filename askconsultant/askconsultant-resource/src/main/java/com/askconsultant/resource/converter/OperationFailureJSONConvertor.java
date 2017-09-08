@@ -5,6 +5,10 @@ import javax.enterprise.context.ApplicationScoped;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+/**
+ * Contains methods for converting to and from JSON to OperationFailureException
+ *
+ */
 @ApplicationScoped
 public class OperationFailureJSONConvertor {
 

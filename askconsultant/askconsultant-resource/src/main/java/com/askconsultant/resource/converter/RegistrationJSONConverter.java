@@ -10,6 +10,10 @@ import com.askconsultant.service.dto.User;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+/**
+ * Contains methods to convert to and from JSON to User object
+ *
+ */
 @ApplicationScoped
 public class RegistrationJSONConverter {
 
@@ -54,21 +58,5 @@ public class RegistrationJSONConverter {
 		
 		return jsonObject;
 	}
-//	public JsonElement convertToJsonElement(final com.askconsultant.service.dto.User user){
-//		final JsonObject jsonObject = new JsonObject();
-//		jsonObject.addProperty("userid", user.getUserID());
-//		jsonObject.addProperty("firstName", user.getFirstName());
-//		jsonObject.addProperty("lastName", user.getLastName());
-//		jsonObject.addProperty("token", user.getToken());
-//		return jsonObject;
-//	}
-	
-//	public JsonElement convertToJsonElement(final List<Message> messages){
-//		JsonArray jsonArray = new JsonArray();
-//		for(Message message : messages){
-//			jsonArray.add(convertToJsonElement(message));
-//		}
-//		return jsonArray;
-//	}
 
 }
