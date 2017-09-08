@@ -7,11 +7,12 @@ import {
     Route,
     Link
 } from 'react-router-dom'
-import RegisterPage from './containers/RegisterPage';
-import LoginPage from './containers/LoginPage';
-import UserChatPage from './containers/UserChatPage';
+import RegisterPage from './containers/User/RegisterPage';
+import LoginPage from './containers/User/LoginPage';
+import UserChatPage from './containers/User/UserChatPage';
 import App from './containers/App';
-import UserChat from "./containers/UserChatPage";
+import UserChat from "./containers/User/UserChatPage";
+import EmployeeLoginPage from "./containers/Employee/EmployeeLoginPage";
 
 ReactDOM.render(
     <Router>
@@ -19,6 +20,8 @@ ReactDOM.render(
             <Route exact path="/" component={LoginPage}/>
             <Route path="/register" component={RegisterPage}/>
             <Route path="/messenger" component={UserChatPage}/>
+            <Route path="/consultants" component={EmployeeLoginPage}/>
+
         </div>
     </Router>
     ,

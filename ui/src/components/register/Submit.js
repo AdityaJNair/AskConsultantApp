@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../containers/RegisterPage.css';
+import '../../containers/User/RegisterPage.css';
 
 import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import Button from 'react-md/lib/Buttons/Button';
