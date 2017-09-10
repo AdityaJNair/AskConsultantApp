@@ -34,102 +34,145 @@ import com.askconsultant.service.MessageService;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ConversationResource {
-	
+
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Inject
 	ConversationService conversationService;
-	
+
 	@Inject
 	MessageService messageService;
-	
+
 	@Inject
 	ConversationJSONConverter conversationJSONConverter;
-	
+
 	@Inject
 	MessageJSONConverter messageJSONConverter;
-	
+
 	@Inject
 	AuthenticationService authService;
-	
+
 	@Inject
 	OperationFailureJSONConvertor opFailureJSONConverter;
 
-	
 	/**
-	 * Creates the conversation for a user 
+	 * Creates the conversation for a user
+	 * 
 	 * @param userId
 	 * @param json
 	 * @return
 	 * @throws Exception
 	 */
 	@POST
-	public Response addConversation(@PathParam("userid") String userId,final String json) throws Exception {
+	public Response addConversation(@PathParam("userid") String userId, final String json) throws Exception {
 		logger.debug("Adding conversation");
-		Conversation conversation = conversationJSONConverter.convert(json);
-		//set the user id to be the owner of the creator
-		conversation.setOwner(userId);
-		Conversation addedConversation = conversationService.addConversation(conversation);
-		return Response.status(201).entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(addedConversation))).build();
+		Conversation addedConversation;
+		try {
+			Conversation conversation = conversationJSONConverter.convert(json);
+			// set the user id to be the owner of the creator
+			conversation.setOwner(userId);
+			addedConversation = conversationService.addConversation(conversation);
+			return Response.status(201)
+					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(addedConversation)))
+					.build();
+		} catch (Exception e) {
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage())))
+					.build();
+		}
+
 	}
-	
+
 	/**
-	 * Lists all conversations, if the userid is an employee, then all conversations are listed, else only the 
-	 * conversations created by the user will be returned
+	 * Lists all conversations, if the userid is an employee, then all conversations
+	 * are listed, else only the conversations created by the user will be returned
+	 * 
 	 * @param userid
 	 * @return
 	 */
 	@GET
 	public Response listAllConversations(@PathParam("userid") String userid) {
-		List<Conversation> conversationlist = null;
-		if(authService.isEmployee(userid)) {
-			conversationlist = conversationService.listAllConversations();
-		}else {
-			conversationlist = conversationService.listAllConversationsForUser(userid);
+		try {
+			List<Conversation> conversationlist = null;
+			if (authService.isEmployee(userid)) {
+				conversationlist = conversationService.listAllConversations();
+			} else {
+				conversationlist = conversationService.listAllConversationsForUser(userid);
+			}
+			return Response.status(201)
+					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversationlist)))
+					.build();
+		} catch (Exception e) {
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage())))
+					.build();
 		}
-		return Response.status(201).entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversationlist))).build();
 	}
-	
+
 	/**
 	 * Retrieves conversation details for a specific conversation id
+	 * 
 	 * @param conversationid
 	 * @param userId
 	 * @return
 	 */
 	@GET
 	@Path("{conversationid}")
-	public Response getConversation(@PathParam("conversationid") long conversationid,@PathParam("userid") String userId) {
-		Conversation conversation = conversationService.getConversation(conversationid);
-		return Response.status(201).entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversation))).build();
+	public Response getConversation(@PathParam("conversationid") long conversationid,
+			@PathParam("userid") String userId) {
+		try {
+			Conversation conversation = conversationService.getConversation(conversationid);
+			return Response.status(201)
+					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversation))).build();
+		} catch (Exception e) {
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Object not found")))
+					.build();
+			
+		}
 	}
-	
+
 	/**
 	 * Lists all messages for a given conversation id
+	 * 
 	 * @param conversationid
 	 * @return
 	 */
 	@GET
 	@Path("{conversationid}/message")
 	public Response listMessagesForConversation(@PathParam("conversationid") long conversationid) {
-		List<Message> listMessagesForConversation = messageService.listMessagesForConversation(conversationid);
-		return Response.status(201).entity(JsonWriter.writeToString(messageJSONConverter.convertToJsonElement(listMessagesForConversation))).build();
+		try {
+			List<Message> listMessagesForConversation = messageService.listMessagesForConversation(conversationid);
+			return Response.status(201).entity(
+					JsonWriter.writeToString(messageJSONConverter.convertToJsonElement(listMessagesForConversation)))
+					.build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Object not found")))
+					.build();
+		}
 	}
-	
+
 	@POST
 	@Path("{conversationid}/message")
-	public Response addMessage(@PathParam("conversationid") long conversationid, @PathParam("userid") String userid, final String json) {
+	public Response addMessage(@PathParam("conversationid") long conversationid, @PathParam("userid") String userid,
+			final String json) {
 		Message message;
 		try {
 			message = messageJSONConverter.convert(json);
 			message.setConversation(conversationid);
 			message.setSender(userid);
 			Message addMessage = messageService.addMessage(message);
-			return Response.status(201).entity(JsonWriter.writeToString(messageJSONConverter.convertToJsonElement(addMessage))).build();
+			return Response.status(201)
+					.entity(JsonWriter.writeToString(messageJSONConverter.convertToJsonElement(addMessage))).build();
 		} catch (Exception e) {
+			e.printStackTrace();
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage()))).build();
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage())))
+					.build();
 		}
-		
+
 	}
 
 }

@@ -10,9 +10,19 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+/**
+ * Contains methods to convert to and from JSON to Conversation object
+ *
+ */
 @ApplicationScoped
 public class ConversationJSONConverter {
 
+	/**
+	 * Creates a ConversationObject from input json
+	 * @param json
+	 * @return
+	 * @throws Exception
+	 */
 	public Conversation convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final Conversation conversation = new Conversation();
@@ -21,6 +31,11 @@ public class ConversationJSONConverter {
 		return conversation;
 	}
 	
+	/**
+	 * Creates  JSON Object from a Conversation object
+	 * @param conversation
+	 * @return
+	 */
 	public JsonElement convertToJsonElement(final Conversation conversation){
 		final JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("id", conversation.getId());
@@ -31,6 +46,11 @@ public class ConversationJSONConverter {
 		return jsonObject;
 	}
 	
+	/**
+	 * Converts a list of Conversation objects to JSON Array
+	 * @param conversationList
+	 * @return
+	 */
 	public JsonElement convertToJsonElement(final List<Conversation> conversationList){
 		JsonArray jsonArray = new JsonArray();
 		for(Conversation conversation : conversationList){

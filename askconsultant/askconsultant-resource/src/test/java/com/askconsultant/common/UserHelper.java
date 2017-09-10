@@ -1,7 +1,10 @@
 package com.askconsultant.common;
 
+import org.junit.Ignore;
+
 import com.askconsultant.service.dto.User;
 
+@Ignore
 public class UserHelper {
 
 	public static User returnValidUser() {
