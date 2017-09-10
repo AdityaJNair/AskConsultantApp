@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import DatePicker from 'react-md/lib/Pickers/DatePickerContainer';
-import '../../containers/User/RegisterPage.css';
+import '../../../containers/User/RegisterPage.css';
 
 const gender = ["Male", "Female", "Gender diverse"];
 
-class Mdtest extends Component {
+class PersonalInformation extends Component {
     render() {
         return (
             <div class="canvas">
@@ -48,7 +48,7 @@ class Mdtest extends Component {
                     itemValue="abbreviation"
                     className="md-cell"
                     helpOnFocus
-                    helpText="Select some state for me"
+                    helpText="Select your gender"
                 />
 
                 <TextField
@@ -77,4 +77,4 @@ class Mdtest extends Component {
     }
 }
 
-export default Mdtest;
+export default PersonalInformation;

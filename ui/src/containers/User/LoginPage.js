@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../images/logo.svg';
 import './LoginPage.css';
 import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons/Button';

@@ -12,9 +12,15 @@ class EmployeeRegistrationPage extends Component {
         return (
             <div class="canvas">
                 Employee registration
-                <Link to="/consultants_messenger"><Button raised label="Go to messenger" /></Link><br />
-            </div>
+                <div>
+                    <Link to="/consultants_messenger"><Button raised label="Go to messenger" /></Link><br />
+                </div>
+                <div>
+                    <Link to="/consultants"><Button raised label="Go back to login" /></Link><br />
+                </div>
 
+
+            </div>
         );
     }
 }

@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    height: 100%;
+}
+
+html, #root, [data-reactroot], #whole-page {
+    height: 100%;
+}
+
+#content{
+    height: 100%;
+    padding-top: 60px;
+}
+
+#horizontal_nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 43px;
+    border-bottom: solid darkgreen 2px;
+}
+
+#messenger-left-column {
+    float: left;
+    width:25%;
+    height: 100%;
+    border-right: solid grey;
+    position: relative;
+}
+
+#message-window{
+    position: relative;
+    float:right;
+    width: 75%;
+    height: 100%;
+}

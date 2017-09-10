@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './RegisterPage.css';
 import { withRouter } from 'react-router-dom'
-import PersonalInformation from '../../components/Register/PersonalInformation.js';
-import AdditionalInformation from '../../components/Register/AdditionalInformation.js';
-import Submit from '../../components/Register/Submit.js'
+import PersonalInformation from '../../components/Register/UserRegister/PersonalInformation.js';
+import AdditionalInformation from '../../components/Register/UserRegister/AdditionalInformation.js';
+import Submit from '../../components/Register/UserRegister/Submit.js'
 
 class RegisterPanel extends Component {
     render() {
