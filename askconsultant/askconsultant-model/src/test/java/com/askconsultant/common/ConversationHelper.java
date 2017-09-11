@@ -5,11 +5,17 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.mockito.Mockito;
 
 import com.askconsultant.dao.Constants;
 import com.askconsultant.model.Conversation;
 
+/**
+ * Helper class to return the Conversation object
+ *
+ */
+@Ignore
 public class ConversationHelper {
 
 	public static Conversation getConversationWithAllValues() {

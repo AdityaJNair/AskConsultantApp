@@ -17,29 +17,28 @@ import com.askconsultant.resource.converter.RegistrationJSONConverter;
 import com.askconsultant.service.RegistrationService;
 
 /**
- * Contains methods for managing registration 
+ * Contains methods for managing registration
  *
  */
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
-	
-	
+
 	@Inject
 	RegistrationJSONConverter registrationJSONConverter;
-	
+
 	@Inject
 	OperationFailureJSONConvertor opFailureJSONConverter;
-	
-	@Inject 
+
+	@Inject
 	RegistrationService registrationService;
-	
+
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
-	
 	/**
 	 * Registers the user with the information in the json payload
+	 * 
 	 * @param json
 	 * @return
 	 * @throws Exception
@@ -47,19 +46,13 @@ public class UserResource {
 	@POST
 	public Response register(final String json) throws Exception {
 		logger.debug("User login");
-
 		com.askconsultant.service.dto.User userDetails = registrationJSONConverter.convert(json);
 		registrationService.register(userDetails);
-		
-		try{
-			
+		try {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_OK).build();
-		}  catch (Exception e) {
+		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR).build();
 		}
 	}
-    
-	
-	
 
 }

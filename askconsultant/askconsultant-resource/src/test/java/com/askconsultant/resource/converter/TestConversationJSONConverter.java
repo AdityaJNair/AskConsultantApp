@@ -10,6 +10,11 @@ import com.askconsultant.common.FileUtil;
 import com.askconsultant.model.Conversation;
 import com.google.gson.JsonElement;
 
+/**
+ * This test class tests the ConversationJSONConverter class that converts 
+ * Conversation object to JSON and vice-versa.
+ *
+ */
 public class TestConversationJSONConverter {
 	
 	ConversationJSONConverter conversationJSONConverter;

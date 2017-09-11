@@ -5,11 +5,17 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.mockito.Mockito;
 
 import com.askconsultant.dao.Constants;
 import com.askconsultant.model.Message;
 
+/**
+ * Helper class to return Message related objects
+ *
+ */
+@Ignore
 public class MessageHelper {
 
 	public static Message getMessageObjectWithAllData(long conversationId, String senderID) {

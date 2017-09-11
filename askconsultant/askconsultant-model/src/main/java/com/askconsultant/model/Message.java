@@ -3,6 +3,7 @@ package com.askconsultant.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,8 +34,10 @@ public class Message implements Serializable {
 
 	private long conversation;
 
+	@Column(length=20)
 	private String status;
 	
+	@Column(length=500)
 	private String message;
 	
 	private long attachmentId;
