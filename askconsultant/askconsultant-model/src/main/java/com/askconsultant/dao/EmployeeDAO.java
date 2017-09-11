@@ -13,17 +13,32 @@ import javax.persistence.criteria.Root;
 import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.model.Employee;
 
+/**
+ * Data access class for Employee object
+ *
+ */
 public class EmployeeDAO {
 
 	@PersistenceContext
 	EntityManager em;
-	
+
+	/**
+	 * Adds employee object to the database
+	 * @param employee
+	 * @return
+	 */
 	public Employee addEmployee(Employee employee) {
 		em.persist(employee);
 		return employee;
 	}
-	
-	public Employee getEmployeeByUserID(String userID) throws InvalidUserException{
+
+	/**
+	 * Retrieves employee object by id
+	 * @param userID
+	 * @return
+	 * @throws InvalidUserException
+	 */
+	public Employee getEmployeeByUserID(String userID) throws InvalidUserException {
 		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
 		CriteriaQuery<Employee> criteriaQuery = criteriaBuilder.createQuery(Employee.class);
 		Root<Employee> root = criteriaQuery.from(Employee.class);
@@ -36,9 +51,10 @@ public class EmployeeDAO {
 		query.setParameter(params, userID);
 
 		List<Employee> queryResult = query.getResultList();
-		if (queryResult.isEmpty()){
+		if (queryResult.isEmpty()) {
 			throw new InvalidUserException("Employee not present");
-		}else return queryResult.get(0);
+		} else
+			return queryResult.get(0);
 	}
-	
+
 }

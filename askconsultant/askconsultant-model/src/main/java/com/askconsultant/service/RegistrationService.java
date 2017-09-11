@@ -17,4 +17,11 @@ public interface RegistrationService {
 	 * @throws Exception
 	 */
 	public void register(User userDetails) throws Exception;
+	
+	/**
+	 * Registers a employee
+	 * @param userDetails
+	 * @throws Exception
+	 */
+	public void registerEmployee(User userDetails) throws Exception;
 }

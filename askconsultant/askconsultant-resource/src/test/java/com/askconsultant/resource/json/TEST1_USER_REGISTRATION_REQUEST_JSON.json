@@ -1,0 +1,14 @@
+{
+  "userid": "email@email.com",
+  "password": "password",
+  "firstname": "First",
+  "lastname": "Last",
+  "preferedname": "NickName",
+  "email": "email@email.com",
+  "dob": "01/01/2001",
+  "occupation": "Student",
+  "gender": "Male",
+  "industry": "Technology",
+  "interest": "Technology",
+  "source": "Website"
+}

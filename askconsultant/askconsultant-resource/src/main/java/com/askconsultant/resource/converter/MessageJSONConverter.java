@@ -40,7 +40,9 @@ public class MessageJSONConverter {
 		jsonObject.addProperty("id", message.getId());
 		jsonObject.addProperty("message", message.getMessage());
 		jsonObject.addProperty("user", message.getSender());
-		jsonObject.addProperty("datetime", message.getCreateDateTime().toString());
+		if(null!=message.getCreateDateTime()) {
+			jsonObject.addProperty("datetime", message.getCreateDateTime().toString());
+		}
 		jsonObject.addProperty("conversationid", message.getConversation());
 		return jsonObject;
 	}

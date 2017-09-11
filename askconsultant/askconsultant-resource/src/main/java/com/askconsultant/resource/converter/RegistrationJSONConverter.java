@@ -17,6 +17,12 @@ import com.google.gson.JsonObject;
 @ApplicationScoped
 public class RegistrationJSONConverter {
 
+	/**
+	 * Converts the json request to User object
+	 * @param json
+	 * @return
+	 * @throws Exception
+	 */
 	public User convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final User user = new User();
@@ -29,12 +35,31 @@ public class RegistrationJSONConverter {
 		user.setOccupation(JsonReader.getStringOrNull(jsonObject, "occupation"));
 		user.setGender(JsonReader.getStringOrNull(jsonObject, "gender"));
 		user.setIndustry(JsonReader.getStringOrNull(jsonObject, "industry"));
-		user.setInterest(JsonReader.getStringOrNull(jsonObject, "interest"));
+		user.setInterest(JsonReader.getStringOrNull(jsonObject, "	"));
 		user.setSource(JsonReader.getStringOrNull(jsonObject, "source"));
 		user.setPassword(JsonReader.getStringOrNull(jsonObject, "password"));
 		return user;
 	}
 	
+	/**
+	 * Converts the JSON request to employee registration object
+	 * @param json
+	 * @return
+	 * @throws Exception
+	 */
+	public User convertEmployeeRegistrationJSON(String json) throws Exception {
+		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
+		final User user = new User();
+		user.setUserID(JsonReader.getStringOrNull(jsonObject, "email"));
+		user.setPassword(JsonReader.getStringOrNull(jsonObject, "password"));
+		return user;
+	}
+	
+	/**
+	 * Converts the User object to JSON object
+	 * @param user
+	 * @return
+	 */
 	public JsonElement convertToJsonElement(com.askconsultant.model.User user){
 		final JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("userid", user.getUserid());
@@ -46,6 +71,11 @@ public class RegistrationJSONConverter {
 		return jsonObject;
 	}
 	
+	/**
+	 * Converts the user Registration Object to json
+	 * @param details
+	 * @return
+	 */
 	public JsonElement convertToJsonElement(RegistrationDetails details){
 		final JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("firstName", details.getFirstName());
@@ -55,7 +85,6 @@ public class RegistrationJSONConverter {
 		jsonObject.addProperty("dob", details.getDateOfBirth().toString());
 		jsonObject.addProperty("occupation", details.getOccupation());
 		jsonObject.addProperty("gender", details.getGender());
-		
 		return jsonObject;
 	}
 

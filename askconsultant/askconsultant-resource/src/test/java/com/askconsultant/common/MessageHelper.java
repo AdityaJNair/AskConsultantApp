@@ -1,10 +1,15 @@
 package com.askconsultant.common;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
+
 import com.askconsultant.model.Message;
 
+@Ignore
 public class MessageHelper {
 
 	public static Message getMessageWithValues(long id, String sender, long conversationId, String strMessage) {
@@ -12,6 +17,7 @@ public class MessageHelper {
 		message.setId(id);
 		message.setSender(sender);
 		message.setMessage(strMessage);
+		message.setCreateDateTime(Timestamp.valueOf(LocalDateTime.now()));
 		return message;
 	}
 	

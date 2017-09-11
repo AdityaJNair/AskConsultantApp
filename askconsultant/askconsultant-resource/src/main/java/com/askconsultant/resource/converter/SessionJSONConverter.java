@@ -7,9 +7,19 @@ import com.askconsultant.service.dto.User;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+/**
+ * Contains the methods to convert JSON request to java object
+ *
+ */
 @ApplicationScoped
 public class SessionJSONConverter {
 
+	/**
+	 * Method to convert json request to User object
+	 * @param json
+	 * @return
+	 * @throws Exception
+	 */
 	public User convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final User user = new User();
@@ -19,6 +29,11 @@ public class SessionJSONConverter {
 		return user;
 	}
 	
+	/**
+	 * Converts the user object to JSONElement
+	 * @param user
+	 * @return
+	 */
 	public JsonElement convertToJsonElement(final com.askconsultant.service.dto.User user){
 		final JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("userid", user.getUserID());
