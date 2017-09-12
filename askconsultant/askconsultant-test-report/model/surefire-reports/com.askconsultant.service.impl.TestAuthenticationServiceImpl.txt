@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.askconsultant.service.impl.TestAuthenticationServiceImpl
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 sec - in com.askconsultant.service.impl.TestAuthenticationServiceImpl
