@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './LoginPage.css';
 import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons/Button';
+import { Link } from 'react-router-dom'
+import { fetchPosts} from '../../../actions/loginActions';
 
 let useridInput, passwordInput
 
-const loginSumbit = (useridInput, passwordInput) => {
+const loginSumbit = (e, dispatch) => {
     e.preventDefault()
     if (!useridInput.value.trim() || !passwordInput.value.trim()) {
         return

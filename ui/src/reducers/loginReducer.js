@@ -16,7 +16,7 @@ const loginReducer = (state = initialState, action) => {
                 token: action.token
             })
         case 'REQUEST_POST':
-            return object.assign({}, state, {
+            return Object.assign({}, state, {
                 pending: action.pending
             })
         case 'RECEIVE_POST':
