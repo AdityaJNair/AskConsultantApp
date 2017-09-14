@@ -28,7 +28,7 @@ ReactDOM.render(
             <div>
                 <Route exact path="/" component={LoginPage}/>
                 <Route path="/register" component={RegisterPage}/>
-                <Route path="/messenger" component={UserChatPage}/>
+                <MessageRoute path="/messenger" component={UserChatPage}/>
 
                 {/* The employees/consultants need to access this directly. No direct click to this place*/}
                 <Route path="/consultants" component={EmployeeLoginPage}/>

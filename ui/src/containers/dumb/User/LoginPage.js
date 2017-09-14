@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import './LoginPage.css';
 import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons/Button';
-import {
-    BrowserRouter,
-    Route,
-    Link
-} from 'react-router-dom'
-import 'whatwg-fetch';
+
+let useridInput, passwordInput
+
+const loginSumbit = (useridInput, passwordInput) => {
+    e.preventDefault()
+    if (!useridInput.value.trim() || !passwordInput.value.trim()) {
+        return
+    }
+    dispatch(fetchPosts(useridInput.value, passwordInput.value, false))
+    useridInput.value = ''
+    passwordInput.value = ''
+}
 
 class Login_panel extends Component {
     render() {
@@ -27,50 +33,18 @@ class Login_input extends Component {
     constructor(){
         super()
     }
-    handleSubmit(){
-        var user =
-            { "userid": "dom1@gmail", "password": "password", "isEmployee":"false" }
-
-
-        var url = "https://45.76.113.175:8443/askconsultant/rest/session"
-        fetch(url, {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-                //'Access-Control-Allow-Origin': "*",
-                'Content-Type': 'application/json'
-                // 'Accept': 'application/json, text/plain, /'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(function(response) {
-                if (response.ok) {
-                    console.log("Perfect! Your settings are saved.");
-                    //return response.json()
-                } else if (response.status === 401) {
-                    console.log("Oops! You are not authorized.");
-                }
-
-            }, function(e) {
-                console.log("Error submitting form!");
-
-            })
-            .then(function(json) {
-                // console.log(json.token)
-            })
-    }
 
     render() {
         return (
             <div id="login_input">
-                <TextField
+                <TextField ref={node => {useridInput = node}}
                     id="floatingCenterTitle"
                     label="User Name"
                     lineDirection="center"
                     placeholder="Enter your user name"
                     className="md-cell md-cell--bottom"
                 />
-                <TextField
+                <TextField ref={node => {passwordInput = node}}
                     id="floatingCenterTitle"
                     label="Password"
                     lineDirection="center"
@@ -88,7 +62,7 @@ class Login_buttons extends Component {
     render() {
         return (
             <div id="login_buttons">
-                <Link to="/messenger"><Button raised label="Login" /></Link><br />
+                <Link to="/messenger"><Button onClick={e => loginSumbit(e, this.props.dispatch)} label="Login" /></Link><br />
                 <Link to="/register"><Button raised label="Register" /></Link><br />
                 <a>Forgot my password</a>
             </div>
