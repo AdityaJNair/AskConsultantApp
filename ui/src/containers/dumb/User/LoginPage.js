@@ -3,7 +3,7 @@ import './LoginPage.css';
 import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons/Button';
 import {
-    BrowserRouter as Router,
+    BrowserRouter,
     Route,
     Link
 } from 'react-router-dom'
