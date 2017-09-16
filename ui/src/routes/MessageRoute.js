@@ -5,16 +5,16 @@ import { connect } from 'react-redux'
 class MessageRoute extends React.Component {
     render() {
         const {component: Component, pending, logged, ...rest } = this.props
-        console.log(logged)
+        console.log(`MessageRoute: ${logged}`)
         return (
             <Route {...rest} render={props => {
                 if (pending) {
                     return <div>Loading</div>
                 }
-                return (logged
-                        ? <Component {...props}/>
-                        : <Redirect to='/'/>
-                )
+                return logged
+                    ? <Component {...props}/>
+                    : <Redirect to='/'/>
+
             }} />
         )
     }
@@ -22,6 +22,7 @@ class MessageRoute extends React.Component {
 
 const mapStateToProps = ({loginInfo}) => ({
     pending: loginInfo.pending,
+    
     logged: loginInfo.token !== ''
 })
 

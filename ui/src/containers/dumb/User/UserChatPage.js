@@ -6,6 +6,7 @@ import MessageWindow from "../../../components/messenger/MessengerBox/MessageWin
 
 class UserChat extends Component{
     render() {
+        console.log("Userchat")
         return (
             <div id="whole-page" class="canvas">
                 <HorizontalNavBar/>

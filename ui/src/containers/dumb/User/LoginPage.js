@@ -93,6 +93,7 @@ class Login extends Component {
     // Login is the parent of Login_panel, Login_panel is the parent of Login_button
     // So when we use the props from the smart/User/LoginPage, we should delivery via props one level of hierarchy after one
     // Similarly, if we use dispatch, we should delivery this function as test.
+
     render() {
          return (
             <div class="canvas">

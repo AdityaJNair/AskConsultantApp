@@ -7,7 +7,8 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import {
     BrowserRouter,
-    Route
+    Route,
+    Switch
 } from 'react-router-dom'
 import reducers from './reducers/loginReducer'
 import MessageRoute from './routes/MessageRoute'
@@ -26,15 +27,15 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <div>
-                <Route exact path="/" component={LoginPage}/>
+            <Switch>
+                <Route path="/" exact component={LoginPage}/>
                 <Route path="/register" component={RegisterPage}/>
                 <MessageRoute path="/messenger" component={UserChatPage}/>
                 {/* The employees/consultants need to access this directly. No direct click to this place*/}
                 <Route path="/consultants" component={EmployeeLoginPage}/>
                 <Route path="/consultants_register" component={EmployeeRegistrationPage}/>
                 <Route path="/consultants_messenger" component={EmployeeChatPage}/>
-            </div>
+            </Switch>
         </BrowserRouter>
     </Provider>
     ,
