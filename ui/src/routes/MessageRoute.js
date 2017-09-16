@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 class MessageRoute extends React.Component {
     render() {
         const {component: Component, pending, logged, ...rest } = this.props
+        console.log(logged)
         return (
             <Route {...rest} render={props => {
                 if (pending) {
@@ -21,7 +22,7 @@ class MessageRoute extends React.Component {
 
 const mapStateToProps = ({loginInfo}) => ({
     pending: loginInfo.pending,
-    logged: loginInfo.pending !== ''
+    logged: loginInfo.token !== ''
 })
 
 export default connect(mapStateToProps)(MessageRoute)

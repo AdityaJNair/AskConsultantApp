@@ -2,10 +2,11 @@ import Login from '../../dumb/User/LoginPage'
 import { connect } from 'react-redux'
 import {fetchPosts} from "../../../actions/loginActions";
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = ({loginInfo}) => {
     return {
-        handleSumbit: () => {
-            dispatch(fetchPosts(userid, password, false))
-        }
+        logged: loginInfo.token !== ''
     }
 }
+
+const LoginPage = connect(mapStateToProps)(Login)
+export default LoginPage

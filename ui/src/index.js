@@ -12,7 +12,7 @@ import {
 import reducers from './reducers/loginReducer'
 import MessageRoute from './routes/MessageRoute'
 import RegisterPage from './containers/dumb/User/RegisterPage';
-import LoginPage from './containers/dumb/User/LoginPage';
+import LoginPage from './containers/smart/User/LoginPage';
 import UserChatPage from './containers/dumb/User/UserChatPage';
 import EmployeeLoginPage from "./containers/dumb/Employee/EmployeeLoginPage";
 import EmployeeRegistrationPage from "./containers/dumb/Employee/EmployeeRegistrationPage";
@@ -25,7 +25,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter >
+        <BrowserRouter>
             <div>
                 <Route exact path="/" component={LoginPage}/>
                 <Route path="/register" component={RegisterPage}/>
