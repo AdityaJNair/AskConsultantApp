@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MessageBubbleContainer from "./Message/MessageBubbleContainer";
-import "./stylesheet/MessageView.css"
 
 class MessageView extends Component {
     render(){

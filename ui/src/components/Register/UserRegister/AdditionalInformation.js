@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
-import './Register.css';
+import '../../../containers/dumb/User/RegisterPage.css';
 
 const occupation = ["Undergraduate Student", "Accounting"];
 const industry = ["Accounting", "Consulting"];

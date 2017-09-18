@@ -6,6 +6,7 @@
     position: relative;
     top:0;
     right: 0;
+    height: calc(100% - 140px);
 }
 
 #chat-list::-webkit-scrollbar-track

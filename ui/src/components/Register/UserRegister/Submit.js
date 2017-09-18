@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Register.css';
+import '../../../containers/dumb/User/RegisterPage.css';
 
 import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import Button from 'react-md/lib/Buttons/Button';
@@ -9,6 +9,7 @@ class Submit extends Component {
     render() {
         return (
             <div id="canvas">
+                <a><p id="terms">Terms and Conditions</p></a>
                 <Checkbox
                     id="readDocumentationPage"
                     name="simpleCheckboxes"

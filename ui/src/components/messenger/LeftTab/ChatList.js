@@ -5,7 +5,7 @@ import Style from "./stylesheet/ChatList.css"
 class ChatList extends Component {
     render(){
         return (
-            <div id="chat-list" style = {{height: 'calc(100% - 140px)'}}>
+            <div id="chat-list" style = {{}}>
                 <ChatItem/>
                 <ChatItem/><ChatItem/>
                 <ChatItem/><ChatItem/>
