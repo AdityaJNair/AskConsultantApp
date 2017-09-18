@@ -1,0 +1,18 @@
+#profile_box{
+    float: left;
+    display: block;
+    margin: 20px;
+}
+
+#user-name{
+    text-align: center;
+}
+
+#avatar-container{
+    text-align: center;
+}
+
+#profile-avatar{
+    width: 60px;
+    height: 60px;
+}
