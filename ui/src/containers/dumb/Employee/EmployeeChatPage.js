@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './EmployeeChatPage.css';
-import HorizontalNavBar from "../../components/horizontalNavigation/HorizontalNavBar";
-import MessengerLeftColumn from "../../components/messenger/LeftTab/MessengerLeftColumn";
-import MessageWindow from "../../components/messenger/MessengerBox/MessageWindow";
-import EmployeeTopicColumn from "../../components/messenger/TopicColumn/EmployeeTopicColumn"
+import HorizontalNavBar from "../../../components/horizontalNavigation/HorizontalNavBar";
+import MessengerLeftColumn from "../../../components/messenger/LeftTab/MessengerLeftColumn";
+import MessageWindow from "../../../components/messenger/MessengerBox/MessageWindow";
+import EmployeeTopicColumn from "../../../components/messenger/TopicColumn/EmployeeTopicColumn"
 
 
 class EmployeeChatPage extends Component {
