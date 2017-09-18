@@ -14,7 +14,6 @@ class Employee_Login_buttons extends Component {
         return (
             <div id="login_buttons">
                 <Link to="/consultants_messenger"><Button raised label="Login" /></Link><br />
-                <Link to="/consultants_register"><Button raised label="Register" /></Link><br />
                 <a>Forgot my password</a>
             </div>
         );

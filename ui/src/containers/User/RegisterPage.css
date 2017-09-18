@@ -4,6 +4,7 @@
     min-height: 800px;
     margin-left: 25%;
     margin-top: 50px;
+    padding-bottom: 50px;
 }
 
 #register_panel h1{
@@ -16,4 +17,9 @@
 
 #register_panel h1{
     text-align: center;
+}
+
+#terms{
+    margin-left: 15px;
+    margin-top: 10px;
 }

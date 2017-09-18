@@ -9,6 +9,7 @@ class Submit extends Component {
     render() {
         return (
             <div id="canvas">
+                <a><p id="terms">Terms and Conditions</p></a>
                 <Checkbox
                     id="readDocumentationPage"
                     name="simpleCheckboxes"
