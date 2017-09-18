@@ -5,6 +5,7 @@ import MessengerLeftColumn from "../../components/messenger/LeftTab/MessengerLef
 import MessageWindow from "../../components/messenger/MessengerBox/MessageWindow";
 import EmployeeTopicColumn from "../../components/messenger/TopicColumn/EmployeeTopicColumn"
 
+
 class EmployeeChatPage extends Component {
     render() {
         return (

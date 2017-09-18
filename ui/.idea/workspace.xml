@@ -14,23 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EmployeeChatPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Employee/EmployeeChatPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmployeeTopicColumn.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmployeeTopicColumn.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/messenger/TopicColumn/EmployeeTopicColumn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+            <state relative-caret-position="534">
+              <caret line="31" column="57" lean-forward="true" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -38,23 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/User/LoginPage.js">
+      <file leaf-file-name="EmployeeChatPage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/dumb/Employee/EmployeeChatPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1539">
-              <caret line="90" column="69" lean-forward="false" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmployeeChatPage.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Employee/EmployeeChatPage.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="19">
+              <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -157,6 +133,7 @@
         <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatList.css" />
         <option value="$PROJECT_DIR$/src/containers/Employee/EmployeeChatPage.css" />
         <option value="$PROJECT_DIR$/src/components/messenger/TopicColumn/EmployeeTopicColumn.js" />
+        <option value="$PROJECT_DIR$/src/containers/dumb/Employee/EmployeeChatPage.js" />
       </list>
     </option>
   </component>
@@ -253,14 +230,15 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="Employee" type="462c0819:PsiDirectoryNode" />
+              <item name="dumb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="dumb" type="462c0819:PsiDirectoryNode" />
+              <item name="Employee" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ui" type="b2602c69:ProjectViewProjectNode" />
@@ -336,12 +314,12 @@
       <workItem from="1504831011306" duration="6000" />
       <workItem from="1505167714897" duration="8154000" />
       <workItem from="1505624127515" duration="388000" />
-      <workItem from="1505776805505" duration="4000" />
+      <workItem from="1505776805505" duration="224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46054000" />
+    <option name="totallyTimeSpent" value="46274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -379,7 +357,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Login.js" />
     <entry file="file://$PROJECT_DIR$/src/App.js" />
     <entry file="file://$PROJECT_DIR$/src/Component/Register/Register.css" />
     <entry file="file://$PROJECT_DIR$/src/Component/Register/Register.js" />
@@ -558,9 +535,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -568,9 +543,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1539">
           <caret line="90" column="69" lean-forward="false" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -618,11 +591,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/messenger/TopicColumn/EmployeeTopicColumn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        <state relative-caret-position="534">
+          <caret line="31" column="57" lean-forward="true" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/dumb/Employee/EmployeeChatPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
