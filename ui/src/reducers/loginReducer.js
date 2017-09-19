@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import registrationReducer from "./registrationReducer";
 const initialState = {
     status: '',
     token: '',
@@ -6,8 +7,6 @@ const initialState = {
     userid: '',
     firstName: '',
     lastName: '',
-    registrationStatus: false,
-    registrationErrorMsg: ''
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -42,28 +41,6 @@ const loginReducer = (state = initialState, action) => {
     }
 }
 
-const registrationReducer = (state = initialState, action) => {
-    switch (action.type){
-        case 'SUCCESSFUL_REGISTRATION':
-            console.log("SUCCESSFUL_REGISTRATION")
-            return Object.assign({}, state, {
-                registrationStatus: action.registrationStatus,
-                registrationErrorMsg: action.registrationErrorMsg
-
-            })
-            break;
-        case 'BAD_REGISTRATION':
-
-            console.log("BAD_REGISTRATION", action.registrationErrorMsg)
-            return Object.assign({}, state, {
-                registrationStatus: action.registrationStatus,
-                registrationErrorMsg: action.registrationErrorMsg
-            })
-            break;
-        default:
-            return state
-    }
-}
 
 const reducers = combineReducers({
     loginInfo: loginReducer,

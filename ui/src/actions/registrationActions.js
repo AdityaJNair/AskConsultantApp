@@ -1,7 +1,13 @@
 const successfulRegistration = () => {
     return {
         type: 'SUCCESSFUL_REGISTRATION',
-        registrationStatus: true,
+        registrationStatus: true
+    }
+}
+
+const resetErrorMsg = () => {
+    return {
+        type: 'RESET_ERROR_MSG',
         registrationErrorMsg: ''
     }
 }
@@ -11,6 +17,14 @@ const failedRegistration = (error) => {
         type: 'BAD_REGISTRATION',
         registrationStatus: false,
         registrationErrorMsg: error
+    }
+}
+
+export const completedRegistration = () => {
+    return {
+        type: 'COMPLETE_REGISTRATION',
+        registrationStatus: false,
+        registrationErrorMsg: ''
     }
 }
 
@@ -43,6 +57,7 @@ export const postRegDetails = (fullName,
 
         }
         console.log(regDetails)
+        dispatch(resetErrorMsg())
         return fetch(url, {
             method: "POST",
             headers: {
@@ -65,9 +80,11 @@ export const postRegDetails = (fullName,
                     console.log(response)
                     if (response.status == 201) {
                         dispatch(successfulRegistration())
+                        return true;
                     }
                     else {
-                        dispatch(failedRegistration("Your Registration failed, please check that you have input all mandatory fields."))
+                        dispatch(failedRegistration("Error: please check that you have input all mandatory fields."))
+                        return false;
                     }
                 }
             )

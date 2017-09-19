@@ -19,6 +19,7 @@ export class PersonalInformation extends Component {
                     lineDirection="center"
                     placeholder="Enter your full name"
                     className="md-cell md-cell--bottom"
+                    required={true}
                 />
                 <TextField ref={node => {userName = node}}
                     id="floatingCenterTitle"

@@ -17,3 +17,7 @@
 #register_panel h1{
     text-align: center;
 }
+
+#error_message{
+    color: red;
+}

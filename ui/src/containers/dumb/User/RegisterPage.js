@@ -4,13 +4,13 @@ import { withRouter } from 'react-router-dom'
 import {PersonalInformation, fullName, userName, dob, email, gender, password} from '../../../components/Register/UserRegister/PersonalInformation.js';
 import {AdditionalInformation, occupation, industry, interest, source} from '../../../components/Register/UserRegister/AdditionalInformation.js';
 import Submit from '../../../components/Register/UserRegister/Submit.js'
-import {postRegDetails} from "../../../actions/registrationActions";
+import {postRegDetails, completedRegistration} from "../../../actions/registrationActions";
 
-const registrationSubmit = (e, dispatch, history, status) => {
+const registrationSubmit = (e, dispatch, history) => {
     e.preventDefault();
     let dobtest = dob;
     console.log("in reg submit: " + fullName.value +
-                 "\n user name: " + userName.value +
+        "\n user name: " + userName.value +
         "\n dob: " + dob.state.value +
         "\n email: " + email.value +
         "\n gender: " + gender.value +
@@ -19,7 +19,6 @@ const registrationSubmit = (e, dispatch, history, status) => {
         "\n gender: " + industry.value +
         "\n gender: " + interest.value +
         "\n gender: " + source.value
-
     )
     dispatch(postRegDetails(fullName.value,
         userName.value,
@@ -30,14 +29,20 @@ const registrationSubmit = (e, dispatch, history, status) => {
         occupation.value,
         industry.value,
         interest.value,
-        source.value));
-    if(status){
-        console.log('pushing')
-        history.push('/messenger');
-    }
+        source.value))
+        .then((updatedStatus) => {
+        //uses status returned by action creator
+            console.log(updatedStatus + '')
+            if(updatedStatus)
+                history.push('/')
+        })
+        .then(() =>
+            dispatch(completedRegistration())
+    );
 
 
 }
+
 
 class RegisterPanel extends Component {
     render() {
@@ -47,8 +52,9 @@ class RegisterPanel extends Component {
                 <form>
                     <PersonalInformation />
                     <AdditionalInformation />
+                    <label id='error_message'>{this.props.errorMsg}</label>
                     <Submit {...this.props} registrationSubmit={registrationSubmit}/>
-                    <label>{this.props.errorMsg}</label>
+
                 </form>
             </div>
 
@@ -66,5 +72,7 @@ class Register extends Component {
         );
     }
 }
+
+
 
 export default Register;
