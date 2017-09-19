@@ -20,6 +20,10 @@
 }
 
 #terms{
+#terms {
     margin-left: 15px;
     margin-top: 10px;
+}
+#error_message{
+    color: red;
 }

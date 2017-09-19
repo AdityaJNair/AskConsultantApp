@@ -15,7 +15,8 @@ class Submit extends Component {
                     name="simpleCheckboxes"
                     label="I accept the Terms and Conditions"
                 />
-                <Link to="/"><Button raised label="Submit" /></Link>
+
+                <Button raised label="Submit"  onClick={e => this.props.registrationSubmit(e, this.props.dispatch, this.props.history, this.props.regStatus)}/>
 
             </div>
 
