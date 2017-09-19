@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
+import registrationReducer from "./registrationReducer";
 const initialState = {
     status: '',
     token: '',
     pending: false,
     userid: '',
     firstName: '',
-    lastName: ''
+    lastName: '',
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -40,8 +41,10 @@ const loginReducer = (state = initialState, action) => {
     }
 }
 
+
 const reducers = combineReducers({
-    loginInfo: loginReducer
+    loginInfo: loginReducer,
+    registrationInfo: registrationReducer
 })
 
 export default reducers

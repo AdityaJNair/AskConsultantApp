@@ -50,3 +50,4 @@ crashlytics-build.properties
 fabric.properties
 ui/.idea/workspace.xml
 ui/.idea/workspace.xml
+ui/src/containers/dumb/User/RegisterPage.css

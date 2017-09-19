@@ -12,7 +12,7 @@ import {
 } from 'react-router-dom'
 import reducers from './reducers/loginReducer'
 import MessageRoute from './routes/MessageRoute'
-import RegisterPage from './containers/dumb/User/RegisterPage';
+import RegisterPage from './containers/smart/User/RegisterPage';
 import LoginPage from './containers/smart/User/LoginPage';
 import UserChatPage from './containers/dumb/User/UserChatPage';
 import EmployeeLoginPage from "./containers/dumb/Employee/EmployeeLoginPage";
@@ -23,6 +23,9 @@ const store = createStore(
     reducers,
     applyMiddleware(thunkMiddleware)
 )
+store.subscribe(() => {
+    console.log(store.getState());
+})
 
 ReactDOM.render(
     <Provider store={store}>

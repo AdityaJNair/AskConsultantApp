@@ -73,7 +73,7 @@ class Login_buttons extends Component {
     render() {
         return (
             <div id="login_buttons">
-                <Link to="/messenger"><Button onClick={e => loginSumbit(e, this.props.dispatch, this.props.history)} label="Login" /></Link><br />
+                <Link to="/messenger"><Button raised onClick={e => loginSumbit(e, this.props.dispatch, this.props.history)} label="Login" /></Link><br />
                 <Link to="/register"><Button raised label="Register" /></Link><br />
                 <a>Forgot my password</a>
             </div>

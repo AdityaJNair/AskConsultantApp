@@ -3,18 +3,20 @@ import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import '../../../containers/dumb/User/RegisterPage.css';
 
-const occupation = ["Undergraduate Student", "Accounting"];
-const industry = ["Accounting", "Consulting"];
+const occupationOptions = ["Undergraduate Student", "Accounting"];
+const industryOptions = ["Accounting", "Consulting"];
 
-class AdditionalInformation extends Component {
+export let occupation, industry, interest, source;
+
+export class AdditionalInformation extends Component {
     render() {
         return (
             <div class="canvas">
                 <h2>Additional Information</h2>
-                <SelectField
+                <SelectField ref={node => {occupation = node}}
                     label="Current Occupation"
                     placeholder="Select occupation"
-                    menuItems={occupation}
+                    menuItems={occupationOptions}
                     itemLabel="name"
                     itemValue="abbreviation"
                     className="md-cell"
@@ -22,10 +24,10 @@ class AdditionalInformation extends Component {
                     helpText="Select occupation"
                 /><br />
 
-                <SelectField
+                <SelectField ref={node => {industry = node}}
                     label="What industry are you interested in?"
                     placeholder="Select your interested industry"
-                    menuItems={industry}
+                    menuItems={industryOptions}
                     itemLabel="name"
                     itemValue="abbreviation"
                     className="md-cell"
@@ -33,14 +35,14 @@ class AdditionalInformation extends Component {
                     helpText="Select your interested industry"
                 />
 
-                <TextField
+                <TextField ref={node => {interest = node}}
                     id="floatingCenterTitle"
                     label="Why are you interested in this app?"
                     lineDirection="center"
                     className="md-cell md-cell--bottom"
                 />
 
-                <TextField
+                <TextField ref={node => {source = node}}
                     id="floatingCenterTitle"
                     label="How did you get to know about Deloitte?"
                     lineDirection="center"
