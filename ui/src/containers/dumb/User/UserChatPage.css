@@ -27,6 +27,7 @@ html, #root, [data-reactroot], #whole-page {
     width:25%;
     height: 100%;
     border-right: solid grey;
+    border-left: solid grey;
     position: relative;
 }
 

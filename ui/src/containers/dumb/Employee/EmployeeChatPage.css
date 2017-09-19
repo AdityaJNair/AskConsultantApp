@@ -18,9 +18,7 @@ html, #root, [data-reactroot], #whole-page {
     float: left;
     width:25%;
     height: 100%;
-    border-right: solid grey;
     position: relative;
-    border-style: dotted;
 }
 
 #message-window{
@@ -28,7 +26,6 @@ html, #root, [data-reactroot], #whole-page {
     float:right;
     width: 50%;
     height: 100%;
-    border-style: solid;
 }
 
 /*employee_Topic_Column*/
@@ -36,7 +33,10 @@ html, #root, [data-reactroot], #whole-page {
     width: 25%;
     float: left;
     height: 100%;
-    border-style: dashed;
+}
+
+#topic_searchField{
+    border-bottom: solid grey;
 }
 
 #topics_field{
