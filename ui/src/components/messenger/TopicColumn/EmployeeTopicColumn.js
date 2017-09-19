@@ -27,12 +27,14 @@ class EmployeeTopicColumn extends Component {
                 </div>
 
                 <div id="topics_field">
-                    <Button raised label="Topic A" onClick={this.expandList}/>
-                    <List id="topics_a" className="md-cell md-paper md-paper--1">
-                        <ListItem primaryText="Topic1" />
-                        <ListItem primaryText="Topic2" />
-                        <ListItem primaryText="Topic3" />
-                    </List>
+                    <ExpansionPanel label="Technology" footer={null}>
+                        <p>Strategy(3)</p>
+                        <p>Analytics Information(5)</p>
+                        <p>System Integration(5)</p>
+                    </ExpansionPanel>
+                    <ExpansionPanel label="General" footer={null}>
+                        <p>others(15)</p>
+                    </ExpansionPanel>
                 </div>
 
             </div>
