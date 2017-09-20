@@ -21,7 +21,7 @@ html, #root, [data-reactroot], #whole-page {
     position: relative;
 }
 
-#message-window{
+#employee-message-window{
     position: relative;
     float:right;
     width: 50%;

@@ -14,7 +14,9 @@ class EmployeeChatPage extends Component {
                 <div id="content">
                     <EmployeeTopicColumn/>
                     <MessengerLeftColumn/>
-                    <MessageWindow/>
+                    <div id="employee-message-window">
+                        <MessageWindow/>
+                    </div>
                 </div>
             </div>
 
