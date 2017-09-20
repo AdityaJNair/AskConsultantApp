@@ -51,7 +51,7 @@ To then open the app run "npm start". This will start the development server and
 
 ### Setup
 
-Inorder to successfully send and recieve data from the server you first have to visit (https://45.76.113.175:8443/askconsultant/rest/session) successfully (by bypassing the certificate error)
+Inorder to successfully send and recieve data from the server you first have to successfully visit (https://45.76.113.175:8443/askconsultant/rest/session) by bypassing the certificate error.
 
 Secondly you have to have a "CORS" extension on your browser enabled (for Chrome use: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
 
