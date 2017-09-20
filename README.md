@@ -55,5 +55,9 @@ Inorder to successfully send and recieve data from the server you first have to 
 
 Secondly you have to have a "CORS" extension on your browser enabled (for Chrome use: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
 
+### UI web interface
+
+To view the consultants pages add http://localhost:3000/consultants '/consultants' path to the end of url after running NPM START
+By default it should be on the user chat.
 
 
