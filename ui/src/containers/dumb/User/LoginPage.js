@@ -5,7 +5,6 @@ import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons/Button';
 import { Link, Redirect } from 'react-router-dom'
 import { fetchPosts} from '../../../actions/loginActions';
-import history from "../../../history";
 
 let useridInput, passwordInput
 
