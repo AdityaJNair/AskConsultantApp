@@ -7,7 +7,7 @@ import './stylesheet/MessengerTextComponent.css'
 class MessageWindow extends Component {
     render(){
         return (
-            <div id="message-window">
+            <div>
                 <MessageView/>
                 <MessengerTextComponent/>
             </div>
