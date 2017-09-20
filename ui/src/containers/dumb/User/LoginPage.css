@@ -53,3 +53,7 @@ a:hover{
     text-align: center;
 
 }
+
+#error_msg{
+    color: red;
+}

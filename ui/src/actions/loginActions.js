@@ -27,11 +27,19 @@ const receivePosts = (json) => {
     }
 }
 
-const badPosts = () => {
+const badPosts = (error) => {
     return {
         type: 'BAD_POST',
         pending: false,
         status: 'bad',
+        errorMsg: error
+    }
+}
+
+export const resetErrorMsg =()=>{
+    return {
+        type: 'RESET_ERROR_MSG',
+        errorMsg: ''
     }
 }
 
@@ -63,13 +71,16 @@ export const fetchPosts = (userid, password, isEmployee) => {
             .then(
                 json => {
                     if (json === undefined ) {
-                        dispatch(badPosts())
+                        dispatch(badPosts("Server Error"))
+                        return false;
                     }
                     else if (json.error !== undefined) {
-                        dispatch(badPosts())
+                        dispatch(badPosts("Error: Either email does not exist or password is invalid"))
+                        return false;
                     }
                     else {
                         dispatch(receivePosts(json))
+                        return true;
                     }
                 }
             )
