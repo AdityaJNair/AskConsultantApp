@@ -62,8 +62,10 @@ export const fetchPosts = (userid, password, isEmployee) => {
             )
             .then(
                 json => {
-                    console.log(json)
-                    if (json.error !== undefined) {
+                    if (json === undefined ) {
+                        dispatch(badPosts())
+                    }
+                    else if (json.error !== undefined) {
                         dispatch(badPosts())
                     }
                     else {
