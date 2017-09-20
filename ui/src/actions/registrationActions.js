@@ -24,10 +24,17 @@ export const completedRegistration = () => {
     return {
         type: 'COMPLETE_REGISTRATION',
         registrationStatus: false,
-        registrationErrorMsg: ''
+        registrationErrorMsg: '',
+        successfulRegMsg: 'You have successfully registered!'
     }
 }
 
+export const resetSuccessMsg = () => {
+    return {
+        type: 'RESET_SUCCESS_MSG',
+        successfulRegMsg: ''
+    }
+}
 
 export const postRegDetails = (firstName,
                                lastName,

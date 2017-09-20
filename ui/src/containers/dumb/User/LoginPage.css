@@ -57,3 +57,7 @@ a:hover{
 #error_msg{
     color: red;
 }
+
+#success_msg{
+    color: green;
+}

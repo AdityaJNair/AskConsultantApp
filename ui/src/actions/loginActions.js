@@ -65,7 +65,7 @@ export const fetchPosts = (userid, password, isEmployee) => {
                 },
                 error => {
                     console.log('An error occured.', error)
-                    dispatch(badPosts())
+                    dispatch(badPosts("Server Error"))
                 }
             )
             .then(
