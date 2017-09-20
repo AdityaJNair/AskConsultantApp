@@ -4,7 +4,7 @@ import './LoginPage.css';
 import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons/Button';
 import { Link, Redirect } from 'react-router-dom'
-import { fetchPosts} from '../../../actions/loginActions';
+import { fetchPosts, resetErrorMsg} from '../../../actions/loginActions';
 
 let useridInput, passwordInput
 
@@ -15,13 +15,23 @@ const loginSumbit = (e, dispatch, history) => {
         return
     }
     dispatch(fetchPosts(useridInput.value, passwordInput.value, false))
-    history.push('/messenger')
+        .then((success) => {
+            //uses status returned by action creator
+            console.log(success + '')
+            if(success)
+                history.push('/messenger')
+        })
+
 }
 
 class Login_panel extends Component {
+    componentWillMount(){
+        this.props.dispatch(resetErrorMsg())
+    }
+
     componentDidMount(){
         console.log(`panel`)
-        //console.log(this.props.history)
+        //console.log(this.props.history);
     }
     render() {
         const {dispatch, history} = this.props
@@ -31,6 +41,7 @@ class Login_panel extends Component {
                     <h1>Login</h1>
                 </div>
                 <Login_input />
+                <label id='error_msg'>{this.props.errorMsg}</label>
                 <Login_buttons {...this.props}/>
             </div>
         );
@@ -47,7 +58,7 @@ class Login_input extends Component {
             <div id="login_input">
                 <TextField ref={node => {useridInput = node}}
                     id="floatingCenterTitle"
-                    label="User Name"
+                    label="Email"
                     lineDirection="center"
                     placeholder="Enter your user name"
                     className="md-cell md-cell--bottom"

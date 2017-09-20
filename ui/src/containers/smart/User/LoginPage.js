@@ -4,7 +4,8 @@ import {fetchPosts} from "../../../actions/loginActions";
 
 const mapStateToProps = ({loginInfo}) => {
     return {
-        logged: loginInfo.token !== ''
+        logged: loginInfo.token !== '',
+        errorMsg: loginInfo.errorMsg
     }
 }
 
