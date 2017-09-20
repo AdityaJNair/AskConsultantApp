@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RegisterPage.css';
 import { withRouter } from 'react-router-dom'
-import {PersonalInformation, fullName, userName, dob, email, gender, password} from '../../../components/Register/UserRegister/PersonalInformation.js';
+import {PersonalInformation, firstName, lastName, userName, dob, email, gender, password} from '../../../components/Register/UserRegister/PersonalInformation.js';
 import {AdditionalInformation, occupation, industry, interest, source} from '../../../components/Register/UserRegister/AdditionalInformation.js';
 import Submit from '../../../components/Register/UserRegister/Submit.js'
 import {postRegDetails, completedRegistration} from "../../../actions/registrationActions";
@@ -9,7 +9,7 @@ import {postRegDetails, completedRegistration} from "../../../actions/registrati
 const registrationSubmit = (e, dispatch, history) => {
     e.preventDefault();
     let dobtest = dob;
-    console.log("in reg submit: " + fullName.value +
+    console.log("in reg submit: " + firstName.value +
         "\n user name: " + userName.value +
         "\n dob: " + dob.state.value +
         "\n email: " + email.value +
@@ -20,7 +20,8 @@ const registrationSubmit = (e, dispatch, history) => {
         "\n gender: " + interest.value +
         "\n gender: " + source.value
     )
-    dispatch(postRegDetails(fullName.value,
+    dispatch(postRegDetails(firstName.value,
+        lastName.value,
         userName.value,
         dob.state.value,
         email.value,

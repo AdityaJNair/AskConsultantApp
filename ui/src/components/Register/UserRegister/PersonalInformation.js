@@ -6,19 +6,26 @@ import '../../../containers/dumb/User/RegisterPage.css';
 
 const genderOptions = ["Male", "Female", "Gender diverse"];
 
-export let fullName, userName, dob, email, gender, password;
+export let firstName, lastName, userName, dob, email, gender, password;
 
 export class PersonalInformation extends Component {
     render() {
         return (
             <div class="canvas">
                 <h2>Personal Information</h2>
-                <TextField ref={node => {fullName = node}}
+                <TextField ref={node => {firstName = node}}
                     id="floatingCenterTitle"
-                    label="Full Name"
+                    label="First Name"
                     lineDirection="center"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your first name"
                     className="md-cell md-cell--bottom"
+                />
+                <TextField ref={node => {lastName = node}}
+                           id="floatingCenterTitle"
+                           label="Last Name"
+                           lineDirection="center"
+                           placeholder="Enter your last name"
+                           className="md-cell md-cell--bottom"
                 />
                 <TextField ref={node => {userName = node}}
                     id="floatingCenterTitle"

@@ -29,7 +29,8 @@ export const completedRegistration = () => {
 }
 
 
-export const postRegDetails = (fullName,
+export const postRegDetails = (firstName,
+                               lastName,
                                userName,
                                dob,
                                email,
@@ -42,8 +43,8 @@ export const postRegDetails = (fullName,
     return dispatch => {
         const url = "https://45.76.113.175:8443/askconsultant/rest/user"
         const regDetails = {
-            "firstname" : fullName,
-            "lastname" : fullName,
+            "firstname" : firstName,
+            "lastname" : lastName,
             "preferedname" : userName,
             dob,
             email,
