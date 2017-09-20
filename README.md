@@ -3,6 +3,8 @@ Deloitte AskConsultantApp
 
 This project is related to Softeng 761 Agile
 
+More details can be found in the Github Wiki
+
 ## Directory Structure
 
 We set up our directories like this:
