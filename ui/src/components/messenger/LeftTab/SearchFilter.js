@@ -20,6 +20,7 @@ class SearchFilter extends Component {
                 </div>
                 <div id="filter_dropdown">
                     <SelectField
+                        id="sort-by"
                         label="Sort by..."
                     />
                 </div>
