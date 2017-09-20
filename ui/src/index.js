@@ -31,7 +31,7 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={UserChatPage}/>
+                <Route path="/" exact component={LoginPage}/>
                 <Route path="/register" component={RegisterPage}/>
                 <MessageRoute path="/messenger" component={UserChatPage}/>
                 {/* The employees/consultants need to access this directly. No direct click to this place*/}
