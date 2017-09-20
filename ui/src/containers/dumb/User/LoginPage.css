@@ -53,3 +53,11 @@ a:hover{
     text-align: center;
 
 }
+
+#error_msg{
+    color: red;
+}
+
+#success_msg{
+    color: green;
+}

@@ -20,4 +20,9 @@
 #filter_dropdown{
     height: 100%;
     float: right;
+    width: 25%;
+}
+
+#sort-by-menu{
+    width: 100%;
 }

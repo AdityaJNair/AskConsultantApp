@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
+import registrationReducer from "./registrationReducer";
 const initialState = {
     status: '',
     token: '',
     pending: false,
     userid: '',
     firstName: '',
-    lastName: ''
+    lastName: '',
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -34,14 +35,22 @@ const loginReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 status: action.status,
                 pending: false,
+                errorMsg: action.errorMsg
+            })
+        case 'RESET_ERROR_MSG':
+            console.log("RESET_ERROR_MSG")
+            return Object.assign({}, state, {
+                errorMsg: action.errorMsg
             })
         default:
             return state
     }
 }
 
+
 const reducers = combineReducers({
-    loginInfo: loginReducer
+    loginInfo: loginReducer,
+    registrationInfo: registrationReducer
 })
 
 export default reducers

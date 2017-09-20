@@ -4,35 +4,44 @@ import SelectField from 'react-md/lib/SelectFields';
 import DatePicker from 'react-md/lib/Pickers/DatePickerContainer';
 import '../../../containers/dumb/User/RegisterPage.css';
 
-const gender = ["Male", "Female", "Gender diverse"];
+const genderOptions = ["Male", "Female", "Gender diverse"];
 
-class PersonalInformation extends Component {
+export let firstName, lastName, userName, dob, email, gender, password;
+
+export class PersonalInformation extends Component {
     render() {
         return (
             <div class="canvas">
                 <h2>Personal Information</h2>
-                <TextField
+                <TextField ref={node => {firstName = node}}
                     id="floatingCenterTitle"
-                    label="Full Name"
+                    label="First Name"
                     lineDirection="center"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your first name"
                     className="md-cell md-cell--bottom"
                 />
-                <TextField
+                <TextField ref={node => {lastName = node}}
+                           id="floatingCenterTitle"
+                           label="Last Name"
+                           lineDirection="center"
+                           placeholder="Enter your last name"
+                           className="md-cell md-cell--bottom"
+                />
+                <TextField ref={node => {userName = node}}
                     id="floatingCenterTitle"
                     label="User Name"
                     lineDirection="center"
                     placeholder="Enter your user name"
                     className="md-cell md-cell--bottom"
                 />
-                <DatePicker
+                <DatePicker ref={node => {dob = node}}
                     id="appointment"
                     label="Date of Birth"
                     className="md-cell"
                     maxDate={new Date()}
                 />
 
-                <TextField
+                <TextField ref={node => {email = node}}
                     id="floatingCenterTitle"
                     label="Email"
                     lineDirection="center"
@@ -40,10 +49,10 @@ class PersonalInformation extends Component {
                     className="md-cell md-cell--bottom"
                 />
 
-                <SelectField
+                <SelectField ref={node => {gender = node}}
                     label="Gender"
                     placeholder="Select a State"
-                    menuItems={gender}
+                    menuItems={genderOptions}
                     itemLabel="name"
                     itemValue="abbreviation"
                     className="md-cell"
@@ -51,7 +60,7 @@ class PersonalInformation extends Component {
                     helpText="Select your gender"
                 />
 
-                <TextField
+                <TextField ref={node => {password = node}}
                     id="floatingCenterTitle"
                     label="Password"
                     lineDirection="center"
