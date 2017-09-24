@@ -1,11 +1,8 @@
 package com.askconsultant.interactive;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
+import javax.inject.Inject;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -24,12 +21,10 @@ import com.askconsultant.resource.converter.ChatMessageJSONEncoder;
 		ChatMessageJSONEncoder.class }, decoders = { ChatMessageJSONDecoder.class })
 public class ChatInterface {
 
-	// list of sessions
-	private static List<Session> peers = Collections.synchronizedList(new ArrayList<Session>());
-	// Map of conversation id to sessions
-	private static Map<String, List<Session>> liveSessions = Collections
-			.synchronizedMap(new HashMap<String, List<Session>>());
 	private Logger logger = LoggerFactory.getLogger(getClass());
+
+	@Inject
+	ChatSessionRegister chatRegister;
 
 	/**
 	 * On connection open add the session to live sessions
@@ -42,14 +37,7 @@ public class ChatInterface {
 	public void onConnectionOpen(Session session, @PathParam("userid") String userid,
 			@PathParam("conversationid") String conversationid) {
 		logger.info("Connection opened for userid:" + userid + ", sessionid:" + session.getId());
-		// add session and conversation id
-		peers.add(session);
-		List<Session> sessions = liveSessions.get(conversationid);
-		if (null == sessions) {
-			liveSessions.put(conversationid, peers);
-		} else {
-			sessions.add(session);
-		}
+		chatRegister.addSessionToConversation(Long.parseLong(conversationid), session);
 	}
 
 	/**
@@ -63,11 +51,8 @@ public class ChatInterface {
 	@OnMessage
 	public void receiveAndSendMessage(ChatMessage message, Session client, @PathParam("userid") String userid,
 			@PathParam("conversationid") String conversationid) {
-		// add message to conversation
-		// TODO: Add message to database
-		// broadcast message to other peers in the conversation
-		List<Session> peers = liveSessions.get(conversationid);
-		if (peers != null && !peers.isEmpty()) {
+		Set<Session> peers = chatRegister.getAllSessionsForConversationID(Long.parseLong(conversationid));
+		if (!peers.isEmpty()) {
 			ChatMessage chatmessage = new ChatMessage();
 			for (Session session : peers) {
 				chatmessage.setMessage(message.getMessage());
@@ -75,6 +60,7 @@ public class ChatInterface {
 				chatmessage.setConversationid(Long.parseLong(conversationid));
 				chatmessage.setUserid(userid);
 				chatmessage.setSentAt("date time");
+				chatmessage.setSenderSent(true);
 				session.getAsyncRemote().sendObject(chatmessage);
 			}
 		}
@@ -88,7 +74,7 @@ public class ChatInterface {
 	@OnClose
 	public void onConnectionClose(Session session) {
 		logger.info("Connection close sessionid:" + session.getId());
-		peers.remove(session);
+		chatRegister.addToClosedSessions(session);
 	}
 
 }

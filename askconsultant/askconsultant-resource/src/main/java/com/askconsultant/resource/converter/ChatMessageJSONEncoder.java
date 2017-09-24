@@ -27,6 +27,11 @@ public class ChatMessageJSONEncoder implements Encoder.Text<ChatMessage>{
 		jsonObject.addProperty("sentbyuserid", object.getUserid());
 		jsonObject.addProperty("conversationid", object.getConversationid());
 		jsonObject.addProperty("sentat", object.getSentAt());
+		if(object.isSenderSent()) {
+			jsonObject.addProperty("sendersent", "true");
+		}else {
+			jsonObject.addProperty("sendersent", "false");
+		}
 		return jsonObject.toString();
 	}
 

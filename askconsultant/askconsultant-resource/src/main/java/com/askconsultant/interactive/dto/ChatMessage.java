@@ -11,6 +11,7 @@ public class ChatMessage {
 	private long conversationid;
 	private String displayName;
 	private String sentAt;
+	private boolean isSenderSent;
 	
 	public String getMessage() {
 		return message;
@@ -41,6 +42,12 @@ public class ChatMessage {
 	}
 	public void setSentAt(String sentAt) {
 		this.sentAt = sentAt;
+	}
+	public boolean isSenderSent() {
+		return isSenderSent;
+	}
+	public void setSenderSent(boolean isSenderSent) {
+		this.isSenderSent = isSenderSent;
 	}
 	
 }
