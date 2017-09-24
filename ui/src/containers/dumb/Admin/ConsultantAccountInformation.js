@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import Button from 'react-md/lib/Buttons/Button';
-
 import {consultantsTopics,development,strategyAndOperations,everydayDeloitte,humanCapital,technology,other} from './topics.js';
 
 export let name, email, password,role,primaryTopic,primarySubTopic,secondaryTopic,secondarySubTopic;
@@ -46,6 +45,98 @@ class RegistrationAccount extends Component {
 }
 
 class RegistrationExtraDetails extends Component {
+  constructor () {
+    super();
+    this.state = {
+      primarySubTopicList : [],
+      primarySubTopicListDisabled : true,
+      secondarySubTopicList : [],
+      secondarySubTopicListDisabled : true,
+    }
+  }
+
+  updatePrimaryList= (event, index, value) => {
+    switch(event){
+      case 'Development':
+        this.setState({
+            primarySubTopicList : development,
+            primarySubTopicListDisabled : false
+        })
+        break;
+      case 'Everyday Deloitte':
+        this.setState({
+          primarySubTopicList : everydayDeloitte,
+          primarySubTopicListDisabled : false
+        })
+        break;
+      case 'Human Capital':
+        this.setState({
+          primarySubTopicList : humanCapital,
+          primarySubTopicListDisabled : false
+        })
+        break;
+      case 'Strategy & Operations':
+        this.setState({
+          primarySubTopicList : strategyAndOperations,
+          primarySubTopicListDisabled : false
+        })
+        break;
+      case 'Technology':
+        this.setState({
+          primarySubTopicList : technology,
+          primarySubTopicListDisabled : false
+        })
+      break;
+      default:
+        this.setState({
+          primarySubTopicList : null,
+          primarySubTopicListDisabled : true
+        })
+    }
+  }
+
+  updateSecondaryList= (event, index, value) => {
+    switch(event){
+      case 'Development':
+        this.setState({
+            secondarySubTopicList : development,
+            secondarySubTopicListDisabled : false
+        })
+        break;
+      case 'Everyday Deloitte':
+        this.setState({
+          secondarySubTopicList : everydayDeloitte,
+          secondarySubTopicListDisabled : false
+        })
+        break;
+      case 'Human Capital':
+        this.setState({
+          secondarySubTopicList : humanCapital,
+          secondarySubTopicListDisabled : false
+        })
+        break;
+      case 'Strategy & Operations':
+        this.setState({
+          secondarySubTopicList : strategyAndOperations,
+          secondarySubTopicListDisabled : false
+        })
+        break;
+      case 'Technology':
+        this.setState({
+          secondarySubTopicList : technology,
+          secondarySubTopicListDisabled : false
+        })
+      break;
+      default:
+        this.setState({
+          secondarySubTopicList : null,
+          secondarySubTopicListDisabled : true
+        })
+    }
+  }
+
+
+
   render() {
     return (
       <div class="canvas">
@@ -61,6 +152,7 @@ class RegistrationExtraDetails extends Component {
               label="Primary Topic"
               placeholder="Select a State"
               menuItems={consultantsTopics}
+              onChange={this.updatePrimaryList.bind(this)}
               itemLabel="name"
               itemValue="abbreviation"
               className="md-cell"
@@ -70,7 +162,8 @@ class RegistrationExtraDetails extends Component {
           <SelectField ref={node => {primarySubTopic = node}}
               label="Sub Topic for Primary"
               placeholder="Select a State"
-              menuItems={consultantsTopics}
+              menuItems={this.state.primarySubTopicList}
+              disabled={this.state.primarySubTopicListDisabled}
               itemLabel="name"
               itemValue="abbreviation"
               className="md-cell"
@@ -81,6 +174,7 @@ class RegistrationExtraDetails extends Component {
               label="Secondary Topic"
               placeholder="Select a State"
               menuItems={consultantsTopics}
+              onChange={this.updateSecondaryList.bind(this)}
               itemLabel="name"
               itemValue="abbreviation"
               className="md-cell"
@@ -90,7 +184,8 @@ class RegistrationExtraDetails extends Component {
           <SelectField ref={node => {secondarySubTopic = node}}
               label="Secondary Topic"
               placeholder="Select a State"
-              menuItems={consultantsTopics}
+              menuItems={this.state.secondarySubTopicList}
+              disabled={this.state.secondarySubTopicListDisabled}
               itemLabel="name"
               itemValue="abbreviation"
               className="md-cell"
