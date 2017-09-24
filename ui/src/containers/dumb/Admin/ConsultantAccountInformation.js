@@ -50,8 +50,6 @@ class RegistrationExtraDetails extends Component {
     this.state = {
       primarySubTopicList : [],
       primarySubTopicListDisabled : true,
-      secondarySubTopicList : [],
-      secondarySubTopicListDisabled : true,
     }
   }
 
@@ -60,82 +58,45 @@ class RegistrationExtraDetails extends Component {
       case 'Development':
         this.setState({
             primarySubTopicList : development,
-            primarySubTopicListDisabled : false
+            primarySubTopicListDisabled : false,
+            primaryVal: event
         })
         break;
       case 'Everyday Deloitte':
         this.setState({
           primarySubTopicList : everydayDeloitte,
-          primarySubTopicListDisabled : false
+          primarySubTopicListDisabled : false,
+          primaryVal: event
         })
         break;
       case 'Human Capital':
         this.setState({
           primarySubTopicList : humanCapital,
-          primarySubTopicListDisabled : false
+          primarySubTopicListDisabled : false,
+          primaryVal: event
         })
         break;
       case 'Strategy & Operations':
         this.setState({
           primarySubTopicList : strategyAndOperations,
-          primarySubTopicListDisabled : false
+          primarySubTopicListDisabled : false,
+          primaryVal: event
         })
         break;
       case 'Technology':
         this.setState({
           primarySubTopicList : technology,
-          primarySubTopicListDisabled : false
+          primarySubTopicListDisabled : false,
+          primaryVal: event
         })
       break;
       default:
         this.setState({
-          primarySubTopicList : null,
+          primarySubTopicList : [],
           primarySubTopicListDisabled : true
         })
     }
   }
-
-  updateSecondaryList= (event, index, value) => {
-    switch(event){
-      case 'Development':
-        this.setState({
-            secondarySubTopicList : development,
-            secondarySubTopicListDisabled : false
-        })
-        break;
-      case 'Everyday Deloitte':
-        this.setState({
-          secondarySubTopicList : everydayDeloitte,
-          secondarySubTopicListDisabled : false
-        })
-        break;
-      case 'Human Capital':
-        this.setState({
-          secondarySubTopicList : humanCapital,
-          secondarySubTopicListDisabled : false
-        })
-        break;
-      case 'Strategy & Operations':
-        this.setState({
-          secondarySubTopicList : strategyAndOperations,
-          secondarySubTopicListDisabled : false
-        })
-        break;
-      case 'Technology':
-        this.setState({
-          secondarySubTopicList : technology,
-          secondarySubTopicListDisabled : false
-        })
-      break;
-      default:
-        this.setState({
-          secondarySubTopicList : null,
-          secondarySubTopicListDisabled : true
-        })
-    }
-  }
-
-
 
   render() {
     return (
@@ -168,29 +129,7 @@ class RegistrationExtraDetails extends Component {
               itemValue="abbreviation"
               className="md-cell"
               helpOnFocus
-              helpText="Select primary sub topic"
-          />
-          <SelectField ref={node => {secondaryTopic = node}}
-              label="Secondary Topic"
-              placeholder="Select a State"
-              menuItems={consultantsTopics}
-              onChange={this.updateSecondaryList.bind(this)}
-              itemLabel="name"
-              itemValue="abbreviation"
-              className="md-cell"
-              helpOnFocus
-              helpText="Select secondary topic"
-          />
-          <SelectField ref={node => {secondarySubTopic = node}}
-              label="Secondary Topic"
-              placeholder="Select a State"
-              menuItems={this.state.secondarySubTopicList}
-              disabled={this.state.secondarySubTopicListDisabled}
-              itemLabel="name"
-              itemValue="abbreviation"
-              className="md-cell"
-              helpOnFocus
-              helpText="Select secondary sub topic"
+              helpText="Select sub topic"
           />
       </div>
     );
