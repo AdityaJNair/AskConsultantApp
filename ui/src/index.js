@@ -17,7 +17,7 @@ import LoginPage from './containers/smart/User/LoginPage';
 import UserChatPage from './containers/dumb/User/UserChatPage';
 import EmployeeLoginPage from "./containers/dumb/Employee/EmployeeLoginPage";
 import EmployeeChatPage from "./containers/dumb/Employee/EmployeeChatPage.js";
-import ConsultantAccountInformation from "./containers/dumb/Admin/ConsultantAccountInformation";
+import ConsultantAccountInformation from "./containers/smart/Admin/ConsultantAccountInformation";
 
 const store = createStore(
     reducers,
