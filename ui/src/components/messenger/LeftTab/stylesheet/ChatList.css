@@ -7,6 +7,7 @@
     top:0;
     right: 0;
     height: calc(100% - 172px);
+    background-color: white;
 }
 
 #chat-list::-webkit-scrollbar-track
@@ -19,12 +20,12 @@
 #chat-list::-webkit-scrollbar
 {
     width: 12px;
-    background-color: #F5F5F5;
+    background-color:rgb(117,120,123);
 }
 
 #chat-list::-webkit-scrollbar-thumb
 {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
+    background-color: rgb(117,120,123);
 }

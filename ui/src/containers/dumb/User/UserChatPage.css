@@ -19,15 +19,13 @@ html, #root, [data-reactroot], #whole-page {
     top: 0;
     width: 100%;
     height: 43px;
-    border-bottom: solid darkgreen 2px;
 }
 
 #messenger-left-column {
     float: left;
     width:25%;
     height: 100%;
-    border-right: solid grey;
-    border-left: solid grey;
+    border-right: solid rgb(117,120,123);
     position: relative;
 }
 
@@ -36,6 +34,7 @@ html, #root, [data-reactroot], #whole-page {
     float:right;
     width: 75%;
     height: 100%;
+    background-color: white;
 }
 
 /*.button {*/
