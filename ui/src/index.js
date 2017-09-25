@@ -10,14 +10,14 @@ import {
     Route,
     Switch
 } from 'react-router-dom'
-import reducers from './reducers/loginReducer'
+import reducers from './reducers/groupedReducer'
 import MessageRoute from './routes/MessageRoute'
 import RegisterPage from './containers/smart/User/RegisterPage';
 import LoginPage from './containers/smart/User/LoginPage';
 import UserChatPage from './containers/dumb/User/UserChatPage';
 import EmployeeLoginPage from "./containers/dumb/Employee/EmployeeLoginPage";
-import EmployeeRegistrationPage from "./containers/dumb/Employee/EmployeeRegistrationPage";
 import EmployeeChatPage from "./containers/dumb/Employee/EmployeeChatPage.js";
+import ConsultantAccountInformation from "./containers/smart/Admin/ConsultantAccountInformation";
 
 const store = createStore(
     reducers,
@@ -36,8 +36,10 @@ ReactDOM.render(
                 <MessageRoute path="/messenger" component={UserChatPage}/>
                 {/* The employees/consultants need to access this directly. No direct click to this place*/}
                 <Route path="/consultants" component={EmployeeLoginPage}/>
-                <Route path="/consultants_register" component={EmployeeRegistrationPage}/>
                 <Route path="/consultants_messenger" component={EmployeeChatPage}/>
+                {/*Admin create consultant*/}
+                <Route path="/register_new_consultant" component={ConsultantAccountInformation}/>
+
             </Switch>
         </BrowserRouter>
     </Provider>
