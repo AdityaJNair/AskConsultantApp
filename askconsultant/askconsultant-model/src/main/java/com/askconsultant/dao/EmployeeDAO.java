@@ -56,5 +56,21 @@ public class EmployeeDAO {
 		} else
 			return queryResult.get(0);
 	}
+	
+	/**
+	 * Checks if an employee is present or not
+	 * @param userid
+	 * @return
+	 */
+	public boolean isEmployeeRegistered(String userid) {
+		boolean isEmployeePresent = true;
+		try {
+			Employee employee = this.getEmployeeByUserID(userid);
+		} catch (InvalidUserException e) {
+			isEmployeePresent = false;
+		}
+		return isEmployeePresent;
+	}
+	
 
 }

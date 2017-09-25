@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.askconsultant.common.ResourceConstants;
+import com.askconsultant.common.json.JsonWriter;
+import com.askconsultant.exception.EmployeeExistsException;
 import com.askconsultant.resource.converter.OperationFailureJSONConvertor;
 import com.askconsultant.resource.converter.RegistrationJSONConverter;
 import com.askconsultant.service.RegistrationService;
@@ -20,7 +22,7 @@ import com.askconsultant.service.RegistrationService;
  * Contains methods for managing registration for employee
  *
  */
-@Path("/employee")
+@Path("/admin/employee")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class EmployeeResource {
@@ -40,17 +42,20 @@ public class EmployeeResource {
 	 * Registers the user with the information in the json payload
 	 * 
 	 * @param json
-	 * @return
-	 * @throws Exception
 	 */
 	@POST
-	public Response register(final String json) throws Exception {
+	public Response register(final String json) {
 		logger.debug("Registering employee");
 
-		com.askconsultant.service.dto.User userDetails = registrationJSONConverter.convertEmployeeRegistrationJSON(json);
-		registrationService.register(userDetails);
 		try {
+			com.askconsultant.service.dto.User userDetails = registrationJSONConverter
+					.convertEmployeeRegistrationJSON(json);
+			registrationService.registerEmployee(userDetails);
 			return Response.status(ResourceConstants.HTTP_RESPONSE_OK).build();
+		} catch (EmployeeExistsException e) {
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage())))
+					.build();
 		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR).build();
 		}
