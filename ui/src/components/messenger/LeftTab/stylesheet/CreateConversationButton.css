@@ -17,3 +17,15 @@
     margin-top: 22px;
     margin-bottom: 22px;
 }
+
+#simple-list-dialog{
+    width:50%;
+}
+
+#topic_field-menu{
+    width:50%;
+    float:left;
+}
+#topic_field{
+    float:left;
+}
