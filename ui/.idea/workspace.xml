@@ -17,8 +17,8 @@
       <file leaf-file-name="SearchFilter.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/SearchFilter.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+            <state relative-caret-position="95">
+              <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -27,18 +27,18 @@
       <file leaf-file-name="CreateConversationButton.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/CreateConversationButton.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+            <state relative-caret-position="95">
+              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessengerTextComponent.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessengerTextComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/messenger/MessengerBox/MessengerTextComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+            <state relative-caret-position="266">
+              <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -50,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/horizontalNavigation/HorizontalNavBar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+              <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -62,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/horizontalNavigation/stylesheet/HorizontalNavBar.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -72,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/MessengerTextComponent.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+              <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -88,21 +88,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatItem.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatItem.css">
+      <file leaf-file-name="ChatList.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatList.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            <state relative-caret-position="171">
+              <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatList.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatList.css">
+      <file leaf-file-name="ChatItem.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatItem.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            <state relative-caret-position="133">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -171,14 +171,15 @@
         <option value="$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/text_area.scss" />
         <option value="$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/a.scss" />
         <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/CreateConversationButton.js" />
-        <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatList.css" />
-        <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatItem.css" />
         <option value="$PROJECT_DIR$/src/components/horizontalNavigation/HorizontalNavBar.js" />
         <option value="$PROJECT_DIR$/src/containers/dumb/User/UserChatPage.css" />
-        <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/SearchFilter.css" />
+        <option value="$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/messeage_area.sass" />
+        <option value="$PROJECT_DIR$/src/components/messenger/MessengerBox/MessengerTextComponent.js" />
         <option value="$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/MessengerTextComponent.css" />
         <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/CreateConversationButton.css" />
-        <option value="$PROJECT_DIR$/src/components/messenger/MessengerBox/MessengerTextComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatList.css" />
+        <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/SearchFilter.css" />
+        <option value="$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatItem.css" />
       </list>
     </option>
   </component>
@@ -266,6 +267,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="messenger" type="462c0819:PsiDirectoryNode" />
+              <item name="LeftTab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="messenger" type="462c0819:PsiDirectoryNode" />
+              <item name="LeftTab" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="messenger" type="462c0819:PsiDirectoryNode" />
               <item name="MessengerBox" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -297,14 +315,6 @@
               <item name="containers" type="462c0819:PsiDirectoryNode" />
               <item name="dumb" type="462c0819:PsiDirectoryNode" />
               <item name="Employee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="dumb" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ui" type="b2602c69:ProjectViewProjectNode" />
@@ -400,12 +410,12 @@
       <workItem from="1505797651357" duration="369000" />
       <workItem from="1505868618204" duration="510000" />
       <workItem from="1505880755248" duration="86000" />
-      <workItem from="1506292187659" duration="17612000" />
+      <workItem from="1506292187659" duration="21393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69511000" />
+    <option name="totallyTimeSpent" value="73292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -443,8 +453,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/containers/LoginPage.css" />
-    <entry file="file://$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/MessageWindow.css" />
     <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/MessengerLeftColumn.css" />
     <entry file="file://$PROJECT_DIR$/src/containers/UserChatPage.js" />
     <entry file="file://$PROJECT_DIR$/src/containers/UserChatPage.css" />
@@ -534,18 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/dumb/User/LoginPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1506292162072" expanded="true" signature="2729:2976" ph="&lt;div/&gt;" />
-            <marker date="1506292162072" expanded="true" signature="2729:2993" ph="{...}" />
-            <marker date="1506292162072" expanded="true" signature="2729:2995" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/dumb/User/RegisterPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1083">
@@ -616,7 +612,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -626,7 +622,7 @@
         <state relative-caret-position="190">
           <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -671,19 +667,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatItem.css">
+    <entry file="file://$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/messeage_area.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        <state relative-caret-position="-513">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatList.css">
+    <entry file="file://$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/messeage_area.sass">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="114">
+          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/dumb/User/LoginPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="67" column="33" lean-forward="true" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
+          <folding>
+            <marker date="1506292162072" expanded="true" signature="2729:2976" ph="&lt;div/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -695,28 +701,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/SearchFilter.css">
+    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/CreateConversationButton.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        <state relative-caret-position="95">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/horizontalNavigation/HorizontalNavBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/horizontalNavigation/stylesheet/HorizontalNavBar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -724,26 +720,52 @@
     <entry file="file://$PROJECT_DIR$/src/components/messenger/MessengerBox/stylesheet/MessengerTextComponent.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/CreateConversationButton.css">
+    <entry file="file://$PROJECT_DIR$/src/components/horizontalNavigation/HorizontalNavBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="190">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/messenger/MessengerBox/MessengerTextComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+        <state relative-caret-position="266">
+          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/SearchFilter.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatList.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/messenger/LeftTab/stylesheet/ChatItem.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

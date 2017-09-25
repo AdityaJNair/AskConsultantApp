@@ -4,8 +4,7 @@
     height:80px;
     float: left;
     border-bottom: solid rgb(117,120,123);
-    border-top: solid white;
-    background-color: black;
+    background-color: rgb(197,200,203);
 }
 
 #search_field{
