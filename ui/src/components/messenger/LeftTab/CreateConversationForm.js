@@ -5,7 +5,7 @@ import TextField from 'react-md/lib/TextFields/TextField'
 import Dialog from 'react-md/lib/Dialogs/Dialog'
 import './stylesheet/CreateConversationDialog.css'
 
-class CreateConversationDialog extends PureComponent {
+class CreateConversationForm extends PureComponent {
     constructor(props) {
         super(props);
         this.state = { visible: false };
@@ -51,4 +51,4 @@ class CreateConversationDialog extends PureComponent {
             )
         }
     }
-export default CreateConversationDialog;
+export default CreateConversationForm;
