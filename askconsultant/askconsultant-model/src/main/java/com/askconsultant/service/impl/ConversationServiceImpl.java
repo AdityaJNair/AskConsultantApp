@@ -32,6 +32,9 @@ public class ConversationServiceImpl implements ConversationService {
 	public Conversation addConversation(Conversation conversation) {
 		conversation.setCreatedatetime(Timestamp.valueOf(LocalDateTime.now()));
 		conversation.setStatus(Constants.CONVERSATION_STATUS_ACTIVE);
+		conversation.setName(conversation.getName());
+		conversation.setCategory(conversation.getCategory());
+		conversation.setSubCategory(conversation.getSubCategory());
 		return conversationDAO.addConversation(conversation);
 	}
 
