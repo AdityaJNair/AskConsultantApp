@@ -36,6 +36,11 @@ public class User {
 	private String industry;
 	private String interest;
 	private String source;
+	//employee fields
+	private String name;
+	private String role;
+	private String primaryTopic;
+	private String primarySubTopic;
 
 	public String getIndustry() {
 		return industry;
@@ -155,5 +160,45 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getPrimaryTopic() {
+		return primaryTopic;
+	}
+
+	public void setPrimaryTopic(String primaryTopic) {
+		this.primaryTopic = primaryTopic;
+	}
+
+	public String getPrimarySubTopic() {
+		return primarySubTopic;
+	}
+
+	public void setPrimarySubTopic(String primarySubTopic) {
+		this.primarySubTopic = primarySubTopic;
 	}
 }

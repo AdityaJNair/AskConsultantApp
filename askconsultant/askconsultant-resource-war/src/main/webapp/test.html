@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WebSocket Test</title>
+</head>
+<body>
+	<h1>WebSocket Test Client</h1>
+	<h4>URL Format: wss://{server-ip}:{port}/askconsultant/interactive/users/{userid}/conversations/{conversationid1}/chat </h4>
+	Example (online server) <br>
+	wss://45.76.113.175:8443/askconsultant/interactive/users/test@test.com/conversations/2/chat
+	<div>
+	<p>Enter the URL in the above format and click on 'Open' to open the connection. Enter any text in the text box below and click 'Send Message'. You should be able to get a return back from the server.
+	<br>
+	Note: Check if your browser has accepted the server's SSL certificate if you do not receive any message back from the server.
+	</p>
+	</div>
+	
+	<p>
+		<input id="server" type="text" size="40">
+		<button onclick="openSocket()">Open</button>
+		<button onclick="closeSocket()">Close</button>
+	</p>
+
+	<p>
+		<input id="message" type="text" size="40">
+		<button onclick="sendText()">Send Message</button>
+	</p>
+
+	<ul id="messages"></ul>
+
+	<script>
+		var ws;
+		function openSocket() {
+			log('opening');
+			var url = document.getElementById('server').value;
+			ws = new WebSocket(url);
+			ws.onopen = function() {
+				log('open');
+				sessionStorage.echoServer = url;
+			};
+			ws.onclose = function() {
+				log('close');
+			};
+			ws.onmessage = function(e) {
+				var resp = JSON.parse(e.data);
+				var msg = resp.message + " sent by " + resp.sentbydisplayname;
+				log('received: ' + msg);
+			};
+			ws.onerror = function() {
+				log('error');
+			};
+		}
+		function closeSocket() {
+			log('closing');
+			ws.close();
+		}
+		function sendText() {
+			var message = document.getElementById('message').value;
+			var jsonString = { "message": message, "userid":"test@test.com", "conversationid":"3"};
+			var myJSON = JSON.stringify(jsonString);
+			log('sending: ' + jsonString);
+			ws.send(myJSON);
+		}
+
+		function log(message) {
+			var li = document.createElement('li');
+			li.innerHTML = message;
+			document.getElementById('messages').appendChild(li);
+		}
+		if (sessionStorage.echoServer) {
+			document.getElementById('server').value = sessionStorage.echoServer;
+		}
+	</script>
+</body>
+</html>

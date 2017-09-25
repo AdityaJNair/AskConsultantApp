@@ -51,8 +51,8 @@ public class TestAuthenticationServiceImpl {
 		User user = getUserForValidUser();
 		user.setEmployee(false);
 		// set the mock expectations
-		when(userDAO.getUserByUserID(user.getUserID())).thenThrow((new InvalidUserException("User does not exist")));
 		try {
+			when(userDAO.getUserByUserID(user.getUserID())).thenThrow((new InvalidUserException("User does not exist")));
 			authenticationService.login(user);
 			fail();
 		} catch (Exception e) {
@@ -65,9 +65,9 @@ public class TestAuthenticationServiceImpl {
 		User user = getUserForValidUser();
 		user.setEmployee(true);
 		// set the mock expectations
-		when(employeeDAO.getEmployeeByUserID(user.getUserID()))
-		.thenThrow((new InvalidUserException("User does not exist")));
 		try {
+			when(employeeDAO.getEmployeeByUserID(user.getUserID()))
+			.thenThrow((new InvalidUserException("User does not exist")));
 			authenticationService.login(user);
 			fail();
 		} catch (Exception e) {
