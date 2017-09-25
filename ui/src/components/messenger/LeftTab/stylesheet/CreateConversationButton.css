@@ -20,12 +20,22 @@
 
 #simple-list-dialog{
     width:50%;
+    overflow: auto;
+}
+
+#create-conversation-topics{
+    overflow-y: hidden;
 }
 
 #topic_field-menu{
-    width:50%;
+    width:40%;
     float:left;
 }
 #topic_field{
     float:left;
+}
+
+#subtopic_field-menu{
+    float:right;
+    width:40%;
 }

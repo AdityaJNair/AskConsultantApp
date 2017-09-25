@@ -8,7 +8,9 @@ import ListItem from 'react-md/lib/Lists/ListItem';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 
-const MENU_ITEMS= ["Accounting", "Tax Evasion", "Poop"];
+var MENU_ITEMS= ["Accounting", "Tax Evasion", "Poop"];
+
+
 class CreateConversationButton extends Component {
     state = { visible: false };
 
@@ -27,6 +29,9 @@ class CreateConversationButton extends Component {
             this.hide();
         }
     };
+    change = (e,value) =>{
+        console.log("TESTER");
+    }
 
     render() {
         const { visible } = this.state;
@@ -36,7 +41,7 @@ class CreateConversationButton extends Component {
 
         return (
             <div id="conversation-button-container" class="conversationDialog">
-                <Button id="create-conversation-button" raised onClick={this.show}>Open the dialog</Button>
+                <Button id="create-conversation-button" raised onClick={this.show}>Create Conversation</Button>
                 <DialogContainer
                     id="simple-list-dialog"
                     visible={visible}
@@ -52,19 +57,32 @@ class CreateConversationButton extends Component {
                     <TextField
                         id="floating-multiline"
                         label="Details"
-                        lineDirection="right"
                         rows={4}
                         placeholder="First Message..."
-                        className="md-cell md-cell--bottom"
                     />
-                    <SelectField
-                        id="topic_field"
-                        label="Topic"
-                        placeholder="Choose a Topic.."
-                        itemLabel="title"
-                        menuItems={MENU_ITEMS}
-                        className="md-cell"
-                    />
+                    <div id="create-conversation-topics">
+                        <SelectField
+                            id="topic_field"
+                            label="Topic"
+                            placeholder="Choose a Topic.."
+                            itemLabel="title"
+                            menuItems={MENU_ITEMS}
+                            className="md-cell"
+                            required
+                            value = {"TEST"}
+                            onChange={(e, index, value) => {console.log(value);this.onChange(value)}}
+                        />
+                        <SelectField
+                            id="subtopic_field"
+                            label="SubTopic"
+                            placeholder="Choose a SubTopic.."
+                            itemLabel="title"
+                            menuItems={MENU_ITEMS}
+                            className="md-cell"
+                            disabled
+
+                        />
+                    </div>
 
                 </DialogContainer>
             </div>
