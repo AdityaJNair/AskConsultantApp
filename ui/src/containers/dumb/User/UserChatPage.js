@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './UserChatPage.css';
 import HorizontalNavBar from "../../../components/horizontalNavigation/HorizontalNavBar";
 import MessengerLeftColumn from "../../../components/messenger/LeftTab/MessengerLeftColumn";
-import MessageWindow from "../../../components/messenger/MessengerBox/MessageWindow";
+import MessageViewSmart from "../../smart/Messenger/MessageView";
 
 class UserChat extends Component{
     render() {
@@ -13,11 +13,10 @@ class UserChat extends Component{
                 <div id="content">
                     <MessengerLeftColumn/>
                     <div id="user-message-window">
-                        <MessageWindow/>
+                        <MessageViewSmart/>
                     </div>
                 </div>
             </div>
-
         );
     }
 }
