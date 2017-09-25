@@ -14,7 +14,7 @@ import reducers from './reducers/groupedReducer'
 import MessageRoute from './routes/MessageRoute'
 import RegisterPage from './containers/smart/User/RegisterPage';
 import LoginPage from './containers/smart/User/LoginPage';
-import UserChatPage from './containers/dumb/User/UserChatPage';
+import UserChatPage from './containers/smart/User/UserChatPage';
 import EmployeeLoginPage from "./containers/smart/Employee/EmployeeLoginPage";
 import EmployeeChatPage from "./containers/dumb/Employee/EmployeeChatPage.js";
 import ConsultantAccountInformation from "./containers/smart/Admin/ConsultantAccountInformation";

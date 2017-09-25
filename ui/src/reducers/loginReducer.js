@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux'
-import registrationReducer from "./registrationReducer";
 const initialState = {
     status: '',
     token: '',

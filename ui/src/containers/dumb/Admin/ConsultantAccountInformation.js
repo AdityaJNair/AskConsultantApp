@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import Button from 'react-md/lib/Buttons/Button';
-import {consultantsTopics,development,strategyAndOperations,everydayDeloitte,humanCapital,technology,other} from './topics.js';
+import {consultantsTopics,development,strategyAndOperations,everydayDeloitte,humanCapital,technology} from './topics.js';
 import {postRegDetails} from '../../../actions/adminAction';
 
 export let name, email, password,passwordConfirm,role,primaryTopic,primarySubTopic;
@@ -188,12 +188,6 @@ class RegistrationAccount extends Component {
       case 'Technology':
         this.setState({
           primarySubTopicList : technology,
-          primarySubTopicListDisabled : false,
-        })
-      break;
-      case 'Other':
-        this.setState({
-          primarySubTopicList : other,
           primarySubTopicListDisabled : false,
         })
       break;
