@@ -75,7 +75,7 @@ export const fetchPosts = (userid, password, isEmployee) => {
                         return false;
                     }
                     else if (json.error !== undefined) {
-                        dispatch(badPosts("Error: Either email does not exist or password is invalid"))
+                        dispatch(badPosts("Error: Your combination of email and password is invalid, please try again"))
                         return false;
                     }
                     else {

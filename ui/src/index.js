@@ -15,7 +15,7 @@ import MessageRoute from './routes/MessageRoute'
 import RegisterPage from './containers/smart/User/RegisterPage';
 import LoginPage from './containers/smart/User/LoginPage';
 import UserChatPage from './containers/dumb/User/UserChatPage';
-import EmployeeLoginPage from "./containers/dumb/Employee/EmployeeLoginPage";
+import EmployeeLoginPage from "./containers/smart/Employee/EmployeeLoginPage";
 import EmployeeRegistrationPage from "./containers/dumb/Employee/EmployeeRegistrationPage";
 import EmployeeChatPage from "./containers/dumb/Employee/EmployeeChatPage.js";
 
@@ -37,7 +37,7 @@ ReactDOM.render(
                 {/* The employees/consultants need to access this directly. No direct click to this place*/}
                 <Route path="/consultants" component={EmployeeLoginPage}/>
                 <Route path="/consultants_register" component={EmployeeRegistrationPage}/>
-                <Route path="/consultants_messenger" component={EmployeeChatPage}/>
+                <MessageRoute path="/consultants_messenger" component={EmployeeChatPage}/>
             </Switch>
         </BrowserRouter>
     </Provider>
