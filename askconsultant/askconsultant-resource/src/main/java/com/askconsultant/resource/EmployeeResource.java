@@ -42,20 +42,18 @@ public class EmployeeResource {
 	 * Registers the user with the information in the json payload
 	 * 
 	 * @param json
-	 * @return
-	 * @throws Exception
 	 */
 	@POST
-	public Response register(final String json) throws Exception {
+	public Response register(final String json) {
 		logger.debug("Registering employee");
 
-		com.askconsultant.service.dto.User userDetails = registrationJSONConverter
-				.convertEmployeeRegistrationJSON(json);
 		try {
+			com.askconsultant.service.dto.User userDetails = registrationJSONConverter
+					.convertEmployeeRegistrationJSON(json);
 			registrationService.registerEmployee(userDetails);
 			return Response.status(ResourceConstants.HTTP_RESPONSE_OK).build();
 		} catch (EmployeeExistsException e) {
-			return Response.status(ResourceConstants.HTTP_RESPONSE_UNAUTHORIZED_ERROR)
+			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
 					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(e.getMessage())))
 					.build();
 		} catch (Exception e) {

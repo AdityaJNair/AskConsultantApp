@@ -23,7 +23,7 @@ public class UserDAO {
 		return user;
 	}
 
-	public User getUserByUserID(String userID) {
+	public User getUserByUserID(String userID) throws InvalidUserException {
 		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
 		CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
 		Root<User> root = criteriaQuery.from(User.class);
