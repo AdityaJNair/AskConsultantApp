@@ -1,4 +1,8 @@
 {
-  "userid": "email@email.com",
-  "password": "password"
+  "name": "Test Employee",
+  "email": "test@askconsultant.com",
+  "password": "password",
+  "role": "role",
+  "primaryTopic": "sometopic",
+  "primarySubTopic": "sometopic"
 }
