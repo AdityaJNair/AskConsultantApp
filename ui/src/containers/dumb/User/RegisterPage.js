@@ -71,9 +71,9 @@ class RegisterPanel extends Component {
   }
 
   verifyFields = (event) => {
-    console.log(event);
+    console.log(dob.state.value);
     if(firstName.value !== "" && lastName.value !== ""  && email.value !== "" &&
-        dob.value !== "" && industry.value !== "" && interest.value !== "" &&
+        dob.state.value !== "" && industry.value !== "" && interest.value !== "" &&
         source.value !== "" && userName.value !== "" && gender.value !== "" &&
         password.value !== "" && passwordConfirm.value !== "" && this.state.checkValue &&
         password.value === passwordConfirm.value){
@@ -147,7 +147,7 @@ class RegisterPanel extends Component {
           userNameError : false,
         })
       }
-      if(dob.value === ""){
+      if(dob.state.value === ""){
         this.setState({
           dobError : true,
         })
