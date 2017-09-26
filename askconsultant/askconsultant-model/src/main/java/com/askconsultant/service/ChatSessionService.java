@@ -1,4 +1,4 @@
-package com.askconsultant.interactive;
+package com.askconsultant.service;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import javax.ejb.Singleton;
 import javax.websocket.Session;
 
 @Singleton
-public class ChatSessionRegister {
+public class ChatSessionService {
 
 	private final Map<Long, Set<Session>> liveConversations = new HashMap<Long, Set<Session>>();
 	private final Set<Session> closedSessions = new HashSet<Session>();

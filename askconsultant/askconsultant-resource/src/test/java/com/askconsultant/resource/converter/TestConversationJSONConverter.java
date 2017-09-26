@@ -34,8 +34,8 @@ public class TestConversationJSONConverter {
 		try {
 			Conversation convert = conversationJSONConverter.convert(readJSONFile);
 			assertNotNull(convert);
-			assertEquals("name",convert.getName());
-			assertEquals("category",convert.getCategory());
+			assertEquals("Test question",convert.getName());
+			assertEquals("topic",convert.getCategory());
 		} catch (Exception e) {
 			fail();
 		}
