@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Divider from 'react-md/lib/Dividers/Divider'
-import CreateConversationDialog from "./CreateConversationForm";
-import CreateConversationButton from "./CreateConversationButton";
 import SearchFilter from "./SearchFilter";
 import ChatList from "./ChatList";
+import CreateConvoSmart from "../../../containers/smart/User/CreateConvoSmart"
 
 class MessengerLeftColumn extends Component {
     render(){
@@ -11,7 +9,7 @@ class MessengerLeftColumn extends Component {
             <div id="messenger-left-column">
                 <SearchFilter/>
                 <ChatList/>
-                <CreateConversationButton/>
+                <CreateConvoSmart/>
             </div>
         )
     }
