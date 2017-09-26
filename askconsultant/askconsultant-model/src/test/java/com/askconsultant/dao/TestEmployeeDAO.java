@@ -51,6 +51,10 @@ public class TestEmployeeDAO {
 		Employee employee = new Employee();
 		employee.setUserid("someUser");
 		employee.setPassword("somepassword");
+		employee.setName("Test Name");
+		employee.setPrimarySubTopic("Primary Subtopic");
+		employee.setPrimaryTopic("Primary topic");
+		employee.setRole("role");
 		return employee;
 	}
 

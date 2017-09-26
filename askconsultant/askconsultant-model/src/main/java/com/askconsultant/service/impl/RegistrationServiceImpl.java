@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import com.askconsultant.dao.EmployeeDAO;
 import com.askconsultant.dao.RegistrationDAO;
 import com.askconsultant.dao.UserDAO;
+import com.askconsultant.exception.EmployeeExistsException;
 import com.askconsultant.model.Employee;
 import com.askconsultant.model.RegistrationDetails;
 import com.askconsultant.model.User;
@@ -89,9 +90,17 @@ public class RegistrationServiceImpl implements RegistrationService {
 	 */
 	@Override
 	public void registerEmployee(com.askconsultant.service.dto.User userDetails) throws Exception {
+		
+		if(employeeDAO.isEmployeeRegistered(userDetails.getUserID())) {
+			throw new EmployeeExistsException("Employee is already registered");
+		}
 		Employee employee = new Employee();
 		employee.setUserid(userDetails.getUserID());
 		employee.setPassword(sha1(userDetails.getPassword()));
+		employee.setName(userDetails.getName());
+		employee.setRole(userDetails.getRole());
+		employee.setPrimaryTopic(userDetails.getPrimaryTopic());
+		employee.setPrimarySubTopic(userDetails.getPrimarySubTopic());
 		employeeDAO.addEmployee(employee);
 	}
 
