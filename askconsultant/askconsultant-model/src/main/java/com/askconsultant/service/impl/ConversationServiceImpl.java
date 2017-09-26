@@ -11,6 +11,7 @@ import com.askconsultant.dao.Constants;
 import com.askconsultant.dao.ConversationDAO;
 import com.askconsultant.dao.MessageDAO;
 import com.askconsultant.model.Conversation;
+import com.askconsultant.model.Message;
 import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.dto.ConversationAndMessages;
 
@@ -32,7 +33,20 @@ public class ConversationServiceImpl implements ConversationService {
 	public Conversation addConversation(Conversation conversation) {
 		conversation.setCreatedatetime(Timestamp.valueOf(LocalDateTime.now()));
 		conversation.setStatus(Constants.CONVERSATION_STATUS_ACTIVE);
-		return conversationDAO.addConversation(conversation);
+		conversation.setName(conversation.getName());
+		conversation.setCategory(conversation.getCategory());
+		conversation.setContent(conversation.getContent());
+		conversation.setSubCategory(conversation.getSubCategory());
+		Conversation storedConversation = conversationDAO.addConversation(conversation);
+		//add the first messages
+		Message message = new Message();
+		message.setConversation(storedConversation.getId());
+		message.setCreateDateTime(conversation.getCreatedatetime());
+		message.setMessage(conversation.getContent());
+		message.setSender(conversation.getOwner());
+		message.setStatus(Constants.MESSAGE_STATUS_ACTIVE);
+		messageDAO.addMesssage(message);
+		return storedConversation;
 	}
 
 	/* (non-Javadoc)

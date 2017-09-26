@@ -31,6 +31,7 @@ public class MessageDAO {
 	 * @return persisted message
 	 */
 	public Message addMesssage(Message message) {
+		message.setStatus(Constants.MESSAGE_STATUS_ACTIVE);
 		em.persist(message);
 		return message;
 	}
