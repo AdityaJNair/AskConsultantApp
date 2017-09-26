@@ -12,11 +12,10 @@ class ChatList extends Component {
     render(){
         return (
             <div id="chat-list" style = {{}}>
-                <ChatItem/>
-                <ChatItem/><ChatItem/>
-                <ChatItem/><ChatItem/>
-                <ChatItem/><ChatItem/>
-                <ChatItem/>
+                {Object.entries(this.props.conversations).map((item) =>(
+                    <ChatItem convoDetails={item}/>
+                ))}
+
             </div>
         )
     }

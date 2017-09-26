@@ -13,7 +13,7 @@ class ChatItem extends Component {
             <div className="chat-item">
                 <div id="chatItem_top">
                     <div id = "question_title">
-                        <h1>Title</h1>
+                        <h1>this.props.convoDetails.question</h1>
                     </div>
                     <div id = "question_menu">
                         <MenuButton

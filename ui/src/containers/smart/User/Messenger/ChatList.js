@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 import ChatList from "../../../../components/messenger/LeftTab/ChatList";
 
-const mapStateToProps = ({loginInfo}) => {
+const mapStateToProps = ({loginInfo, messengerInfo}) => {
     return {
-        userID: loginInfo.userid
+        userID: loginInfo.userid,
+        conversations: messengerInfo.conversations
     }
 }
 
