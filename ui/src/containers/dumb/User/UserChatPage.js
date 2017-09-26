@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './UserChatPage.css';
 import HorizontalNavBar from "../../../components/horizontalNavigation/HorizontalNavBar";
 import MessengerLeftColumn from "../../../components/messenger/LeftTab/MessengerLeftColumn";
-import MessageViewSmart from "../../smart/Messenger/MessageView";
+import MessageViewSmart from "../../smart/User/Messenger/MessageView";
 
 class UserChat extends Component{
     render() {
