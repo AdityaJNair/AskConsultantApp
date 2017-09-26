@@ -1,4 +1,4 @@
-package com.askconsultant.interactive;
+package com.askconsultant.service;
 
 import javax.annotation.Resource;
 import javax.ejb.Schedule;
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class SessionCleanUpService {
 
 	@Inject
-	ChatSessionRegister chatRegister;
+	ChatSessionService chatRegister;
 	
 	@Resource 
 	TimerService sessionCloseTimer;
