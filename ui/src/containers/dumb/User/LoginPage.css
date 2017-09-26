@@ -1,3 +1,9 @@
+body {
+    background: url(../../../images/StockSnap_R7I37OMZIU.jpg) 50% -40%;
+    background-size: cover;
+    color: rgb(117,120,123);
+}
+
 a{
     text-decoration: underline;
     color: blue;
@@ -32,14 +38,35 @@ a:hover{
     to { transform: rotate(360deg); }
 }
 
+#login-logo{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20px;
+    width: 300px;
+
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+}
+
+#login-paper{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    top: 100px;
+    padding: 150px 70px;
+    background-color: whitesmoke;
+}
+
 #login_panel{
-    width: 20%;
-    height: 500px;
-    margin-left: 40%;
-    margin-top: 100px;
 }
 
 #login_buttons {
+    margin-top: 20px;
     width: 100%;
     text-align: center;
 }
@@ -51,7 +78,6 @@ a:hover{
 #header{
     width: 100%;
     text-align: center;
-
 }
 
 #error_msg{

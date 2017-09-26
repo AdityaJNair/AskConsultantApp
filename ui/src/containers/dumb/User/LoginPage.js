@@ -6,6 +6,7 @@ import Button from 'react-md/lib/Buttons/Button';
 import { Link, Redirect } from 'react-router-dom'
 import { fetchPosts, resetErrorMsg} from '../../../actions/loginActions';
 import { resetSuccessMsg} from '../../../actions/registrationActions';
+import Paper from 'react-md/lib/Papers/Paper'
 
 let useridInput, passwordInput
 
@@ -42,14 +43,24 @@ class Login_panel extends Component {
     render() {
         const {dispatch, history} = this.props
         return (
-            <div id="login_panel">
-                <div id="header">
-                    <h1>Login</h1>
-                </div>
-                <label id='success_msg'>{this.props.successfulRegMsg}</label>
-                <Login_input />
-                <label id='error_msg'>{this.props.errorMsg}</label>
-                <Login_buttons {...this.props}/>
+            <div>
+                <img
+                    id="login-logo"
+                    src={require('../../../images/deloitte_logo_transparent.png')} />
+                <Paper
+                    id="login-paper"
+                    zDepth={3}
+                >
+                    <div id="login_panel">
+                        <div id="header">
+                            <h1>Login</h1>
+                        </div>
+                        <label id='success_msg'>{this.props.successfulRegMsg}</label>
+                        <Login_input />
+                        <label id='error_msg'>{this.props.errorMsg}</label>
+                        <Login_buttons {...this.props}/>
+                    </div>
+                </Paper>
             </div>
         );
     }
