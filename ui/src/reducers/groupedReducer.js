@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import registrationReducer from "./registrationReducer";
 import loginReducer from "./loginReducer";
-import  messengerReducer from "./messengerReducer";
+import  messengerReducer from "./MessengerReducer";
 
 const reducers = combineReducers({
     loginInfo: loginReducer,
