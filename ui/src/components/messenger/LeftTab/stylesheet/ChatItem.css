@@ -5,19 +5,20 @@
     border-radius: 20px;
     background-color: rgb(134,188,37);
     margin: 10px;
+    opacity: 0.75;
 }
 
 .chat-item h1{
-    color: white;
+    color: black;
 }
 
 .chat-item p{
-    color: white;
+    color: black;
 }
 
 .chat-item:hover{
-    background-color: rgb(98,181,229);
     border-bottom: solid rgb(117,120,123) 5px;
+    opacity: 1;
 }
 /*Top*/
 #chatItem_top{

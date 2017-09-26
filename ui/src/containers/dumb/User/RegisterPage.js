@@ -7,6 +7,7 @@ import SelectField from 'react-md/lib/SelectFields';
 import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import Button from 'react-md/lib/Buttons/Button';
 import Submit from '../../../components/Register/UserRegister/Submit.js'
+import logo from '../../../images/deloitte_logo.png'
 
 import {postRegDetails, completedRegistration} from "../../../actions/registrationActions";
 
@@ -253,155 +254,157 @@ class RegisterPanel extends Component {
 
     render() {
         return (
-            <div id="register_panel">
-                <h2>Register</h2>
-                  <form>
-                    <h2>Personal Information</h2>
-                    <TextField ref={node => {firstName = node}}
-                        required
-                        id="floatingCenterTitle"
-                        label="First Name"
-                        lineDirection="center"
-                        placeholder="Enter your first name"
-                        className="md-cell md-cell--bottom"
-                        error= {this.state.firstNameError}
-                        errorText="This field is required."
-                    />
-                    <TextField ref={node => {lastName = node}}
-                         required
-                         id="floatingCenterTitle"
-                         label="Last Name"
-                         lineDirection="center"
-                         placeholder="Enter your last name"
-                         className="md-cell md-cell--bottom"
-                         error= {this.state.lastNameError}
-                         errorText="This field is required."
-                    />
-                    <TextField ref={node => {userName = node}}
-                        required
-                        id="floatingCenterTitle"
-                        label="Preferred Name"
-                        lineDirection="center"
-                        placeholder="Enter your user name"
-                        className="md-cell md-cell--bottom"
-                        error= {this.state.userNameError}
-                        errorText="This field is required."
-                    />
-                    <DatePicker ref={node => {dob = node}}
-                        required
-                        id="appointment"
-                        label="Date of Birth"
-                        className="md-cell"
-                        maxDate={new Date()}
-                        error= {this.state.dobError}
-                        errorText="This field is required."
-                    />
+            <div id="register_container">
+                <div id="register_panel">
+                    <h1>Register</h1>
+                      <form>
+                        <h2>Personal Information</h2>
+                        <TextField ref={node => {firstName = node}}
+                            required
+                            id="floatingCenterTitle"
+                            label="First Name"
+                            lineDirection="center"
+                            placeholder="Enter your first name"
+                            className="md-cell md-cell--bottom"
+                            error= {this.state.firstNameError}
+                            errorText="This field is required."
+                        />
+                        <TextField ref={node => {lastName = node}}
+                             required
+                             id="floatingCenterTitle"
+                             label="Last Name"
+                             lineDirection="center"
+                             placeholder="Enter your last name"
+                             className="md-cell md-cell--bottom"
+                             error= {this.state.lastNameError}
+                             errorText="This field is required."
+                        />
+                        <TextField ref={node => {userName = node}}
+                            required
+                            id="floatingCenterTitle"
+                            label="Preferred Name"
+                            lineDirection="center"
+                            placeholder="Enter your user name"
+                            className="md-cell md-cell--bottom"
+                            error= {this.state.userNameError}
+                            errorText="This field is required."
+                        />
+                        <DatePicker ref={node => {dob = node}}
+                            required
+                            id="appointment"
+                            label="Date of Birth"
+                            className="md-cell"
+                            maxDate={new Date()}
+                            error= {this.state.dobError}
+                            errorText="This field is required."
+                        />
 
-                    <TextField ref={node => {email = node}}
-                        required
-                        id="floatingCenterTitle"
-                        label="Email"
-                        lineDirection="center"
-                        placeholder="Enter your Email"
-                        className="md-cell md-cell--bottom"
-                        error= {this.state.emailError}
-                        errorText={this.state.emailErrorMessage}
-                    />
+                        <TextField ref={node => {email = node}}
+                            required
+                            id="floatingCenterTitle"
+                            label="Email"
+                            lineDirection="center"
+                            placeholder="Enter your Email"
+                            className="md-cell md-cell--bottom"
+                            error= {this.state.emailError}
+                            errorText={this.state.emailErrorMessage}
+                        />
 
-                    <SelectField ref={node => {gender = node}}
-                        required
-                        label="Gender"
-                        placeholder="Select a State"
-                        menuItems={genderOptions}
-                        itemLabel="name"
-                        itemValue="abbreviation"
-                        className="md-cell"
-                        helpOnFocus
-                        helpText="Select your gender"
-                        error= {this.state.genderError}
-                        errorText="This field is required."
-                    />
+                        <SelectField ref={node => {gender = node}}
+                            required
+                            label="Gender"
+                            placeholder="Select a State"
+                            menuItems={genderOptions}
+                            itemLabel="name"
+                            itemValue="abbreviation"
+                            className="md-cell"
+                            helpOnFocus
+                            helpText="Select your gender"
+                            error= {this.state.genderError}
+                            errorText="This field is required."
+                        />
 
-                    <TextField ref={node => {password = node}}
-                        required
-                        id="floatingCenterTitle"
-                        label="Password"
-                        lineDirection="center"
-                        placeholder="Enter your password"
-                        type="password"
-                        className="md-cell md-cell--bottom"
-                        error= {this.state.passwordError}
-                        errorText={this.state.passwordErrorMessage}
-                    />
+                        <TextField ref={node => {password = node}}
+                            required
+                            id="floatingCenterTitle"
+                            label="Password"
+                            lineDirection="center"
+                            placeholder="Enter your password"
+                            type="password"
+                            className="md-cell md-cell--bottom"
+                            error= {this.state.passwordError}
+                            errorText={this.state.passwordErrorMessage}
+                        />
 
-                    <TextField ref={node => {passwordConfirm = node}}
-                        required
-                        id="floatingCenterTitle"
-                        label="Confirm Password"
-                        lineDirection="center"
-                        placeholder="Confirm your password"
-                        type="password"
-                        className="md-cell md-cell--bottom"
-                        error= {this.state.passwordConfirmError}
-                        errorText={this.state.passwordErrorMessage}
-                    />
-                    <h2>Additional Information</h2>
-                    <SelectField ref={node => {occupation = node}}
-                        required
-                        label="Current Occupation"
-                        placeholder="Select occupation"
-                        menuItems={occupationOptions}
-                        itemLabel="name"
-                        itemValue="abbreviation"
-                        className="md-cell"
-                        helpOnFocus
-                        helpText="Select occupation"
-                        error= {this.state.occupationError}
-                        errorText="This field is required."
-                    /><br />
+                        <TextField ref={node => {passwordConfirm = node}}
+                            required
+                            id="floatingCenterTitle"
+                            label="Confirm Password"
+                            lineDirection="center"
+                            placeholder="Confirm your password"
+                            type="password"
+                            className="md-cell md-cell--bottom"
+                            error= {this.state.passwordConfirmError}
+                            errorText={this.state.passwordErrorMessage}
+                        />
+                        <h2>Additional Information</h2>
+                        <SelectField ref={node => {occupation = node}}
+                            required
+                            label="Current Occupation"
+                            placeholder="Select occupation"
+                            menuItems={occupationOptions}
+                            itemLabel="name"
+                            itemValue="abbreviation"
+                            className="md-cell"
+                            helpOnFocus
+                            helpText="Select occupation"
+                            error= {this.state.occupationError}
+                            errorText="This field is required."
+                        /><br />
 
-                    <SelectField ref={node => {industry = node}}
-                        label="What industry are you interested in?"
-                        placeholder="Select your interested industry"
-                        menuItems={industryOptions}
-                        itemLabel="name"
-                        itemValue="abbreviation"
-                        className="md-cell"
-                        helpOnFocus
-                        helpText="Select your interested industry"
-                        error= {this.state.industryError}
-                        errorText="This field is required."
-                    />
+                        <SelectField ref={node => {industry = node}}
+                            label="What industry are you interested in?"
+                            placeholder="Select your interested industry"
+                            menuItems={industryOptions}
+                            itemLabel="name"
+                            itemValue="abbreviation"
+                            className="md-cell"
+                            helpOnFocus
+                            helpText="Select your interested industry"
+                            error= {this.state.industryError}
+                            errorText="This field is required."
+                        />
 
-                    <TextField ref={node => {interest = node}}
-                        id="floatingCenterTitle"
-                        label="Why are you interested in this app?"
-                        lineDirection="center"
-                        className="md-cell md-cell--bottom"
-                        error= {this.state.interestError}
-                        errorText="This field is required."
-                    />
+                        <TextField ref={node => {interest = node}}
+                            id="floatingCenterTitle"
+                            label="Why are you interested in this app?"
+                            lineDirection="center"
+                            className="md-cell md-cell--bottom"
+                            error= {this.state.interestError}
+                            errorText="This field is required."
+                        />
 
-                    <TextField ref={node => {source = node}}
-                        id="floatingCenterTitle"
-                        label="How did you get to know about Deloitte?"
-                        lineDirection="center"
-                        className="md-cell md-cell--bottom"
-                        error= {this.state.sourceError}
-                        errorText="This field is required."
-                    />
-                    <label id='error_message'>{this.props.errorMsg}</label>
-                    <a><p id="terms">Terms and Conditions</p></a>
-                    <Checkbox ref={node => {checkbox = node}}
-                        id="readDocumentationPage"
-                        name="simpleCheckboxes"
-                        label="I accept the Terms and Conditions"
-                        checked = {!!this.state.checkValue}
-                        onChange={this.onCheckClick.bind(this)}
-                    />
-                    <p id="termsAccepted">{this.state.termErrorMessage}</p>
-                    <Button raised label="Submit"  onClick={this.verifyFields.bind(this)}/>
-                </form>
+                        <TextField ref={node => {source = node}}
+                            id="floatingCenterTitle"
+                            label="How did you get to know about Deloitte?"
+                            lineDirection="center"
+                            className="md-cell md-cell--bottom"
+                            error= {this.state.sourceError}
+                            errorText="This field is required."
+                        />
+                        <label id='error_message'>{this.props.errorMsg}</label>
+                        <a><p id="terms">Terms and Conditions</p></a>
+                        <Checkbox ref={node => {checkbox = node}}
+                            id="readDocumentationPage"
+                            name="simpleCheckboxes"
+                            label="I accept the Terms and Conditions"
+                            checked = {!!this.state.checkValue}
+                            onChange={this.onCheckClick.bind(this)}
+                        />
+                        <p id="termsAccepted">{this.state.termErrorMessage}</p>
+                        <Button raised label="Submit"  onClick={this.verifyFields.bind(this)}/>
+                    </form>
+                </div>
             </div>
         );
     }
@@ -411,6 +414,9 @@ class Register extends Component {
     render() {
         return (
             <div class="canvas">
+                <div id="register_logo">
+                    <img src={logo} />
+                </div>
                 <RegisterPanel {...this.props}/>
             </div>
 
