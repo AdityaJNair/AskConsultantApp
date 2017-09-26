@@ -1,8 +1,3 @@
-
-
-
-
-
 const initialState = {
     status: '',
     pending: false,
