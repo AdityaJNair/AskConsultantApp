@@ -39,7 +39,7 @@ class Login_panel extends Component {
     render() {
         const {dispatch, history} = this.props
         return (
-            <div>
+            <div id="login-background">
                 <img
                     id="login-logo"
                     src={require('../../../images/deloitte_logo_transparent.png')} />
@@ -48,8 +48,9 @@ class Login_panel extends Component {
                     zDepth={3}
                 >
                     <div id="login_panel">
-                        <div id="header">
-                            <h1>Login</h1>
+                        <div id="login-header">
+                            <h1>Ask Consulting</h1>
+                            <h2>Login</h2>
                         </div>
                         <label id='success_msg'>{this.props.successfulRegMsg}</label>
                         <Login_input />
