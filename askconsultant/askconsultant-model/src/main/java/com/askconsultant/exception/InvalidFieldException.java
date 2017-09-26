@@ -1,6 +1,6 @@
 package com.askconsultant.exception;
 
-public class InvalidFieldException extends RuntimeException {
+public class InvalidFieldException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 	

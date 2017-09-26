@@ -32,10 +32,6 @@ class Login_panel extends Component {
         this.props.dispatch(resetErrorMsg())
     }
 
-    componentDidMount(){
-        console.log(`panel`)
-        //console.log(this.props.history);
-    }
     componentWillUnMount(){
         this.props.dispatch(resetSuccessMsg())
     }

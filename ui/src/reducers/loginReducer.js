@@ -47,10 +47,4 @@ const loginReducer = (state = initialState, action) => {
     }
 }
 
-
-const reducers = combineReducers({
-    loginInfo: loginReducer,
-    registrationInfo: registrationReducer
-})
-
-export default reducers
+export default loginReducer

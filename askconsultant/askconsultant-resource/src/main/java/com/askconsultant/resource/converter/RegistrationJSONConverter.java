@@ -52,6 +52,10 @@ public class RegistrationJSONConverter {
 		final User user = new User();
 		user.setUserID(JsonReader.getStringOrNull(jsonObject, "email"));
 		user.setPassword(JsonReader.getStringOrNull(jsonObject, "password"));
+		user.setName(JsonReader.getStringOrNull(jsonObject, "name"));
+		user.setRole(JsonReader.getStringOrNull(jsonObject, "role"));
+		user.setPrimaryTopic(JsonReader.getStringOrNull(jsonObject, "primaryTopic"));
+		user.setPrimarySubTopic(JsonReader.getStringOrNull(jsonObject, "primarySubTopic"));
 		return user;
 	}
 	
