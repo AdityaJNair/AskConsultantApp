@@ -1,7 +1,5 @@
 package com.askconsultant.interactive;
 
-import java.util.Set;
-
 import javax.inject.Inject;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -13,9 +11,14 @@ import javax.websocket.server.ServerEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.askconsultant.interactive.dto.ChatMessage;
+import com.askconsultant.model.Message;
 import com.askconsultant.resource.converter.ChatMessageJSONDecoder;
 import com.askconsultant.resource.converter.ChatMessageJSONEncoder;
+import com.askconsultant.resource.converter.ChatMessageToMessageConverter;
+import com.askconsultant.service.ChatInteractionService;
+import com.askconsultant.service.ChatSessionService;
+import com.askconsultant.service.MessageService;
+import com.askconsultant.service.dto.ChatMessage;
 
 @ServerEndpoint(value = "/interactive/users/{userid}/conversations/{conversationid}/chat", encoders = {
 		ChatMessageJSONEncoder.class }, decoders = { ChatMessageJSONDecoder.class })
@@ -24,7 +27,16 @@ public class ChatInterface {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Inject
-	ChatSessionRegister chatRegister;
+	ChatSessionService chatRegister;
+
+	@Inject
+	ChatMessageToMessageConverter chatConverter;
+
+	@Inject
+	MessageService messageService;
+
+	@Inject
+	ChatInteractionService chatInteractionService;
 
 	/**
 	 * On connection open add the session to live sessions
@@ -51,19 +63,15 @@ public class ChatInterface {
 	@OnMessage
 	public void receiveAndSendMessage(ChatMessage message, Session client, @PathParam("userid") String userid,
 			@PathParam("conversationid") String conversationid) {
-		Set<Session> peers = chatRegister.getAllSessionsForConversationID(Long.parseLong(conversationid));
-		if (!peers.isEmpty()) {
-			ChatMessage chatmessage = new ChatMessage();
-			for (Session session : peers) {
-				chatmessage.setMessage(message.getMessage());
-				chatmessage.setDisplayName("test id");
-				chatmessage.setConversationid(Long.parseLong(conversationid));
-				chatmessage.setUserid(userid);
-				chatmessage.setSentAt("date time");
-				chatmessage.setSenderSent(true);
-				session.getAsyncRemote().sendObject(chatmessage);
-			}
-		}
+		
+		long longConversationID = Long.parseLong(conversationid);
+		message.setUserid(userid);
+		message.setConversationid(longConversationID);
+		Message messageObj = chatConverter.convertFromChatMessage(message);
+		//add the message to database
+		messageService.addMessage(messageObj);
+		//send replies to listeners
+		chatInteractionService.sendRepliesToListeners(chatRegister, longConversationID, message);
 	}
 
 	/**

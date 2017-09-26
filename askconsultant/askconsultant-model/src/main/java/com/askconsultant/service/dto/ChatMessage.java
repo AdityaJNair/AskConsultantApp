@@ -1,4 +1,4 @@
-package com.askconsultant.interactive.dto;
+package com.askconsultant.service.dto;
 
 /**
  * 
