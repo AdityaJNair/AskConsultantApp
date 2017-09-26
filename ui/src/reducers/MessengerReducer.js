@@ -1,3 +1,12 @@
 const initialState = {
-    conversa
+    conversation_id: 3
 }
+
+const messengerReducer = (state = initialState, action) => {
+    switch (action.type) {
+        default:
+            return state
+    }
+}
+
+export default messengerReducer
