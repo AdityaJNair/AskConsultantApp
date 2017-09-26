@@ -7,6 +7,14 @@ class ChatList extends Component {
     componentWillMount(){
         console.log("updating convos")
         this.props.dispatch(updateConversations(this.props.userID))
+        .then((success) => {
+            //uses status returned by action creator
+            if(success){
+              console.log("SUCCESS");
+            } else {
+              console.log("FAILED");
+            }
+        })
     }
 
     render(){
