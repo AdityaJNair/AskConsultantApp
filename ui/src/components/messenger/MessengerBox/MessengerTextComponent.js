@@ -8,8 +8,8 @@ import './stylesheet/MessengerTextComponent.css'
 let ws, messageInput
 
 class MessengerTextComponent extends Component {
-    openSocket(userid, receiveMessage) {
-        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/2/chat`
+    openSocket(userid, conversation_id, receiveMessage) {
+        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversation_id}/chat`
         console.log(uri)
         ws = new WebSocket(uri);
         ws.onopen = function() {
@@ -21,7 +21,7 @@ class MessengerTextComponent extends Component {
         ws.onmessage = function(e) {
             let resp = JSON.parse(e.data);
             console.log(resp)
-            let msg = resp.message
+            let msg = resp.message + conversation_id
             // dispatch()
             //　TODO add the message from the user self on the messageView
             console.log('received: ' + msg);
@@ -52,18 +52,21 @@ class MessengerTextComponent extends Component {
     }
 
     componentDidMount () {
-        console.log("Text did mount")
-        const receiveMessage = this.props.receiveMessage
-        const userid = this.props.userid
-        //const conversation_id = this.props
-        //TODO: where to get the conersation_id
-        this.openSocket(userid, receiveMessage)
+        console.log("MesengerTextComponent: Did")
+
 
     }
     componentWillUnmount () {
         this.closeSocket()
     }
     render(){
+        const receiveMessage = this.props.receiveMessage
+        const userid = this.props.userid
+        const conversation_id = this.props.conversation_id
+        console.log(`conversation_id: ${conversation_id}`)
+        //TODO: where to get the conersation_id
+        this.openSocket(userid, conversation_id, receiveMessage)
+        console.log("MesengerTextComponent: render" + this.props.conversation_id)
         return (
             <div id="messenger_text_area">
                 <div id="textFieldEnter">

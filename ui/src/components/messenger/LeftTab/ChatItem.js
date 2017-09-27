@@ -11,7 +11,7 @@ import {setActiveConversation} from "../../../actions/leftTabActions";
 class ChatItem extends Component {
 
     openConversation = (id) => {
-        console.log('convo clicked');
+        console.log(`convo clicked: ${id}`);
         this.props.dispatch(setActiveConversation(id))
     }
     render(){

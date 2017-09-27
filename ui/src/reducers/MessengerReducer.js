@@ -9,7 +9,7 @@ const initialState = {
 const messengerReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_CONVERSATIONS':
-            if(state.activeConvo !== '')
+            if(state.activeConvo !== '' || action.conversations.length === 0)
                 return Object.assign({}, state, {
                     conversations: action.conversations
                 })

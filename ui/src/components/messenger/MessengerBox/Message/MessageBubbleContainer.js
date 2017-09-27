@@ -26,13 +26,13 @@ class MessageBubbleContainer extends Component {
         tooltipPosition: "right",
         message: "Text Message3"
     }
-    messages = [this.messageInfo1, this.messageInfo2, this.messageInfo3]
+    fakemessages = [this.messageInfo1, this.messageInfo2, this.messageInfo3]
     componentWillMount () {
         this._loadMessages()
     }
     _loadMessages() {
         //TODO Fetch message history from the server using conversation_id
-        let messages = this.messages
+        let messages = this.fakemessages
         this.props.initMessage(messages)
         console.log('loadMessages')
     }
