@@ -5,13 +5,18 @@ import Avatar from 'react-md/lib/Avatars/Avatar'
 import Chip from 'react-md/lib/Chips'
 import ListItem from 'react-md/lib/Lists/ListItem'
 import MenuButton from 'react-md/lib/Menus/MenuButton'
+import {setActiveConversation} from "../../../actions/leftTabActions";
 
 
 class ChatItem extends Component {
 
+    openConversation = (id) => {
+        console.log('convo clicked');
+        this.props.dispatch(setActiveConversation(id))
+    }
     render(){
         return (
-            <div className="chat-item">
+            <div className="chat-item" onClick={() => {this.openConversation(this.props.convoDetails[1].id)}}>
                 <div id="chatItem_top">
                     <div id = "question_title">
                         <h1>{this.props.convoDetails[1].question}</h1>

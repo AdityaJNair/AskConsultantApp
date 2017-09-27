@@ -15,6 +15,13 @@ const setConversations =  (json) => {
     }
 }
 
+export const setActiveConversation = (id) =>{
+    return {
+        type: 'CHANGE_ACTIVE_CONVERSATION',
+        convoID: id
+    }
+}
+
 
 export const updateConversations = (userid) => {
     return dispatch => {

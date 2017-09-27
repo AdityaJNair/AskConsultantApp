@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ChatItem from "./ChatItem";
 import Style from "./stylesheet/ChatList.css"
-import {updateConversations} from "../../../actions/leftTabActions";
+import {updateConversations, setActiveConversation} from "../../../actions/leftTabActions";
 class ChatList extends Component {
 
     componentWillMount(){
@@ -28,7 +28,7 @@ class ChatList extends Component {
         return (
             <div id="chat-list" style = {{}}>
                 {Object.entries(this.props.conversations).map((item) =>(
-                    <ChatItem convoDetails={item}/>
+                    <ChatItem {...this.props} convoDetails={item} userID={this.props.userID}/>
                 ))}
 
             </div>

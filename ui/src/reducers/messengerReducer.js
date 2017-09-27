@@ -1,6 +1,6 @@
 const initialState = {
     order : '',
-    activeConvo: JSON.stringify("{}"),
+    activeConvo: '',
     conversations: JSON.stringify("{}")
 
 }
@@ -8,10 +8,20 @@ const initialState = {
 const messengerReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_CONVERSATIONS':
+            if(state.activeConvo !== '')
+                return Object.assign({}, state, {
+                    conversations: action.conversations
+                })
+            else
+                return Object.assign({}, state, {
+                    conversations: action.conversations,
+                    activeConvo: action.conversations[0].id
+                })
+            break;
+        case 'CHANGE_ACTIVE_CONVERSATION':
             return Object.assign({}, state, {
-                conversations: action.conversations
+                activeConvo: action.convoID
             })
-
         default:
             return state
     }
