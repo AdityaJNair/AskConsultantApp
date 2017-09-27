@@ -2,12 +2,8 @@
     width: 100%;
     min-height: 100%;
     max-height: 500%;
-    background: url(../../../images/StockSnap_R7I37OMZIU.jpg);
-    background-position: 800px 100px;
+    background: #2a2a2a url(../../../images/StockSnap_R7I37OMZIU.jpg) no-repeat fixed 800px 100px;
     background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #2a2a2a;
 }
 
 #login-logo{
