@@ -70,6 +70,7 @@ public class ChatInterface {
 		Message messageObj = chatConverter.convertFromChatMessage(message);
 		//add the message to database
 		messageService.addMessage(messageObj);
+		message.setSentAt(messageObj.getCreateDateTime().toLocalDateTime().toString());
 		//send replies to listeners
 		chatInteractionService.sendRepliesToListeners(chatRegister, longConversationID, message);
 	}

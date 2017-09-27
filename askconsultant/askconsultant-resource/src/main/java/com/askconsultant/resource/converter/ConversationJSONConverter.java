@@ -6,6 +6,8 @@ import javax.enterprise.context.ApplicationScoped;
 
 import com.askconsultant.common.json.JsonReader;
 import com.askconsultant.model.Conversation;
+import com.askconsultant.model.Message;
+import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -38,8 +40,27 @@ public class ConversationJSONConverter {
 	 * @param conversation
 	 * @return
 	 */
+	public JsonElement convertToJsonElement(final ConversationWithLatestMessageDTO conversationAndLatestMessage){
+		final JsonObject jsonObject = new JsonObject();
+		Conversation conversation = conversationAndLatestMessage.getConversation();
+		Message message = conversationAndLatestMessage.getMessage();
+		conversationConverter(jsonObject, conversation);
+		messageConverter(jsonObject, message);
+		return jsonObject;
+	}
+
+	private void messageConverter(final JsonObject jsonObject, Message message) {
+		jsonObject.addProperty("latestmessage", message.getMessage());
+		jsonObject.addProperty("latestmessagesentby", message.getSender());
+		jsonObject.addProperty("latestmessagesentat", message.getCreateDateTime().toString());
+	}
+	
 	public JsonElement convertToJsonElement(final Conversation conversation){
 		final JsonObject jsonObject = new JsonObject();
+		return this.conversationConverter(jsonObject, conversation);
+	}
+
+	private JsonObject conversationConverter(final JsonObject jsonObject, Conversation conversation) {
 		jsonObject.addProperty("id", conversation.getId());
 		jsonObject.addProperty("question", conversation.getName());
 		jsonObject.addProperty("owner", conversation.getOwner());
@@ -54,9 +75,9 @@ public class ConversationJSONConverter {
 	 * @param conversationList
 	 * @return
 	 */
-	public JsonElement convertToJsonElement(final List<Conversation> conversationList){
+	public JsonElement convertToJsonElement(final List<ConversationWithLatestMessageDTO> conversationList){
 		JsonArray jsonArray = new JsonArray();
-		for(Conversation conversation : conversationList){
+		for(ConversationWithLatestMessageDTO conversation : conversationList){
 			jsonArray.add(convertToJsonElement(conversation));
 		}
 		return jsonArray;

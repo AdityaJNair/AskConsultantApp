@@ -25,6 +25,7 @@ import com.askconsultant.resource.converter.OperationFailureJSONConvertor;
 import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.MessageService;
+import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 
 /**
  * Contains methods for processing conversations
@@ -93,7 +94,7 @@ public class ConversationResource {
 	@GET
 	public Response listAllConversations(@PathParam("userid") String userid) {
 		try {
-			List<Conversation> conversationlist = null;
+			List<ConversationWithLatestMessageDTO> conversationlist = null;
 			if (authService.isEmployee(userid)) {
 				conversationlist = conversationService.listAllConversations();
 			} else {
