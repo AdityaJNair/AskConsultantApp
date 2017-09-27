@@ -45,8 +45,7 @@ class Login_panel extends Component {
                     src={require('../../../images/deloitte_logo_transparent.png')} />
                 <Paper
                     id="login-paper"
-                    zDepth={3}
-                >
+                    zDepth={3}>
                     <div id="login_panel">
                         <div id="login-header">
                             <h1>Ask Consulting</h1>
