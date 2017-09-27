@@ -4,7 +4,7 @@ import javax.websocket.EncodeException;
 import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
 
-import com.askconsultant.interactive.dto.ChatMessage;
+import com.askconsultant.service.dto.ChatMessage;
 import com.google.gson.JsonObject;
 
 public class ChatMessageJSONEncoder implements Encoder.Text<ChatMessage>{

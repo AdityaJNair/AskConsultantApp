@@ -8,12 +8,13 @@ import MenuButton from 'react-md/lib/Menus/MenuButton'
 
 
 class ChatItem extends Component {
+
     render(){
         return (
             <div className="chat-item">
                 <div id="chatItem_top">
                     <div id = "question_title">
-                        <h1>Title</h1>
+                        <h1>{this.props.convoDetails[1].question}</h1>
                     </div>
                     <div id = "question_menu">
                         <MenuButton
@@ -33,16 +34,18 @@ class ChatItem extends Component {
 
                 <div id="chatItem_mid">
                     <div id = "question_content">
-                        <p>Question content</p>
+                        <p>need to implementin backend</p>
                     </div>
 
                     <div id = "question_timestamp">
-                        <p>8:15 04/09/2017</p>
+                        <p>{this.props.convoDetails[1].lastupdate}</p>
                     </div>
                 </div>
                 <div id="chatItem_bottom">
                     <div id = "question_hashtag">
-                        <Chip className="chat-item-hashtags" label="#hashtag" />
+                        <Chip className="chat-item-hashtags" label={"#"+this.props.convoDetails[1].category}  />
+                        <Chip className="chat-item-hashtags" label={"#"+this.props.convoDetails[1].subcategory}  />
+
                     </div>
                 </div>
 

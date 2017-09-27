@@ -1,0 +1,32 @@
+a{
+    text-decoration: underline;
+    color: blue;
+}
+
+a:hover{
+    color:black;
+}
+
+#login_panel{
+    margin-left: 40%;
+    margin-top: 100px;
+}
+
+#login_input{
+    width: 300%;
+}
+
+#login_buttons {
+    width: 100%;
+    text-align: center;
+}
+
+#login_buttons button{
+    margin: 20px;
+}
+
+#header{
+    width: 100%;
+    text-align: center;
+
+}

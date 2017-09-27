@@ -3,7 +3,10 @@ import Button from 'react-md/lib/Buttons/Button';
 import TextField from 'react-md/lib/TextFields';
 import Paper from 'react-md/lib/Papers';
 import './stylesheet/MessengerTextComponent.css'
+
+
 class MessengerTextComponent extends Component {
+
     render(){
         return (
             <div id="messenger_text_area">
@@ -17,7 +20,7 @@ class MessengerTextComponent extends Component {
                         className="md-cell md-cell--top"
                     />
                 </div>
-                <div id="buttonsend" >
+                <div id="buttonsend" class="test">
                     <Button Button icon secondary>send</Button>
                 </div>
             </div>

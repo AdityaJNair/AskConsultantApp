@@ -154,7 +154,7 @@ class CreateConversationButton extends Component {
 
         return (
             <div id="conversation-button-container" class="conversationDialog">
-                <Button id="create-conversation-button" raised onClick={this.show}>Create Conversation</Button>
+                <Button id="create-conversation-button" raised primary onClick={this.show}>Create Conversation</Button>
                 <DialogContainer
                     id="simple-list-dialog"
                     visible={visible}
@@ -211,5 +211,4 @@ class CreateConversationButton extends Component {
     }
 }
 
-export default  CreateConversationButton;
-
+export default CreateConversationButton;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './UserChatPage.css';
 import HorizontalNavBar from "../../../components/horizontalNavigation/HorizontalNavBar";
 import MessengerLeftColumn from "../../../components/messenger/LeftTab/MessengerLeftColumn";
+import MessageViewSmart from "../../smart/User/Messenger/MessageView";
 import MessageWindow from "../../../components/messenger/MessengerBox/MessageWindow";
 
 class UserChat extends Component{
@@ -17,7 +18,6 @@ class UserChat extends Component{
                     </div>
                 </div>
             </div>
-
         );
     }
 }

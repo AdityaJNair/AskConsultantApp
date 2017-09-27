@@ -5,7 +5,8 @@
     bottom: 0;
     text-align: center;
     float: left;
-    border-top: solid grey;
+    border-top: solid black;
+    background-color: black;
 }
 
 .md-divider {
