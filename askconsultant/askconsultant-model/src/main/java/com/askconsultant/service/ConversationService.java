@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import com.askconsultant.model.Conversation;
 import com.askconsultant.service.dto.ConversationAndMessages;
+import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 
 /**
  * Interface providing methods to send and receive conversations
@@ -39,14 +40,14 @@ public interface ConversationService {
 	 * Lists all conversations
 	 * @return
 	 */
-	public List<Conversation> listAllConversations();
+	public List<ConversationWithLatestMessageDTO> listAllConversations();
 	
 	/**
 	 * Lists all conversation created by the user
 	 * @param userid
 	 * @return
 	 */
-	public List<Conversation> listAllConversationsForUser(String userid);
+	public List<ConversationWithLatestMessageDTO> listAllConversationsForUser(String userid);
 	
 	/**
 	 * Lists all active conversation

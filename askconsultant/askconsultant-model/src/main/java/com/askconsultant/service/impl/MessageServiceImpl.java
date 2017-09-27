@@ -7,7 +7,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.askconsultant.dao.ConversationDAO;
 import com.askconsultant.dao.MessageDAO;
+import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
 import com.askconsultant.service.MessageService;
 
@@ -25,6 +27,9 @@ public class MessageServiceImpl implements MessageService{
 	 */
 	@Inject
 	private MessageDAO messageDAO;
+	
+	@Inject
+	private ConversationDAO conversationDAO;
  
 	
 	/* (non-Javadoc)
@@ -33,7 +38,10 @@ public class MessageServiceImpl implements MessageService{
 	@Override
 	public Message addMessage(Message message){
 		message.setCreateDateTime(Timestamp.valueOf(LocalDateTime.now()));
-		return messageDAO.addMesssage(message);
+		Message storedMessage = messageDAO.addMesssage(message);
+		Conversation conversationByID = conversationDAO.getConversationByID(message.getConversation());
+		conversationDAO.updateLastUpdatedTime(conversationByID);
+		return storedMessage;
 	}
 
 

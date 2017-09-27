@@ -29,6 +29,8 @@ public class Conversation implements Serializable {
 	
 	private Timestamp createdatetime;
 	
+	private Timestamp lastUpdated;
+	
 	@Column(length = 500)
 	private String name;
 	
@@ -45,6 +47,10 @@ public class Conversation implements Serializable {
 	
 	@Column(length = 200)
 	private String content;
+	
+	private long latestMessageID;
+	
+	private String latestMessageBy;
 
 	public String getStatus() {
 		return status;
@@ -120,6 +126,30 @@ public class Conversation implements Serializable {
 
 	public void setSubCategory(String subCategory) {
 		this.subCategory = subCategory;
+	}
+
+	public Timestamp getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(Timestamp lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+	public String getLatestMessageBy() {
+		return latestMessageBy;
+	}
+
+	public void setLatestMessageBy(String latestMessageBy) {
+		this.latestMessageBy = latestMessageBy;
+	}
+
+	public long getLatestMessageID() {
+		return latestMessageID;
+	}
+
+	public void setLatestMessageID(long latestMessageID) {
+		this.latestMessageID = latestMessageID;
 	}
 
 }
