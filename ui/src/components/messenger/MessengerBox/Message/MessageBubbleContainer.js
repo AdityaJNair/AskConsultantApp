@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 
 
 class MessageBubbleContainer extends Component {
+
     messageInfo1 = {
         tooltipLabel: "1:00 pm",
         tooltipPosition: "right",
