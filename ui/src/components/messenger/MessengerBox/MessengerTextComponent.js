@@ -8,9 +8,7 @@ const uri = 'wss://45.76.113.175:8443/askconsultant/interactive/users/test@test.
 let ws, messageInput
 
 class MessengerTextComponent extends Component {
-    openSocket() {
-
-        console.log(`opening: id : ${this.props.conversation_id}`);
+    openSocket(receiveMessage) {
         ws = new WebSocket(uri);
         ws.onopen = function() {
             console.log('open');
@@ -20,11 +18,12 @@ class MessengerTextComponent extends Component {
         };
         ws.onmessage = function(e) {
             let resp = JSON.parse(e.data);
+            console.log(resp)
             let msg = resp.message + " sent by " + resp.sentbydisplayname;
             // dispatch()
             //　TODO add the message from the user self on the messageView
             console.log('received: ' + msg);
-
+            receiveMessage(msg)
         };
         ws.onerror = function() {
             console.log('error');
@@ -47,7 +46,8 @@ class MessengerTextComponent extends Component {
 
     componentDidMount () {
         console.log("Text did mount")
-        this.openSocket()
+        this.openSocket(this.props.receiveMessage)
+
     }
     componentWillUnmount () {
         this.closeSocket()
