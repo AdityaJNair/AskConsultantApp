@@ -9,8 +9,8 @@ import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import {postConvoDetails} from "../../../actions/CreateConvoAction"
 import {consultantsTopics, development, strategyAndOperations, everydayDeloitte, humanCapital, technology} from "../../../containers/dumb/Admin/topics";
+import {updateConversations} from "../../../actions/leftTabActions";
 
-var MENU_ITEMS= ["Development", "Everyday Deloitte", "Human Capital", "Strategy & Operations", "Technology"];
 export let question, message, topic, subTopic;
 
 const postCon = (e, dispatch, quest, mess, top, sub, userid) => {
@@ -18,10 +18,8 @@ const postCon = (e, dispatch, quest, mess, top, sub, userid) => {
     console.log(`in the convo create`)
     dispatch(postConvoDetails(quest,mess,top,sub,userid))
         .then((success) => {
-            //uses status returned by action creator
-            console.log(success + '')
             if(success)
-                console.log("Successful");
+                dispatch(updateConversations(userid))
         })
 }
 
@@ -182,7 +180,7 @@ class CreateConversationButton extends Component {
                             label="Topic"
                             placeholder="Choose a Topic.."
                             itemLabel="title"
-                            menuItems={MENU_ITEMS}
+                            menuItems={consultantsTopics}
                             className="md-cell"
                                      errorText="This field is required."
                                      error={this.state.topicError}
