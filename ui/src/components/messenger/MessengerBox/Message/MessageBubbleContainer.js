@@ -10,7 +10,6 @@ import { connect } from 'react-redux'
 
 
 class MessageBubbleContainer extends Component {
-
     messageInfo1 = {
         tooltipLabel: "1:00 pm",
         tooltipPosition: "right",
@@ -26,7 +25,7 @@ class MessageBubbleContainer extends Component {
         tooltipPosition: "right",
         message: "Text Message3"
     }
-    messages = [this.messageInfo1, this.messageInfo2, this.messageInfo3, this.messageInfo3, this.messageInfo3, this.messageInfo3, this.messageInfo3]
+    messages = [this.messageInfo1, this.messageInfo2, this.messageInfo3]
     componentWillMount () {
         this._loadMessages()
     }
@@ -41,7 +40,6 @@ class MessageBubbleContainer extends Component {
         const bubbles =
             this.props.messages.map( messageInfo => (
                 <div>
-                    {console.log(messageInfo)}
                     <ProfileImageBox/>
                     <MessageTextBubble {...messageInfo}/>
                 </div>

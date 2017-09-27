@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 import MessengerTextComponent from "../../../components/messenger/MessengerBox/MessengerTextComponent";
 import {receiveMessage} from "../../../actions/messengerAction";
 
-const mapStateToProps = ({messengerInfo}) => {
+const mapStateToProps = ({loginInfo}) => {
     return {
-        test:'test'
+        userid: loginInfo.userid
     }
 }
 

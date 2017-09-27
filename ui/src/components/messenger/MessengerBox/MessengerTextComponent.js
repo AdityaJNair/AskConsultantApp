@@ -4,11 +4,13 @@ import TextField from 'react-md/lib/TextFields';
 import Paper from 'react-md/lib/Papers';
 import './stylesheet/MessengerTextComponent.css'
 
-const uri = 'wss://45.76.113.175:8443/askconsultant/interactive/users/test@test.com/conversations/2/chat'
+//const uri = 'wss://45.76.113.175:8443/askconsultant/interactive/users/test@test.com/conversations/2/chat'
 let ws, messageInput
 
 class MessengerTextComponent extends Component {
-    openSocket(receiveMessage) {
+    openSocket(userid, receiveMessage) {
+        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/2/chat`
+        console.log(uri)
         ws = new WebSocket(uri);
         ws.onopen = function() {
             console.log('open');
@@ -19,11 +21,16 @@ class MessengerTextComponent extends Component {
         ws.onmessage = function(e) {
             let resp = JSON.parse(e.data);
             console.log(resp)
-            let msg = resp.message + " sent by " + resp.sentbydisplayname;
+            let msg = resp.message
             // dispatch()
             //　TODO add the message from the user self on the messageView
             console.log('received: ' + msg);
-            receiveMessage(msg)
+            let message = {
+                tooltipLabel: "3:00 pm",
+                tooltipPosition: "right",
+                message: msg
+            }
+            receiveMessage(message)
         };
         ws.onerror = function() {
             console.log('error');
@@ -46,7 +53,11 @@ class MessengerTextComponent extends Component {
 
     componentDidMount () {
         console.log("Text did mount")
-        this.openSocket(this.props.receiveMessage)
+        const receiveMessage = this.props.receiveMessage
+        const userid = this.props.userid
+        //const conversation_id = this.props
+        //TODO: where to get the conersation_id
+        this.openSocket(userid, receiveMessage)
 
     }
     componentWillUnmount () {
