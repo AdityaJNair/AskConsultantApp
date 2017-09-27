@@ -5,7 +5,8 @@
     bottom: 0;
     text-align: center;
     float: left;
-    border-top: solid grey;
+    border-top: solid black;
+    background-color: black;
 }
 
 .md-divider {
@@ -16,4 +17,26 @@
     height: 45px;
     margin-top: 22px;
     margin-bottom: 22px;
+}
+
+#simple-list-dialog{
+    width:50%;
+    overflow: auto;
+}
+
+#create-conversation-topics{
+    overflow-y: hidden;
+}
+
+#topic_field-menu{
+    width:40%;
+    float:left;
+}
+#topic_field{
+    float:left;
+}
+
+#subtopic_field-menu{
+    float:right;
+    width:40%;
 }

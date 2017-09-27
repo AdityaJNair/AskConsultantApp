@@ -5,7 +5,7 @@ import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
 
 import com.askconsultant.common.json.JsonReader;
-import com.askconsultant.interactive.dto.ChatMessage;
+import com.askconsultant.service.dto.ChatMessage;
 import com.google.gson.JsonObject;
 
 public class ChatMessageJSONDecoder implements Decoder.Text<ChatMessage> {

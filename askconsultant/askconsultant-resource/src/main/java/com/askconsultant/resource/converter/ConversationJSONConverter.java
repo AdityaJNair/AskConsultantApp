@@ -26,8 +26,10 @@ public class ConversationJSONConverter {
 	public Conversation convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final Conversation conversation = new Conversation();
-		conversation.setName(JsonReader.getStringOrNull(jsonObject, "name"));
-		conversation.setCategory(JsonReader.getStringOrNull(jsonObject, "category"));
+		conversation.setName(JsonReader.getStringOrNull(jsonObject, "question"));
+		conversation.setContent(JsonReader.getStringOrNull(jsonObject, "firstmessage"));
+		conversation.setCategory(JsonReader.getStringOrNull(jsonObject, "topic"));
+		conversation.setSubCategory(JsonReader.getStringOrNull(jsonObject, "subtopic"));
 		return conversation;
 	}
 	
@@ -39,10 +41,11 @@ public class ConversationJSONConverter {
 	public JsonElement convertToJsonElement(final Conversation conversation){
 		final JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("id", conversation.getId());
-		jsonObject.addProperty("name", conversation.getName());
+		jsonObject.addProperty("question", conversation.getName());
 		jsonObject.addProperty("owner", conversation.getOwner());
-		jsonObject.addProperty("createddatetime", conversation.getCreatedatetime().toString());
+		jsonObject.addProperty("lastupdate", conversation.getCreatedatetime().toString());
 		jsonObject.addProperty("category", conversation.getCategory());
+		jsonObject.addProperty("subcategory", conversation.getSubCategory());
 		return jsonObject;
 	}
 	

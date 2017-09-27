@@ -139,7 +139,7 @@ public class ConversationResource {
 	 * @return
 	 */
 	@GET
-	@Path("{conversationid}/message")
+	@Path("{conversationid}/messages")
 	public Response listMessagesForConversation(@PathParam("conversationid") long conversationid) {
 		try {
 			List<Message> listMessagesForConversation = messageService.listMessagesForConversation(conversationid);
