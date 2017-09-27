@@ -19,16 +19,12 @@ import injectTooltip from 'react-md/lib/Tooltips'
 //     }
 // }
 
-const MessageTextBubble = injectTooltip(({ children, className, tooltip, ...props}) => (
-    <div
-        {...props}
-        className="message-text-bubble"
-    >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus, sapien ut faucibus facilisis, dolor lorem vestibulum nisi, vel accumsan elit dolor at lacus. Sed et gravida nisi. Pellentesque egestas luctus lectus. Pellentesque egestas hendrerit magna, et eleifend nulla pellentesque in. Nullam a odio iaculis tortor tempus tempus ut eget ligula. Phasellus diam purus, dignissim nec commodo eu, fringilla eget orci. Etiam nec fermentum dui, vitae dapibus purus. Quisque facilisis felis tempor elit dapibus efficitur. In interdum ac massa ac molestie. Donec at felis massa
+const MessageTextBubble = injectTooltip(({ children, className, tooltip, message}) => (
+    <div className="message-text-bubble">
+        {message}
         {tooltip}
         {children}
-    </div>
-));
+    </div>));
 
 MessageTextBubble.propTypes = {
     tooltip: PropTypes.node,

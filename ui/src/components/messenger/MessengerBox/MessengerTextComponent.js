@@ -9,7 +9,8 @@ let ws, messageInput
 
 class MessengerTextComponent extends Component {
     openSocket() {
-        console.log('opening');
+
+        console.log(`opening: id : ${this.props.conversation_id}`);
         ws = new WebSocket(uri);
         ws.onopen = function() {
             console.log('open');
@@ -20,7 +21,10 @@ class MessengerTextComponent extends Component {
         ws.onmessage = function(e) {
             let resp = JSON.parse(e.data);
             let msg = resp.message + " sent by " + resp.sentbydisplayname;
+            // dispatch()
+            //　TODO add the message from the user self on the messageView
             console.log('received: ' + msg);
+
         };
         ws.onerror = function() {
             console.log('error');
@@ -40,7 +44,6 @@ class MessengerTextComponent extends Component {
         console.log('sending: ' + myJSON);
         ws.send(myJSON);
     }
-
 
     componentDidMount () {
         console.log("Text did mount")
