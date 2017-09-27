@@ -19,18 +19,32 @@ import javax.persistence.Table;
 
 public class Conversation implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	private String owner;
+	
 	private Timestamp createdatetime;
+	
 	@Column(length = 500)
 	private String name;
+	
 	@Column(length=20)
 	private String status;
+	
 	private String archivinguser;
+	
+	@Column(length = 50)
 	private String category;
-	private static final long serialVersionUID = 1L;
+	
+	@Column(length = 50)
+	private String subCategory;
+	
+	@Column(length = 200)
+	private String content;
 
 	public String getStatus() {
 		return status;
@@ -90,6 +104,22 @@ public class Conversation implements Serializable {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
 	}
 
 }

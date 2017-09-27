@@ -41,7 +41,7 @@ public class RegistrationDetails {
 	@Column(length=50)
 	private String occupation;
 	
-	@Column(length=10)
+	@Column(length=50)
 	private String gender;
 
 	public Long getId() {
