@@ -9,6 +9,7 @@ import {
     Link
 } from 'react-router-dom'
 import 'whatwg-fetch';
+import Paper from 'react-md/lib/Papers/Paper'
 
 
 let useridInput, passwordInput
@@ -69,13 +70,22 @@ class Employee_Login_input extends Component {
 class EmployeeLoginPage extends Component {
     render() {
         return (
-            <div id="login_panel">
-                <div id="header">
-                    <h1>Consultant Login Page</h1>
-                </div>
-                <Employee_Login_input {...this.props}/>
+            <div id="employee-login-background">
+                <img
+                    id="employee-login-logo"
+                    src={require('../../../images/deloitte_logo_transparent.png')} />
+                <Paper
+                    id="login-paper"
+                    zDepth={3}>
+                    <div id="employee_login_panel">
+                        <div id="employee-login-header">
+                            <h1>Ask Consulting</h1>
+                            <h2>Employee Login</h2>
+                        </div>
+                        <Employee_Login_input {...this.props}/>
+                    </div>
+                </Paper>
             </div>
-
         );
     }
 }

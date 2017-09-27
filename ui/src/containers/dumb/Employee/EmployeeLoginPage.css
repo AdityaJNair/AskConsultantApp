@@ -1,59 +1,62 @@
-/*a{*/
-    /*text-decoration: underline;*/
-    /*color: blue;*/
-/*}*/
+#login_input{
+    width: 100%;
+}
 
-/*a:hover{*/
-    /*color:black;*/
-/*}*/
+#employee_login_buttons {
+    width: 100%;
+    text-align: center;
+}
 
-/*.App {*/
-    /*text-align: center;*/
-/*}*/
+#employee-login-background {
+    width: 100vw;
+    height: 100vh;
+    background: url(../../../images/StockSnap_R7I37OMZIU.jpg);
+    background-position: 700px 100px;
+    background-size: 100vw;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #2a2a2a;
+}
 
-/*.App-logo {*/
-    /*animation: App-logo-spin infinite 20s linear;*/
-    /*height: 80px;*/
-/*}*/
+#employee-login-logo{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20px;
+    width: 300px;
 
-/*.App-header {*/
-    /*background-color: #222;*/
-    /*height: 150px;*/
-    /*padding: 20px;*/
-    /*color: white;*/
-/*}*/
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+}
 
-/*.App-intro {*/
-    /*font-size: large;*/
-/*}*/
 
-/*@keyframes App-logo-spin {*/
-    /*from { transform: rotate(0deg); }*/
-    /*to { transform: rotate(360deg); }*/
-/*}*/
+#employee-login_buttons {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
 
-/*#login_panel{*/
-    /*width: 20%;*/
-    /*height: 500px;*/
-    /*margin-left: 40%;*/
-    /*margin-top: 100px;*/
-/*}*/
+h1 {
+    font-weight: bold;
+    font-size: 48px;
+    margin-bottom:20px;
+    color: black;
+    text-align: center;
+    line-height: 60px;
+}
 
-/*#login_input{*/
-    /*width: 100%;*/
-/*}*/
+h2 {
+    text-align: center;
+    font-size: 30px;
+}
 
-/*#login_buttons {*/
-    /*width: 100%;*/
-    /*text-align: center;*/
-/*}*/
+#employee_login_buttons button{
+    margin: 20px;
+}
 
-/*#login_buttons button{*/
-    /*margin: 20px;*/
-/*}*/
-
-/*#header{*/
-    /*width: 100%;*/
-    /*text-align: center;*/
-
-/*}*/
+#employee_login-header{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
