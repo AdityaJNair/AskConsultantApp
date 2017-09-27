@@ -25,6 +25,7 @@ import com.askconsultant.resource.converter.OperationFailureJSONConvertor;
 import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.MessageService;
+import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 
 /**
  * Tests the methods of the ConversationResource class
@@ -119,7 +120,7 @@ public class TestConversationResource {
 			// set the expectations
 			when(mockConversationService.listActiveConversations()).thenReturn(new ArrayList<Conversation>());
 			when(mockAuthService.isEmployee(Mockito.anyVararg())).thenReturn(true);
-			when(mockConversationJSONConverter.convertToJsonElement(new ArrayList<Conversation>()))
+			when(mockConversationJSONConverter.convertToJsonElement(new ArrayList<ConversationWithLatestMessageDTO>()))
 					.thenReturn(JSONElementHelper.returnConversationJSONArray());
 			Response response = conversationResource.listAllConversations("someuser");
 			assertNotNull(response);
@@ -139,7 +140,7 @@ public class TestConversationResource {
 			// set the expectations
 			when(mockConversationService.listActiveConversations()).thenReturn(new ArrayList<Conversation>());
 			when(mockAuthService.isEmployee(Mockito.anyVararg())).thenReturn(false);
-			when(mockConversationJSONConverter.convertToJsonElement(new ArrayList<Conversation>()))
+			when(mockConversationJSONConverter.convertToJsonElement(new ArrayList<ConversationWithLatestMessageDTO>()))
 					.thenReturn(JSONElementHelper.returnConversationJSONArray());
 			Response response = conversationResource.listAllConversations("someuser");
 			assertNotNull(response);
