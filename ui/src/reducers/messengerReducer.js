@@ -2,7 +2,9 @@ const initialState = {
     order : '',
     activeConvo: '',
     conversations: JSON.stringify("{}"),
-    messages: []
+    messages: [],
+    primaryTopic: '',
+    secondaryTopic: ''
 
 }
 
@@ -30,6 +32,11 @@ const messengerReducer = (state = initialState, action) => {
         case 'INIT_MESSAGE':
             return Object.assign({}, state, {
                 messages: action.messages
+            })
+        case 'SET_ACTIVE_TOPICS_EMPLOYEE':
+            return Object.assign({}, state, {
+                primaryTopic: action.primaryTopic,
+                secondaryTopic: action.secondaryTopic
             })
         default:
             return state

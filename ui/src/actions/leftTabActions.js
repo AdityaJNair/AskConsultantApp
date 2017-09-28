@@ -15,6 +15,14 @@ const setConversations =  (json) => {
     }
 }
 
+const setActiveTopics =  (primaryTopic, secondaryTopic) => {
+    return {
+        type: 'SET_ACTIVE_TOPICS_EMPLOYEE',
+        primaryTopic,
+        secondaryTopic
+    }
+}
+
 export const setActiveConversation = (id) =>{
     return {
         type: 'CHANGE_ACTIVE_CONVERSATION',
@@ -64,8 +72,8 @@ export const updateConversations = (userid) => {
 export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic) => {
     return dispatch => {
         const url = "https://45.76.113.175:8443/askconsultant/rest/users/"+ employeeId +"/conversation"
-        const topic= primaryTopic;
-        const secondTopic =secondaryTopic;
+        if(primaryTopic !== '' && secondaryTopic !== '')
+            dispatch(setActiveTopics(primaryTopic, secondaryTopic))
         //const url = ""
         return fetch(url, {
             method: "GET",

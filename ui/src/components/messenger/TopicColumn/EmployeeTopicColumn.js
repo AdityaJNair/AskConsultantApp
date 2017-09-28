@@ -3,7 +3,7 @@ import TextField from 'react-md/lib/TextFields/TextField'
 import { ExpansionList, ExpansionPanel } from 'react-md/lib/ExpansionPanels';
 import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
-import {employeeConvoTopics, technology} from "../../../containers/dumb/Admin/topics";
+import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
 import {updateEmployeeConversations} from "../../../actions/leftTabActions"
 
 class EmployeeTopicColumn extends Component {
@@ -59,17 +59,42 @@ class EmployeeTopicColumn extends Component {
                             {/*</ExpansionPanel>*/}
                         {/*})}*/}
 
-                                <ExpansionPanel label="Technology" footer={null}>
-                                    <List className="md-cell md-paper md-paper--1">
-                                        {/*<ListItem*/}
-                                        {/*primaryText="Inbox"*/}
-                                        {/*parentList="Technology"*/}
-                                        {/*childListVal="Inbox"*/}
-                                        {technology.map((item) => {
-                                            return <ListItem onClick={() => {this.changeActiveTopics({item}, "Technology")}}  primaryText={item} />
-                                        })}
-                                    </List>
-                                </ExpansionPanel>
+                        <ExpansionPanel label="Development" footer={null}>
+                            <List className="md-cell md-paper md-paper--1">
+                                {development.map((item) => {
+                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Development")}}  primaryText={item} />
+                                })}
+                            </List>
+                        </ExpansionPanel>
+                        <ExpansionPanel label="Everyday Deloitte" footer={null}>
+                            <List className="md-cell md-paper md-paper--1">
+                                {everydayDeloitte.map((item) => {
+                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Everyday Deloitte")}}  primaryText={item} />
+                                })}
+                            </List>
+                        </ExpansionPanel>
+                        <ExpansionPanel label="Human Capital" footer={null}>
+                            <List className="md-cell md-paper md-paper--1">
+                                {humanCapital.map((item) => {
+                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Human Capital")}}  primaryText={item} />
+                                })}
+                            </List>
+                        </ExpansionPanel>
+                        <ExpansionPanel label="Strategy & Operations" footer={null}>
+                            <List className="md-cell md-paper md-paper--1">
+                                {strategyAndOperations.map((item) => {
+                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Strategy & Operations")}}  primaryText={item} />
+                                })}
+                            </List>
+                        </ExpansionPanel>
+                        <ExpansionPanel label="Technology" footer={null}>
+                            <List className="md-cell md-paper md-paper--1">
+                                {technology.map((item) => {
+                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Technology")}}  primaryText={item} />
+                                })}
+                            </List>
+                        </ExpansionPanel>
+
 
 
 
