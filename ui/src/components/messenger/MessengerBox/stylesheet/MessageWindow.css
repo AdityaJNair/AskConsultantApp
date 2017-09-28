@@ -1,0 +1,7 @@
+#message_view{
+    overflow-y: hidden;
+    height: 500px;
+    width: 100%;
+    border: dashed red;
+    z-index: 2;
+}
