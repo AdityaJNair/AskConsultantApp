@@ -17,7 +17,7 @@ const consultantRegistration = (state = initialState, action) => {
       return ()
       break;
 
-    case 'RESET'
+      case 'RESET':
       return ()
       break;
 

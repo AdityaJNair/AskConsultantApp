@@ -1,27 +1,26 @@
 const initialState = {
     status: '',
     pending: false,
-    registrationStatus: false,
-    registrationErrorMsg: '',
-    successfulRegMsg: ''
+    createConvoStatus: false,
+    createConvoErrorMsg: ''
 }
 
-const registrationReducer = (state = initialState, action) => {
+const createConvoReducer = (state = initialState, action) => {
     switch (action.type){
-        case 'SUCCESSFUL_REGISTRATION':
-            console.log("SUCCESSFUL_REGISTRATION")
+        case 'SUCCESSFUL_CONVO':
+            console.log("SUCCESSFUL_CONVO")
             return Object.assign({}, state, {
-                registrationStatus: action.registrationStatus,
-                registrationErrorMsg: action.registrationErrorMsg
+                createConvoStatus: action.createConvoStatus,
+                createConvoErrorMsg: action.createConvoErrorMsg
 
             })
             break;
-        case 'BAD_REGISTRATION':
+        case 'BAD_CONVO':
 
-            console.log("BAD_REGISTRATION", action.registrationErrorMsg)
+            console.log("BAD_CONVO", action.createConvoErrorMsg)
             return Object.assign({}, state, {
-                registrationStatus: action.registrationStatus,
-                registrationErrorMsg: action.registrationErrorMsg
+                createConvoStatus: action.createConvoStatus,
+                createConvoErrorMsg: action.createConvoErrorMsg
             })
             break;
         case 'COMPLETE_REGISTRATION':
@@ -48,4 +47,4 @@ const registrationReducer = (state = initialState, action) => {
     }
 }
 
-export default registrationReducer
+export default createConvoReducer

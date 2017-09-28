@@ -1,6 +1,5 @@
 import Login from '../../dumb/User/LoginPage'
 import { connect } from 'react-redux'
-import {fetchPosts} from "../../../actions/loginActions";
 
 const mapStateToProps = ({loginInfo, registrationInfo}) => {
     return {

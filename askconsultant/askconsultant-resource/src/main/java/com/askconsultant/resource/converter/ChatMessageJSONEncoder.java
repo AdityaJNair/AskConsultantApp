@@ -22,6 +22,7 @@ public class ChatMessageJSONEncoder implements Encoder.Text<ChatMessage>{
 	@Override
 	public String encode(ChatMessage object) throws EncodeException {
 		final JsonObject jsonObject = new JsonObject();
+		jsonObject.addProperty("id", object.getId());
 		jsonObject.addProperty("message", object.getMessage());
 		jsonObject.addProperty("sentbydisplayname", object.getDisplayName());
 		jsonObject.addProperty("sentbyuserid", object.getUserid());

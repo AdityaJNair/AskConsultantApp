@@ -1,6 +1,7 @@
 package com.askconsultant.dao;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -116,8 +117,24 @@ public class ConversationDAO {
 	 */
 	public List<Conversation> listAllConversations() {
 		@SuppressWarnings("unchecked")
-		List<Conversation> resultList = em.createQuery("Select c from Conversation c").getResultList();
+		List<Conversation> resultList = em.createQuery("Select c from Conversation c order by c.lastUpdated desc").getResultList();
 		return resultList;
 	}
+	
+	/**
+	 * Updates the given conversation with the latest update time when a message gets added
+	 */
+	public void updateLastUpdatedTime(Conversation conversation) {
+		conversation.setLastUpdated(Timestamp.valueOf(LocalDateTime.now()));
+		em.merge(conversation);
+	}
+	
+	/**
+	 * Updates the given conversation 
+	 */
+	public void updatConversation(Conversation conversation) {
+		em.merge(conversation);
+	}
+	
 
 }
