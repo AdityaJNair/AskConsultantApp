@@ -20,10 +20,10 @@ class MessengerTextComponent extends Component {
         ws.onmessage = function(e) {
             let response = JSON.parse(e.data);
             console.log(response)
-            let message = {
-                message: response.message
-            }
-            receiveMessage(message)
+            // let message = {
+            //     message: response.message
+            // }
+            receiveMessage(response)
         };
         ws.onerror = function() {
             console.log('error');
