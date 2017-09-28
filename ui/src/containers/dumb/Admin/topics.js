@@ -4,3 +4,10 @@ export const strategyAndOperations = ["Finance","Mergers & Acquisitions", "Opera
 export const everydayDeloitte = ["As a Junior","As an Intern","As a Manager","Other query","Other"];
 export const humanCapital = ["HR transformation","Leadership","People analytics","Strategic change and organisation transformation","Talent","Other"];
 export const technology = ["Analytics and information management","Systems integration","Technology architecture and strategy","Other"];
+export const employeeConvoTopics = {
+    [consultantsTopics[0]]: development,
+    [consultantsTopics[1]]: everydayDeloitte,
+    [consultantsTopics[2]]: humanCapital,
+    [consultantsTopics[3]]: strategyAndOperations,
+    [consultantsTopics[4]]: technology
+}

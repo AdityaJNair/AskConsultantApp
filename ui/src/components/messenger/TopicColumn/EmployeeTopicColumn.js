@@ -3,7 +3,8 @@ import TextField from 'react-md/lib/TextFields/TextField'
 import { ExpansionList, ExpansionPanel } from 'react-md/lib/ExpansionPanels';
 import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
-import {development, strategyAndOperations, everydayDeloitte, humanCapital, technology} from "../../../containers/dumb/Admin/topics";
+import {employeeConvoTopics, technology} from "../../../containers/dumb/Admin/topics";
+import {updateEmployeeConversations} from "../../../actions/leftTabActions"
 
 class EmployeeTopicColumn extends Component {
     expandList() {
@@ -19,9 +20,12 @@ class EmployeeTopicColumn extends Component {
         console.log("INSIDE ITEM");
     }
 
+    changeActiveTopics = (subTopic, topic) =>{
+        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item));
+    }
 
 
-    render() {
+    render(){
 
         // var techItems =[];
         // for{var i =0; i<technology.length; i++}
@@ -41,22 +45,36 @@ class EmployeeTopicColumn extends Component {
 
                 <div id="topics_field">
                     <ExpansionList>
+                        {/*{Object.entries(employeeConvoTopics).map((item, index) =>{*/}
+                            {/*<ExpansionPanel label={item[index][0]} footer={null}>*/}
+                                {/*<List className="md-cell md-paper md-paper--1">*/}
+                                    {/*/!*<ListItem*!/*/}
+                                    {/*/!*primaryText="Inbox"*!/*/}
+                                    {/*/!*parentList="Technology"*!/*/}
+                                    {/*/!*childListVal="Inbox"*!/*/}
+                                    {/*{item[index][1].map((item) => {*/}
+                                        {/*return <ListItem primaryText={item} />*/}
+                                    {/*})}*/}
+                                {/*</List>*/}
+                            {/*</ExpansionPanel>*/}
+                        {/*})}*/}
 
-                        <ExpansionPanel label="Technology" footer={null}>
-                            <List className="md-cell md-paper md-paper--1">
-                                {/*<ListItem*/}
-                                    {/*primaryText="Inbox"*/}
-                                    {/*parentList="Technology"*/}
-                                    {/*childListVal="Inbox"*/}
-                                    {/*onClick={this.getLabel.bind(this)}/>*/}
-                                {/*<ListItem primaryText="Sent Mail" />*/}
-                                {technology.map((item) => {
-                                    return <ListItem primaryText={item} />
-                                })}
-                            </List>
-                        </ExpansionPanel>
+                                <ExpansionPanel label="Technology" footer={null}>
+                                    <List className="md-cell md-paper md-paper--1">
+                                        {/*<ListItem*/}
+                                        {/*primaryText="Inbox"*/}
+                                        {/*parentList="Technology"*/}
+                                        {/*childListVal="Inbox"*/}
+                                        {technology.map((item) => {
+                                            return <ListItem onClick={() => {this.changeActiveTopics({item}, "Technology")}}  primaryText={item} />
+                                        })}
+                                    </List>
+                                </ExpansionPanel>
+
+
+
                     <ExpansionPanel label="General" footer={null}>
-                        <p>others(15)</p>
+                        <p>others(150)</p>
                     </ExpansionPanel>
                     </ExpansionList>
                 </div>

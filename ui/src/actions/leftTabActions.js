@@ -64,6 +64,8 @@ export const updateConversations = (userid) => {
 export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic) => {
     return dispatch => {
         const url = "https://45.76.113.175:8443/askconsultant/rest/users/"+ employeeId +"/conversation"
+        const topic= primaryTopic;
+        const secondTopic =secondaryTopic;
         //const url = ""
         return fetch(url, {
             method: "GET",
