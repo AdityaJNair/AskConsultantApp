@@ -42,13 +42,15 @@ class Login_panel extends Component {
             <div id="login-background">
                 <img
                     id="login-logo"
-                    src={require('../../../images/deloitte_logo_transparent.png')} />
+                    src={require('../../../images/deloitte_logo_transparent_small.png')} />
                 <Paper
                     id="login-paper"
                     zDepth={3}>
                     <div id="login_panel">
                         <div id="login-header">
-                            <h1>Ask Consulting</h1>
+                            <img
+                                id="ask-consulting-logo"
+                                src={require('../../../images/AskConsultingLogo.png')}/>
                             <h2>Login</h2>
                         </div>
                         <label id='success_msg'>{this.props.successfulRegMsg}</label>
@@ -97,7 +99,7 @@ class Login_buttons extends Component {
     render() {
         return (
             <div id="login_buttons">
-                <Link to="/messenger"><Button raised onClick={e => loginSumbit(e, this.props.dispatch, this.props.history)} label="Login" /></Link><br />
+                <Link to="/messenger"><Button primary raised onClick={e => loginSumbit(e, this.props.dispatch, this.props.history)} label="Login" /></Link><br />
                 <Link to="/register"><Button raised label="Register" /></Link><br />
                 <a>Forgot my password</a>
             </div>

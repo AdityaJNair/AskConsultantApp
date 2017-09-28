@@ -3,7 +3,7 @@
     width: 60%;
     margin-left: 20%;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 #register_panel{
     width: 80%;
@@ -33,7 +33,7 @@
 }
 
 html, body{
-    background-color: black;
+    background-color: #2a2a2a;
     min-height: 900px;
     margin: 0;
     overflow: auto;

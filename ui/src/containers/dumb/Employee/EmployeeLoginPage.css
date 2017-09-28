@@ -30,6 +30,9 @@
     image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
 }
 
+#ask-consulting-logo{
+    margin-bottom: 10px;
+}
 
 #employee-login_buttons {
     margin-top: 20px;

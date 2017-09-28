@@ -415,7 +415,7 @@ class Register extends Component {
         return (
             <div class="canvas">
                 <div id="register_logo">
-                    <img src={logo} />
+                    <img src={require('../../../images/deloitte_logo_transparent_small.png')} />
                 </div>
                 <RegisterPanel {...this.props}/>
             </div>

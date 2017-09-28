@@ -79,7 +79,9 @@ class EmployeeLoginPage extends Component {
                     zDepth={3}>
                     <div id="employee_login_panel">
                         <div id="employee-login-header">
-                            <h1>Ask Consulting</h1>
+                            <img
+                                id="ask-consulting-logo"
+                                src={require('../../../images/AskConsultingLogo.png')}/>
                             <h2>Employee Login</h2>
                         </div>
                         <Employee_Login_input {...this.props}/>
