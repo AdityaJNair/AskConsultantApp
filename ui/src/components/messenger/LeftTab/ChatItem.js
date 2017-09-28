@@ -39,9 +39,11 @@ class ChatItem extends Component {
 
                 <div id="chatItem_mid">
                     <div id = "question_content">
-                        <p>need to implementin backend</p>
+                        <p>{this.props.convoDetails[1].latestmessage}</p>
                     </div>
-
+                    <div id = "latest_message_owner">
+                        <p>{this.props.convoDetails[1].latestmessagesentby}</p>
+                    </div>
                     <div id = "question_timestamp">
                         <p>{this.props.convoDetails[1].lastupdate}</p>
                     </div>
