@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import SearchFilter from "./SearchFilter";
-import ChatListSmart from "../../../containers/smart/User/Messenger/ChatList";
+import ChatListEmployeeSmart from "../../../containers/smart/Employee/Messenger/ChatListEmployee";
 
 class EmployeeMessengerLeft extends Component {
     render(){
         return (
             <div id="messenger-left-column">
                 <SearchFilter/>
-                <ChatListSmart/>
+                <ChatListEmployeeSmart/>
             </div>
         )
     }

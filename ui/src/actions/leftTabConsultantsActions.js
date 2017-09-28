@@ -1,13 +1,12 @@
 // Use the login reducer to test.
 export const login = (userid, password, isEmployee) => {
     return {
-        type: 'CONSULTANT_LOGIN',
+        type: 'USER_LOGIN',
         status: 'test',
         token: '',
         pending: false
     }
 }
-
 const setConversations =  (json) => {
     return {
         type: 'UPDATE_CONVERSATIONS',
