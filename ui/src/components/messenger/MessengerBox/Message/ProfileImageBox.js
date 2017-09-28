@@ -9,7 +9,7 @@ class ProfileImageBox extends Component {
             <div id="profile_box">
                 <div id="avatar-container"><Avatar random role="presentation" id="profile-avatar"></Avatar></div>
 
-                <div id="user-name">{this.props.userid}</div>
+                <div id="user-name">{this.props.sentbyuserid}</div>
                 {/*//TODO get the role of the user.*/}
                 {/*<div id="role">Role/Occupation</div>*/}
             </div>
@@ -19,7 +19,7 @@ class ProfileImageBox extends Component {
 
 const mapStateToProps = ({loginInfo}) => {
     return {
-        userid: loginInfo.userid,
+        currenUserid: loginInfo.userid,
     }
 }
 

@@ -1,5 +1,10 @@
-export const receiveMessage = (message) => {
+export const receiveMessage = (response) => {
     console.log('receive message action')
+    let message = {
+        message: response.message,
+        sentbyuserid: response.sentbyuserid,
+        sentat: response.sentat
+    }
     return {
         type: 'RECEIVE_MESSAGE',
         message: message
