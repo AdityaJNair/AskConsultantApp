@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Style from "./stylesheet/CreateConversationButton.css"
 import Button from 'react-md/lib/Buttons/Button';
 import Divider from 'react-md/lib/Dividers/Divider'
 import DialogContainer from 'react-md/lib/Dialogs'

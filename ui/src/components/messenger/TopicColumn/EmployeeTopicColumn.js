@@ -3,6 +3,7 @@ import TextField from 'react-md/lib/TextFields/TextField'
 import { ExpansionList, ExpansionPanel } from 'react-md/lib/ExpansionPanels';
 import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
+import {development, strategyAndOperations, everydayDeloitte, humanCapital, technology} from "../../../containers/dumb/Admin/topics";
 
 class EmployeeTopicColumn extends Component {
     expandList() {
@@ -13,7 +14,17 @@ class EmployeeTopicColumn extends Component {
             topicList.style.display == null;
         }
     };
+
+    getLabel=(e,parent,child)=>{
+        console.log("INSIDE ITEM");
+    }
+
+
+
     render() {
+
+        // var techItems =[];
+        // for{var i =0; i<technology.length; i++}
         return (
             <div id="employee_Topic_Column">
                 <div id="topic_searchField">
@@ -26,15 +37,28 @@ class EmployeeTopicColumn extends Component {
                     />
                 </div>
 
+
+
                 <div id="topics_field">
-                    <ExpansionPanel label="Technology" footer={null}>
-                        <p>Strategy(3)</p>
-                        <p>Analytics Information(5)</p>
-                        <p>System Integration(5)</p>
-                    </ExpansionPanel>
+                    <ExpansionList>
+
+                        <ExpansionPanel label="Technology" footer={null}>
+                            <List className="md-cell md-paper md-paper--1">
+                                {/*<ListItem*/}
+                                    {/*primaryText="Inbox"*/}
+                                    {/*parentList="Technology"*/}
+                                    {/*childListVal="Inbox"*/}
+                                    {/*onClick={this.getLabel.bind(this)}/>*/}
+                                {/*<ListItem primaryText="Sent Mail" />*/}
+                                {technology.map((item) => {
+                                    return <ListItem primaryText={item} />
+                                })}
+                            </List>
+                        </ExpansionPanel>
                     <ExpansionPanel label="General" footer={null}>
                         <p>others(15)</p>
                     </ExpansionPanel>
+                    </ExpansionList>
                 </div>
 
             </div>
