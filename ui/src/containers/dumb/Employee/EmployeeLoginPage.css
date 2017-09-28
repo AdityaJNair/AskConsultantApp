@@ -8,14 +8,10 @@
 }
 
 #employee-login-background {
-    width: 100vw;
-    height: 100vh;
-    background: url(../../../images/StockSnap_R7I37OMZIU.jpg);
-    background-position: 700px 100px;
-    background-size: 100vw;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #2a2a2a;
+    width: 100%;
+    min-height: 100%;
+    background: #2a2a2a url(../../../images/StockSnap_R7I37OMZIU.jpg) no-repeat fixed 700px 100px;
+    background-size: cover;
 }
 
 #employee-login-logo{
