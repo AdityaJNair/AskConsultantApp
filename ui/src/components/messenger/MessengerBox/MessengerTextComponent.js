@@ -8,8 +8,8 @@ import './stylesheet/MessengerTextComponent.css'
 let ws, messageInput
 
 class MessengerTextComponent extends Component {
-    openSocket(userid, conversation_id, receiveMessage) {
-        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversation_id}/chat`
+    openSocket(userid, conversationid, receiveMessage) {
+        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversationid}/chat`
         console.log(uri)
         ws = new WebSocket(uri);
         ws.onopen = function() {
@@ -21,9 +21,7 @@ class MessengerTextComponent extends Component {
         ws.onmessage = function(e) {
             let resp = JSON.parse(e.data);
             console.log(resp)
-            let msg = resp.message + conversation_id
-            // dispatch()
-            //　TODO add the message from the user self on the messageView
+            let msg = resp.message
             console.log('received: ' + msg);
             let message = {
                 tooltipLabel: "3:00 pm",
@@ -42,10 +40,10 @@ class MessengerTextComponent extends Component {
         ws.close();
     }
 
-    sendText() {
+    sendText(userid, conversationid) {
         console.log("Click");
         let message = messageInput.value;
-        let jsonString = { "message": message, "userid":"test@test.com", "conversationid":"3"};
+        let jsonString = { "message": message, "userid": userid,  "conversationid": conversationid};
         let myJSON = JSON.stringify(jsonString);
         console.log('sending: ' + myJSON);
         ws.send(myJSON);
@@ -62,11 +60,11 @@ class MessengerTextComponent extends Component {
     render(){
         const receiveMessage = this.props.receiveMessage
         const userid = this.props.userid
-        const conversation_id = this.props.conversation_id
-        console.log(`conversation_id: ${conversation_id}`)
+        const conversationid = this.props.conversationid
+        console.log(`conversationid: ${conversationid}`)
         //TODO: where to get the conersation_id
-        this.openSocket(userid, conversation_id, receiveMessage)
-        console.log("MesengerTextComponent: render" + this.props.conversation_id)
+        this.openSocket(userid, conversationid, receiveMessage)
+        console.log("MesengerTextComponent: render" + this.props.conversationid)
         return (
             <div id="messenger_text_area">
                 <div id="textFieldEnter">
@@ -80,7 +78,7 @@ class MessengerTextComponent extends Component {
                         className="md-cell md-cell--top"
                     />
                 </div>
-                <div id="buttonsend" onClick={this.sendText.bind(this)} >
+                <div id="buttonsend" onClick={this.sendText.bind(this, userid, conversationid)} >
                     <Button Button icon secondary >send</Button>
                 </div>
             </div>
