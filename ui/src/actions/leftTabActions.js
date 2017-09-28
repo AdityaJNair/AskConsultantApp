@@ -60,3 +60,41 @@ export const updateConversations = (userid) => {
             )
     }
 }
+
+export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic) => {
+    return dispatch => {
+        const url = "https://45.76.113.175:8443/askconsultant/rest/users/"+ employeeId +"/conversation"
+        //const url = ""
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(
+                response => {
+                    return response.json()
+                },
+                error => {
+                    console.log('An error occured.', error)
+                    console.log("serverError?")
+                }
+            )
+            .then(
+                json => {
+                    if (json === undefined ) {
+                        console.log("serverError?")
+                        return false;
+                    }
+                    else if (json.error !== undefined) {
+                        console.log(json.error)
+                        return false;
+                    }
+                    else {
+                        dispatch(setConversations(json))
+                        return true;
+                    }
+                }
+            )
+    }
+}

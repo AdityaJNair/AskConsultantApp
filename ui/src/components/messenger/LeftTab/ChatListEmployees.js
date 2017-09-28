@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ChatItem from "./ChatItem";
 import Style from "./stylesheet/ChatList.css"
-import {updateConversations, setActiveConversation} from "../../../actions/leftTabConsultantsActions";
-class ChatList extends Component {
+import {updateEmployeeConversations, setActiveConversation} from "../../../actions/leftTabActions";
+class ChatListEmployee extends Component {
 
     componentWillMount(){
         console.log("updating convos")
@@ -10,7 +10,7 @@ class ChatList extends Component {
     }
     refresh = () => {
         // make Ajax call here, inside the callback call:
-        this.props.dispatch(updateConversations(this.props.userID,"",""))
+        this.props.dispatch(updateEmployeeConversations(this.props.userID,"",""))
             .then((success) => {
                 //uses status returned by action creator
                 if(success){
@@ -39,4 +39,4 @@ class ChatList extends Component {
 }
 
 
-export default ChatList;
+export default ChatListEmployee;

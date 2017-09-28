@@ -3,7 +3,7 @@ import './EmployeeChatPage.css';
 import HorizontalNavBar from "../../../components/horizontalNavigation/HorizontalNavBar";
 import MessengerLeftColumn from "../../../components/messenger/LeftTab/MessengerLeftColumn";
 import MessageWindow from "../../../components/messenger/MessengerBox/MessageWindow";
-import EmployeeTopicColumn from "../../../components/messenger/TopicColumn/EmployeeTopicColumn"
+import EmployeeTopicColumnSmart from "../../smart/Employee/Messenger/EmployeeTopicColumnSmart"
 import EmployeeMessengerLeft from "../../../components/messenger/LeftTab/EmployeeMessengerLeft";
 
 
@@ -13,7 +13,7 @@ class EmployeeChatPage extends Component {
             <div id="whole-page" class="canvas">
                 <HorizontalNavBar/>
                 <div id="content">
-                    <EmployeeTopicColumn/>
+                    <EmployeeTopicColumnSmart/>
                     <EmployeeMessengerLeft/>
                     <div id="employee-message-window">
                         <MessageWindow/>
