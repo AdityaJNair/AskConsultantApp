@@ -1,8 +1,5 @@
-import React, { PropTypes } from 'react';
-import TextField from 'react-md/lib/TextFields';
-import Paper from 'react-md/lib/Papers';
+import React from 'react';
 import "./stylesheet/MessageTextBubble.css"
-import Divider from 'react-md/lib/Dividers/Divider'
 import injectTooltip from 'react-md/lib/Tooltips'
 
 
@@ -19,17 +16,12 @@ import injectTooltip from 'react-md/lib/Tooltips'
 //     }
 // }
 
-const MessageTextBubble = injectTooltip(({ children, className, tooltip, message}) => (
+const MessageTextBubble = injectTooltip(({message, tooltip}) => (
     <div className="message-text-bubble">
         {message}
         {tooltip}
-        {children}
     </div>));
 
-MessageTextBubble.propTypes = {
-    tooltip: PropTypes.node,
-    className: PropTypes.string,
-    children: PropTypes.node,
-}
+
 
 export default MessageTextBubble;

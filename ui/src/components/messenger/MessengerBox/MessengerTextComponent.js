@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-md/lib/Buttons/Button';
 import TextField from 'react-md/lib/TextFields';
-import Paper from 'react-md/lib/Papers';
 import './stylesheet/MessengerTextComponent.css'
 
 //const uri = 'wss://45.76.113.175:8443/askconsultant/interactive/users/test@test.com/conversations/2/chat'
@@ -19,14 +18,10 @@ class MessengerTextComponent extends Component {
             console.log('close');
         };
         ws.onmessage = function(e) {
-            let resp = JSON.parse(e.data);
-            console.log(resp)
-            let msg = resp.message
-            console.log('received: ' + msg);
+            let response = JSON.parse(e.data);
+            console.log('receive:' + response)
             let message = {
-                tooltipLabel: "3:00 pm",
-                tooltipPosition: "right",
-                message: msg
+                message: response.message
             }
             receiveMessage(message)
         };

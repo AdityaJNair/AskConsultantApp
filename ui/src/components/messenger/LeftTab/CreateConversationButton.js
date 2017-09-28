@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import Style from "./stylesheet/CreateConversationButton.css"
 import Button from 'react-md/lib/Buttons/Button';
-import Divider from 'react-md/lib/Dividers/Divider'
 import DialogContainer from 'react-md/lib/Dialogs'
-import List from 'react-md/lib/Lists/List';
-import ListItem from 'react-md/lib/Lists/ListItem';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import {postConvoDetails} from "../../../actions/CreateConvoAction"
@@ -62,7 +58,7 @@ class CreateConversationButton extends Component {
     verifyFields= (e) => {
         if(question.value.trim() !== "" && topic.value !== "" && subTopic.value !== "" ){
             var defaultString = message.value.trim();
-            if(message.value.trim()==""){
+            if(message.value.trim() === ""){
                 defaultString = "Hi. I have a question: " + question.value.trim();
             }
             postCon(e,this.props.dispatch, question.value.trim(), defaultString, topic.value, subTopic.value, this.props.userid);
