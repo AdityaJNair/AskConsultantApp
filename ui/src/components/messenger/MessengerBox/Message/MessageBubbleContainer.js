@@ -10,22 +10,24 @@ import { connect } from 'react-redux'
 
 class MessageBubbleContainer extends Component {
 
-    componentWillMount () {
-        this._loadMessages(this.props.userid, this.props.conversationid)
-    }
     _loadMessages(userid, conversationid) {
         this.props.initMessageFromServer(userid, conversationid)
         console.log('loadMessages')
     }
 
+    // componentWillMount () {
+    //     this._loadMessages(this.props.userid, this.props.conversationid)
+    // }
+
     render(){
         console.log("MessageBubbleContainer render  ")
-        //this._loadMessages(this.props.userid, this.props.conversationid)
         const bubbles =
             this.props.messages.map( messageInfo => (
                 <div className="message_bubble_container">
                     <ProfileImageBox/>
-                    <MessageTextBubble message={messageInfo.message} tooltipLabel={messageInfo.sentat}/>
+                    <MessageTextBubble message={messageInfo.message}
+                                       tooltipLabel={messageInfo.sentat}
+                                       tooltipPosition="right"/>
                 </div>
                 )
             )

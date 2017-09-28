@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Button from 'react-md/lib/Buttons/Button';
-import TextField from 'react-md/lib/TextFields';
 import './stylesheet/MessengerTextComponent.css'
+import MessengerInput from "./MessengerInput";
 
 //const uri = 'wss://45.76.113.175:8443/askconsultant/interactive/users/test@test.com/conversations/2/chat'
-let ws, messageInput
+let ws
 
 class MessengerTextComponent extends Component {
+
     openSocket(userid, conversationid, receiveMessage) {
         const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversationid}/chat`
         console.log(uri)
@@ -19,7 +19,7 @@ class MessengerTextComponent extends Component {
         };
         ws.onmessage = function(e) {
             let response = JSON.parse(e.data);
-            console.log('receive:' + response)
+            console.log(response)
             let message = {
                 message: response.message
             }
@@ -32,12 +32,13 @@ class MessengerTextComponent extends Component {
 
     closeSocket() {
         console.log('closing');
-        ws.close();
+        if (ws !== undefined) {
+            ws.close();
+        }
     }
 
-    sendText(userid, conversationid) {
+    sendText(userid, conversationid, message) {
         console.log("Click");
-        let message = messageInput.value;
         let jsonString = { "message": message, "userid": userid,  "conversationid": conversationid};
         let myJSON = JSON.stringify(jsonString);
         console.log('sending: ' + myJSON);
@@ -47,36 +48,16 @@ class MessengerTextComponent extends Component {
     componentDidMount () {
         console.log("MesengerTextComponent: Did")
 
-
     }
     componentWillUnmount () {
         this.closeSocket()
     }
     render(){
-        const receiveMessage = this.props.receiveMessage
-        const userid = this.props.userid
-        const conversationid = this.props.conversationid
-        console.log(`conversationid: ${conversationid}`)
-        //TODO: where to get the conersation_id
-        this.openSocket(userid, conversationid, receiveMessage)
-        console.log("MesengerTextComponent: render" + this.props.conversationid)
+        console.log("text render")
+        this.closeSocket()
+        this.openSocket(this.props.userid, this.props.conversationid, this.props.receiveMessage)
         return (
-            <div id="messenger_text_area">
-                <div id="textFieldEnter">
-                    <TextField
-                        ref={node => {messageInput = node}}
-                        id="helpMultiline"
-                        placeholder="Type a message..."
-                        rows={1}
-                        maxRows={7}
-                        fullwidth={false}
-                        className="md-cell md-cell--top"
-                    />
-                </div>
-                <div id="buttonsend" onClick={this.sendText.bind(this, userid, conversationid)} >
-                    <Button Button icon secondary >send</Button>
-                </div>
-            </div>
+            <MessengerInput sendText={this.sendText} {...this.props}/>
         )
     }
 }
