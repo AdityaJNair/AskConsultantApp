@@ -19,7 +19,7 @@ class MessengerTextComponent extends Component {
         };
         ws.onmessage = function(e) {
             let response = JSON.parse(e.data);
-            console.log('receive:' + response)
+            console.log(response)
             let message = {
                 message: response.message
             }
