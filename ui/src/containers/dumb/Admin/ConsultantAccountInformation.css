@@ -1,0 +1,36 @@
+/*Main panel*/
+#register_container{
+    width: 60%;
+    margin-left: 20%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+}
+#register_panel{
+    width: 80%;
+    min-height: 800px;
+    margin-left: 10%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+#register_panel h1{
+    text-align: center;
+}
+
+#error_message{
+    color: red;
+}
+
+#register_logo{
+    text-align: center;
+    padding-top: 20px;
+}
+
+html, body{
+    background-color: black;
+    min-height: 900px;
+    margin: 0;
+    overflow: auto;
+}

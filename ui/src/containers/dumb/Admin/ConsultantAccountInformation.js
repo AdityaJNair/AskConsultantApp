@@ -4,6 +4,7 @@ import SelectField from 'react-md/lib/SelectFields';
 import Button from 'react-md/lib/Buttons/Button';
 import {consultantsTopics,development,strategyAndOperations,everydayDeloitte,humanCapital,technology} from './topics.js';
 import {postRegDetails} from '../../../actions/adminAction';
+import '../User/RegisterPage.css';
 
 export let name, email, password,passwordConfirm,role,primaryTopic,primarySubTopic;
 
@@ -203,8 +204,11 @@ class RegistrationAccount extends Component {
 
   render() {
     return (
-      <div class="canvas">
-          <h2>Register New Consultant</h2>
+      <div id="register_container">
+
+        <div id="register_panel">
+          <h1>Register New Consultant</h1>
+          <h2>Personal Information</h2>
           <form>
             <TextField ref={node => {name = node}}
                 id="floatingCenterTitle"
@@ -287,7 +291,8 @@ class RegistrationAccount extends Component {
             />
             <Button onClick={this.verifyFields.bind(this)} >Submit</Button>
             <p>{this.state.created}</p>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
@@ -298,6 +303,9 @@ class consultantRegistration extends Component  {
   render(){
     return(
       <div class="canvas">
+        <div id="register_logo">
+          <img src={require('../../../images/deloitte_logo_transparent_small.png')} />
+        </div>
         <RegistrationAccount {...this.props}/>
       </div>
     );
