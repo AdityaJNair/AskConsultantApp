@@ -1,4 +1,5 @@
 export const receiveMessage = (message) => {
+    console.log('receive message action')
     return {
         type: 'RECEIVE_MESSAGE',
         message: message

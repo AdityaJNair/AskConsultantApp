@@ -15,9 +15,9 @@ class MessageBubbleContainer extends Component {
         console.log('loadMessages')
     }
 
-    componentWillMount () {
-        this._loadMessages(this.props.userid, this.props.conversationid)
-    }
+    // componentWillMount () {
+    //     this._loadMessages(this.props.userid, this.props.conversationid)
+    // }
 
     render(){
         console.log("MessageBubbleContainer render  ")
