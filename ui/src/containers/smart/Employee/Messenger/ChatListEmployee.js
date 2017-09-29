@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import ChatList from "../../../../components/messenger/LeftTab/ChatList";
+import ChatListEmployees from "../../../../components/messenger/LeftTab/ChatListEmployees";
 
 const mapStateToProps = ({loginInfo, messengerInfo}) => {
     return {
@@ -8,6 +8,6 @@ const mapStateToProps = ({loginInfo, messengerInfo}) => {
     }
 }
 
-const ChatListSmart = connect(mapStateToProps)(ChatList)
+const ChatListEmployeeSmart = connect(mapStateToProps)(ChatListEmployees)
 
-export default ChatListSmart
+export default ChatListEmployeeSmart

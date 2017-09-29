@@ -8,13 +8,15 @@ import registerServiceWorker from './registerServiceWorker';
 import {
     BrowserRouter,
     Route,
-    Switch
+    Switch,
+    Redirect
 } from 'react-router-dom'
 import reducers from './reducers/groupedReducer'
-import MessageRoute from './routes/MessageRoute'
+import MessengerRoute from './routes/MessengerRoute'
+import ConsultantsMessengerRoute from './routes/ConsultantsMessengerRoute'
 import RegisterPage from './containers/smart/User/RegisterPage';
 import LoginPage from './containers/smart/User/LoginPage';
-import UserChatPage from './containers/smart/User/UserChatPage';
+import UserChatPage from './containers/dumb/User/UserChatPage';
 import EmployeeLoginPage from "./containers/smart/Employee/EmployeeLoginPage";
 import EmployeeChatPage from "./containers/dumb/Employee/EmployeeChatPage.js";
 import ConsultantAccountInformation from "./containers/smart/Admin/ConsultantAccountInformation";
@@ -33,13 +35,13 @@ ReactDOM.render(
             <Switch>
                 <Route path="/" exact component={LoginPage}/>
                 <Route path="/register" component={RegisterPage}/>
-                <MessageRoute path="/messenger" component={UserChatPage}/>
+                <MessengerRoute path="/messenger" component={UserChatPage}/>
                 {/* The employees/consultants need to access this directly. No direct click to this place*/}
                 <Route path="/consultants" component={EmployeeLoginPage}/>
-                <Route path="/consultants_messenger" component={EmployeeChatPage}/>
+                <ConsultantsMessengerRoute path="/consultants_messenger" component={EmployeeChatPage}/>
                 {/*Admin create consultant*/}
                 <Route path="/register_new_consultant" component={ConsultantAccountInformation}/>
-
+                <Redirect to='/' />
             </Switch>
         </BrowserRouter>
     </Provider>

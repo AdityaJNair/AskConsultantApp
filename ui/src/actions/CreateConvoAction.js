@@ -76,7 +76,7 @@ export const postConvoDetails = (question,
             .then(
                 response => {
                     console.log(response)
-                    if (response.status == 201) {
+                    if (response.status === 201) {
                         dispatch(successfulConversation())
                         return true;
                     }

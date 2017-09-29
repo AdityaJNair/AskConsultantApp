@@ -2,10 +2,10 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-class MessageRoute extends React.Component {
-    render() {
+class ConsultantsMessengerRoute extends React.Component {
+    render () {
         const {component: Component, pending, logged, ...rest } = this.props
-        console.log(`MessageRoute: ${logged}`)
+        console.log(`ConsultantsMessengerRoute: ${logged}`)
         return (
             <Route {...rest} render={props => {
                 if (pending) {
@@ -13,17 +13,16 @@ class MessageRoute extends React.Component {
                 }
                 return logged
                     ? <Component {...props}/>
-                    : <Redirect to='/'/>
-
-            }} />
+                    : <Redirect to='/consultants'/>
+            }}>
+            </Route>
         )
     }
 }
 
 const mapStateToProps = ({loginInfo}) => ({
     pending: loginInfo.pending,
-    
     logged: loginInfo.token !== ''
 })
 
-export default connect(mapStateToProps)(MessageRoute)
+export default connect(mapStateToProps)(ConsultantsMessengerRoute)

@@ -6,6 +6,7 @@ package com.askconsultant.service.dto;
  */
 public class ChatMessage {
 
+	private long id;
 	private String message;
 	private String userid;
 	private long conversationid;
@@ -48,6 +49,12 @@ public class ChatMessage {
 	}
 	public void setSenderSent(boolean isSenderSent) {
 		this.isSenderSent = isSenderSent;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 }

@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import Style from "./stylesheet/CreateConversationButton.css"
 import Button from 'react-md/lib/Buttons/Button';
-import Divider from 'react-md/lib/Dividers/Divider'
 import DialogContainer from 'react-md/lib/Dialogs'
-import List from 'react-md/lib/Lists/List';
-import ListItem from 'react-md/lib/Lists/ListItem';
 import TextField from 'react-md/lib/TextFields';
 import SelectField from 'react-md/lib/SelectFields';
 import {postConvoDetails} from "../../../actions/CreateConvoAction"
+import {consultantsTopics, development, strategyAndOperations, everydayDeloitte, humanCapital, technology} from "../../../containers/dumb/Admin/topics";
+import {updateConversations} from "../../../actions/leftTabActions";
 
-var MENU_ITEMS= ["Accounting", "Tax Evasion", "Poop"];
 export let question, message, topic, subTopic;
 
 const postCon = (e, dispatch, quest, mess, top, sub, userid) => {
@@ -17,10 +14,8 @@ const postCon = (e, dispatch, quest, mess, top, sub, userid) => {
     console.log(`in the convo create`)
     dispatch(postConvoDetails(quest,mess,top,sub,userid))
         .then((success) => {
-            //uses status returned by action creator
-            console.log(success + '')
             if(success)
-                console.log("Successful");
+                dispatch(updateConversations(userid))
         })
 }
 
@@ -29,7 +24,15 @@ class CreateConversationButton extends Component {
     constructor () {
         super();
         this.state = {
-
+            primarySubTopicList : [],
+            primarySubTopicListDisabled:true,
+            nameError:false,
+            questionError : false,
+            topicError : false,
+            subTopicError : false,
+            questionErrorMessage : "This field is required.",
+            topicErrorMessage: "This field is required.",
+            subTopicErrorMessage : "This field is required"
         }
     }
 
@@ -52,32 +55,94 @@ class CreateConversationButton extends Component {
     };
 
 
-    confirm= (e) => {
+    verifyFields= (e) => {
         if(question.value.trim() !== "" && topic.value !== "" && subTopic.value !== "" ){
-            var testString = message.value.trim();
-            if(message.value.trim()!==""){
-                testString = "Hi. I have a question: " + question.value.trim();
+            var defaultString = message.value.trim();
+            if(message.value.trim() === ""){
+                defaultString = "Hi. I have a question: " + question.value.trim();
             }
-            console.log("USERID: ")
-            console.log(this.props.userid);
-            postCon(e,this.props.dispatch, question.value.trim(), message.value.trim(), topic.value, subTopic.value, this.props.userid);
+            postCon(e,this.props.dispatch, question.value.trim(), defaultString, topic.value, subTopic.value, this.props.userid);
+            this.hide();
 
+        } else{
+            if(question.value.trim() === ""){
+                this.setState({
+                    questionTitleError :true,
+                    questionErrorMessage: "This field is required."
+                })
+            } else {
+                this.setState({
+                    questionTitleError :false
+                })
+            }
+            if(topic.value===""){
+                this.setState({
+                    topicError: true,
+                    topicErrorMessage: "This field is required."
+                })
+            } else {
+                this.setState({
+                    topicError: false
+                })
+            }
+            if(subTopic.value===""){
+                this.setState({
+                    subTopicError: true,
+                    subTopicErrorMessage: "This field is required."
+                })
+            } else {
+                this.setState({
+                    subTopicError: false
+                })
+            }
         }
-        console.log(question.value);
 
-        if(true){
-
-        }
-        console.log(message.value);
-        console.log(topic.value);
     }
-
+    updatePrimaryList= (event, index, value) => {
+        switch(event){
+            case 'Development':
+                this.setState({
+                    primarySubTopicList : development,
+                    primarySubTopicListDisabled : false,
+                })
+                break;
+            case 'Everyday Deloitte':
+                this.setState({
+                    primarySubTopicList : everydayDeloitte,
+                    primarySubTopicListDisabled : false,
+                })
+                break;
+            case 'Human Capital':
+                this.setState({
+                    primarySubTopicList : humanCapital,
+                    primarySubTopicListDisabled : false,
+                })
+                break;
+            case 'Strategy & Operations':
+                this.setState({
+                    primarySubTopicList : strategyAndOperations,
+                    primarySubTopicListDisabled : false,
+                })
+                break;
+            case 'Technology':
+                this.setState({
+                    primarySubTopicList : technology,
+                    primarySubTopicListDisabled : false,
+                })
+                break;
+            default:
+                this.setState({
+                    primarySubTopicList : [],
+                    primarySubTopicListDisabled : true
+                })
+        }
+    }
     render() {
         const { visible } = this.state;
         const actions = [];
         actions.push({ secondary: true, children: 'Cancel', onClick: this.hide });
         actions.push(<Button flat primary
-                             onClick={this.confirm.bind(this)}>Confirm</Button>);
+                             onClick={this.verifyFields.bind(this)}>Confirm</Button>);
 
 
 
@@ -95,6 +160,9 @@ class CreateConversationButton extends Component {
                         id="simple-action-dialog-field"
                         label="Question"
                         placeholder="Type Question Here..."
+                               errorText="This field is required."
+                               error={this.state.questionError}
+                               required
                     />
                     <TextField ref={node => {message = node}}
                         id="floating-multiline"
@@ -108,17 +176,24 @@ class CreateConversationButton extends Component {
                             label="Topic"
                             placeholder="Choose a Topic.."
                             itemLabel="title"
-                            menuItems={MENU_ITEMS}
+                            menuItems={consultantsTopics}
                             className="md-cell"
-                            required
+                                     errorText="This field is required."
+                                     error={this.state.topicError}
+                                     onChange={this.updatePrimaryList.bind(this)}
+                                     required
                         />
                         <SelectField ref = {node => {subTopic = node}}
                             id="subtopic_field"
                             label="SubTopic"
                             placeholder="Choose a SubTopic.."
                             itemLabel="title"
-                            menuItems={MENU_ITEMS}
+                            menuItems={this.state.primarySubTopicList}
                             className="md-cell"
+                                     error={this.state.subTopicError}
+                                     disabled={this.state.primarySubTopicListDisabled}
+                                     errorText="This field is required."
+                                     required
 
 
                         />

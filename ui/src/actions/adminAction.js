@@ -35,7 +35,6 @@ export const postRegDetails = (name,
 
   return dispatch => {
     const url = "https://45.76.113.175:8443/askconsultant/rest/admin/employee"
-
     const regDetails = {
       name,
       email,
