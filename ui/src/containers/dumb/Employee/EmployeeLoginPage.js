@@ -57,7 +57,7 @@ class Employee_Login_input extends Component {
                     />
                     <label id='error_msg'>{this.props.errorMsg}</label>
                     <div id="login_buttons">
-                        <Button raised label="Login" onClick={e => loginSubmit(e, this.props.dispatch, this.props.history)} />
+                        <Button primary raised label="Login" onClick={e => loginSubmit(e, this.props.dispatch, this.props.history)} />
                         <br />
                         <a>Forgot my password</a>
                     </div>

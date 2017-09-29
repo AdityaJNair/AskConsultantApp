@@ -289,7 +289,7 @@ class RegistrationAccount extends Component {
                 error= {this.state.primarySubTopicError}
                 errorText="This field is required."
             />
-            <Button onClick={this.verifyFields.bind(this)} >Submit</Button>
+            <Button primary raised label="Submit" onClick={this.verifyFields.bind(this)}/>
             <p>{this.state.created}</p>
           </form>
         </div>
