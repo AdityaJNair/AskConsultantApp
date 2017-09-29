@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import MessageTextBubble from "./MessageTextBubble";
 import ProfileImageBox from "./ProfileImageBox";
-import Paper from 'react-md/lib/Papers';
 import "./stylesheet/MessageBubbleContainer.css"
-import {initMessages} from "../../../../actions/messengerAction";
+import {initMessageFromServer} from "../../../../actions/messengerAction";
 import { connect } from 'react-redux'
 
 
@@ -11,38 +10,24 @@ import { connect } from 'react-redux'
 
 class MessageBubbleContainer extends Component {
 
-    messageInfo1 = {
-        tooltipLabel: "1:00 pm",
-        tooltipPosition: "right",
-        message: "Text Message1"
-    }
-    messageInfo2 = {
-        tooltipLabel: "2:00 pm",
-        tooltipPosition: "right",
-        message: "Text Message2"
-    }
-    messageInfo3 = {
-        tooltipLabel: "3:00 pm",
-        tooltipPosition: "right",
-        message: "Text Message3"
-    }
-    fakemessages = [this.messageInfo1, this.messageInfo2, this.messageInfo3]
-    componentWillMount () {
-        this._loadMessages()
-    }
-    _loadMessages() {
-        //TODO Fetch message history from the server using conversation_id
-        let messages = this.fakemessages
-        this.props.initMessage(messages)
+    _loadMessages(userid, conversationid) {
+        this.props.initMessageFromServer(userid, conversationid)
         console.log('loadMessages')
     }
 
+    componentWillMount () {
+        this._loadMessages(this.props.userid, this.props.conversationid)
+    }
+
     render(){
+        console.log("MessageBubbleContainer render  ")
         const bubbles =
             this.props.messages.map( messageInfo => (
-                <div>
-                    <ProfileImageBox/>
-                    <MessageTextBubble {...messageInfo}/>
+                <div className="message_bubble_container">
+                    <ProfileImageBox sentbyuserid={messageInfo.sentbyuserid}/>
+                    <MessageTextBubble message={messageInfo.message}
+                                       tooltipLabel={messageInfo.sentat}
+                                       tooltipPosition="right"/>
                 </div>
                 )
             )
@@ -56,16 +41,18 @@ class MessageBubbleContainer extends Component {
     }
 }
 
-const mapStateToProps = ({messengerInfo}) => {
+const mapStateToProps = ({loginInfo, messengerInfo}) => {
     return {
-        messages: messengerInfo.messages
+        userid: loginInfo.userid,
+        messages: messengerInfo.messages,
+        conversationid: messengerInfo.activeConvo
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        initMessage: (messages) => {
-            dispatch(initMessages(messages))
+        initMessageFromServer: (userid, conversationid) => {
+            dispatch(initMessageFromServer(userid, conversationid))
         }
     }
 }

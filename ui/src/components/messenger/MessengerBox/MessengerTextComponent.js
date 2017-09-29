@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import Button from 'react-md/lib/Buttons/Button';
-import TextField from 'react-md/lib/TextFields';
-import Paper from 'react-md/lib/Papers';
 import './stylesheet/MessengerTextComponent.css'
+import MessengerInput from "./MessengerInput";
 
 //const uri = 'wss://45.76.113.175:8443/askconsultant/interactive/users/test@test.com/conversations/2/chat'
-let ws, messageInput
+let ws
 
 class MessengerTextComponent extends Component {
-    openSocket(userid, conversation_id, receiveMessage) {
-        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversation_id}/chat`
+
+    openSocket(userid, conversationid, receiveMessage) {
+        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversationid}/chat`
         console.log(uri)
         ws = new WebSocket(uri);
         ws.onopen = function() {
@@ -19,18 +18,12 @@ class MessengerTextComponent extends Component {
             console.log('close');
         };
         ws.onmessage = function(e) {
-            let resp = JSON.parse(e.data);
-            console.log(resp)
-            let msg = resp.message + conversation_id
-            // dispatch()
-            //　TODO add the message from the user self on the messageView
-            console.log('received: ' + msg);
-            let message = {
-                tooltipLabel: "3:00 pm",
-                tooltipPosition: "right",
-                message: msg
-            }
-            receiveMessage(message)
+            let response = JSON.parse(e.data);
+            console.log(response)
+            // let message = {
+            //     message: response.message
+            // }
+            receiveMessage(response)
         };
         ws.onerror = function() {
             console.log('error');
@@ -39,13 +32,14 @@ class MessengerTextComponent extends Component {
 
     closeSocket() {
         console.log('closing');
-        ws.close();
+        if (ws !== undefined) {
+            ws.close();
+        }
     }
 
-    sendText() {
+    sendText(userid, conversationid, message) {
         console.log("Click");
-        let message = messageInput.value;
-        let jsonString = { "message": message, "userid":"test@test.com", "conversationid":"3"};
+        let jsonString = { "message": message, "userid": userid,  "conversationid": conversationid};
         let myJSON = JSON.stringify(jsonString);
         console.log('sending: ' + myJSON);
         ws.send(myJSON);
@@ -54,36 +48,16 @@ class MessengerTextComponent extends Component {
     componentDidMount () {
         console.log("MesengerTextComponent: Did")
 
-
     }
     componentWillUnmount () {
         this.closeSocket()
     }
     render(){
-        const receiveMessage = this.props.receiveMessage
-        const userid = this.props.userid
-        const conversation_id = this.props.conversation_id
-        console.log(`conversation_id: ${conversation_id}`)
-        //TODO: where to get the conersation_id
-        this.openSocket(userid, conversation_id, receiveMessage)
-        console.log("MesengerTextComponent: render" + this.props.conversation_id)
+        console.log("text render")
+        this.closeSocket()
+        this.openSocket(this.props.userid, this.props.conversationid, this.props.receiveMessage)
         return (
-            <div id="messenger_text_area">
-                <div id="textFieldEnter">
-                    <TextField
-                        ref={node => {messageInput = node}}
-                        id="helpMultiline"
-                        placeholder="Type a message..."
-                        rows={1}
-                        maxRows={7}
-                        fullwidth={false}
-                        className="md-cell md-cell--top"
-                    />
-                </div>
-                <div id="buttonsend" onClick={this.sendText.bind(this)} >
-                    <Button Button icon secondary >send</Button>
-                </div>
-            </div>
+            <MessengerInput sendText={this.sendText} {...this.props}/>
         )
     }
 }

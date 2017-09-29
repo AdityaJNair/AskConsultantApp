@@ -17,7 +17,7 @@ class MessageWindow extends Component {
         //         <MessengerSendText/>
         //     </div>
         // )
-        console.log(`Render: ${this.props.activeConvo}`)
+        console.log(`Render And Get the activeConvo: ${this.props.activeConvo}`)
         return (
             this.props.activeConvo !== '' ?
                 <div>

@@ -6,7 +6,6 @@ class MessageView extends Component {
         return (
             <div id="message_view">
                 <MessageBubbleContainer/>
-
             </div>
         )
     }
