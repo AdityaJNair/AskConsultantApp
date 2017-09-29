@@ -20,10 +20,12 @@ import com.askconsultant.common.json.JsonWriter;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
 import com.askconsultant.resource.converter.ConversationJSONConverter;
+import com.askconsultant.resource.converter.EmployeeCategoriesConverter;
 import com.askconsultant.resource.converter.MessageJSONConverter;
 import com.askconsultant.resource.converter.OperationFailureJSONConvertor;
 import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.ConversationService;
+import com.askconsultant.service.EmployeeService;
 import com.askconsultant.service.MessageService;
 import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 
@@ -55,6 +57,12 @@ public class ConversationResource {
 
 	@Inject
 	OperationFailureJSONConvertor opFailureJSONConverter;
+
+	@Inject
+	EmployeeService employeeService;
+
+	@Inject
+	EmployeeCategoriesConverter employeeTopicsConverter;
 
 	/**
 	 * Creates the conversation for a user
@@ -94,14 +102,9 @@ public class ConversationResource {
 	@GET
 	public Response listAllConversations(@PathParam("userid") String userid) {
 		try {
-			List<ConversationWithLatestMessageDTO> conversationlist = null;
-			if (authService.isEmployee(userid)) {
-				conversationlist = conversationService.listAllConversations();
-			} else {
-				conversationlist = conversationService.listAllConversationsForUser(userid);
-			}
+			List<ConversationWithLatestMessageDTO> listActiveConversations = conversationService.listActiveConversations(userid);
 			return Response.status(201)
-					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversationlist)))
+					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(listActiveConversations)))
 					.build();
 		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
@@ -124,12 +127,13 @@ public class ConversationResource {
 		try {
 			Conversation conversation = conversationService.getConversation(conversationid);
 			return Response.status(201)
-					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversation))).build();
+					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(conversation)))
+					.build();
 		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
 					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Object not found")))
 					.build();
-			
+
 		}
 	}
 
@@ -144,8 +148,9 @@ public class ConversationResource {
 	public Response listMessagesForConversation(@PathParam("conversationid") long conversationid) {
 		try {
 			List<Message> listMessagesForConversation = messageService.listMessagesForConversation(conversationid);
-			return Response.status(201).entity(
-					JsonWriter.writeToString(messageJSONConverter.convertToJsonElement(listMessagesForConversation)))
+			return Response.status(201)
+					.entity(JsonWriter
+							.writeToString(messageJSONConverter.convertToJsonElement(listMessagesForConversation)))
 					.build();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -2,28 +2,37 @@ package com.askconsultant.resource.converter;
 
 import static org.junit.Assert.*;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import com.askconsultant.common.FileUtil;
 import com.askconsultant.common.MessageHelper;
 import com.askconsultant.model.Message;
+import com.askconsultant.service.ConversationService;
+import com.askconsultant.service.RegistrationService;
+import com.askconsultant.service.impl.RegistrationServiceImpl;
 import com.google.gson.JsonElement;
 
 /**
- * This test class tests the MessageJSONConverter class that converts 
- * Message object to JSON and vice-versa.
+ * This test class tests the MessageJSONConverter class that converts Message
+ * object to JSON and vice-versa.
  *
  */
 public class TestMessageJSONConverter {
 
 	MessageJSONConverter messageJSONConverter;
+	RegistrationService registrationService;
 
 	@Before
 	public void init() {
 		messageJSONConverter = new MessageJSONConverter();
+		registrationService  = Mockito.mock(RegistrationServiceImpl.class);
+		messageJSONConverter.registrationService = registrationService;
 	}
 
 	/**
@@ -56,7 +65,7 @@ public class TestMessageJSONConverter {
 			fail();
 		}
 	}
-	
+
 	/**
 	 * Test the method that converts a Message object to JSON
 	 */
@@ -71,4 +80,5 @@ public class TestMessageJSONConverter {
 			fail();
 		}
 	}
+
 }

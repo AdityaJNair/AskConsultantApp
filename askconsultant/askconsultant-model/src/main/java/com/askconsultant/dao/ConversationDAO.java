@@ -14,7 +14,6 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import com.askconsultant.model.Conversation;
-import com.askconsultant.model.Message;
 
 @Stateless
 public class ConversationDAO {
@@ -53,6 +52,9 @@ public class ConversationDAO {
 		// add all the criteria
 		criteriaQuery.where(criteriaBuilder.equal(root.get("status"), statusparam),
 				criteriaBuilder.equal(root.get("owner"), useridparam));
+		
+		//add the order by
+		criteriaBuilder.desc(root.get("lastUpdated"));
 
 		TypedQuery<Conversation> query = em.createQuery(criteriaQuery);
 		query.setParameter(useridparam, userid);
@@ -102,6 +104,9 @@ public class ConversationDAO {
 		ParameterExpression<String> statusparam = criteriaBuilder.parameter(String.class);
 		// add all the criteria
 		criteriaQuery.where(criteriaBuilder.equal(root.get("status"), statusparam));
+		
+		//add the order by
+		criteriaBuilder.desc(root.get("lastUpdated"));
 
 		TypedQuery<Conversation> query = em.createQuery(criteriaQuery);
 		query.setParameter(statusparam, Constants.CONVERSATION_STATUS_ACTIVE);

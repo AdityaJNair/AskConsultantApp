@@ -68,6 +68,12 @@ public interface ConversationService {
 	 * @return
 	 */
 	public List<ConversationAndMessages> listActiveConversationsWithMessagesForUser(String userid);
+
+	/**
+	 * @param userid
+	 * @return
+	 */
+	public List<ConversationWithLatestMessageDTO> listActiveConversations(String userid);
 	
 }
 

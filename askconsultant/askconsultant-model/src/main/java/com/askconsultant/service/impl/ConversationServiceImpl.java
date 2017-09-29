@@ -10,9 +10,13 @@ import javax.inject.Inject;
 import com.askconsultant.dao.Constants;
 import com.askconsultant.dao.ConversationDAO;
 import com.askconsultant.dao.MessageDAO;
+import com.askconsultant.dao.RegistrationDAO;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
+import com.askconsultant.model.RegistrationDetails;
+import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.ConversationService;
+import com.askconsultant.service.RegistrationService;
 import com.askconsultant.service.dto.ConversationAndMessages;
 import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 
@@ -26,6 +30,16 @@ public class ConversationServiceImpl implements ConversationService {
 
 	@Inject
 	MessageDAO messageDAO;
+	
+	
+	@Inject
+	RegistrationDAO registrationDAO;
+	
+	@Inject
+	AuthenticationService authService;
+	
+	@Inject
+	RegistrationService registrationService;
 
 	/*
 	 * (non-Javadoc)
@@ -87,6 +101,10 @@ public class ConversationServiceImpl implements ConversationService {
 		return packageConversationWithLatestMessage;
 	}
 
+	/**
+	 * @param listAllConversations
+	 * @return
+	 */
 	private List<ConversationWithLatestMessageDTO> packageConversationWithLatestMessage(
 			List<Conversation> listAllConversations) {
 		List<ConversationWithLatestMessageDTO> conversationWithLatestMessageList = new ArrayList<ConversationWithLatestMessageDTO>();
@@ -96,7 +114,10 @@ public class ConversationServiceImpl implements ConversationService {
 			conversationWithLatestMessage = new ConversationWithLatestMessageDTO();
 			conversationWithLatestMessage.setConversation(conversation);
 			message = messageDAO.findByID(conversation.getLatestMessageID());
+			//set the sender display name instead of the userid
+			message.setSender(registrationService.getDisplayOrPreferredName(message.getSender()));
 			conversationWithLatestMessage.setMessage(message);
+			//add to list for display
 			conversationWithLatestMessageList.add(conversationWithLatestMessage);
 		}
 		return conversationWithLatestMessageList;
@@ -174,5 +195,21 @@ public class ConversationServiceImpl implements ConversationService {
 	public Conversation getConversation(long conversationID) {
 		return conversationDAO.getConversationByID(conversationID);
 	}
-
+	
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.askconsultant.service.ConversationService#listAllConversations()
+	 */
+	@Override
+	public List<ConversationWithLatestMessageDTO> listActiveConversations(String userid) {
+		List<Conversation> converationList = new ArrayList<Conversation>();
+		if (authService.isEmployee(userid)) {
+			converationList = conversationDAO.listAllActiveConversations();
+		} else {
+			converationList = conversationDAO.listActiveConversationsByUser(userid);
+		}
+		return packageConversationWithLatestMessage(converationList);
+	}
 }

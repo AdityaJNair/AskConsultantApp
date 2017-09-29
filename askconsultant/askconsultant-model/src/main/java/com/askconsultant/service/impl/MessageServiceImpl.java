@@ -12,6 +12,7 @@ import com.askconsultant.dao.MessageDAO;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
 import com.askconsultant.service.MessageService;
+import com.askconsultant.service.RegistrationService;
 
 /**
  * This class implements the services required for storing and retrieving messages
@@ -30,7 +31,7 @@ public class MessageServiceImpl implements MessageService{
 	
 	@Inject
 	private ConversationDAO conversationDAO;
- 
+	
 	
 	/* (non-Javadoc)
 	 * @see com.askconsultant.service.MessageService#addMessage(com.askconsultant.model.Message)
@@ -40,6 +41,8 @@ public class MessageServiceImpl implements MessageService{
 		message.setCreateDateTime(Timestamp.valueOf(LocalDateTime.now()));
 		Message storedMessage = messageDAO.addMesssage(message);
 		Conversation conversationByID = conversationDAO.getConversationByID(message.getConversation());
+		//set the latest message id to the conversation
+		conversationByID.setLatestMessageID(storedMessage.getId());
 		conversationDAO.updateLastUpdatedTime(conversationByID);
 		return storedMessage;
 	}

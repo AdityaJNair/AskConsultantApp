@@ -8,6 +8,7 @@ import java.util.Base64;
 import javax.inject.Inject;
 
 import com.askconsultant.dao.EmployeeDAO;
+import com.askconsultant.dao.RegistrationDAO;
 import com.askconsultant.dao.UserDAO;
 import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.model.Employee;
@@ -25,6 +26,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 	@Inject
 	EmployeeDAO employeeDAO;
+	
+	@Inject
+	RegistrationDAO registrationDAO;
 
 	/* (non-Javadoc)
 	 * @see com.askconsultant.service.AuthenticationService#isAuthenticated(java.lang.String, java.lang.String)
@@ -112,6 +116,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		String token = new StringBuffer(userid).append("$").append(dateTime).toString();
 		String base64encodedString = Base64.getEncoder().encodeToString(token.getBytes("utf-8"));
 		return base64encodedString;
+	}
+	
+	/**
+	 * @param userid
+	 * @return
+	 */
+	public User getGenericDetailsForUserOrEmployee(String userid) {
+		User user = new User();
+		
+		
+		return user;
 	}
 
 }
