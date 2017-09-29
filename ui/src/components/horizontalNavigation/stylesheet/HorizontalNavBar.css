@@ -19,8 +19,9 @@
 #nav_item{
     width: 60px;
     height: 60px;
-    float: left;
+    float: right;
     background-color: rgb(134,188,37);
+    text-align: center;
 }
 
 #nav_item:hover {
@@ -28,6 +29,6 @@
 }
 
 #nav_icons{
-    margin-top: 15px;
-    margin-left: 20px;
+    width: 60px;
+    height: 60px;
 }
