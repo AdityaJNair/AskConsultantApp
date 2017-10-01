@@ -9,7 +9,6 @@
 
 .chat-item h1{
     color: black;
-    font-family: Verdana;
 }
 
 .chat-item p{
@@ -33,6 +32,7 @@
     height: 50px;
     float: left;
     border-bottom: solid rgb(117,120,123);
+    overflow: hidden;
 }
 
 #question_title h1{
