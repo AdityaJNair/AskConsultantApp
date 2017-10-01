@@ -4,7 +4,9 @@ import ChatListEmployees from "../../../../components/messenger/LeftTab/ChatList
 const mapStateToProps = ({loginInfo, messengerInfo}) => {
     return {
         userID: loginInfo.userid,
-        conversations: messengerInfo.conversations
+        conversations: messengerInfo.conversations,
+        primaryTopic : messengerInfo.primaryTopic,
+        secondaryTopic : messengerInfo.secondaryTopic
     }
 }
 

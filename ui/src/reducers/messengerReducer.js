@@ -3,18 +3,18 @@ const initialState = {
     activeConvo: '',
     conversations: JSON.stringify("{}"),
     messages: [],
-    primaryTopic: '',
-    secondaryTopic: ''
+    primaryTopic: 'Development',
+    secondaryTopic: 'Oracle practice'
 
 }
 
 const messengerReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_CONVERSATIONS':
-            if(state.activeConvo !== '' || action.conversations.length === 0)
+            if(state.activeConvo !== '' || action.conversations.length === 0){
                 return Object.assign({}, state, {
                     conversations: action.conversations
-                })
+                });}
             else
                 return Object.assign({}, state, {
                     conversations: action.conversations,

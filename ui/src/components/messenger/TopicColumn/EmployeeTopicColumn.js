@@ -4,7 +4,7 @@ import { ExpansionList, ExpansionPanel } from 'react-md/lib/ExpansionPanels';
 import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
-import {updateEmployeeConversations} from "../../../actions/leftTabActions"
+import {updateEmployeeConversations, setActiveTopics} from "../../../actions/leftTabActions"
 
 class EmployeeTopicColumn extends Component {
     expandList() {
@@ -21,8 +21,11 @@ class EmployeeTopicColumn extends Component {
     }
 
     changeActiveTopics = (subTopic, topic) =>{
+        console.log("changing active topics");
         this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item));
+        this.props.dispatch(setActiveTopics(topic,subTopic));
     }
+
 
 
     render(){
@@ -45,20 +48,6 @@ class EmployeeTopicColumn extends Component {
 
                 <div id="topics_field">
                     <ExpansionList>
-                        {/*{Object.entries(employeeConvoTopics).map((item, index) =>{*/}
-                            {/*<ExpansionPanel label={item[index][0]} footer={null}>*/}
-                                {/*<List className="md-cell md-paper md-paper--1">*/}
-                                    {/*/!*<ListItem*!/*/}
-                                    {/*/!*primaryText="Inbox"*!/*/}
-                                    {/*/!*parentList="Technology"*!/*/}
-                                    {/*/!*childListVal="Inbox"*!/*/}
-                                    {/*{item[index][1].map((item) => {*/}
-                                        {/*return <ListItem primaryText={item} />*/}
-                                    {/*})}*/}
-                                {/*</List>*/}
-                            {/*</ExpansionPanel>*/}
-                        {/*})}*/}
-
                         <ExpansionPanel label="Development" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
                                 {development.map((item) => {

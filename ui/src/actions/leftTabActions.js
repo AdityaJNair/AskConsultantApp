@@ -15,7 +15,7 @@ const setConversations =  (json) => {
     }
 }
 
-const setActiveTopics =  (primaryTopic, secondaryTopic) => {
+export const setActiveTopics =  (primaryTopic, secondaryTopic) => {
     return {
         type: 'SET_ACTIVE_TOPICS_EMPLOYEE',
         primaryTopic,
@@ -101,7 +101,16 @@ export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryT
                         return false;
                     }
                     else {
-                        dispatch(setConversations(json))
+                        console.log("the json file")
+
+                        var filteredJson = json.filter(function (row){
+                            if(row.category === primaryTopic && row.subcategory === secondaryTopic){
+                                return row;
+                            } else {
+                                return false;
+                            }
+                        })
+                        dispatch(setConversations(filteredJson))
                         return true;
                     }
                 }
