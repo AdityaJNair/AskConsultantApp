@@ -22,8 +22,7 @@ const receivePosts = (json) => {
         status: 'ok',
         token: json.token,
         userid: json.userid,
-        firstName: json.firstName,
-        lastName: json.lastName
+        preferredname: json.preferredname
     }
 }
 

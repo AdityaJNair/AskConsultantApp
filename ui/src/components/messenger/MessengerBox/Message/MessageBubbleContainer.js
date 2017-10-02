@@ -24,7 +24,7 @@ class MessageBubbleContainer extends Component {
         const bubbles =
             this.props.messages.map( messageInfo => (
                 <div className="message_bubble_container">
-                    <ProfileImageBox sentbyuserid={messageInfo.sentbyuserid}/>
+                    <ProfileImageBox sentbydisplayname={messageInfo.user}/>
                     <MessageTextBubble message={messageInfo.message}
                                        tooltipLabel={messageInfo.sentat}
                                        tooltipPosition="right"/>

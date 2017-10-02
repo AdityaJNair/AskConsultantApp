@@ -21,7 +21,7 @@ class MessengerInput extends Component {
 
     handleSend () {
         if (this.state.inputValue !== '') {
-            this.props.sendText(this.props.userid, this.props.conversationid, this.state.inputValue)
+            this.props.sendText(this.props.userid, this.props.conversationid, this.state.inputValue, this.props.sentbydisplayname)
             this.setState({
                 inputValue: ''
             })
@@ -30,11 +30,11 @@ class MessengerInput extends Component {
     }
 
     handleSendWithEnter (event) {
-        console.log(event.which || event.keyCode || event.charCode)
+        console.log(`this.props.sentbydisplayname: ${this.props.sentbydisplayname}`)
         let key = event.which || event.keyCode || event.charCode
         if (key === 13 && this.state.inputValue !== '' && this.state.inputValue !== '\n') {
             if (!event.shiftKey) {
-                this.props.sendText(this.props.userid, this.props.conversationid, this.state.inputValue)
+                this.props.sendText(this.props.userid, this.props.conversationid, this.state.inputValue, this.props.sentbydisplayname)
                 this.setState({
                     inputValue: ''
                 })

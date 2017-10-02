@@ -5,6 +5,7 @@ import {receiveMessage} from "../../../actions/messengerAction";
 const mapStateToProps = ({loginInfo, messengerInfo}) => {
     return {
         userid: loginInfo.userid,
+        sentbydisplayname: loginInfo.preferredname,
         conversationid: messengerInfo.activeConvo
     }
 }

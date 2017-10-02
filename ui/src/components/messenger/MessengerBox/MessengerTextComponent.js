@@ -37,9 +37,14 @@ class MessengerTextComponent extends Component {
         }
     }
 
-    sendText(userid, conversationid, message) {
+    sendText(userid, conversationid, message, sentbydisplayname) {
         console.log("Click");
-        let jsonString = { "message": message, "userid": userid,  "conversationid": conversationid};
+        let jsonString = {
+                            "message": message,
+                            "userid": userid,
+                            "conversationid": conversationid,
+                            "sentbydisplayname": "bb    "
+                        }
         let myJSON = JSON.stringify(jsonString);
         console.log('sending: ' + myJSON);
         ws.send(myJSON);
@@ -47,6 +52,7 @@ class MessengerTextComponent extends Component {
 
     componentDidMount () {
         console.log("MesengerTextComponent: Did")
+
 
     }
     componentWillUnmount () {

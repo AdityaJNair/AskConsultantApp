@@ -1,8 +1,9 @@
 export const receiveMessage = (response) => {
     console.log('receive message action')
+    console.log(response)
     let message = {
         message: response.message,
-        sentbyuserid: response.sentbyuserid,
+        user: response.user,
         sentat: response.sentat
     }
     return {
