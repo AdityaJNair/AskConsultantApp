@@ -90,29 +90,34 @@ public class ConversationDAO {
 		em.merge(conversation);
 	}
 
+	
 	/**
 	 * Lists all Active conversations
+	 * @param subtopic 
+	 * @param topic 
 	 * 
 	 * @return
 	 */
 	public List<Conversation> listAllActiveConversations() {
-		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		CriteriaQuery<Conversation> criteriaQuery = criteriaBuilder.createQuery(Conversation.class);
-		Root<Conversation> root = criteriaQuery.from(Conversation.class);
-		criteriaQuery.select(root);
+		StringBuffer query = new StringBuffer("Select c from Conversation c where c.status='").append(Constants.CONVERSATION_STATUS_ACTIVE).append("' order by c.lastUpdated desc");
+		@SuppressWarnings("unchecked")
+		List<Conversation> resultList = em.createQuery(query.toString()).getResultList();
+		return resultList;
+	}
+	
+	/**
+	 * Lists all Active conversations
+	 * @param subtopic 
+	 * @param topic 
+	 * 
+	 * @return
+	 */
+	public List<Conversation> listAllActiveConversations(String topic, String subtopic) {
 
-		ParameterExpression<String> statusparam = criteriaBuilder.parameter(String.class);
-		// add all the criteria
-		criteriaQuery.where(criteriaBuilder.equal(root.get("status"), statusparam));
-		
-		//add the order by
-		criteriaBuilder.desc(root.get("lastUpdated"));
-
-		TypedQuery<Conversation> query = em.createQuery(criteriaQuery);
-		query.setParameter(statusparam, Constants.CONVERSATION_STATUS_ACTIVE);
-
-		List<Conversation> queryResult = query.getResultList();
-		return queryResult;
+		StringBuffer query = new StringBuffer("Select c from Conversation c where c.category='").append(topic).append("' and c.subCategory='").append(subtopic).append("' order by c.lastUpdated desc");
+		@SuppressWarnings("unchecked")
+		List<Conversation> resultList = em.createQuery(query.toString()).getResultList();
+		return resultList;
 	}
 
 	/**

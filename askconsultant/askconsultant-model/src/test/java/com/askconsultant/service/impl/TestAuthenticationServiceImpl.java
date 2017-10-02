@@ -7,6 +7,7 @@ import com.askconsultant.dao.EmployeeDAO;
 import com.askconsultant.dao.UserDAO;
 import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.service.AuthenticationService;
+import com.askconsultant.service.RegistrationService;
 import com.askconsultant.service.dto.User;
 
 import static org.junit.Assert.*;
@@ -20,14 +21,17 @@ public class TestAuthenticationServiceImpl {
 	private AuthenticationService authenticationService;
 	private UserDAO userDAO;
 	private EmployeeDAO employeeDAO;
+	private RegistrationService registrationService;
 
 	@Before
 	public void init() {
 		authenticationService = new AuthenticationServiceImpl();
 		userDAO = mock(UserDAO.class);
 		employeeDAO = mock(EmployeeDAO.class);
+		registrationService = mock(RegistrationService.class);
 		((AuthenticationServiceImpl) authenticationService).userDAO = userDAO;
 		((AuthenticationServiceImpl) authenticationService).employeeDAO = employeeDAO;
+		((AuthenticationServiceImpl) authenticationService).registrationService = registrationService;
 	}
 
 	@Test

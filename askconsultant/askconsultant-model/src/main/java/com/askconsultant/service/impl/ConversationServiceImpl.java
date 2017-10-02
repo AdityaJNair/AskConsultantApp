@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -13,9 +14,9 @@ import com.askconsultant.dao.MessageDAO;
 import com.askconsultant.dao.RegistrationDAO;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
-import com.askconsultant.model.RegistrationDetails;
 import com.askconsultant.service.AuthenticationService;
 import com.askconsultant.service.ConversationService;
+import com.askconsultant.service.EmployeeService;
 import com.askconsultant.service.RegistrationService;
 import com.askconsultant.service.dto.ConversationAndMessages;
 import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
@@ -30,16 +31,18 @@ public class ConversationServiceImpl implements ConversationService {
 
 	@Inject
 	MessageDAO messageDAO;
-	
-	
+
 	@Inject
 	RegistrationDAO registrationDAO;
-	
+
 	@Inject
 	AuthenticationService authService;
-	
+
 	@Inject
 	RegistrationService registrationService;
+
+	@Inject
+	EmployeeService employeeService;
 
 	/*
 	 * (non-Javadoc)
@@ -114,10 +117,10 @@ public class ConversationServiceImpl implements ConversationService {
 			conversationWithLatestMessage = new ConversationWithLatestMessageDTO();
 			conversationWithLatestMessage.setConversation(conversation);
 			message = messageDAO.findByID(conversation.getLatestMessageID());
-			//set the sender display name instead of the userid
+			// set the sender display name instead of the userid
 			message.setSender(registrationService.getDisplayOrPreferredName(message.getSender()));
 			conversationWithLatestMessage.setMessage(message);
-			//add to list for display
+			// add to list for display
 			conversationWithLatestMessageList.add(conversationWithLatestMessage);
 		}
 		return conversationWithLatestMessageList;
@@ -195,21 +198,67 @@ public class ConversationServiceImpl implements ConversationService {
 	public Conversation getConversation(long conversationID) {
 		return conversationDAO.getConversationByID(conversationID);
 	}
-	
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see com.askconsultant.service.ConversationService#listAllConversations()
 	 */
 	@Override
-	public List<ConversationWithLatestMessageDTO> listActiveConversations(String userid) {
+	public List<ConversationWithLatestMessageDTO> listActiveConversationsForUser(String userid) {
 		List<Conversation> converationList = new ArrayList<Conversation>();
-		if (authService.isEmployee(userid)) {
-			converationList = conversationDAO.listAllActiveConversations();
-		} else {
-			converationList = conversationDAO.listActiveConversationsByUser(userid);
-		}
+		converationList = conversationDAO.listActiveConversationsByUser(userid);
 		return packageConversationWithLatestMessage(converationList);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.askconsultant.service.ConversationService#listAllConversations()
+	 */
+	@Override
+	public List<ConversationWithLatestMessageDTO> listActiveConversationsForEmployee(String userid) {
+		List<Conversation> converationList = new ArrayList<Conversation>();
+		converationList = conversationDAO.listAllActiveConversations();
+		return packageConversationWithLatestMessage(converationList);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.askconsultant.service.ConversationService#
+	 * listActiveConversationsForEmployee(java.lang.String, java.lang.String,
+	 * java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public List<ConversationWithLatestMessageDTO> listActiveConversationsForEmployee(String userid, String topic,
+			String subtopic, String dflt, String all) {
+
+		
+		//if all is specified and is true then get all conversations
+		if(null!=all && Boolean.parseBoolean(all)) {
+			return this.listActiveConversationsForEmployee(userid);
+		}
+		
+		//if default is set then get the preferences of employee and use them to fetch the list of conversations 
+		if(null!=dflt && Boolean.parseBoolean(dflt)) {
+			Map<String, String> employeeConversationCategories = employeeService
+					.getEmployeeConversationCategories(userid);
+			String dfltTopic = employeeConversationCategories.get("primaryTopic");
+			String dfltSubtopic = employeeConversationCategories.get("primarySubtopic");
+			List<Conversation> listAllActiveConversations = conversationDAO.listAllActiveConversations(dfltTopic,
+					dfltSubtopic);
+			return packageConversationWithLatestMessage(listAllActiveConversations);
+		}
+		
+		//if the topic and subtopic is provided then query the conversations using them
+		if(null!=topic && null!=subtopic) {
+			List<Conversation> listAllActiveConversations = conversationDAO.listAllActiveConversations(topic, subtopic);
+			return packageConversationWithLatestMessage(listAllActiveConversations);
+		}
+
+		//if nothing matches then simply return all conversations
+		return this.listActiveConversationsForEmployee(userid);
+	}
+
 }

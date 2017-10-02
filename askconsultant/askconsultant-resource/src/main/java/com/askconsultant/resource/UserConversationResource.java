@@ -9,6 +9,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -36,7 +37,7 @@ import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 @Path("users/{userid}/conversation")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class ConversationResource {
+public class UserConversationResource {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -102,9 +103,11 @@ public class ConversationResource {
 	@GET
 	public Response listAllConversations(@PathParam("userid") String userid) {
 		try {
-			List<ConversationWithLatestMessageDTO> listActiveConversations = conversationService.listActiveConversations(userid);
+			List<ConversationWithLatestMessageDTO> listActiveConversations = conversationService
+					.listActiveConversationsForUser(userid);
 			return Response.status(201)
-					.entity(JsonWriter.writeToString(conversationJSONConverter.convertToJsonElement(listActiveConversations)))
+					.entity(JsonWriter
+							.writeToString(conversationJSONConverter.convertToJsonElement(listActiveConversations)))
 					.build();
 		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)

@@ -73,7 +73,19 @@ public interface ConversationService {
 	 * @param userid
 	 * @return
 	 */
-	public List<ConversationWithLatestMessageDTO> listActiveConversations(String userid);
+	public List<ConversationWithLatestMessageDTO> listActiveConversationsForUser(String userid);
+	
+	/**
+	 * @param userid
+	 * @return
+	 */
+	public List<ConversationWithLatestMessageDTO> listActiveConversationsForEmployee(String userid, String topic, String subtopic, String dflt, String all);
+
+	/**
+	 * @param userid
+	 * @return
+	 */
+	public List<ConversationWithLatestMessageDTO> listActiveConversationsForEmployee(String userid);
 	
 }
 

@@ -13,6 +13,7 @@ import com.askconsultant.dao.UserDAO;
 import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.model.Employee;
 import com.askconsultant.service.AuthenticationService;
+import com.askconsultant.service.RegistrationService;
 import com.askconsultant.service.dto.User;
 
 /**
@@ -29,6 +30,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	
 	@Inject
 	RegistrationDAO registrationDAO;
+	
+	@Inject
+	RegistrationService registrationService;
 
 	/* (non-Javadoc)
 	 * @see com.askconsultant.service.AuthenticationService#isAuthenticated(java.lang.String, java.lang.String)
@@ -57,6 +61,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	@Override
 	public User login(User user) throws Exception {
 		try {
+			User userDTO = new User();
 			String password;
 			if (user.isEmployee()) {
 				Employee dbEmployee = employeeDAO.getEmployeeByUserID(user.getUserID());
@@ -66,7 +71,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 				password = dbUser.getPassword();
 			}
 			if (password.equals(this.encryptPassword(user.getPassword()))) {
-				User userDTO = new User();
+				userDTO.setPreferredName(registrationService.getDisplayOrPreferredName(user.getUserID()));
 				userDTO.setToken(createSecureTokenForUser(user.getUserID()));
 				userDTO.setUserID(user.getUserID());
 				return userDTO;
@@ -124,8 +129,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	 */
 	public User getGenericDetailsForUserOrEmployee(String userid) {
 		User user = new User();
-		
-		
 		return user;
 	}
 

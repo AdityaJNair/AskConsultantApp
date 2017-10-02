@@ -37,8 +37,7 @@ public class SessionJSONConverter {
 	public JsonElement convertToJsonElement(final com.askconsultant.service.dto.User user){
 		final JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("userid", user.getUserID());
-		jsonObject.addProperty("firstName", user.getFirstName());
-		jsonObject.addProperty("lastName", user.getLastName());
+		jsonObject.addProperty("preferredname", user.getPreferredName());
 		jsonObject.addProperty("token", user.getToken());
 		return jsonObject;
 	}
