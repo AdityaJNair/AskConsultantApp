@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './stylesheet/HorizontalNavBar.css';
 import FontIcon from 'react-md/lib/FontIcons';
 import logo from "../../images/deloitte_logo.png";
+import { connect } from 'react-redux'
+import {logout} from '../../actions/logoutActions'
 
 class HorizontalNavBar extends Component {
     render(){
@@ -17,8 +19,8 @@ class HorizontalNavBar extends Component {
                     <div id="nav_item">
                         <FontIcon id = "nav_icons">sms</FontIcon>
                     </div>
-                    <div id="nav_item">
-                        <FontIcon id = "nav_icons">settings</FontIcon>
+                    <div id="nav_item" onClick={this.props.logout}>
+                        <p>Log Out</p>
                     </div>
                 </div>
             </div>
@@ -26,4 +28,18 @@ class HorizontalNavBar extends Component {
     }
 }
 
-export default HorizontalNavBar;
+const mapStateToProps = ({loginInfo}) => {
+    return {
+        logged: loginInfo.token
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => {
+            dispatch(logout())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HorizontalNavBar)

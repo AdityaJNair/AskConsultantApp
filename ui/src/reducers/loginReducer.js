@@ -40,6 +40,11 @@ const loginReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 errorMsg: action.errorMsg
             })
+        case 'USER_LOGOUT':
+            console.log("USER_LOGOUT")
+            return Object.assign({}, state, {
+                token: action.token
+            })
         default:
             return state
     }
