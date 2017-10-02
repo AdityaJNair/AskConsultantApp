@@ -22,10 +22,30 @@ class MessengerInput extends Component {
     handleSend () {
         if (this.state.inputValue !== '') {
             this.props.sendText(this.props.userid, this.props.conversationid, this.state.inputValue)
+            this.setState({
+                inputValue: ''
+            })
         }
-        this.setState({
-            inputValue: ''
-        })
+
+    }
+
+    handleSendWithEnter (event) {
+        console.log(event.which || event.keyCode || event.charCode)
+        let key = event.which || event.keyCode || event.charCode
+        if (key === 13 && this.state.inputValue !== '' && this.state.inputValue !== '\n') {
+            if (!event.shiftKey) {
+                this.props.sendText(this.props.userid, this.props.conversationid, this.state.inputValue)
+                this.setState({
+                    inputValue: ''
+                })
+            }
+        }
+        if ( this.state.inputValue === '\n') {
+            this.setState({
+                inputValue: ''
+            })
+        }
+        event.preventDefault()
     }
 
     render () {
@@ -47,6 +67,8 @@ class MessengerInput extends Component {
                         className="md-cell md-cell--top"
                         value={this.state.inputValue}
                         onChange={this.handleInputChange.bind(this)}
+                        onKeyUp={ e => this.handleSendWithEnter(e)}
+
                     />
                     {/*//The first parameter of the onChange function is the value*/}
                 </div>
