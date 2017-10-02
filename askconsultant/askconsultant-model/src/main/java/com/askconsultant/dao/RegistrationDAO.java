@@ -30,7 +30,7 @@ public class RegistrationDAO {
 		query.setParameter(params, userID);
 
 		List<RegistrationDetails> queryResult = query.getResultList();
-		if (queryResult.isEmpty()) {
+		if (!queryResult.isEmpty()) {
 			return queryResult.get(0);
 		} else
 			return null;

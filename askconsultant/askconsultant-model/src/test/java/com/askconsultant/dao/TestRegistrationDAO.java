@@ -1,7 +1,6 @@
 package com.askconsultant.dao;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -50,7 +49,26 @@ public class TestRegistrationDAO {
 	public static RegistrationDetails getRegistrationDetailsForHappyPath() {
 		RegistrationDetails registrationDetails = new RegistrationDetails();
 		registrationDetails.setFirstName("somename");
+		registrationDetails.setUserid("someone");
 		return registrationDetails;
 	}
 
+	
+	@Test
+	public void findByUserID() {
+		RegistrationDetails registrationDetailsForHappyPath = getRegistrationDetailsForHappyPath();
+		try {
+			em.getTransaction().begin();
+			RegistrationDetails addRegistrationDetails = registrationDAO
+					.addRegistrationDetails(registrationDetailsForHappyPath);
+			em.getTransaction().commit();
+			//fetch the registration object
+			RegistrationDetails findByUserID = registrationDAO.findByUserID(addRegistrationDetails.getUserid());
+			assertNotNull(findByUserID);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
 }

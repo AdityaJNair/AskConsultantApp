@@ -26,6 +26,7 @@ public class ConversationHelper {
 		conversation.setStatus(Constants.CONVERSATION_STATUS_ACTIVE);
 		conversation.setCreatedatetime(Timestamp.valueOf(LocalDateTime.now()));
 		conversation.setCategory("HR");
+		conversation.setSubCategory("SubCategory HR");
 		return conversation;
 	}
 	

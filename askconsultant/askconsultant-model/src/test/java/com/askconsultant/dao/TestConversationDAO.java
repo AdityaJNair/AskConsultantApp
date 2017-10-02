@@ -168,7 +168,7 @@ public class TestConversationDAO {
 			fail();
 		}
 	}
-	
+
 	@Test
 	public void listAllConversations() {
 		try {

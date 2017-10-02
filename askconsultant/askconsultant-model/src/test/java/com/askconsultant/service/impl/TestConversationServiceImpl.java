@@ -47,5 +47,20 @@ public class TestConversationServiceImpl {
 			fail();
 		}
 	}
+	
+	@Test
+	public void addConversation() {
+		try {
+			// set the mock expectations
+			when(conversationDAO.listAllActiveConversations()).thenReturn(ConversationHelper.getListOfValidConversations());
+			when(messageDAO.listMessagesByConversationID(0)).thenReturn(MessageHelper.getListOfMessages());
+			List<ConversationAndMessages> listActiveConversationsWithMessages = conversationService
+					.listActiveConversationsWithMessages();
+			assertNotNull(listActiveConversationsWithMessages);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 
 }

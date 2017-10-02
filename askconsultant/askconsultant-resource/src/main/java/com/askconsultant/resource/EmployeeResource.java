@@ -14,8 +14,10 @@ import org.slf4j.LoggerFactory;
 import com.askconsultant.common.ResourceConstants;
 import com.askconsultant.common.json.JsonWriter;
 import com.askconsultant.exception.EmployeeExistsException;
+import com.askconsultant.resource.converter.EmployeeCategoriesConverter;
 import com.askconsultant.resource.converter.OperationFailureJSONConvertor;
 import com.askconsultant.resource.converter.RegistrationJSONConverter;
+import com.askconsultant.service.EmployeeService;
 import com.askconsultant.service.RegistrationService;
 
 /**
@@ -35,6 +37,12 @@ public class EmployeeResource {
 
 	@Inject
 	RegistrationService registrationService;
+	
+	@Inject
+	EmployeeService employeeService;
+
+	@Inject
+	EmployeeCategoriesConverter employeeTopicsConverter;
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -60,4 +68,5 @@ public class EmployeeResource {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR).build();
 		}
 	}
+	
 }
