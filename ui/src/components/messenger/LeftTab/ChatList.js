@@ -16,7 +16,7 @@ class ChatList extends Component {
                 if(success){
                     console.log("SUCCESS");
                 } else {
-                    console.log("FAILED");
+                    console.log("FAILED.");
                 }
             })
         setTimeout(this.refresh, 5000);
@@ -24,11 +24,12 @@ class ChatList extends Component {
     }
 
 
+
     render(){
         return (
             <div id="chat-list" style = {{}}>
                 {Object.entries(this.props.conversations).map((item) =>(
-                    <ChatItem {...this.props} convoDetails={item} userID={this.props.userID}/>
+                    <ChatItem {...this.props} convoDetails={item} userID={this.props.userID} isEmployee={false}/>
                 ))}
 
             </div>

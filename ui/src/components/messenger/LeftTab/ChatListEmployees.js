@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ChatItem from "./ChatItem";
 import Style from "./stylesheet/ChatList.css"
-import {updateEmployeeConversations, setActiveConversation} from "../../../actions/leftTabActions";
+import {updateEmployeeConversations, setActiveConversation, refreshConversationsAfterArchive} from "../../../actions/leftTabActions";
 
 
 class ChatListEmployee extends Component {
@@ -12,6 +12,13 @@ class ChatListEmployee extends Component {
     }
     refresh = () => {
         // make Ajax call here, inside the callback call:
+
+        this.updateConversationList(false);
+        setTimeout(this.refresh, 5000);
+        // ...
+    }
+
+    updateConversationList =(archiving)=>{
         var secondaryTopic = "";
         if(typeof(this.props.secondaryTopic)==="string"){
             secondaryTopic = this.props.secondaryTopic;
@@ -22,21 +29,27 @@ class ChatListEmployee extends Component {
             .then((success) => {
                 //uses status returned by action creator
                 if(success){
-                    console.log("SUCCESS");
+                    if(archiving)
+                        this.archiveConvo();
                 } else {
                     console.log("FAILED");
                 }
             })
-        setTimeout(this.refresh, 5000);
-        // ...
     }
+
+    archiveConvo = () =>{
+        this.props.dispatch(refreshConversationsAfterArchive());
+    }
+
 
 
     render(){
         return (
             <div id="chat-list" style = {{}}>
                 {Object.entries(this.props.conversations).map((item) =>(
-                    <ChatItem {...this.props} convoDetails={item} userID={this.props.userID}/>
+                    <ChatItem {...this.props} convoDetails={item} userID={this.props.userID} isEmployee={true}
+                              updateConversations={() =>{this.updateConversationList(true)}}
+                              archiveConvo={() =>{this.archiveConvo()}}/>
                 ))}
 
             </div>

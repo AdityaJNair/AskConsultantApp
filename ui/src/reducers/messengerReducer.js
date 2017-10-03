@@ -25,6 +25,11 @@ const messengerReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 activeConvo: action.convoID
             })
+        case 'ARCHIVED_CONVERSATION':
+            return Object.assign({}, state, {
+                activeConvo: "",
+                messages: []
+            })
         case 'RECEIVE_MESSAGE':
             return Object.assign({}, state, {
                 messages: [...state.messages, action.message]
