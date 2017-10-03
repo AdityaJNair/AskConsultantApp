@@ -102,6 +102,32 @@ public class RegistrationServiceImpl implements RegistrationService {
 		employee.setPrimaryTopic(userDetails.getPrimaryTopic());
 		employee.setPrimarySubTopic(userDetails.getPrimarySubTopic());
 		employeeDAO.addEmployee(employee);
+		
+		//add the common details to the registration table
+		//this will make it easier for the conversation/message api to get the required details in just one database call
+		RegistrationDetails regDetails = new RegistrationDetails();
+		regDetails.setPreferredName(userDetails.getName());
+		regDetails.setUserid(userDetails.getUserID());
+		registrationDAO.addRegistrationDetails(regDetails);
 	}
 
+	/**
+	 * @param userid
+	 * @return
+	 */
+	@Override
+	public String getDisplayOrPreferredName(String userid) {
+		String displayName="";
+		RegistrationDetails registrationDetails = registrationDAO.findByUserID(userid);
+		if(null!=registrationDetails) {
+			String preferredName = registrationDetails.getPreferredName();
+			if(preferredName!=null && !preferredName.isEmpty()) {
+				displayName = registrationDetails.getPreferredName();
+			}else {
+				displayName = registrationDetails.getFirstName() + " " + registrationDetails.getLastName();
+			}
+		}
+		return displayName;
+	}
+	
 }
