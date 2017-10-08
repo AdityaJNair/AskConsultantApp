@@ -18,4 +18,12 @@ public interface ChatInteractionService {
 	 */
 	public void sendRepliesToListeners(ChatSessionService chatsessionService, long conversationid, ChatMessage message);
 	
+	/**
+	 * This method will set the properties
+	 * @param chatsessionService
+	 * @param conversationid
+	 * @param message
+	 */
+	public void setProperties(long conversationid, ChatMessage message);
+	
 }

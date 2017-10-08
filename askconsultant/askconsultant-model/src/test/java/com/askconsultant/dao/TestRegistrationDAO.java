@@ -10,8 +10,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.askconsultant.common.RegistrationHelper;
 import com.askconsultant.model.RegistrationDetails;
 
+/**
+ * Tests RegistrationDAO class
+ *
+ */
 public class TestRegistrationDAO {
 
 	private EntityManagerFactory emf;
@@ -32,9 +37,12 @@ public class TestRegistrationDAO {
 		emf.close();
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void addRegistrationDetails() {
-		RegistrationDetails registrationDetailsForHappyPath = getRegistrationDetailsForHappyPath();
+		RegistrationDetails registrationDetailsForHappyPath = RegistrationHelper.getRegistrationDetailsForHappyPath();
 		try {
 			em.getTransaction().begin();
 			RegistrationDetails addRegistrationDetails = registrationDAO
@@ -46,17 +54,10 @@ public class TestRegistrationDAO {
 		}
 	}
 
-	public static RegistrationDetails getRegistrationDetailsForHappyPath() {
-		RegistrationDetails registrationDetails = new RegistrationDetails();
-		registrationDetails.setFirstName("somename");
-		registrationDetails.setUserid("someone");
-		return registrationDetails;
-	}
-
 	
 	@Test
 	public void findByUserID() {
-		RegistrationDetails registrationDetailsForHappyPath = getRegistrationDetailsForHappyPath();
+		RegistrationDetails registrationDetailsForHappyPath = RegistrationHelper.getRegistrationDetailsForHappyPath();
 		try {
 			em.getTransaction().begin();
 			RegistrationDetails addRegistrationDetails = registrationDAO

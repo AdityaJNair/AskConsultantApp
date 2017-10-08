@@ -17,6 +17,10 @@ import com.askconsultant.dao.MessageDAO;
 import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.dto.ConversationAndMessages;
 
+/**
+ * Test class for Conversation
+ *
+ */
 public class TestConversationServiceImpl {
 
 	private ConversationDAO conversationDAO;
@@ -33,6 +37,9 @@ public class TestConversationServiceImpl {
 		((ConversationServiceImpl) conversationService).messageDAO = messageDAO;
 	}
 
+	/**
+	 * Tests retrieval of active conversations with messages
+	 */
 	@Test
 	public void listActiveConversationsWithMessages() {
 		try {
@@ -48,6 +55,9 @@ public class TestConversationServiceImpl {
 		}
 	}
 	
+	/**
+	 * Tests adding of a conversation
+	 */
 	@Test
 	public void addConversation() {
 		try {
