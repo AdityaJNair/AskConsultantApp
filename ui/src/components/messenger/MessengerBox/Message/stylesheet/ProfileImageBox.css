@@ -2,10 +2,14 @@
     float: left;
     display: block;
     margin: 20px;
+    width: 100px;
+    height: 100px;
 }
 
 #user-name{
     text-align: center;
+    word-break: break-all;
+    font-family: Verdana;
 }
 
 #avatar-container{
