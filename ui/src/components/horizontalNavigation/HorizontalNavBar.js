@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './stylesheet/HorizontalNavBar.css';
 import FontIcon from 'react-md/lib/FontIcons';
-import logo from "../../images/deloitte_logo.png";
 import { connect } from 'react-redux'
 import {logout} from '../../actions/logoutActions'
 import MenuButton from 'react-md/lib/Menus/MenuButton';
