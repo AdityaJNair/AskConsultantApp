@@ -18,9 +18,8 @@ class MessengerTextComponent extends Component {
             console.log('close');
         };
         ws.onmessage = function(e) {
+            console.log("Looking! here")
             let response = JSON.parse(e.data);
-
-            console.log(response.sentbydisplayname)
             response.user = response.sentbydisplayname
             console.log(response)
             // let message = {
@@ -46,7 +45,6 @@ class MessengerTextComponent extends Component {
                             "message": message,
                             "userid": userid,
                             "conversationid": conversationid,
-                            "sentbydisplayname": "bb    "
                         }
         let myJSON = JSON.stringify(jsonString);
         console.log('sending: ' + myJSON);

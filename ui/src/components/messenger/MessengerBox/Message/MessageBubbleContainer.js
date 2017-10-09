@@ -6,12 +6,12 @@ import ProfileImageBoxUser from "./ProfileImageBoxUser";
 import "./stylesheet/MessageBubbleContainer.css"
 import {initMessageFromServer} from "../../../../actions/messengerAction";
 import { connect } from 'react-redux'
+import {message} from "../../LeftTab/CreateConversationButton";
 
 
 
 
 class MessageBubbleContainer extends Component {
-
     _loadMessages(userid, conversationid) {
         this.props.initMessageFromServer(userid, conversationid)
         console.log('loadMessages')
@@ -26,38 +26,29 @@ class MessageBubbleContainer extends Component {
         console.log(this.props.messages)
         const bubbles =
             this.props.messages.reverse().map( messageInfo => (
-                <div className="message_bubble_container">
-                    <ProfileImageBox sentbydisplayname={messageInfo.user}/>
-                    <MessageTextBubble message={messageInfo.message}
-                                       tooltipLabel={messageInfo.sentat}
-                                       tooltipPosition="right"/>
-                </div>
-                )
-            )
-        const userBubbles =
-            this.props.messages.reverse().map( messageInfo => (
+                this.props.userid !== messageInfo.sentbyuserid
+                    ?
+                        <div className="message_bubble_container">
+                            <ProfileImageBox sentbydisplayname={messageInfo.user} />
+                            <MessageTextBubble message={messageInfo.message}
+                                               tooltipLabel={messageInfo.sentat}
+                                               tooltipPosition="right"/>
+                        </div>
+                    :
                     <div className="message_bubble_container_user">
-                        <ProfileImageBoxUser sentbyuserid={messageInfo.sentbyuserid} />
+                        <ProfileImageBoxUser sentbydisplayname={messageInfo.user} />
                         <MessageTextBubbleUser message={messageInfo.message}
                                            tooltipLabel={messageInfo.sentat}
-                                           tooltipPosition="right" />
+                                           tooltipPosition="right"/>
                     </div>
                 )
             )
-
-        if(false){
-            return (
-                <div>
-                    {userBubbles}
-                </div>
-            )
-        }else {
             return (
                 <div>
                     {bubbles}
                 </div>
             )
-        }
+
 
 
 
