@@ -11,10 +11,9 @@ const initialState = {
 const messengerReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_CONVERSATIONS':
-            if(action.conversations.length===0){
+            if(state.activeConvo!='' || action.conversations.length===0){
                 return Object.assign({},state,{
-                    conversations:action.conversations,
-                    activeConvo:''
+                    conversations:action.conversations
                 });
             }
             else
@@ -45,8 +44,23 @@ const messengerReducer = (state = initialState, action) => {
                 primaryTopic: action.primaryTopic,
                 secondaryTopic: action.secondaryTopic
             })
+        case 'SET_DEFAULT_CONVERSATIONS':
+            if(action.conversations.length===0){
+                return Object.assign({},state,{
+                    conversations:action.conversations,
+                    activeConvo:''
+                });
+            }
+            else
+            {
+                return Object.assign({}, state, {
+                    conversations: action.conversations,
+                    activeConvo: action.conversations[0].id
+                });
+            }
+            break;
         default:
-            return state
+            return state;
     }
 }
 
