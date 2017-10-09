@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from 'react-md/lib/Buttons/Button';
 import TextField from 'react-md/lib/TextFields';
 import './stylesheet/MessengerTextComponent.css'
+import './stylesheet/MessageWindow.css'
 
 class MessengerInput extends Component {
 
@@ -36,7 +37,7 @@ class MessengerInput extends Component {
             })
         }
         return (
-            <div id="messenger_text_area">
+            <div id="messenger-text-area">
                 <div id="textFieldEnter">
                     <TextField
                         id="helpMultiline"

@@ -10,6 +10,7 @@ html, #root, [data-reactroot], #whole-page {
 }
 
 #content{
+    position: relative;
     height: 100%;
     padding-top: 60px;
 }
@@ -27,14 +28,6 @@ html, #root, [data-reactroot], #whole-page {
     height: 100%;
     border-right: solid rgb(117,120,123);
     position: relative;
-}
-
-#user-message-window{
-    position: relative;
-    float:right;
-    width: 75%;
-    height: 100%;
-    background-color: white;
 }
 
 /*.button {*/
