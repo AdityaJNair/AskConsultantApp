@@ -34,11 +34,14 @@ html, #root, [data-reactroot], #whole-page {
     width: 25%;
     float: left;
     height: 100%;
+    border-right: solid gray;
 }
 
 #topic_searchField{
     border-bottom: solid grey;
     background-color: rgb(207,210,213);
+    height: 80px;
+    overflow: hidden;
 }
 
 #topics_field{
