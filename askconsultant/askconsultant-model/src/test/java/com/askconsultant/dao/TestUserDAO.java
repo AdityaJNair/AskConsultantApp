@@ -1,6 +1,9 @@
 package com.askconsultant.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,9 +13,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.askconsultant.exception.InvalidUserException;
 import com.askconsultant.model.User;
 
+/**
+ * Tests UserDAO class
+ *
+ */
 public class TestUserDAO {
 
 	private EntityManagerFactory emf;
@@ -33,6 +39,9 @@ public class TestUserDAO {
 		emf.close();
 	}
 
+	/**
+	 * Tests saving the User object to the database
+	 */
 	@Test
 	public void addUser() {
 		User userForHappyPath = getUserForHappyPath();
@@ -46,6 +55,9 @@ public class TestUserDAO {
 		}
 	}
 
+	/**
+	 *  Utility method to get a dummy user
+	 */
 	private User getUserForHappyPath() {
 		User user = new User();
 		user.setPassword("somepassword");
@@ -53,6 +65,10 @@ public class TestUserDAO {
 		return user;
 	}
 
+	/**
+	 * Tests fetching a stored User from the database for a 
+	 * happy path scenario
+	 */
 	@Test
 	public void getUserByUserID_ValidUser() {
 		try {
@@ -66,11 +82,14 @@ public class TestUserDAO {
 		}
 	}
 	
+	/**
+	 * Tests fetching of user when the user is not present
+	 */
 	@Test
 	public void getUserByUserID_UserNotExist() {
 		try {
 			em.getTransaction().begin();
-			User userByUserID = userDAO.getUserByUserID("invalidUser");
+			userDAO.getUserByUserID("someuser");
 			fail();
 		} catch (Exception e) {
 			assertEquals("User not present", e.getMessage());

@@ -8,7 +8,9 @@ import javax.inject.Inject;
 
 import com.askconsultant.common.DateTimeHelper;
 import com.askconsultant.common.json.JsonReader;
+import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
+import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.RegistrationService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,6 +25,9 @@ public class MessageJSONConverter {
 
 	@Inject
 	RegistrationService registrationService;
+	
+	@Inject
+	ConversationService conversationService;
 	
 	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
 	DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MMM-uuuu");
@@ -56,6 +61,13 @@ public class MessageJSONConverter {
 		jsonObject.addProperty("conversationid", message.getConversation());
 		jsonObject.addProperty("sentat", DateTimeHelper.dateTimeFormatter(message.getCreateDateTime()));
 		jsonObject.addProperty("conversationid", message.getConversation());
+		Conversation conversation = conversationService.getConversation(message.getConversation());
+		//set the sendersent to be true if the message is sent by a a user who owns the conversation
+		if(conversation.getOwner().equalsIgnoreCase(message.getSender())) {
+			jsonObject.addProperty("sendersent", "true");
+		}else {
+			jsonObject.addProperty("sendersent", "false");
+		}
 		return jsonObject;
 	}
 

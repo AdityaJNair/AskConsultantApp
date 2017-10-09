@@ -18,6 +18,7 @@ import com.askconsultant.resource.converter.ChatMessageToMessageConverter;
 import com.askconsultant.service.ChatInteractionService;
 import com.askconsultant.service.ChatSessionService;
 import com.askconsultant.service.MessageService;
+import com.askconsultant.service.RegistrationService;
 import com.askconsultant.service.dto.ChatMessage;
 
 @ServerEndpoint(value = "/interactive/users/{userid}/conversations/{conversationid}/chat", encoders = {
@@ -37,6 +38,9 @@ public class ChatInterface {
 
 	@Inject
 	ChatInteractionService chatInteractionService;
+	
+	@Inject
+	RegistrationService registrationService;
 
 	/**
 	 * On connection open add the session to live sessions
@@ -71,6 +75,8 @@ public class ChatInterface {
 		//add the message to database
 		messageService.addMessage(messageObj);
 		message.setSentAt(messageObj.getCreateDateTime().toLocalDateTime().toString());
+		//set the properties 
+		chatInteractionService.setProperties(longConversationID, message);
 		//send replies to listeners
 		chatInteractionService.sendRepliesToListeners(chatRegister, longConversationID, message);
 	}

@@ -18,6 +18,10 @@ import org.junit.Test;
 import com.askconsultant.common.ConversationHelper;
 import com.askconsultant.model.Conversation;
 
+/**
+ * Tests the ConversationDAO class
+ *
+ */
 public class TestConversationDAO {
 
 	private EntityManagerFactory emf;

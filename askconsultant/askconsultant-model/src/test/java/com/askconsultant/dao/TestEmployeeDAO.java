@@ -1,6 +1,9 @@
 package com.askconsultant.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,6 +15,10 @@ import org.junit.Test;
 
 import com.askconsultant.model.Employee;
 
+/**
+ * Tests the EmployeeDAO class
+ *
+ */
 public class TestEmployeeDAO {
 
 	private EntityManagerFactory emf;
