@@ -19,7 +19,7 @@ class ProfileImageBoxUser extends Component {
 
 const mapStateToProps = ({loginInfo}) => {
     return {
-        currenUserid: loginInfo.userid,
+        currentUserid: loginInfo.userid,
     }
 }
 

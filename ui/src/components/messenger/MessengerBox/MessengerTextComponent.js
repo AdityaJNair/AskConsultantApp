@@ -19,6 +19,9 @@ class MessengerTextComponent extends Component {
         };
         ws.onmessage = function(e) {
             let response = JSON.parse(e.data);
+
+            console.log(response.sentbydisplayname)
+            response.user = response.sentbydisplayname
             console.log(response)
             // let message = {
             //     message: response.message

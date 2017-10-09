@@ -23,8 +23,9 @@ class MessageBubbleContainer extends Component {
 
     render(){
         console.log("MessageBubbleContainer render  ")
+        console.log(this.props.messages)
         const bubbles =
-            this.props.messages.map( messageInfo => (
+            this.props.messages.reverse().map( messageInfo => (
                 <div className="message_bubble_container">
                     <ProfileImageBox sentbydisplayname={messageInfo.user}/>
                     <MessageTextBubble message={messageInfo.message}
@@ -34,7 +35,7 @@ class MessageBubbleContainer extends Component {
                 )
             )
         const userBubbles =
-            this.props.messages.map( messageInfo => (
+            this.props.messages.reverse().map( messageInfo => (
                     <div className="message_bubble_container_user">
                         <ProfileImageBoxUser sentbyuserid={messageInfo.sentbyuserid} />
                         <MessageTextBubbleUser message={messageInfo.message}
