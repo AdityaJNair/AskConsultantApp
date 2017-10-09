@@ -14,9 +14,7 @@ class UserChat extends Component{
                 <HorizontalNavBar/>
                 <div id="content">
                     <MessengerLeftColumn/>
-                    <div id="user-message-window">
-                        <MessageWindow/>
-                    </div>
+                    <MessageWindow/>
                 </div>
             </div>
         );

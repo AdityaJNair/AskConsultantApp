@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MessageView from "./MessageView";
-import './stylesheet/MessengerTextComponent.css'
+import './stylesheet/MessageWindow.css'
 import MessengerSendText from '../../../containers/smart/Messenger/MessengerSendText'
 import { connect } from 'react-redux'
 
@@ -20,7 +20,7 @@ class MessageWindow extends Component {
         console.log(`Render And Get the activeConvo: ${this.props.activeConvo}`)
         return (
             this.props.activeConvo !== '' ?
-                <div>
+                <div id="user-message-window">
                     <MessageView/>
                     <MessengerSendText/>
                 </div> :

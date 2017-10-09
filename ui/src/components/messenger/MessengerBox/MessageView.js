@@ -4,7 +4,7 @@ import MessageBubbleContainer from "./Message/MessageBubbleContainer";
 class MessageView extends Component {
     render(){
         return (
-            <div id="message_view">
+            <div id="message-view">
                 <MessageBubbleContainer/>
             </div>
         )
