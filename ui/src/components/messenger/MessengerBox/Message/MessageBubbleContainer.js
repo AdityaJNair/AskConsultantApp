@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MessageTextBubble from "./MessageTextBubble";
+import MessageTextBubbleUser from "./MessageTextBubbleUser";
 import ProfileImageBox from "./ProfileImageBox";
+import ProfileImageBoxUser from "./ProfileImageBoxUser";
 import "./stylesheet/MessageBubbleContainer.css"
 import {initMessageFromServer} from "../../../../actions/messengerAction";
 import { connect } from 'react-redux'
@@ -31,11 +33,31 @@ class MessageBubbleContainer extends Component {
                 </div>
                 )
             )
-        return (
-            <div>
-                {bubbles}
-            </div>
-        )
+        const userBubbles =
+            this.props.messages.map( messageInfo => (
+                    <div className="message_bubble_container_user">
+                        <ProfileImageBoxUser sentbyuserid={messageInfo.sentbyuserid} />
+                        <MessageTextBubbleUser message={messageInfo.message}
+                                           tooltipLabel={messageInfo.sentat}
+                                           tooltipPosition="right" />
+                    </div>
+                )
+            )
+
+        if(false){
+            return (
+                <div>
+                    {userBubbles}
+                </div>
+            )
+        }else {
+            return (
+                <div>
+                    {bubbles}
+                </div>
+            )
+        }
+
 
 
     }

@@ -1,4 +1,7 @@
 .message_bubble_container{
     margin-top: 20px;
-    overflow: auto;
+}
+
+.message_bubble_container_user{
+    margin-top: 20px;
 }
