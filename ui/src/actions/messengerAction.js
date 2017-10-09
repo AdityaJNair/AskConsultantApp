@@ -4,7 +4,8 @@ export const receiveMessage = (response) => {
     let message = {
         message: response.message,
         user: response.user,
-        sentat: response.sentat
+        sentat: response.sentat,
+        sentbyuserid: response.sentbyuserid
     }
     return {
         type: 'RECEIVE_MESSAGE',

@@ -20,6 +20,7 @@ class ProfileImageBox extends Component {
 const mapStateToProps = ({loginInfo}) => {
     return {
         currentUserid: loginInfo.userid,
+        // (this.props.currentUserid === this.props.sentbyuserid ? "ziji" : "bushiziji")
     }
 }
 
