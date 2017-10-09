@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import com.askconsultant.common.DateTimeHelper;
 import com.askconsultant.common.json.JsonReader;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
@@ -52,7 +53,7 @@ public class ConversationJSONConverter {
 	private void messageConverter(final JsonObject jsonObject, Message message) {
 		jsonObject.addProperty("latestmessage", message.getMessage());
 		jsonObject.addProperty("latestmessagesentby", message.getSender());
-		jsonObject.addProperty("latestmessagesentat", message.getCreateDateTime().toString());
+		jsonObject.addProperty("latestmessagesentat", DateTimeHelper.dateTimeFormatter(message.getCreateDateTime()));
 	}
 	
 	public JsonElement convertToJsonElement(final Conversation conversation){
@@ -64,7 +65,7 @@ public class ConversationJSONConverter {
 		jsonObject.addProperty("id", conversation.getId());
 		jsonObject.addProperty("question", conversation.getName());
 		jsonObject.addProperty("owner", conversation.getOwner());
-		jsonObject.addProperty("lastupdate", conversation.getCreatedatetime().toString());
+		jsonObject.addProperty("lastupdate", DateTimeHelper.dateTimeFormatter(conversation.getCreatedatetime()));
 		jsonObject.addProperty("category", conversation.getCategory());
 		jsonObject.addProperty("subcategory", conversation.getSubCategory());
 		return jsonObject;

@@ -6,11 +6,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Root;
 
 import com.askconsultant.model.Message;
 
@@ -55,18 +50,10 @@ public class MessageDAO {
 	 * @return list of messages for the conversation
 	 */
 	public List<Message> listMessagesByConversationID(long conversationID) {
-		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		CriteriaQuery<Message> criteriaQuery = criteriaBuilder.createQuery(Message.class);
-		Root<Message> root = criteriaQuery.from(Message.class);
-		criteriaQuery.select(root);
-
-		ParameterExpression<Long> params = criteriaBuilder.parameter(Long.class);
-		criteriaQuery.where(criteriaBuilder.equal(root.get("conversation"), params));
-
-		TypedQuery<Message> query = em.createQuery(criteriaQuery);
-		query.setParameter(params, conversationID);
-
-		return query.getResultList();
+		StringBuffer query = new StringBuffer("Select m from Message m where m.conversation=").append(String.valueOf(conversationID)).append(" order by m.createDateTime desc");
+		@SuppressWarnings("unchecked")
+		List<Message> resultList = em.createQuery(query.toString()).getResultList();
+		return resultList;
 	}
 
 	/**

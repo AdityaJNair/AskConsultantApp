@@ -17,6 +17,10 @@ import com.askconsultant.dao.MessageDAO;
 import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.dto.ConversationAndMessages;
 
+/**
+ * Test class for Conversation
+ *
+ */
 public class TestConversationServiceImpl {
 
 	private ConversationDAO conversationDAO;
@@ -33,8 +37,29 @@ public class TestConversationServiceImpl {
 		((ConversationServiceImpl) conversationService).messageDAO = messageDAO;
 	}
 
+	/**
+	 * Tests retrieval of active conversations with messages
+	 */
 	@Test
 	public void listActiveConversationsWithMessages() {
+		try {
+			// set the mock expectations
+			when(conversationDAO.listAllActiveConversations()).thenReturn(ConversationHelper.getListOfValidConversations());
+			when(messageDAO.listMessagesByConversationID(0)).thenReturn(MessageHelper.getListOfMessages());
+			List<ConversationAndMessages> listActiveConversationsWithMessages = conversationService
+					.listActiveConversationsWithMessages();
+			assertNotNull(listActiveConversationsWithMessages);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	/**
+	 * Tests adding of a conversation
+	 */
+	@Test
+	public void addConversation() {
 		try {
 			// set the mock expectations
 			when(conversationDAO.listAllActiveConversations()).thenReturn(ConversationHelper.getListOfValidConversations());

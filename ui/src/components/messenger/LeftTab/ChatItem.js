@@ -5,7 +5,7 @@ import Avatar from 'react-md/lib/Avatars/Avatar'
 import Chip from 'react-md/lib/Chips'
 import ListItem from 'react-md/lib/Lists/ListItem'
 import MenuButton from 'react-md/lib/Menus/MenuButton'
-import {setActiveConversation} from "../../../actions/leftTabActions";
+import {setActiveConversation, archiveConvo, refreshConversationsAfterArchive} from "../../../actions/leftTabActions";
 import {initMessageFromServer} from "../../../actions/messengerAction";
 
 
@@ -17,26 +17,53 @@ class ChatItem extends Component {
         this.props.dispatch(initMessageFromServer(userID, conversationid))
 
     }
+
+    //only for employees
+    archiveConversation = () =>{
+        this.props.dispatch(archiveConvo(this.props.userID, this.props.convoDetails[1].id))
+            .then((response) =>{
+                if(response) {
+                    this.props.updateConversations(true);
+
+                    return true;
+                    console.log('convo archived..')
+                }
+                else{
+                    return false;
+                }
+            })
+            // .then((archived) => {
+            //     if(archived)
+            //         this.props.dispatch(refreshConversationsAfterArchive());
+            // })
+
+    }
     render(){
+
+        let menuOptions = null
+        if(this.props.isEmployee == true){
+            menuOptions = <div id = "question_menu">
+                <MenuButton
+                    className="chat-item-menu"
+                    icon
+                    buttonChildren="more_vert"
+                    tooltipLabel="Open some menu"
+                >
+                    <ListItem primaryText="Archive" onClick={() => {this.archiveConversation()}} />
+                </MenuButton>
+            </div>;
+        }else{
+            menuOptions = <span></span>
+        }
+
+
         return (
             <div className="chat-item" onClick={() => {this.openConversation(this.props.userID, this.props.convoDetails[1].id)}}>
                 <div id="chatItem_top">
                     <div id = "question_title">
                         <h1>{this.props.convoDetails[1].question}</h1>
                     </div>
-                    <div id = "question_menu">
-                        <MenuButton
-                            className="chat-item-menu"
-                            icon
-                            buttonChildren="more_vert"
-                            tooltipLabel="Open some menu"
-                        >
-                            <ListItem primaryText="Item One" />
-                            <ListItem primaryText="Item Two" />
-                            <ListItem primaryText="Item Three" />
-                            <ListItem primaryText="Item Four" />
-                        </MenuButton>
-                    </div>
+                    {menuOptions}
                 </div>
 
 

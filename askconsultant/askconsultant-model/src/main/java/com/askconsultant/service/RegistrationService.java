@@ -24,4 +24,6 @@ public interface RegistrationService {
 	 * @throws Exception
 	 */
 	public void registerEmployee(User userDetails) throws Exception;
+
+	public String getDisplayOrPreferredName(String userid);
 }

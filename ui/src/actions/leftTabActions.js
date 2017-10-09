@@ -15,6 +15,13 @@ const setConversations =  (json) => {
     }
 }
 
+export const refreshConversationsAfterArchive = () => {
+    return {
+        type: 'ARCHIVED_CONVERSATION'
+    }
+}
+
+
 export const setActiveTopics =  (primaryTopic, secondaryTopic) => {
     return {
         type: 'SET_ACTIVE_TOPICS_EMPLOYEE',
@@ -30,6 +37,43 @@ export const setActiveConversation = (id) =>{
     }
 }
 
+export const archiveConvo = (userID, conversationID) =>{
+    return dispatch => {
+
+        const url = "https://45.76.113.175:8443/askconsultant/rest/employees/"+ userID +"/conversation/" +conversationID;
+
+        return fetch(url, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(
+                response => {
+                    return response
+                },
+                error => {
+                    console.log('An error occured.', error)
+                    console.log("serverError?")
+                }
+            )
+            .then(
+                response => {
+                    if (response.json === undefined ) {
+                        console.log("serverError?")
+                        return false;
+                    }
+                    else if (response.json.error !== undefined) {
+                        console.log(response.json.error)
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            )
+    }
+}
 
 export const updateConversations = (userid) => {
     return dispatch => {
@@ -71,7 +115,7 @@ export const updateConversations = (userid) => {
 
 export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic) => {
     return dispatch => {
-        const url = "https://45.76.113.175:8443/askconsultant/rest/users/"+ employeeId +"/conversation"
+        const url = "https://45.76.113.175:8443/askconsultant/rest/employees/"+ employeeId +"/conversation/topics?all=true"
         if(primaryTopic !== '' && secondaryTopic !== '')
             dispatch(setActiveTopics(primaryTopic, secondaryTopic))
         //const url = ""

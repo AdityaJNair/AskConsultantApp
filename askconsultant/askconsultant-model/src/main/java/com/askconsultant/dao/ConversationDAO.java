@@ -14,7 +14,6 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import com.askconsultant.model.Conversation;
-import com.askconsultant.model.Message;
 
 @Stateless
 public class ConversationDAO {
@@ -53,6 +52,9 @@ public class ConversationDAO {
 		// add all the criteria
 		criteriaQuery.where(criteriaBuilder.equal(root.get("status"), statusparam),
 				criteriaBuilder.equal(root.get("owner"), useridparam));
+		
+		//add the order by
+		criteriaBuilder.desc(root.get("lastUpdated"));
 
 		TypedQuery<Conversation> query = em.createQuery(criteriaQuery);
 		query.setParameter(useridparam, userid);
@@ -88,26 +90,34 @@ public class ConversationDAO {
 		em.merge(conversation);
 	}
 
+	
 	/**
 	 * Lists all Active conversations
+	 * @param subtopic 
+	 * @param topic 
 	 * 
 	 * @return
 	 */
 	public List<Conversation> listAllActiveConversations() {
-		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		CriteriaQuery<Conversation> criteriaQuery = criteriaBuilder.createQuery(Conversation.class);
-		Root<Conversation> root = criteriaQuery.from(Conversation.class);
-		criteriaQuery.select(root);
+		StringBuffer query = new StringBuffer("Select c from Conversation c where c.status='").append(Constants.CONVERSATION_STATUS_ACTIVE).append("' order by c.lastUpdated desc");
+		@SuppressWarnings("unchecked")
+		List<Conversation> resultList = em.createQuery(query.toString()).getResultList();
+		return resultList;
+	}
+	
+	/**
+	 * Lists all Active conversations
+	 * @param subtopic 
+	 * @param topic 
+	 * 
+	 * @return
+	 */
+	public List<Conversation> listAllActiveConversations(String topic, String subtopic) {
 
-		ParameterExpression<String> statusparam = criteriaBuilder.parameter(String.class);
-		// add all the criteria
-		criteriaQuery.where(criteriaBuilder.equal(root.get("status"), statusparam));
-
-		TypedQuery<Conversation> query = em.createQuery(criteriaQuery);
-		query.setParameter(statusparam, Constants.CONVERSATION_STATUS_ACTIVE);
-
-		List<Conversation> queryResult = query.getResultList();
-		return queryResult;
+		StringBuffer query = new StringBuffer("Select c from Conversation c where c.category='").append(topic).append("' and c.subCategory='").append(subtopic).append("' order by c.lastUpdated desc");
+		@SuppressWarnings("unchecked")
+		List<Conversation> resultList = em.createQuery(query.toString()).getResultList();
+		return resultList;
 	}
 
 	/**
