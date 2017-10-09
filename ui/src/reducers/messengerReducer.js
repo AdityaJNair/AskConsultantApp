@@ -11,10 +11,12 @@ const initialState = {
 const messengerReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_CONVERSATIONS':
-            if(state.activeConvo !== '' || action.conversations.length === 0){
-                return Object.assign({}, state, {
-                    conversations: action.conversations
-                });}
+            if(action.conversations.length===0){
+                return Object.assign({},state,{
+                    conversations:action.conversations,
+                    activeConvo:''
+                });
+            }
             else
                 return Object.assign({}, state, {
                     conversations: action.conversations,
