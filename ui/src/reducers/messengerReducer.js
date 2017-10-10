@@ -59,7 +59,8 @@ const messengerReducer = (state = initialState, action) => {
             {
                 return Object.assign({}, state, {
                     conversations: action.conversations,
-                    activeConvo: action.conversations[0].id
+                    activeConvo: action.conversations[0].id,
+                    activeQuestion: action.conversations[0].question
                 });
             }
             break;
