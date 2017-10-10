@@ -21,13 +21,9 @@ html, #root, [data-reactroot], #whole-page {
     height: 43px;
 }
 
-/*.button {*/
-    /*background-color: #86BC25;*/
-    /*border-radius: 3px;*/
-    /*color: #fff;*/
-    /*display: inline-block;*/
-    /*margin-bottom: 5px;*/
-    /*padding: 5px 15px;*/
-    /*text-decoration: none;*/
-    /*margin: 10px;*/
-/*}*/
+#user-message-window {
+    position: relative;
+    float:right;
+    width: 75%;
+    height: 100%;
+}

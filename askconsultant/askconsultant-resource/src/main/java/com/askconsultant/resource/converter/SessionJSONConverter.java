@@ -14,6 +14,12 @@ import com.google.gson.JsonObject;
 @ApplicationScoped
 public class SessionJSONConverter {
 
+	private static final String TOKEN = "token";
+	private static final String PREFERREDNAME = "preferredname";
+	private static final String IS_EMPLOYEE = "isEmployee";
+	private static final String PASSWORD = "password";
+	private static final String USERID = "userid";
+
 	/**
 	 * Method to convert json request to User object
 	 * @param json
@@ -23,9 +29,9 @@ public class SessionJSONConverter {
 	public User convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final User user = new User();
-		user.setUserID(JsonReader.getStringOrNull(jsonObject, "userid"));
-		user.setPassword(JsonReader.getStringOrNull(jsonObject, "password"));
-		user.setEmployee((Boolean.parseBoolean(JsonReader.getStringOrNull(jsonObject, "isEmployee"))));
+		user.setUserID(JsonReader.getStringOrNull(jsonObject, USERID));
+		user.setPassword(JsonReader.getStringOrNull(jsonObject, PASSWORD));
+		user.setEmployee((Boolean.parseBoolean(JsonReader.getStringOrNull(jsonObject, IS_EMPLOYEE))));
 		return user;
 	}
 	
@@ -36,9 +42,9 @@ public class SessionJSONConverter {
 	 */
 	public JsonElement convertToJsonElement(final com.askconsultant.service.dto.User user){
 		final JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty("userid", user.getUserID());
-		jsonObject.addProperty("preferredname", user.getPreferredName());
-		jsonObject.addProperty("token", user.getToken());
+		jsonObject.addProperty(USERID, user.getUserID());
+		jsonObject.addProperty(PREFERREDNAME, user.getPreferredName());
+		jsonObject.addProperty(TOKEN, user.getToken());
 		return jsonObject;
 	}
 	

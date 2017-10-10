@@ -7,6 +7,8 @@ import {postConvoDetails} from "../../../actions/CreateConvoAction"
 import {consultantsTopics, development, strategyAndOperations, everydayDeloitte, humanCapital, technology} from "../../../containers/dumb/Admin/topics";
 import {updateConversations} from "../../../actions/leftTabActions";
 import "./stylesheet/CreateConversationButton.css"
+import {setActiveConversation} from "../../../actions/leftTabActions";
+import {initMessageFromServer} from "../../../actions/messengerAction";
 
 export let question, message, topic, subTopic;
 
@@ -14,9 +16,13 @@ const postCon = (e, dispatch, quest, mess, top, sub, userid) => {
     e.preventDefault();
     console.log(`in the convo create`)
     dispatch(postConvoDetails(quest,mess,top,sub,userid))
-        .then((success) => {
-            if(success)
+        .then((response) => {
+            if(response != '') {
                 dispatch(updateConversations(userid))
+                dispatch(setActiveConversation(response.id, response.question))
+                dispatch(initMessageFromServer(userid, response.id))
+            }
+
         })
 }
 

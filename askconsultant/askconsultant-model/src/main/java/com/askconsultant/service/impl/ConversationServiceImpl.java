@@ -26,6 +26,9 @@ import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
  */
 public class ConversationServiceImpl implements ConversationService {
 
+	private static final String PRIMARY_SUBTOPIC = "primarySubtopic";
+	private static final String PRIMARY_TOPIC = "primaryTopic";
+
 	@Inject
 	ConversationDAO conversationDAO;
 
@@ -67,7 +70,7 @@ public class ConversationServiceImpl implements ConversationService {
 		message.setMessage(conversation.getContent());
 		message.setSender(conversation.getOwner());
 		message.setStatus(Constants.MESSAGE_STATUS_ACTIVE);
-		messageDAO.addMesssage(message);
+		message = messageDAO.addMesssage(message);
 
 		// update the conversation object with the latest message
 		conversation.setLatestMessageID(message.getId());
@@ -244,8 +247,8 @@ public class ConversationServiceImpl implements ConversationService {
 		if(null!=dflt && Boolean.parseBoolean(dflt)) {
 			Map<String, String> employeeConversationCategories = employeeService
 					.getEmployeeConversationCategories(userid);
-			String dfltTopic = employeeConversationCategories.get("primaryTopic");
-			String dfltSubtopic = employeeConversationCategories.get("primarySubtopic");
+			String dfltTopic = employeeConversationCategories.get(PRIMARY_TOPIC);
+			String dfltSubtopic = employeeConversationCategories.get(PRIMARY_SUBTOPIC);
 			List<Conversation> listAllActiveConversations = conversationDAO.listAllActiveConversations(dfltTopic,
 					dfltSubtopic);
 			return packageConversationWithLatestMessage(listAllActiveConversations);

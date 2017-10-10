@@ -83,7 +83,7 @@ public class TestEmployeeDAO {
 	public void getEmployeeByUserID_InvalidEmployee() {
 		try {
 			em.getTransaction().begin();
-			Employee employeeByUserID = employeeDAO.getEmployeeByUserID("invalidEmployee");
+			employeeDAO.getEmployeeByUserID("invalidEmployee");
 			fail();
 		} catch (Exception e) {
 			assertEquals("Employee not present", e.getMessage());
