@@ -15,6 +15,13 @@ const setConversations =  (json) => {
     }
 }
 
+const setDefaultConversations = (json) =>{
+    return {
+        type: 'SET_DEFAULT_CONVERSATIONS',
+        conversations: json
+    }
+}
+
 export const refreshConversationsAfterArchive = () => {
     return {
         type: 'ARCHIVED_CONVERSATION'
@@ -197,7 +204,8 @@ export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryT
                                 return false;
                             }
                         })
-                        dispatch(setConversations(filteredJson))
+
+                        dispatch(setDefaultConversations(filteredJson))
                         return true;
                     }
                 }

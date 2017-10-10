@@ -5,6 +5,8 @@ import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
 import {setEmployeePrefTopics, updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
+import {updateEmployeeConversations, setActiveTopics} from "../../../actions/leftTabActions"
+import {initMessageFromServer} from "../../../actions/messengerAction";
 
 class EmployeeTopicColumn extends Component {
     expandList() {
@@ -20,19 +22,19 @@ class EmployeeTopicColumn extends Component {
         this.setPrefTopics();
     }
 
-
-    getLabel=(e,parent,child)=>{
-        console.log("INSIDE ITEM");
-    }
-
     setPrefTopics = () =>{
         this.props.dispatch(setEmployeePrefTopics());
     }
 
     changeActiveTopics = (subTopic, topic) =>{
         console.log("changing active topics");
-        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item));
+        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item))
+            .then((success)=> {
+                if(success)
+                    this.props.dispatch(initMessageFromServer(this.props.userID, this.props.conversationid))
+        })
         this.props.dispatch(setActiveTopics(topic,subTopic));
+
     }
 
 
