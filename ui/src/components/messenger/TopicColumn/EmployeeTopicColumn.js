@@ -25,6 +25,7 @@ class EmployeeTopicColumn extends Component {
 
     setPrefTopics = () =>{
         this.props.dispatch(setEmployeePrefTopics());
+
     }
 
     changeActiveTopics = (subTopic, topic) =>{
@@ -88,7 +89,7 @@ class EmployeeTopicColumn extends Component {
                         </ExpansionPanel>
                         <ExpansionPanel label="Technology" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
-                               , {technology.map((item) => {
+                                {technology.map((item) => {
                                     return <ListItem onClick={() => {this.changeActiveTopics({item}, "Technology")}}  primaryText={item} />
                                 })}
                             </List>
