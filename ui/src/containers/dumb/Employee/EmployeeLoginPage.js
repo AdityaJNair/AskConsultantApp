@@ -59,7 +59,6 @@ class Employee_Login_input extends Component {
                     <div id="login_buttons">
                         <Button primary raised label="Login" onClick={e => loginSubmit(e, this.props.dispatch, this.props.history)} />
                         <br />
-                        <a>Forgot my password</a>
                     </div>
                 </div>
             </form>

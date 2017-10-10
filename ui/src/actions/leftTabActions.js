@@ -158,7 +158,13 @@ export const updateConversations = (userid) => {
 
 export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic) => {
     return dispatch => {
-        const url = "https://45.76.113.175:8443/askconsultant/rest/employees/"+ employeeId +"/conversation/topics?all=true"
+        var url;
+        if(primaryTopic=='All')
+            url = "https://45.76.113.175:8443/askconsultant/rest/employees/"+ employeeId +"/conversation/topics?all=true"
+        else
+            url = "https://45.76.113.175:8443/askconsultant/rest/employees/"+ employeeId +"/conversation/topics?topic="
+                + primaryTopic+"&subtopic="+secondaryTopic;
+
         if(primaryTopic !== '' && secondaryTopic !== '')
             dispatch(setActiveTopics(primaryTopic, secondaryTopic))
         //const url = ""
@@ -190,14 +196,7 @@ export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryT
                     else {
                         console.log("the json file")
 
-                        var filteredJson = json.filter(function (row){
-                            if(row.category === primaryTopic && row.subcategory === secondaryTopic){
-                                return row;
-                            } else {
-                                return false;
-                            }
-                        })
-                        dispatch(setConversations(filteredJson))
+                        dispatch(setConversations(json))
                         return true;
                     }
                 }
