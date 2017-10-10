@@ -6,7 +6,6 @@ import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
 
 import {setEmployeePrefTopics, updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
-import {updateEmployeeConversations, setActiveTopics} from "../../../actions/leftTabActions"
 import {initMessageFromServer} from "../../../actions/messengerAction";
 
 
