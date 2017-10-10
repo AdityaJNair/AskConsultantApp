@@ -23,6 +23,16 @@ import com.google.gson.JsonObject;
 @ApplicationScoped
 public class MessageJSONConverter {
 
+	private static final String FALSE = "false";
+	private static final String TRUE = "true";
+	private static final String SENDERSENT = "sendersent";
+	private static final String SENTAT = "sentat";
+	private static final String CONVERSATIONID = "conversationid";
+	private static final String SENTBYUSERID = "sentbyuserid";
+	private static final String USER = "user";
+	private static final String ID = "id";
+	private static final String MESSAGE2 = "message";
+
 	@Inject
 	RegistrationService registrationService;
 	
@@ -42,7 +52,7 @@ public class MessageJSONConverter {
 	public Message convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final Message message = new Message();
-		message.setMessage(JsonReader.getStringOrNull(jsonObject, "message"));
+		message.setMessage(JsonReader.getStringOrNull(jsonObject, MESSAGE2));
 		return message;
 	}
 
@@ -54,19 +64,19 @@ public class MessageJSONConverter {
 	 */
 	public JsonElement convertToJsonElement(final Message message) {
 		final JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty("id", message.getId());
-		jsonObject.addProperty("message", message.getMessage());
-		jsonObject.addProperty("user", registrationService.getDisplayOrPreferredName(message.getSender()));
-		jsonObject.addProperty("sentbyuserid",message.getSender());
-		jsonObject.addProperty("conversationid", message.getConversation());
-		jsonObject.addProperty("sentat", DateTimeHelper.dateTimeFormatter(message.getCreateDateTime()));
-		jsonObject.addProperty("conversationid", message.getConversation());
+		jsonObject.addProperty(ID, message.getId());
+		jsonObject.addProperty(MESSAGE2, message.getMessage());
+		jsonObject.addProperty(USER, registrationService.getDisplayOrPreferredName(message.getSender()));
+		jsonObject.addProperty(SENTBYUSERID,message.getSender());
+		jsonObject.addProperty(CONVERSATIONID, message.getConversation());
+		jsonObject.addProperty(SENTAT, DateTimeHelper.dateTimeFormatter(message.getCreateDateTime()));
+		jsonObject.addProperty(CONVERSATIONID, message.getConversation());
 		Conversation conversation = conversationService.getConversation(message.getConversation());
 		//set the sendersent to be true if the message is sent by a a user who owns the conversation
 		if(conversation.getOwner().equalsIgnoreCase(message.getSender())) {
-			jsonObject.addProperty("sendersent", "true");
+			jsonObject.addProperty(SENDERSENT, TRUE);
 		}else {
-			jsonObject.addProperty("sendersent", "false");
+			jsonObject.addProperty(SENDERSENT, FALSE);
 		}
 		return jsonObject;
 	}

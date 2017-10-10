@@ -11,10 +11,12 @@ import com.askconsultant.model.Employee;
 import com.askconsultant.service.EmployeeService;
 
 /**
- *
+ * This class provides methods to manage employee conversations
  */
 public class EmployeeServiceImpl implements EmployeeService {
 
+	private static final String PRIMARY_SUBTOPIC = "primarySubtopic";
+	private static final String PRIMARY_TOPIC = "primaryTopic";
 	@Inject
 	EmployeeDAO employeeDAO;
 	
@@ -31,8 +33,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		} catch (InvalidUserException e) {
 			return topics;
 		}
-		topics.put("primaryTopic",employeeByUserID.getPrimaryTopic());
-		topics.put("primarySubtopic",employeeByUserID.getPrimarySubTopic());
+		topics.put(PRIMARY_TOPIC,employeeByUserID.getPrimaryTopic());
+		topics.put(PRIMARY_SUBTOPIC,employeeByUserID.getPrimarySubTopic());
 		return topics;
 	}
 	

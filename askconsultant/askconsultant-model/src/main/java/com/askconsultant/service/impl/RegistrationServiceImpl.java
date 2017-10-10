@@ -22,6 +22,10 @@ import com.askconsultant.service.RegistrationService;
 @Stateless
 public class RegistrationServiceImpl implements RegistrationService {
 
+	private static final String EMPLOYEE_IS_ALREADY_REGISTERED = "Employee is already registered";
+	private static final String SHA1 = "SHA1";
+	private static final String ACTIVE = "ACTIVE";
+
 	@Inject
 	UserDAO userDAO;
 
@@ -51,7 +55,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 		user.setSource(userDetails.getSource());
 		user.setIndustry(userDetails.getIndustry());
 		user.setInterest(userDetails.getInterest());
-		user.setStatus("ACTIVE");
+		user.setStatus(ACTIVE);
 
 		RegistrationDetails regDetails = new RegistrationDetails();
 		regDetails.setDateOfBirth(userDetails.getDateOfBirth());
@@ -75,7 +79,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 	 * @throws NoSuchAlgorithmException
 	 */
 	static String sha1(String input) throws NoSuchAlgorithmException {
-		MessageDigest mDigest = MessageDigest.getInstance("SHA1");
+		MessageDigest mDigest = MessageDigest.getInstance(SHA1);
 		byte[] result = mDigest.digest(input.getBytes());
 		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < result.length; i++) {
@@ -92,7 +96,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 	public void registerEmployee(com.askconsultant.service.dto.User userDetails) throws Exception {
 		
 		if(employeeDAO.isEmployeeRegistered(userDetails.getUserID())) {
-			throw new EmployeeExistsException("Employee is already registered");
+			throw new EmployeeExistsException(EMPLOYEE_IS_ALREADY_REGISTERED);
 		}
 		Employee employee = new Employee();
 		employee.setUserid(userDetails.getUserID());
