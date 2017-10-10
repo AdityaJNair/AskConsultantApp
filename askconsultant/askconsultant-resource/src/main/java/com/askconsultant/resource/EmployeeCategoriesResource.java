@@ -22,6 +22,8 @@ import com.askconsultant.service.EmployeeService;
 @Consumes(MediaType.APPLICATION_JSON)
 public class EmployeeCategoriesResource {
 
+	private static final String INTERNAL_ERROR = "Internal Error";
+
 	@Inject
 	OperationFailureJSONConvertor opFailureJSONConverter;
 
@@ -48,7 +50,7 @@ public class EmployeeCategoriesResource {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Internal Error")))
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(INTERNAL_ERROR)))
 					.build();
 		}
 	}

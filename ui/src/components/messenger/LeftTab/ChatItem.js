@@ -65,7 +65,7 @@ class ChatItem extends Component {
                         <p>{this.props.convoDetails[1].latestmessagesentby}</p>
                     </div>
                     <div id = "question_timestamp">
-                        <p>{this.props.convoDetails[1].lastupdate}</p>
+                        <p>{this.props.convoDetails[1].latestmessagesentat}</p>
                     </div>
                 </div>
                 <div id="chatItem_bottom">
@@ -133,7 +133,7 @@ class ChatItem extends Component {
             var that = this;
             console.log('waiting ............')
             setTimeout(()=> {
-                return that.sendCloseMsg(callback,args);
+                return that.archiveAndSendCloseMsg(callback,args);
             }, 100);
         }
     };
