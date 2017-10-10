@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class MessageQuestion extends Component {
     render(){
         return (
-            <div id="message-quetion">
+            <div id="message-question">
                 <h2>{this.props.question}</h2>
             </div>
         )
