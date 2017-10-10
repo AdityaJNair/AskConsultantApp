@@ -60,7 +60,7 @@ class MessengerTextComponent extends Component {
         this.closeSocket()
     }
     render(){
-        console.log("text render")
+        console.log("text render.")
         this.closeSocket()
         this.openSocket(this.props.userid, this.props.conversationid, this.props.receiveMessage)
         return (

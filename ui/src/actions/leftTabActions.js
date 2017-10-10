@@ -30,10 +30,11 @@ export const setActiveTopics =  (primaryTopic, secondaryTopic) => {
     }
 }
 
-export const setActiveConversation = (id) =>{
+export const setActiveConversation = (id, question) =>{
     return {
         type: 'CHANGE_ACTIVE_CONVERSATION',
-        convoID: id
+        convoID: id,
+        question
     }
 }
 

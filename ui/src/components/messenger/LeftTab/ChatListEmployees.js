@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ChatItem from "./ChatItem";
 import Style from "./stylesheet/ChatList.css"
-import {updateEmployeeConversations, setActiveConversation, refreshConversationsAfterArchive} from "../../../actions/leftTabActions";
+import {updateEmployeeConversations, refreshConversationsAfterArchive} from "../../../actions/leftTabActions";
 
 
 class ChatListEmployee extends Component {

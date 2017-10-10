@@ -11,10 +11,9 @@ import {initMessageFromServer} from "../../../actions/messengerAction";
 let ws;
 class ChatItem extends Component {
 
-    openConversation = (userID, conversationid) => {
-        console.log(`convo clicked: ${conversationid}`);
-        this.props.dispatch(setActiveConversation(conversationid))
-        this.props.dispatch(initMessageFromServer(userID, conversationid))
+    openConversation = () => {
+        this.props.dispatch(setActiveConversation(this.props.convoDetails[1].id, this.props.convoDetails[1].question))
+        this.props.dispatch(initMessageFromServer(this.props.userID, this.props.convoDetails[1].id))
 
     }
 
@@ -49,7 +48,7 @@ class ChatItem extends Component {
 
 
         return (
-            <div className="chat-item" onClick={() => {this.openConversation(this.props.userID, this.props.convoDetails[1].id)}}>
+            <div className="chat-item" onClick={() => {this.openConversation()}}>
                 <div id="chatItem_top">
                     <div id = "question_title">
                         <h1>{this.props.convoDetails[1].question}</h1>

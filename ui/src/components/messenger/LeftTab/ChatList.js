@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ChatItem from "./ChatItem";
 import Style from "./stylesheet/ChatList.css"
-import {updateConversations, setActiveConversation} from "../../../actions/leftTabActions";
+import {updateConversations} from "../../../actions/leftTabActions";
 class ChatList extends Component {
 
     componentWillMount(){
