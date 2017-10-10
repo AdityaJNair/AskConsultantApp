@@ -12,6 +12,8 @@ import com.google.gson.JsonSyntaxException;
  */
 public class JsonReader {
 
+	private static final String JSON_STRING_CAN_NOT_BE_NULL = "Json String can not be null";
+
 	public static JsonObject readAsJsonObject(final String json) throws Exception {
 		return readJsonAs(json, JsonObject.class);
 	}
@@ -22,7 +24,7 @@ public class JsonReader {
 
 	public static <T> T readJsonAs(final String json, final Class<T> jsonClass) throws Exception {
 		if (json == null || json.trim().isEmpty()) {
-			throw new Exception("Json String can not be null");
+			throw new Exception(JSON_STRING_CAN_NOT_BE_NULL);
 		}
 		try {
 			return new Gson().fromJson(json, jsonClass);

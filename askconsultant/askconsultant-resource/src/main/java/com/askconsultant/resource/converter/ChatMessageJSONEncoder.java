@@ -13,6 +13,16 @@ import com.google.gson.JsonObject;
  */
 public class ChatMessageJSONEncoder implements Encoder.Text<ChatMessage>{
 
+	private static final String FALSE = "false";
+	private static final String TRUE = "true";
+	private static final String SENDERSENT = "sendersent";
+	private static final String SENTAT = "sentat";
+	private static final String CONVERSATIONID = "conversationid";
+	private static final String SENTBYUSERID = "sentbyuserid";
+	private static final String SENTBYDISPLAYNAME = "sentbydisplayname";
+	private static final String MESSAGE = "message";
+	private static final String ID = "id";
+
 	@Override
 	public void init(EndpointConfig config) {
 		
@@ -26,16 +36,16 @@ public class ChatMessageJSONEncoder implements Encoder.Text<ChatMessage>{
 	@Override
 	public String encode(ChatMessage object) throws EncodeException {
 		final JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty("id", object.getId());
-		jsonObject.addProperty("message", object.getMessage());
-		jsonObject.addProperty("sentbydisplayname", object.getDisplayName());
-		jsonObject.addProperty("sentbyuserid", object.getUserid());
-		jsonObject.addProperty("conversationid", object.getConversationid());
-		jsonObject.addProperty("sentat", object.getSentAt());
+		jsonObject.addProperty(ID, object.getId());
+		jsonObject.addProperty(MESSAGE, object.getMessage());
+		jsonObject.addProperty(SENTBYDISPLAYNAME, object.getDisplayName());
+		jsonObject.addProperty(SENTBYUSERID, object.getUserid());
+		jsonObject.addProperty(CONVERSATIONID, object.getConversationid());
+		jsonObject.addProperty(SENTAT, object.getSentAt());
 		if(object.isSenderSent()) {
-			jsonObject.addProperty("sendersent", "true");
+			jsonObject.addProperty(SENDERSENT, TRUE);
 		}else {
-			jsonObject.addProperty("sendersent", "false");
+			jsonObject.addProperty(SENDERSENT, FALSE);
 		}
 		return jsonObject.toString();
 	}

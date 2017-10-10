@@ -4,7 +4,11 @@ import { ExpansionList, ExpansionPanel } from 'react-md/lib/ExpansionPanels';
 import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
+
+import {setEmployeePrefTopics, updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
 import {updateEmployeeConversations, setActiveTopics} from "../../../actions/leftTabActions"
+import {initMessageFromServer} from "../../../actions/messengerAction";
+
 
 class EmployeeTopicColumn extends Component {
     expandList() {
@@ -16,14 +20,28 @@ class EmployeeTopicColumn extends Component {
         }
     };
 
-    getLabel=(e,parent,child)=>{
-        console.log("INSIDE ITEM");
+    componentWillMount(){
+        this.setPrefTopics();
+    }
+
+    setPrefTopics = () =>{
+        this.props.dispatch(setEmployeePrefTopics());
     }
 
     changeActiveTopics = (subTopic, topic) =>{
         console.log("changing active topics");
-        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item));
+        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item))
+            .then((success)=> {
+                if(success)
+                    this.props.dispatch(initMessageFromServer(this.props.userID, this.props.conversationid))
+        })
         this.props.dispatch(setActiveTopics(topic,subTopic));
+
+    }
+
+    showAllConversations = () =>{
+        this.props.dispatch(updateEmployeeConversations(this.props.userID, 'All',''));
+        this.props.dispatch(setActiveTopics('All',''));
     }
 
 
@@ -34,19 +52,12 @@ class EmployeeTopicColumn extends Component {
         // for{var i =0; i<technology.length; i++}
         return (
             <div id="employee_Topic_Column">
-                <div id="topic_searchField">
-                    <TextField
-                        id="searchField"
-                        label="Search"
-                        lineDirection="center"
-                        placeholder="Search term goes here"
-                        className="md-cell md-cell--bottom"
-                    />
-                </div>
-
-
 
                 <div id="topics_field">
+                    <div id="showall_button">
+                        <Button label="Show All Conversations" raised primary className="md-button" onClick={() => {this.showAllConversations()}}/>
+                    </div>
+
                     <ExpansionList>
                         <ExpansionPanel label="Development" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
@@ -78,18 +89,13 @@ class EmployeeTopicColumn extends Component {
                         </ExpansionPanel>
                         <ExpansionPanel label="Technology" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
-                                {technology.map((item) => {
+                               , {technology.map((item) => {
                                     return <ListItem onClick={() => {this.changeActiveTopics({item}, "Technology")}}  primaryText={item} />
                                 })}
                             </List>
                         </ExpansionPanel>
 
 
-
-
-                    <ExpansionPanel label="General" footer={null}>
-                        <p>others(150)</p>
-                    </ExpansionPanel>
                     </ExpansionList>
                 </div>
 

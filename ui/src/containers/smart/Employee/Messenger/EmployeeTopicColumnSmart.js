@@ -3,7 +3,8 @@ import EmployeeTopicColumn from "../../../../components/messenger/TopicColumn/Em
 
 const mapStateToProps = ({loginInfo, messengerInfo}) => {
     return {
-        userID: loginInfo.userid
+        userID: loginInfo.userid,
+        conversationid: messengerInfo.activeConvo
     }
 }
 

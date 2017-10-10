@@ -50,12 +50,14 @@
 #chatItem_mid{
     width: 100%;
     height: 100px;
+    overflow: hidden;
 }
 
 #question_content{
     width:90%;
     height: 80px;
     margin-left: 5%;
+    overflow: hidden;
 }
 #latest_message_owner{
     width:40%;

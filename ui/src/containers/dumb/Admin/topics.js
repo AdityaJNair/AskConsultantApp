@@ -4,6 +4,7 @@ export const strategyAndOperations = ["Finance","Mergers & Acquisitions", "Opera
 export const everydayDeloitte = ["As a Junior","As an Intern","As a Manager","Other query","Other"];
 export const humanCapital = ["HR transformation","Leadership","People analytics","Strategic change and organisation transformation","Talent","Other"];
 export const technology = ["Analytics and information management","Systems integration","Technology architecture and strategy","Other"];
+//not currently used, but would be used in refactoring the subtopiclists
 export const employeeConvoTopics = {
     [consultantsTopics[0]]: development,
     [consultantsTopics[1]]: everydayDeloitte,

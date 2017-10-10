@@ -3,8 +3,7 @@ import './stylesheet/HorizontalNavBar.css';
 import FontIcon from 'react-md/lib/FontIcons';
 import { connect } from 'react-redux'
 import {logout} from '../../actions/logoutActions'
-import MenuButton from 'react-md/lib/Menus/MenuButton';
-import ListItem from 'react-md/lib/Lists/ListItem';
+import Button from 'react-md/lib/Buttons/Button';
 import logo from "../../images/deloitte_logo_transparent_small.png";
 
 class HorizontalNavBar extends Component {
@@ -21,14 +20,8 @@ class HorizontalNavBar extends Component {
                         {/*<div class="nav_item">*/}
                             {/*<FontIcon id = "nav_icon_sms">sms</FontIcon>*/}
                         {/*</div>*/}
-                    <div id="nav_item">
-                        <MenuButton
-                        id="nav_icons"
-                        icon
-                        menuItems={['Logout']}
-                        >
-                            settings
-                        </MenuButton>
+                    <div id="nav_item" >
+                        <Button floating primary onClick={() => {this.props.logout()}}><FontIcon>exit_to_app</FontIcon></Button>
                     </div>
                 </div>
             </div>
