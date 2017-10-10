@@ -45,7 +45,7 @@ class ChatListEmployee extends Component {
 
     render(){
         return (
-            <div id="chat-list" style = {{}}>
+            <div id="chat-list-employee" style = {{}}>
                 {Object.entries(this.props.conversations).map((item) =>(
                     <ChatItem {...this.props} convoDetails={item} userID={this.props.userID} isEmployee={true}
                               updateConversations={() =>{this.updateConversationList(true)}}
