@@ -12,6 +12,8 @@ class MessengerRoute extends React.Component {
                     return <div>Loading</div>
                 }
                 return logged
+                // if the user does not login,redirect to index.
+                // if the user has logged in, display the authorized page
                     ? <Component {...props}/>
                     : <Redirect to='/'/>
 

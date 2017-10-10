@@ -7,6 +7,7 @@
     float: left;
     border-top: solid black;
     background-color: black;
+    overflow: auto;
 }
 
 .md-divider {
@@ -22,10 +23,6 @@
 #simple-list-dialog{
     width:50%;
     overflow: auto;
-}
-
-#create-conversation-topics{
-    overflow-y: hidden;
 }
 
 #topic_field-menu{

@@ -8,9 +8,23 @@
     margin-top: 20px;
     float: left;
     position:relative;
+    font-family: Verdana;
 }
 
 .md-tooltip-container{
     height: 100%;
     width: 100%;
+}
+
+.message-text-bubble-user{
+    background-color: #86BC25;
+    color: white;
+    font-size: 12pt;
+    width: 60%;
+    border-radius: 13px;
+    padding: 20px;
+    margin-top: 20px;
+    float: right;
+    position:relative;
+    font-family: Verdana;
 }

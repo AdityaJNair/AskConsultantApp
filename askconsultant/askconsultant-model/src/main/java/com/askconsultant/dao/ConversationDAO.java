@@ -41,27 +41,13 @@ public class ConversationDAO {
 	 * @return List of all active conversations
 	 */
 	public List<Conversation> listActiveConversationsByUser(String userid) {
-		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		CriteriaQuery<Conversation> criteriaQuery = criteriaBuilder.createQuery(Conversation.class);
-		Root<Conversation> root = criteriaQuery.from(Conversation.class);
-		criteriaQuery.select(root);
-
-		ParameterExpression<String> useridparam = criteriaBuilder.parameter(String.class);
-
-		ParameterExpression<String> statusparam = criteriaBuilder.parameter(String.class);
-		// add all the criteria
-		criteriaQuery.where(criteriaBuilder.equal(root.get("status"), statusparam),
-				criteriaBuilder.equal(root.get("owner"), useridparam));
-		
-		//add the order by
-		criteriaBuilder.desc(root.get("lastUpdated"));
-
-		TypedQuery<Conversation> query = em.createQuery(criteriaQuery);
-		query.setParameter(useridparam, userid);
-		query.setParameter(statusparam, Constants.CONVERSATION_STATUS_ACTIVE);
-
-		List<Conversation> queryResult = query.getResultList();
-		return queryResult;
+		StringBuffer query = new StringBuffer("Select c from Conversation c where c.status='").
+				append(Constants.CONVERSATION_STATUS_ACTIVE).append("' and c.owner='").
+				append(userid).
+				append("' order by c.lastUpdated desc");
+		@SuppressWarnings("unchecked")
+		List<Conversation> resultList = em.createQuery(query.toString()).getResultList();
+		return resultList;
 	}
 
 	/**

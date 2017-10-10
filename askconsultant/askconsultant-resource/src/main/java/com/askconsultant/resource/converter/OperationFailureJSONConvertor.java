@@ -12,9 +12,11 @@ import com.google.gson.JsonObject;
 @ApplicationScoped
 public class OperationFailureJSONConvertor {
 
+	private static final String ERROR2 = "error";
+
 	public JsonElement convertToJsonElement(final String error){
 		final JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty("error", error);
+		jsonObject.addProperty(ERROR2, error);
 		return jsonObject;
 	}
 }

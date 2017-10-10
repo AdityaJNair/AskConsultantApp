@@ -78,11 +78,11 @@ export const postConvoDetails = (question,
                     console.log(response)
                     if (response.status === 201) {
                         dispatch(successfulConversation())
-                        return true;
+                        return response.json();
                     }
                     else {
                         dispatch(failedRegistration("Error: please check that you have input all mandatory fields."))
-                        return false;
+                        return '';
                     }
                 }
             )

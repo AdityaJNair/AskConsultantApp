@@ -1,9 +1,12 @@
+// After receice a single message
 export const receiveMessage = (response) => {
     console.log('receive message action')
+    console.log(response)
     let message = {
         message: response.message,
-        sentbyuserid: response.sentbyuserid,
-        sentat: response.sentat
+        user: response.user,
+        sentat: response.sentat,
+        sentbyuserid: response.sentbyuserid
     }
     return {
         type: 'RECEIVE_MESSAGE',
@@ -17,13 +20,6 @@ export const initMessages = (messages) => {
         messages: messages
     }
 }
-
-// requestMessages = () => {
-//     return {
-//         type: 'REQUEST_MESSAGES',
-//         log: 'START requesting messages'
-//     }
-// }
 
  export const initMessageFromServer = (userid, conversationid) => {
     return dispatch => {

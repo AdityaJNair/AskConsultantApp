@@ -20,6 +20,19 @@ import com.google.gson.JsonObject;
 @ApplicationScoped
 public class ConversationJSONConverter {
 
+	private static final String SUBCATEGORY = "subcategory";
+	private static final String CATEGORY = "category";
+	private static final String LASTUPDATE = "lastupdate";
+	private static final String OWNER = "owner";
+	private static final String ID = "id";
+	private static final String LATESTMESSAGESENTAT = "latestmessagesentat";
+	private static final String LATESTMESSAGESENTBY = "latestmessagesentby";
+	private static final String LATESTMESSAGE = "latestmessage";
+	private static final String SUBTOPIC = "subtopic";
+	private static final String TOPIC = "topic";
+	private static final String FIRSTMESSAGE = "firstmessage";
+	private static final String QUESTION = "question";
+
 	/**
 	 * Creates a ConversationObject from input json
 	 * @param json
@@ -29,10 +42,10 @@ public class ConversationJSONConverter {
 	public Conversation convert(String json) throws Exception {
 		JsonObject jsonObject = JsonReader.readAsJsonObject(json);
 		final Conversation conversation = new Conversation();
-		conversation.setName(JsonReader.getStringOrNull(jsonObject, "question"));
-		conversation.setContent(JsonReader.getStringOrNull(jsonObject, "firstmessage"));
-		conversation.setCategory(JsonReader.getStringOrNull(jsonObject, "topic"));
-		conversation.setSubCategory(JsonReader.getStringOrNull(jsonObject, "subtopic"));
+		conversation.setName(JsonReader.getStringOrNull(jsonObject, QUESTION));
+		conversation.setContent(JsonReader.getStringOrNull(jsonObject, FIRSTMESSAGE));
+		conversation.setCategory(JsonReader.getStringOrNull(jsonObject, TOPIC));
+		conversation.setSubCategory(JsonReader.getStringOrNull(jsonObject, SUBTOPIC));
 		return conversation;
 	}
 	
@@ -51,9 +64,9 @@ public class ConversationJSONConverter {
 	}
 
 	private void messageConverter(final JsonObject jsonObject, Message message) {
-		jsonObject.addProperty("latestmessage", message.getMessage());
-		jsonObject.addProperty("latestmessagesentby", message.getSender());
-		jsonObject.addProperty("latestmessagesentat", DateTimeHelper.dateTimeFormatter(message.getCreateDateTime()));
+		jsonObject.addProperty(LATESTMESSAGE, message.getMessage());
+		jsonObject.addProperty(LATESTMESSAGESENTBY, message.getSender());
+		jsonObject.addProperty(LATESTMESSAGESENTAT, DateTimeHelper.dateTimeFormatter(message.getCreateDateTime()));
 	}
 	
 	public JsonElement convertToJsonElement(final Conversation conversation){
@@ -62,12 +75,12 @@ public class ConversationJSONConverter {
 	}
 
 	private JsonObject conversationConverter(final JsonObject jsonObject, Conversation conversation) {
-		jsonObject.addProperty("id", conversation.getId());
-		jsonObject.addProperty("question", conversation.getName());
-		jsonObject.addProperty("owner", conversation.getOwner());
-		jsonObject.addProperty("lastupdate", DateTimeHelper.dateTimeFormatter(conversation.getCreatedatetime()));
-		jsonObject.addProperty("category", conversation.getCategory());
-		jsonObject.addProperty("subcategory", conversation.getSubCategory());
+		jsonObject.addProperty(ID, conversation.getId());
+		jsonObject.addProperty(QUESTION, conversation.getName());
+		jsonObject.addProperty(OWNER, conversation.getOwner());
+		jsonObject.addProperty(LASTUPDATE, DateTimeHelper.dateTimeFormatter(conversation.getCreatedatetime()));
+		jsonObject.addProperty(CATEGORY, conversation.getCategory());
+		jsonObject.addProperty(SUBCATEGORY, conversation.getSubCategory());
 		return jsonObject;
 	}
 	

@@ -37,10 +37,53 @@ export const setActiveTopics =  (primaryTopic, secondaryTopic) => {
     }
 }
 
-export const setActiveConversation = (id) =>{
+export const setActiveConversation = (id, question) =>{
     return {
         type: 'CHANGE_ACTIVE_CONVERSATION',
-        convoID: id
+        convoID: id,
+        question
+    }
+}
+
+export const setEmployeePrefTopics = () => {
+
+    return dispatch => {
+        const url = "https://45.76.113.175:8443/askconsultant/rest/employees/test@askconsultant.com/conversation/topics?default=true";
+
+        return fetch(url, {
+            method: "GET",
+            headers:{
+                'Content-type': 'application/json'
+            }
+        })
+            .then(
+                response => {
+                    return response
+                },
+                error =>{
+                    console.log('An error occured.', error)
+                    console.log("serverError?")
+                }
+            )
+            .then(
+                response => {
+                    if(response.json === undefined){
+                        console.log("serverError?");
+                        return false;
+                    }
+                    else if (response.json.error !== undefined) {
+                        console.log(response.json.error)
+                        return false;
+                    }
+                    else {
+                        console.log("THIS IS THE RESPONSE");
+                        console.log(response.json);
+                        dispatch(setConversations(response.json))
+                        return true;
+                    }
+                }
+            )
+
     }
 }
 

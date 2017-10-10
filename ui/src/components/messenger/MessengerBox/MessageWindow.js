@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import MessageView from "./MessageView";
-import './stylesheet/MessengerTextComponent.css'
+import './stylesheet/MessageWindow.css'
 import MessengerSendText from '../../../containers/smart/Messenger/MessengerSendText'
 import { connect } from 'react-redux'
+import MessageQuestion from './MessageQuestion'
 
 
 class MessageWindow extends Component {
@@ -11,21 +12,18 @@ class MessageWindow extends Component {
 
     }
     render(){
-        // return (
-        //     <div>
-        //         <MessageView/>
-        //         <MessengerSendText/>
-        //     </div>
-        // )
         console.log(`Render And Get the activeConvo: ${this.props.activeConvo}`)
         return (
+            // If the activeConve is available, then the messenger view will display messages
+            // in the active conversation.
             this.props.activeConvo !== '' ?
-                <div>
+                <div id="message-window">
+                    <MessageQuestion/>
                     <MessageView/>
                     <MessengerSendText/>
                 </div> :
                 <div>
-                    Hello World!
+                
                 </div>
         )
     }
@@ -36,13 +34,5 @@ const mapStateToProps = ({messengerInfo}) => {
         activeConvo: messengerInfo.activeConvo
     }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         initMessage: (messages) => {
-//             dispatch(initMessages(messages))
-//         }
-//     }
-// }
 
 export default connect(mapStateToProps)(MessageWindow)

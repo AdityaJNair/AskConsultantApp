@@ -24,14 +24,6 @@
     right:0;
 }
 
-#messenger_text_area{
-    position:absolute;
-    bottom: 0;
-    width: 100%;
-    border-top: solid rgb(197,200,203);
-    background-color: rgb(197,200,203);
-}
-
 .clearfix{
     clear:both
 }

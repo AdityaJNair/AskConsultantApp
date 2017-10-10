@@ -17,6 +17,10 @@ import com.askconsultant.common.MessageHelper;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
 
+/**
+ * Tests the MessageDAO class
+ *
+ */
 public class TestMessageDAO {
 	private EntityManagerFactory emf;
 	private EntityManager em;
@@ -58,6 +62,7 @@ public class TestMessageDAO {
 			assertNotNull(storedMessage);
 			assertTrue(storedMessage.getId() != 0l);
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail();
 		}
 	}

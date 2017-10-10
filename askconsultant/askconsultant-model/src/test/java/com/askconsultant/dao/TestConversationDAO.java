@@ -18,6 +18,10 @@ import org.junit.Test;
 import com.askconsultant.common.ConversationHelper;
 import com.askconsultant.model.Conversation;
 
+/**
+ * Tests the ConversationDAO class
+ *
+ */
 public class TestConversationDAO {
 
 	private EntityManagerFactory emf;
@@ -65,10 +69,8 @@ public class TestConversationDAO {
 			Conversation conversation = conversationDAO
 					.addConversation(ConversationHelper.getConversationWithAllValues());
 			em.getTransaction().commit();
-
 			Conversation conversationByID = conversationDAO.getConversationByID(conversation.getId());
 			assertNotNull(conversationByID);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -86,7 +88,6 @@ public class TestConversationDAO {
 					.getConversationWithAllValuesForUserAndConversationName("conversation2", "user1"));
 			conversationDAO.addConversation(ConversationHelper
 					.getConversationWithAllValuesForUserAndConversationName("conversation3", "user1"));
-
 			conversationDAO.addConversation(ConversationHelper
 					.getConversationWithAllValuesForUserAndConversationName("conversation4", "user2"));
 			conversationDAO.addConversation(ConversationHelper
@@ -127,7 +128,7 @@ public class TestConversationDAO {
 		try {
 			Conversation addConversation = conversationDAO.addConversation(ConversationHelper
 					.getConversationWithAllValuesForUserAndConversationName("conversation1", "user1"));
-			Conversation addConversation2 = conversationDAO.addConversation(ConversationHelper
+			conversationDAO.addConversation(ConversationHelper
 					.getConversationWithAllValuesForUserAndConversationName("conversation2", "user1"));
 			em.getTransaction().commit();
 			em.getTransaction().begin();

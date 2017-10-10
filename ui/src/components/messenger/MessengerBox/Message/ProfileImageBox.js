@@ -3,13 +3,13 @@ import Avatar from 'react-md/lib/Avatars';
 import "./stylesheet/ProfileImageBox.css"
 import { connect } from 'react-redux'
 
+
 class ProfileImageBox extends Component {
     render(){
         return (
             <div id="profile_box">
                 <div id="avatar-container"><Avatar random role="presentation" id="profile-avatar"></Avatar></div>
-
-                <div id="user-name">{this.props.sentbyuserid}</div>
+                <div id="user-name">{this.props.sentbydisplayname}</div>
                 {/*//TODO get the role of the user.*/}
                 {/*<div id="role">Role/Occupation</div>*/}
             </div>
@@ -19,7 +19,8 @@ class ProfileImageBox extends Component {
 
 const mapStateToProps = ({loginInfo}) => {
     return {
-        currenUserid: loginInfo.userid,
+        currentUserid: loginInfo.userid,
+        // (this.props.currentUserid === this.props.sentbyuserid ? "ziji" : "bushiziji")
     }
 }
 

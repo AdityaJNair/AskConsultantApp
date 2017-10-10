@@ -12,7 +12,6 @@ import com.askconsultant.dao.MessageDAO;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
 import com.askconsultant.service.MessageService;
-import com.askconsultant.service.RegistrationService;
 
 /**
  * This class implements the services required for storing and retrieving messages

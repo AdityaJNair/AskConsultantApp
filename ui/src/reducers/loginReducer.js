@@ -3,8 +3,8 @@ const initialState = {
     token: '',
     pending: false,
     userid: '',
-    firstName: '',
-    lastName: '',
+    preferredname: ''
+
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -12,7 +12,8 @@ const loginReducer = (state = initialState, action) => {
         case 'USER_LOGIN':
             return Object.assign({}, state, {
                 status: action.status,
-                token: action.token
+                token: action.token,
+                preferredname: action.preferredname
             })
         case 'REQUEST_POST':
             return Object.assign({}, state, {
@@ -25,8 +26,7 @@ const loginReducer = (state = initialState, action) => {
                 token: action.token,
                 pending: false,
                 userid: action.userid,
-                firstName: action.firstName,
-                lastName: action.lastName
+                preferredname: action.preferredname
             })
         case 'BAD_POST':
             console.log("BAD_POST")
