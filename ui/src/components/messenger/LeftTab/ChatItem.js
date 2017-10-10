@@ -8,7 +8,7 @@ import MenuButton from 'react-md/lib/Menus/MenuButton'
 import {setActiveConversation, archiveConvo, refreshConversationsAfterArchive} from "../../../actions/leftTabActions";
 import {initMessageFromServer} from "../../../actions/messengerAction";
 
-
+let ws;
 class ChatItem extends Component {
 
     openConversation = (userID, conversationid) => {
@@ -20,22 +20,13 @@ class ChatItem extends Component {
 
     //only for employees
     archiveConversation = () =>{
-        this.props.dispatch(archiveConvo(this.props.userID, this.props.convoDetails[1].id))
-            .then((response) =>{
-                if(response) {
-                    this.props.updateConversations(true);
+        this.openSocket(this.props.userID, this.props.convoDetails[1].id);
+        this.archiveAndSendCloseMsg(this.sendClosingMessage, [this.props.userID, this.props.convoDetails[1].id])
 
-                    return true;
-                    console.log('convo archived..')
-                }
-                else{
-                    return false;
-                }
-            })
             // .then((archived) => {
             //     if(archived)
             //         this.props.dispatch(refreshConversationsAfterArchive());
-            // })
+            // })/
 
     }
     render(){
@@ -90,6 +81,79 @@ class ChatItem extends Component {
 
             </div>
         )
+    }
+
+    //------ Below are WebSocket functions which are needed to send the final closing message when archiving ----------
+
+    openSocket(userid, conversationid) {
+        const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversationid}/chat`
+        console.log(uri)
+        ws = new WebSocket(uri);
+        ws.onopen = function() {
+            console.log('open');
+        };
+        ws.onclose = function() {
+            console.log('close');
+        };
+        ws.onmessage = function(e) {
+            let response = JSON.parse(e.data);
+            console.log(response)
+            // There shouldnt be any response
+        };
+        ws.onerror = function() {
+            console.log('error');
+        };
+
+    }
+
+
+
+    archiveAndSendCloseMsg = function (callback,args) {
+        if (ws.readyState === 1) {
+            console.log('hit............')
+            //sends closing message
+            callback.apply(this,args);
+
+            //archives and removes conversation from list
+            this.props.dispatch(archiveConvo(this.props.userID, this.props.convoDetails[1].id))
+                .then((response) => {
+                    if (response) {
+                        this.props.updateConversations(true);
+
+                        return true;
+                        console.log('convo archived..')
+                    }
+                    else {
+                        return false;
+                    }
+                })
+            this.closeSocket();
+            return true;
+
+        } else {
+            var that = this;
+            console.log('waiting ............')
+            setTimeout(()=> {
+                return that.sendCloseMsg(callback,args);
+            }, 100);
+        }
+    };
+
+    closeSocket() {
+        console.log('closing');
+        if (ws !== undefined) {
+            ws.close();
+        }
+    }
+
+    sendClosingMessage(userid, conversationid) {
+        console.log("Click");
+        let jsonString = { "message": "This conversation has now been closed, all further messages " +
+        "wont be read or saved. Please create a new" +
+        " conversation if you have further enquires, Thanks!", "userid": userid,  "conversationid": conversationid};
+        let myJSON = JSON.stringify(jsonString);
+        console.log('sending: ' + myJSON);
+        ws.send(myJSON);
     }
 }
 /*
