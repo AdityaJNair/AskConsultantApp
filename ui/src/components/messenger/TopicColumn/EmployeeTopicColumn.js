@@ -4,7 +4,7 @@ import { ExpansionList, ExpansionPanel } from 'react-md/lib/ExpansionPanels';
 import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
-import {updateEmployeeConversations, setActiveTopics} from "../../../actions/leftTabActions"
+import {updateEmployeeConversations, setActiveTopics, showAllEmployeeConversations} from "../../../actions/leftTabActions"
 
 class EmployeeTopicColumn extends Component {
     expandList() {
@@ -24,6 +24,11 @@ class EmployeeTopicColumn extends Component {
         console.log("changing active topics");
         this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item));
         this.props.dispatch(setActiveTopics(topic,subTopic));
+    }
+
+    showAllConversations = () =>{
+        this.props.dispatch(updateEmployeeConversations(this.props.userID, 'All',''));
+        this.props.dispatch(setActiveTopics('All',''));
     }
 
 
@@ -47,6 +52,9 @@ class EmployeeTopicColumn extends Component {
 
 
                 <div id="topics_field">
+                    <Button label="Show All Conversations"  className="md-button" onClick={() => {this.showAllConversations()}}/>
+
+
                     <ExpansionList>
                         <ExpansionPanel label="Development" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
@@ -87,9 +95,7 @@ class EmployeeTopicColumn extends Component {
 
 
 
-                    <ExpansionPanel label="General" footer={null}>
-                        <p>others(150)</p>
-                    </ExpansionPanel>
+
                     </ExpansionList>
                 </div>
 
