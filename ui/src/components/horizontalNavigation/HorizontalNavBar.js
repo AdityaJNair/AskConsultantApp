@@ -21,7 +21,7 @@ class HorizontalNavBar extends Component {
                         {/*<div class="nav_item">*/}
                             {/*<FontIcon id = "nav_icon_sms">sms</FontIcon>*/}
                         {/*</div>*/}
-                    <div id="nav_item">
+                    <div id="nav_item" onClick={() => {this.props.logout()}}>
                         <MenuButton
                         id="nav_icons"
                         icon
