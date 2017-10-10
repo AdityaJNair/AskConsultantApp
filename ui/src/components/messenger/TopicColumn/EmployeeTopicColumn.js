@@ -34,17 +34,6 @@ class EmployeeTopicColumn extends Component {
         // for{var i =0; i<technology.length; i++}
         return (
             <div id="employee_Topic_Column">
-                <div id="topic_searchField">
-                    <TextField
-                        id="searchField"
-                        label="Search"
-                        lineDirection="center"
-                        placeholder="Search term goes here"
-                        className="md-cell md-cell--bottom"
-                    />
-                </div>
-
-
 
                 <div id="topics_field">
                     <ExpansionList>

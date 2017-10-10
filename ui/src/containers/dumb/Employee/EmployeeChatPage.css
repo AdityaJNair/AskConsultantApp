@@ -29,6 +29,10 @@ html, #root, [data-reactroot], #whole-page {
     background-color: white;
 }
 
+#user-message-window{
+    width: 100%;
+}
+
 /*employee_Topic_Column*/
 #employee_Topic_Column{
     width: 25%;
@@ -46,7 +50,7 @@ html, #root, [data-reactroot], #whole-page {
 
 #topics_field{
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 40px);
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
