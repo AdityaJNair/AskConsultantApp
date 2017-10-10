@@ -9,7 +9,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -38,6 +37,8 @@ import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserConversationResource {
+
+	private static final String OBJECT_NOT_FOUND = "Object not found";
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -134,7 +135,7 @@ public class UserConversationResource {
 					.build();
 		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Object not found")))
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(OBJECT_NOT_FOUND)))
 					.build();
 
 		}
@@ -158,7 +159,7 @@ public class UserConversationResource {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Object not found")))
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(OBJECT_NOT_FOUND)))
 					.build();
 		}
 	}

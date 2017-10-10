@@ -12,6 +12,8 @@ import java.time.format.DateTimeFormatter;
  */
 public class DateTimeHelper {
 
+	private static final String AT = "at ";
+	private static final String SPACE = " ";
 	static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
 	static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MMM-uuuu");
 	static String zoneID="Pacific/Auckland";
@@ -30,7 +32,7 @@ public class DateTimeHelper {
 			if (messageDateTime.getDayOfMonth() == now.getDayOfMonth()) {
 				formattedDateTime = messageDateTime.format(timeFormatter).toString();
 			} else {
-				formattedDateTime = messageDateTime.format(dateFormatter).toString().concat(" ").concat("at ")
+				formattedDateTime = messageDateTime.format(dateFormatter).toString().concat(SPACE).concat(AT)
 						.concat(messageDateTime.format(timeFormatter).toString());
 			}
 		} catch (Exception e) {

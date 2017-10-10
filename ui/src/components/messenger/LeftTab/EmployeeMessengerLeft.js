@@ -6,7 +6,6 @@ class EmployeeMessengerLeft extends Component {
     render(){
         return (
             <div id="messenger-left-column">
-                <SearchFilter/>
                 <ChatListEmployeeSmart/>
             </div>
         )

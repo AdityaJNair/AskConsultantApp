@@ -8,7 +8,6 @@ class MessengerLeftColumn extends Component {
     render(){
         return (
             <div id="messenger-left-column">
-                <SearchFilter/>
                 <ChatListSmart/>
                 <CreateConvoSmart/>
             </div>
