@@ -28,7 +28,6 @@ public class ChatMessageJSONDecoder implements Decoder.Text<ChatMessage> {
 			chatMessage.setConversationid(Long.parseLong(JsonReader.getStringOrNull(jsonObject, "conversationid")));
 			chatMessage.setMessage(JsonReader.getStringOrNull(jsonObject, "message"));
 			chatMessage.setUserid(JsonReader.getStringOrNull(jsonObject, "userid"));
-			//set the current date time
 		} catch (Exception e) {
 			e.printStackTrace();
 			return chatMessage;

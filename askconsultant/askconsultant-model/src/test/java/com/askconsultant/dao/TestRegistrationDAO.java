@@ -38,7 +38,7 @@ public class TestRegistrationDAO {
 	}
 
 	/**
-	 * 
+	 * Tests adding Registration Details to the database
 	 */
 	@Test
 	public void addRegistrationDetails() {
@@ -55,6 +55,9 @@ public class TestRegistrationDAO {
 	}
 
 	
+	/**
+	 * Tests fetching the registrationdetails by the userid
+	 */
 	@Test
 	public void findByUserID() {
 		RegistrationDetails registrationDetailsForHappyPath = RegistrationHelper.getRegistrationDetailsForHappyPath();

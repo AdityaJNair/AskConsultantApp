@@ -44,6 +44,9 @@ public class ConversationHelper {
 		conversation.setCreatedatetime(Timestamp.valueOf(LocalDateTime.now()));
 		conversation.setCategory("HR");
 		conversation.setId(id);
+		conversation.setContent(conversation.getContent());
+		conversation.setSubCategory(conversation.getSubCategory());
+		conversation.setLastUpdated(Timestamp.valueOf(LocalDateTime.now()));
 		return conversation;
 	}
 

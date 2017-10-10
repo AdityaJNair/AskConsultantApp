@@ -67,7 +67,7 @@ public class ConversationServiceImpl implements ConversationService {
 		message.setMessage(conversation.getContent());
 		message.setSender(conversation.getOwner());
 		message.setStatus(Constants.MESSAGE_STATUS_ACTIVE);
-		messageDAO.addMesssage(message);
+		message = messageDAO.addMesssage(message);
 
 		// update the conversation object with the latest message
 		conversation.setLatestMessageID(message.getId());
