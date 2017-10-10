@@ -1,7 +1,32 @@
-#message_view{
-    overflow-y: hidden;
-    height: 500px;
-    width: 100%;
-    border: dashed red;
+#message-view{
+    overflow-y: auto;
+    flex-grow: 1;
     z-index: 2;
+}
+
+#user-message-window{
+    position: relative;
+    float:right;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+#messenger-text-area{
+    width: 100%;
+    border-top: solid rgb(197,200,203);
+    background-color: rgb(197,200,203);
+}
+
+#message-quetion{
+	width: 100%;
+	height: 50px;
+	background-color: rgb(197,200,203);
+	padding-top: 5px;
+}
+
+#message-quetion h2{
+	font-family: Verdana;
 }

@@ -6,6 +6,14 @@
     height: 100px;
 }
 
+#profile_box_user{
+    float: right;
+    display: block;
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+}
+
 #user-name{
     text-align: center;
     word-break: break-all;

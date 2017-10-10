@@ -32,7 +32,7 @@ const messengerReducer = (state = initialState, action) => {
             })
         case 'RECEIVE_MESSAGE':
             return Object.assign({}, state, {
-                messages: [...state.messages, action.message]
+                messages: [ action.message, ...state.messages]
             })
         case 'INIT_MESSAGE':
             return Object.assign({}, state, {

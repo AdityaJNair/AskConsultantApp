@@ -16,7 +16,6 @@ const createConvoReducer = (state = initialState, action) => {
             })
             break;
         case 'BAD_CONVO':
-
             console.log("BAD_CONVO", action.createConvoErrorMsg)
             return Object.assign({}, state, {
                 createConvoStatus: action.createConvoStatus,

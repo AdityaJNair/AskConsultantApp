@@ -1,4 +1,11 @@
 .message_bubble_container{
+    width: 100%;
+    float: left;
     margin-top: 20px;
-    overflow: auto;
+}
+
+.message_bubble_container_user{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
 }

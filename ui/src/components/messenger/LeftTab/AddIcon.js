@@ -10,5 +10,4 @@ class AddIcon extends Component {
         )
     }
 }
-
 export default AddIcon;
