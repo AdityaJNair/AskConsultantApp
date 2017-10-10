@@ -30,6 +30,11 @@ html, #root, [data-reactroot], #whole-page {
     background-color: white;
 }
 
+#showall_button{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 /*employee_Topic_Column*/
 #employee_Topic_Column{
     width: 20%;
