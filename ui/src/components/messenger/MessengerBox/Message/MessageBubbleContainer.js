@@ -30,7 +30,7 @@ class MessageBubbleContainer extends Component {
         // called message_bubble_container. 
         const bubbles =
             // Due to the order of messages, before messages unload they should reverse first. 
-            this.props.messages.reverse().map( messageInfo => (
+            this.props.messages.slice().reverse().map( messageInfo => (
                 this.props.userid !== messageInfo.sentbyuserid
                     ?
                         <div className="message_bubble_container">
