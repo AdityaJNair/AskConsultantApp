@@ -15,6 +15,7 @@ class HorizontalNavBar extends Component {
                     <img src={logo} width="230px" height="60px"/>
                 </div>
                 <div id="nav_container">
+            // This section is for future pages and functionalities such as notifications
                         {/*<div class="nav_item">*/}
                             {/*<FontIcon id = "nav_icon_notification">notifications none</FontIcon>*/}
                         {/*</div>*/}
