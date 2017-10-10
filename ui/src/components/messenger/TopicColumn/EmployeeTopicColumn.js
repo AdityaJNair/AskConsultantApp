@@ -4,7 +4,7 @@ import { ExpansionList, ExpansionPanel } from 'react-md/lib/ExpansionPanels';
 import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
-import {updateEmployeeConversations, setActiveTopics} from "../../../actions/leftTabActions"
+import {setEmployeePrefTopics, updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
 
 class EmployeeTopicColumn extends Component {
     expandList() {
@@ -16,8 +16,17 @@ class EmployeeTopicColumn extends Component {
         }
     };
 
+    componentWillMount(){
+        this.setPrefTopics();
+    }
+
+
     getLabel=(e,parent,child)=>{
         console.log("INSIDE ITEM");
+    }
+
+    setPrefTopics = () =>{
+        this.props.dispatch(setEmployeePrefTopics());
     }
 
     changeActiveTopics = (subTopic, topic) =>{
@@ -67,18 +76,12 @@ class EmployeeTopicColumn extends Component {
                         </ExpansionPanel>
                         <ExpansionPanel label="Technology" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
-                                {technology.map((item) => {
+                               , {technology.map((item) => {
                                     return <ListItem onClick={() => {this.changeActiveTopics({item}, "Technology")}}  primaryText={item} />
                                 })}
                             </List>
                         </ExpansionPanel>
 
-
-
-
-                    <ExpansionPanel label="General" footer={null}>
-                        <p>others(150)</p>
-                    </ExpansionPanel>
                     </ExpansionList>
                 </div>
 
