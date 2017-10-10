@@ -2,6 +2,10 @@ package com.askconsultant.common.json;
 
 import com.google.gson.Gson;
 
+/**
+ * Utlity class for JSON
+ *
+ */
 public class JsonWriter {
 
 	private JsonWriter() {
