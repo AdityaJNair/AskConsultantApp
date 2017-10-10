@@ -62,6 +62,7 @@ public class TestMessageDAO {
 			assertNotNull(storedMessage);
 			assertTrue(storedMessage.getId() != 0l);
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail();
 		}
 	}

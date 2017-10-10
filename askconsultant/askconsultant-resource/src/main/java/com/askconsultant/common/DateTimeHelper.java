@@ -2,6 +2,8 @@ package com.askconsultant.common;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DateTimeHelper {
@@ -13,8 +15,9 @@ public class DateTimeHelper {
 		String formattedDateTime = "";
 		try {
 			formattedDateTime = "";
-			LocalDateTime messageDateTime = timestamp.toLocalDateTime();
-			LocalDateTime now = LocalDateTime.now();
+			ZoneId arrivingZone = ZoneId.of("Pacific/Auckland");
+			ZonedDateTime messageDateTime = timestamp.toLocalDateTime().atZone(arrivingZone);
+			ZonedDateTime now = LocalDateTime.now().atZone(arrivingZone);
 			// if today is the same as the day the message was sent then set the display
 			// time only
 			if (messageDateTime.getDayOfMonth() == now.getDayOfMonth()) {
