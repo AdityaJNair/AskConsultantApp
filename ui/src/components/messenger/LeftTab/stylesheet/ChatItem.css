@@ -58,6 +58,7 @@
     height: 80px;
     margin-left: 5%;
     overflow: hidden;
+    word-wrap: break-word;
 }
 #latest_message_owner{
     width:40%;
