@@ -17,6 +17,7 @@ class MessageBubbleContainer extends Component {
         console.log('loadMessages')
     }
 
+    // before component will mount, this page will load messsages.
     componentWillMount () {
         this._loadMessages(this.props.userid, this.props.conversationid)
     }
@@ -24,7 +25,11 @@ class MessageBubbleContainer extends Component {
     render(){
         console.log("MessageBubbleContainer render  ")
         console.log(this.props.messages)
+        // if the messenage is sent by the current user, it will return a div with className
+        // called message_bubble_container_user. Otherwise, it will return a div with calsseName
+        // called message_bubble_container. 
         const bubbles =
+            // Due to the order of messages, before messages unload they should reverse first. 
             this.props.messages.reverse().map( messageInfo => (
                 this.props.userid !== messageInfo.sentbyuserid
                     ?

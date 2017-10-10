@@ -1,4 +1,5 @@
-// Use the login reducer to test.
+// Use the login reducer
+// 'USER_LOGIN' is an action used for test
 export const login = (userid, password, isEmployee) => {
     return {
         type: 'USER_LOGIN',
@@ -8,6 +9,7 @@ export const login = (userid, password, isEmployee) => {
     }
 }
 
+// 'REQUEST_POST' is waiting for fetching POST method, and assign true to pending
 const requestPosts =  () => {
     return {
         type: 'REQUEST_POST',
@@ -15,6 +17,7 @@ const requestPosts =  () => {
     }
 }
 
+// 'RECEIVE_POST' will be dispatched after POST method received successful response.
 const receivePosts = (json) => {
     return {
         type: 'RECEIVE_POST',
@@ -26,6 +29,8 @@ const receivePosts = (json) => {
     }
 }
 
+
+// If the POST method returns error or rejected response, 'BAD_POST' will be dispatched.
 const badPosts = (error) => {
     return {
         type: 'BAD_POST',
@@ -42,9 +47,12 @@ export const resetErrorMsg =()=>{
     }
 }
 
+// The core action in the loginAction, this action will dispatch other dispatch funtion according
+// to callback results of fetch function. 
 export const fetchPosts = (userid, password, isEmployee) => {
     return dispatch => {
         dispatch(requestPosts())
+        // The url address for the login API
         const url = "https://45.76.113.175:8443/askconsultant/rest/session"
         const user = {
             userid,

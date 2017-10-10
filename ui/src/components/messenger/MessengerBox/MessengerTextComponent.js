@@ -8,6 +8,7 @@ let ws
 class MessengerTextComponent extends Component {
 
     openSocket(userid, conversationid, receiveMessage) {
+        // The websocket address for current user to when enter a conversation. 
         const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversationid}/chat`
         console.log(uri)
         ws = new WebSocket(uri);
@@ -17,6 +18,7 @@ class MessengerTextComponent extends Component {
         ws.onclose = function() {
             console.log('close');
         };
+        // After receive a new message, the new message will add to the messages array. 
         ws.onmessage = function(e) {
             console.log("Looking! here")
             let response = JSON.parse(e.data);
@@ -53,8 +55,6 @@ class MessengerTextComponent extends Component {
 
     componentDidMount () {
         console.log("MesengerTextComponent: Did")
-
-
     }
     componentWillUnmount () {
         this.closeSocket()

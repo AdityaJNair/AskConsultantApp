@@ -11,14 +11,10 @@ class MessageWindow extends Component {
 
     }
     render(){
-        // return (
-        //     <div>
-        //         <MessageView/>
-        //         <MessengerSendText/>
-        //     </div>
-        // )
         console.log(`Render And Get the activeConvo: ${this.props.activeConvo}`)
         return (
+            // If the activeConve is available, then the messenger view will display messages
+            // in the active conversation. 
             this.props.activeConvo !== '' ?
                 <div id="user-message-window">
                     <MessageView/>
@@ -36,13 +32,5 @@ const mapStateToProps = ({messengerInfo}) => {
         activeConvo: messengerInfo.activeConvo
     }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         initMessage: (messages) => {
-//             dispatch(initMessages(messages))
-//         }
-//     }
-// }
 
 export default connect(mapStateToProps)(MessageWindow)

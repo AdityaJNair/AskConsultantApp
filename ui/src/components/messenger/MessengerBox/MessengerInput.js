@@ -33,6 +33,8 @@ class MessengerInput extends Component {
     handleSendWithEnter (event) {
         console.log(`this.props.sentbydisplayname: ${this.props.sentbydisplayname}`)
         let key = event.which || event.keyCode || event.charCode
+        // add the function that when the user press the Enter, and "shift Enter" to insert a 
+        //  new line. 
         if (key === 13 && this.state.inputValue !== '' && this.state.inputValue !== '\n') {
             if (!event.shiftKey) {
                 this.props.sendText(this.props.userid, this.props.conversationid, this.state.inputValue, this.props.sentbydisplayname)
@@ -50,6 +52,7 @@ class MessengerInput extends Component {
     }
 
     render () {
+        // when enter another conversation, the reset the input field.
         if (this.state.conversationid !== this.props.conversationid) {
             this.setState({
                 conversationid: this.props.conversationid,
