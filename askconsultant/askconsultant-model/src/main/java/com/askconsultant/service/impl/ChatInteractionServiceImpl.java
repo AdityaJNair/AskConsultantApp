@@ -14,7 +14,7 @@ import com.askconsultant.service.RegistrationService;
 import com.askconsultant.service.dto.ChatMessage;
 
 /**
- *
+ * This class provides the interactive chat service through websocket.
  */
 @Stateless
 public class ChatInteractionServiceImpl implements ChatInteractionService {

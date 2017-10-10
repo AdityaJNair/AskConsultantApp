@@ -19,6 +19,7 @@ import com.askconsultant.model.Employee;
  */
 public class EmployeeDAO {
 
+	private static final String EMPLOYEE_NOT_PRESENT = "Employee not present";
 	@PersistenceContext
 	EntityManager em;
 
@@ -52,7 +53,7 @@ public class EmployeeDAO {
 
 		List<Employee> queryResult = query.getResultList();
 		if (queryResult.isEmpty()) {
-			throw new InvalidUserException("Employee not present");
+			throw new InvalidUserException(EMPLOYEE_NOT_PRESENT);
 		} else
 			return queryResult.get(0);
 	}

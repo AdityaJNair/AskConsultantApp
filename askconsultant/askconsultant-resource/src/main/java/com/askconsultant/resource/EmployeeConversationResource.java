@@ -40,6 +40,10 @@ import com.askconsultant.service.dto.ConversationWithLatestMessageDTO;
 @Consumes(MediaType.APPLICATION_JSON)
 public class EmployeeConversationResource {
 
+	private static final String ERROR_DURING_ARCHIVING = "Error during archiving";
+
+	private static final String OBJECT_NOT_FOUND = "Object not found";
+
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Inject
@@ -138,7 +142,7 @@ public class EmployeeConversationResource {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Object not found")))
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(OBJECT_NOT_FOUND)))
 					.build();
 		}
 	}
@@ -161,7 +165,7 @@ public class EmployeeConversationResource {
 					.build();
 		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Object not found")))
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(OBJECT_NOT_FOUND)))
 					.build();
 
 		}
@@ -183,7 +187,7 @@ public class EmployeeConversationResource {
 			return Response.status(201).build();
 		} catch (Exception e) {
 			return Response.status(ResourceConstants.HTTP_RESPONSE_GENERIC_ERROR)
-					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement("Error during archiving")))
+					.entity(JsonWriter.writeToString(opFailureJSONConverter.convertToJsonElement(ERROR_DURING_ARCHIVING)))
 					.build();
 
 		}
