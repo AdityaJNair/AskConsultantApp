@@ -17,13 +17,13 @@
     background-color: rgb(197,200,203);
 }
 
-#message-quetion{
+#message-question{
 	width: 100%;
 	height: 50px;
 	background-color: rgb(197,200,203);
 	padding-top: 5px;
 }
 
-#message-quetion h2{
+#message-question h2{
 	font-family: Verdana;
 }

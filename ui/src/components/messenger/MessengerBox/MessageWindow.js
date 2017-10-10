@@ -3,6 +3,7 @@ import MessageView from "./MessageView";
 import './stylesheet/MessageWindow.css'
 import MessengerSendText from '../../../containers/smart/Messenger/MessengerSendText'
 import { connect } from 'react-redux'
+import MessageQuestion from './MessageQuestion'
 
 
 class MessageWindow extends Component {
@@ -17,6 +18,7 @@ class MessageWindow extends Component {
             // in the active conversation.
             this.props.activeConvo !== '' ?
                 <div id="message-window">
+                    <MessageQuestion/>
                     <MessageView/>
                     <MessengerSendText/>
                 </div> :
