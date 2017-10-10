@@ -65,7 +65,7 @@ class ChatItem extends Component {
                         <p>{this.props.convoDetails[1].latestmessagesentby}</p>
                     </div>
                     <div id = "question_timestamp">
-                        <p>{this.props.convoDetails[1].lastupdate}</p>
+                        <p>{this.props.convoDetails[1].latestmessagesentat}</p>
                     </div>
                 </div>
                 <div id="chatItem_bottom">
