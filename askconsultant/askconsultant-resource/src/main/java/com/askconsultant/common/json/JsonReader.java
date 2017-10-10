@@ -6,6 +6,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
+/**
+ * Utility class to process JSON
+ *
+ */
 public class JsonReader {
 
 	public static JsonObject readAsJsonObject(final String json) throws Exception {

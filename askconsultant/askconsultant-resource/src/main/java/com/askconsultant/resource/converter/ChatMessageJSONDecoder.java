@@ -8,6 +8,10 @@ import com.askconsultant.common.json.JsonReader;
 import com.askconsultant.service.dto.ChatMessage;
 import com.google.gson.JsonObject;
 
+/**
+ * Decoder class for the websocket functionality
+ *
+ */
 public class ChatMessageJSONDecoder implements Decoder.Text<ChatMessage> {
 
 	@Override

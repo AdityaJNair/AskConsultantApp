@@ -3,6 +3,10 @@ package com.askconsultant.common.json;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+/**
+ * Utility class for JSON
+ *
+ */
 public final class JsonUtils {
 
 	private JsonUtils() {

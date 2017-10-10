@@ -7,6 +7,10 @@ import javax.websocket.EndpointConfig;
 import com.askconsultant.service.dto.ChatMessage;
 import com.google.gson.JsonObject;
 
+/**
+ * Encoder class for interactive chat service
+ *
+ */
 public class ChatMessageJSONEncoder implements Encoder.Text<ChatMessage>{
 
 	@Override

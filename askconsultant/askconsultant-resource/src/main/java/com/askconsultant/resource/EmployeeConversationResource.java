@@ -167,6 +167,13 @@ public class EmployeeConversationResource {
 		}
 	}
 	
+	/**
+	 * Archives conversations
+	 * 
+	 * @param conversationid
+	 * @param userId
+	 * @return
+	 */
 	@DELETE
 	@Path("{conversationid}")
 	public Response archiveConversation(@PathParam("conversationid") long conversationid,
