@@ -133,7 +133,7 @@ class ChatItem extends Component {
             var that = this;
             console.log('waiting ............')
             setTimeout(()=> {
-                return that.sendCloseMsg(callback,args);
+                return that.archiveAndSendCloseMsg(callback,args);
             }, 100);
         }
     };
