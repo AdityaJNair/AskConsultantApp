@@ -203,7 +203,7 @@ export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryT
                     else {
                         console.log("the json file")
 
-                        dispatch(setConversations(json))
+                        dispatch(setDefaultConversations(json))
                         return true;
                     }
                 }
