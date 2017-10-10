@@ -16,7 +16,7 @@ class MessageWindow extends Component {
             // If the activeConve is available, then the messenger view will display messages
             // in the active conversation.
             this.props.activeConvo !== '' ?
-                <div id="user-message-window">
+                <div id="message-window">
                     <MessageView/>
                     <MessengerSendText/>
                 </div> :

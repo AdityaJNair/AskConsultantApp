@@ -30,6 +30,13 @@ html, #root, [data-reactroot], #whole-page {
     position: relative;
 }
 
+#user-message-window {
+    position: relative;
+    float:right;
+    width: 75%;
+    height: 100%;
+}
+
 /*.button {*/
     /*background-color: #86BC25;*/
     /*border-radius: 3px;*/
