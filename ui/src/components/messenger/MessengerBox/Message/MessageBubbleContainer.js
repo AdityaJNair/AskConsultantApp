@@ -44,7 +44,7 @@ class MessageBubbleContainer extends Component {
                         <ProfileImageBoxUser sentbydisplayname={messageInfo.user} />
                         <MessageTextBubbleUser message={messageInfo.message}
                                            tooltipLabel={messageInfo.sentat}
-                                           tooltipPosition="right"/>
+                                           tooltipPosition="left"/>
                     </div>
                 )
             )

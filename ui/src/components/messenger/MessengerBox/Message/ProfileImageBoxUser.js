@@ -7,7 +7,7 @@ class ProfileImageBoxUser extends Component {
     render(){
         return (
             <div id="profile_box_user">
-                <div id="avatar-container"><Avatar random role="presentation" id="profile-avatar"></Avatar></div>
+                <div id="avatar-container"><Avatar suffix="amber" role="presentation" id="profile-avatar">{this.props.sentbydisplayname.charAt(0).toUpperCase()}</Avatar></div>
 
                 <div id="user-name">{this.props.sentbydisplayname}</div>
 
