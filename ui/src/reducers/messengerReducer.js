@@ -3,8 +3,8 @@ const initialState = {
     activeConvo: '',
     conversations: JSON.stringify("{}"),
     messages: [],
-    primaryTopic: 'Development',
-    secondaryTopic: 'Oracle practice',
+    primaryTopic: '',
+    secondaryTopic: '',
     activeQuestion: ''
 
 }
