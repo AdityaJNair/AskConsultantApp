@@ -53,7 +53,7 @@ class EmployeeTopicColumn extends Component {
 
                 <div id="topics_field">
                     <div id="showall_button">
-                        <Button label="Show All Conversations" raised primary className="md-button" onClick={() => {this.showAllConversations()}}/>
+                        <Button label="Show All Alive Conversations" raised primary className="md-button" onClick={() => {this.showAllConversations()}}/>
                     </div>
 
                     <ExpansionList>
