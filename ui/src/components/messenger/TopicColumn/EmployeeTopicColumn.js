@@ -5,7 +5,7 @@ import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
 
-import {setEmployeePrefTopics, updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
+import {setEmployeePrefTopics,updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
 import {initMessageFromServer} from "../../../actions/messengerAction";
 
 
@@ -20,13 +20,12 @@ class EmployeeTopicColumn extends Component {
     };
 
     componentWillMount(){
-        this.setPrefTopics();
+        console.log("INSIDE DIDMOUNT");
+        console.log(this.props.userID);
+        this.props.dispatch(setEmployeePrefTopics(this.props.userID));
     }
 
-    setPrefTopics = () =>{
-        this.props.dispatch(setEmployeePrefTopics());
 
-    }
 
     changeActiveTopics = (subTopic, topic) =>{
         console.log("changing active topics");
