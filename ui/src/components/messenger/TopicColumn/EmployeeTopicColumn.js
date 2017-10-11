@@ -5,7 +5,7 @@ import { List, ListItem } from 'react-md/lib/Lists';
 import Button from 'react-md/lib/Buttons/Button';
 import {employeeConvoTopics, technology, development, strategyAndOperations, everydayDeloitte, humanCapital} from "../../../containers/dumb/Admin/topics";
 
-import {setEmployeePrefTopics, updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
+import {setEmployeePrefTopics,updateEmployeeConversations, setActiveTopics } from "../../../actions/leftTabActions"
 import {initMessageFromServer} from "../../../actions/messengerAction";
 
 
@@ -20,16 +20,13 @@ class EmployeeTopicColumn extends Component {
     };
 
     componentWillMount(){
-        this.setPrefTopics();
+        this.props.dispatch(setEmployeePrefTopics(this.props.userID));
     }
 
-    setPrefTopics = () =>{
-        this.props.dispatch(setEmployeePrefTopics());
-    }
+
 
     changeActiveTopics = (subTopic, topic) =>{
-        console.log("changing active topics");
-        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item))
+        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item, true))
             .then((success)=> {
                 if(success)
                     this.props.dispatch(initMessageFromServer(this.props.userID, this.props.conversationid))
@@ -54,7 +51,7 @@ class EmployeeTopicColumn extends Component {
 
                 <div id="topics_field">
                     <div id="showall_button">
-                        <Button label="Show All Conversations" raised primary className="md-button" onClick={() => {this.showAllConversations()}}/>
+                        <Button label="Show All Alive Conversations" raised primary className="md-button" onClick={() => {this.showAllConversations()}}/>
                     </div>
 
                     <ExpansionList>
@@ -79,16 +76,16 @@ class EmployeeTopicColumn extends Component {
                                 })}
                             </List>
                         </ExpansionPanel>
-                        <ExpansionPanel label="Strategy & Operations" footer={null}>
+                        <ExpansionPanel label="Strategy and Operations" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
                                 {strategyAndOperations.map((item) => {
-                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Strategy & Operations")}}  primaryText={item} />
+                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Strategy and Operations")}}  primaryText={item} />
                                 })}
                             </List>
                         </ExpansionPanel>
                         <ExpansionPanel label="Technology" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
-                               , {technology.map((item) => {
+                                {technology.map((item) => {
                                     return <ListItem onClick={() => {this.changeActiveTopics({item}, "Technology")}}  primaryText={item} />
                                 })}
                             </List>

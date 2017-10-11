@@ -1,10 +1,10 @@
 const initialState = {
     order : '',
     activeConvo: '',
-    conversations: JSON.stringify("{}"),
+    conversations: '',
     messages: [],
-    primaryTopic: 'Development',
-    secondaryTopic: 'Oracle practice',
+    primaryTopic: '',
+    secondaryTopic: '',
     activeQuestion: ''
 
 }
@@ -59,7 +59,8 @@ const messengerReducer = (state = initialState, action) => {
             {
                 return Object.assign({}, state, {
                     conversations: action.conversations,
-                    activeConvo: action.conversations[0].id
+                    activeConvo: action.conversations[0].id,
+                    activeQuestion: action.conversations[0].question
                 });
             }
             break;
