@@ -22,8 +22,11 @@
 	height: 50px;
 	background-color: rgb(197,200,203);
 	padding-top: 5px;
+    border-bottom: groove;
 }
 
 #message-question h2{
-	font-family: Verdana;
+    color:white;
+	font-family: Roboto;
+
 }

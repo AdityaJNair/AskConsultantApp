@@ -171,41 +171,38 @@ class CreateConversationButton extends Component {
                                error={this.state.questionError}
                                required
                     />
-                    <TextField ref={node => {message = node}}
-                        id="floating-multiline"
-                        label="Optional Message"
-                        rows={4}
-                        placeholder="First Message..."
-                    />
                     <div id="create-conversation-topics">
                         <SelectField ref={node => {topic = node}}
-                            id="topic_field"
-                            label="Topic"
-                            placeholder="Choose a Topic.."
-                            itemLabel="title"
-                            menuItems={consultantsTopics}
-                            className="md-cell"
+                                     id="topic_field"
+                                     label="Topic"
+                                     placeholder="Choose a Topic.."
+                                     itemLabel="title"
+                                     menuItems={consultantsTopics}
+                                     className="md-cell"
                                      errorText="This field is required."
                                      error={this.state.topicError}
                                      onChange={this.updatePrimaryList.bind(this)}
                                      required
                         />
                         <SelectField ref = {node => {subTopic = node}}
-                            id="subtopic_field"
-                            label="SubTopic"
-                            placeholder="Choose a SubTopic.."
-                            itemLabel="title"
-                            menuItems={this.state.primarySubTopicList}
-                            className="md-cell"
+                                     id="subtopic_field"
+                                     label="SubTopic"
+                                     placeholder="Choose a SubTopic.."
+                                     itemLabel="title"
+                                     menuItems={this.state.primarySubTopicList}
+                                     className="md-cell"
                                      error={this.state.subTopicError}
                                      disabled={this.state.primarySubTopicListDisabled}
                                      errorText="This field is required."
                                      required
-
-
                         />
                     </div>
-
+                    <TextField ref={node => {message = node}}
+                        id="floating-multiline"
+                        label="Optional Message"
+                        rows={4}
+                        placeholder="First Message..."
+                    />
                 </DialogContainer>
             </div>
         );

@@ -7,7 +7,7 @@ import SelectField from 'react-md/lib/SelectFields';
 import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import Button from 'react-md/lib/Buttons/Button';
 import Submit from '../../../components/Register/UserRegister/Submit.js'
-import logo from '../../../images/deloitte_logo.png'
+import logo from '../../../images/Deloitte_white.svg'
 
 import {postRegDetails, completedRegistration} from "../../../actions/registrationActions";
 
@@ -414,8 +414,8 @@ class Register extends Component {
     render() {
         return (
             <div class="canvas">
-                <div id="register_logo">
-                    <img src={require('../../../images/deloitte_logo_transparent_small.png')} />
+                <div>
+                    <img src={logo} id="register-logo"/>
                 </div>
                 <RegisterPanel {...this.props}/>
             </div>

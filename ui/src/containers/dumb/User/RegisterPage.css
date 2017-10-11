@@ -27,9 +27,11 @@
     color: red;
 }
 
-#register_logo{
-    text-align: center;
+#register-logo{
+    display: block;
+    margin: auto;
     padding-top: 20px;
+    width: 300px;
 }
 
 html, body{

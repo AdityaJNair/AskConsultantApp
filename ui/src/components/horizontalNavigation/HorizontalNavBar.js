@@ -4,7 +4,7 @@ import FontIcon from 'react-md/lib/FontIcons';
 import { connect } from 'react-redux'
 import {logout} from '../../actions/logoutActions'
 import Button from 'react-md/lib/Buttons/Button';
-import logo from "../../images/deloitte_logo_transparent_small.png";
+import logo from "../../images/Deloitte_white.svg";
 
 class HorizontalNavBar extends Component {
     render(){
