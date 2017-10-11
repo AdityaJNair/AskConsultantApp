@@ -78,10 +78,10 @@ class EmployeeTopicColumn extends Component {
                                 })}
                             </List>
                         </ExpansionPanel>
-                        <ExpansionPanel label="Strategy & Operations" footer={null}>
+                        <ExpansionPanel label="Strategy and Operations" footer={null}>
                             <List className="md-cell md-paper md-paper--1">
                                 {strategyAndOperations.map((item) => {
-                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Strategy & Operations")}}  primaryText={item} />
+                                    return <ListItem onClick={() => {this.changeActiveTopics({item}, "Strategy and Operations")}}  primaryText={item} />
                                 })}
                             </List>
                         </ExpansionPanel>
