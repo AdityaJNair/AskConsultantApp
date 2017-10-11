@@ -21,7 +21,6 @@ class EmployeeTopicColumn extends Component {
 
     componentWillMount(){
         console.log("INSIDE DIDMOUNT");
-        console.log(this.props.userID);
         this.props.dispatch(setEmployeePrefTopics(this.props.userID));
     }
 
