@@ -11,6 +11,7 @@ import javax.websocket.server.ServerEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.askconsultant.common.DateTimeHelper;
 import com.askconsultant.dao.Constants;
 import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
@@ -83,7 +84,7 @@ public class ChatInterface {
 			Message messageObj = chatConverter.convertFromChatMessage(message);
 			//add the message to database
 			messageService.addMessage(messageObj);
-			message.setSentAt(messageObj.getCreateDateTime().toLocalDateTime().toString());
+			message.setSentAt(DateTimeHelper.dateTimeFormatter(messageObj.getCreateDateTime()));
 			//set the properties 
 			chatInteractionService.setProperties(longConversationID, message);
 			//send replies to listeners
