@@ -23,6 +23,7 @@
 #simple-list-dialog{
     width:50%;
     overflow: auto;
+    height: 60%
 }
 
 #topic_field-menu{
@@ -36,4 +37,8 @@
 #subtopic_field-menu{
     float:right;
     width:40%;
+}
+
+.md-dialog-content{
+    height: 440px;
 }
