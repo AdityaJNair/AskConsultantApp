@@ -1,7 +1,7 @@
 const initialState = {
     order : '',
     activeConvo: '',
-    conversations: JSON.stringify("{}"),
+    conversations: '',
     messages: [],
     primaryTopic: 'Development',
     secondaryTopic: 'Oracle practice',
