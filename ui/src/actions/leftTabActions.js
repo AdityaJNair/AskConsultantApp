@@ -166,7 +166,7 @@ export const updateConversations = (userid) => {
     }
 }
 
-export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic) => {
+export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic, isDefaultConversation=false) => {
     return dispatch => {
         var url;
         if(primaryTopic=='All')
@@ -206,7 +206,10 @@ export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryT
                     else {
                         console.log("the json file")
 
-                        dispatch(setDefaultConversations(json))
+                        if(isDefaultConversation)
+                            dispatch(setDefaultConversations(json))
+                        else
+                            dispatch(setConversations(json))
                         return true;
                     }
                 }

@@ -20,15 +20,13 @@ class EmployeeTopicColumn extends Component {
     };
 
     componentWillMount(){
-        console.log("INSIDE DIDMOUNT");
         this.props.dispatch(setEmployeePrefTopics(this.props.userID));
     }
 
 
 
     changeActiveTopics = (subTopic, topic) =>{
-        console.log("changing active topics");
-        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item))
+        this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item, true))
             .then((success)=> {
                 if(success)
                     this.props.dispatch(initMessageFromServer(this.props.userID, this.props.conversationid))
