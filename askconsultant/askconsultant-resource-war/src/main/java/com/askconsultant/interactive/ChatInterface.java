@@ -11,12 +11,15 @@ import javax.websocket.server.ServerEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.askconsultant.dao.Constants;
+import com.askconsultant.model.Conversation;
 import com.askconsultant.model.Message;
 import com.askconsultant.resource.converter.ChatMessageJSONDecoder;
 import com.askconsultant.resource.converter.ChatMessageJSONEncoder;
 import com.askconsultant.resource.converter.ChatMessageToMessageConverter;
 import com.askconsultant.service.ChatInteractionService;
 import com.askconsultant.service.ChatSessionService;
+import com.askconsultant.service.ConversationService;
 import com.askconsultant.service.MessageService;
 import com.askconsultant.service.RegistrationService;
 import com.askconsultant.service.dto.ChatMessage;
@@ -41,6 +44,9 @@ public class ChatInterface {
 	
 	@Inject
 	RegistrationService registrationService;
+	
+	@Inject
+	ConversationService conversationService;
 
 	/**
 	 * On connection open add the session to live sessions
@@ -69,16 +75,21 @@ public class ChatInterface {
 			@PathParam("conversationid") String conversationid) {
 		
 		long longConversationID = Long.parseLong(conversationid);
-		message.setUserid(userid);
-		message.setConversationid(longConversationID);
-		Message messageObj = chatConverter.convertFromChatMessage(message);
-		//add the message to database
-		messageService.addMessage(messageObj);
-		message.setSentAt(messageObj.getCreateDateTime().toLocalDateTime().toString());
-		//set the properties 
-		chatInteractionService.setProperties(longConversationID, message);
-		//send replies to listeners
-		chatInteractionService.sendRepliesToListeners(chatRegister, longConversationID, message);
+		Conversation conversation = conversationService.getConversation(longConversationID);
+		//process messages to conversation only if active
+		if(conversation.getStatus().equals(Constants.CONVERSATION_STATUS_ACTIVE)) {
+			message.setUserid(userid);
+			message.setConversationid(longConversationID);
+			Message messageObj = chatConverter.convertFromChatMessage(message);
+			//add the message to database
+			messageService.addMessage(messageObj);
+			message.setSentAt(messageObj.getCreateDateTime().toLocalDateTime().toString());
+			//set the properties 
+			chatInteractionService.setProperties(longConversationID, message);
+			//send replies to listeners
+			chatInteractionService.sendRepliesToListeners(chatRegister, longConversationID, message);
+		}
+		
 	}
 
 	/**
