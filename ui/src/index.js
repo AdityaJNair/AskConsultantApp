@@ -17,7 +17,6 @@ import ConsultantsMessengerRoute from './routes/ConsultantsMessengerRoute'
 import RegisterPage from './containers/smart/User/RegisterPage';
 import LoginPage from './containers/smart/User/LoginPage';
 import UserChatPage from './containers/dumb/User/UserChatPage';
-import UserChatPage from './containers/dumb/User/'
 import EmployeeLoginPage from "./containers/smart/Employee/EmployeeLoginPage";
 import EmployeeChatPage from "./containers/dumb/Employee/EmployeeChatPage.js";
 import ConsultantAccountInformation from "./containers/smart/Admin/ConsultantAccountInformation";
