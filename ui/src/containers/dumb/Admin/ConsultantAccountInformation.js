@@ -303,8 +303,8 @@ class consultantRegistration extends Component  {
   render(){
     return(
       <div class="canvas">
-        <div id="register_logo">
-          <img src={require('../../../images/deloitte_logo_transparent_small.png')} />
+        <div id="register-logo">
+          <img src={require('../../../images/Deloitte_white.svg')} />
         </div>
         <RegistrationAccount {...this.props}/>
       </div>

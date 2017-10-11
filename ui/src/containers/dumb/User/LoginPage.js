@@ -42,7 +42,7 @@ class Login_panel extends Component {
             <div id="login-background">
                 <img
                     id="login-logo"
-                    src={require('../../../images/deloitte_logo_transparent_small.png')} />
+                    src={require('../../../images/Deloitte_white.svg')} />
                 <Paper
                     id="login-paper"
                     zDepth={3}>

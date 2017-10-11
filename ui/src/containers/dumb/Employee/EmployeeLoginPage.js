@@ -72,7 +72,7 @@ class EmployeeLoginPage extends Component {
             <div id="employee-login-background">
                 <img
                     id="employee-login-logo"
-                    src={require('../../../images/deloitte_logo_transparent.png')} />
+                    src={require('../../../images/Deloitte_white.svg')} />
                 <Paper
                     id="login-paper"
                     zDepth={3}>

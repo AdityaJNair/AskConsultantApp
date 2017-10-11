@@ -31,8 +31,9 @@ class ChatItem extends Component {
     render(){
 
         let menuOptions = null
+        let title = null
         if(this.props.isEmployee == true){
-            menuOptions = <div id = "question_menu">
+            menuOptions = <div id = "question-menu">
                 <MenuButton
                     className="chat-item-menu"
                     icon
@@ -42,34 +43,42 @@ class ChatItem extends Component {
                     <ListItem primaryText="Archive" onClick={() => {this.archiveConversation()}} />
                 </MenuButton>
             </div>;
+            title = <div id = "employee-question-title">
+                <h1>{this.props.convoDetails[1].question}</h1>
+            </div>;
         }else{
-            menuOptions = <span></span>
+            menuOptions = <span></span>;
+            title = <div id = "user-question-title">
+                <h1>{this.props.convoDetails[1].question}</h1>
+            </div>
         }
 
 
         return (
             <div className="chat-item" onClick={() => {this.openConversation()}}>
                 <div id="chatItem_top">
-                    <div id = "question_title">
-                        <h1>{this.props.convoDetails[1].question}</h1>
-                    </div>
+                    {title}
                     {menuOptions}
                 </div>
 
 
                 <div id="chatItem_mid">
-                    <div id = "question_content">
-                        <p>{this.props.convoDetails[1].latestmessage}</p>
+                    <div id="latest-message">
+                        <div id = "latest-message-owner">
+                            <text id="owner-text">{this.props.convoDetails[1].latestmessagesentby}:</text>
+                        </div>
+                        <div id = "latest-message-content">
+                            <p>{this.props.convoDetails[1].latestmessage}</p>
+                        </div>
                     </div>
-                    <div id = "latest_message_owner">
-                        <p>{this.props.convoDetails[1].latestmessagesentby}</p>
-                    </div>
-                    <div id = "question_timestamp">
-                        <p>{this.props.convoDetails[1].latestmessagesentat}</p>
+                    <div id="question-info">
+                        <div id = "question_timestamp">
+                            <p>{this.props.convoDetails[1].latestmessagesentat}</p>
+                        </div>
                     </div>
                 </div>
-                <div id="chatItem_bottom">
-                    <div id = "question_hashtag">
+                <div id="chatItem-bottom">
+                    <div id = "question-hashtag">
                         <Chip className="chat-item-hashtags" label={"#"+this.props.convoDetails[1].category}  />
                         <Chip className="chat-item-hashtags" label={"#"+this.props.convoDetails[1].subcategory}  />
 

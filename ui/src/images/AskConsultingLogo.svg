@@ -14,7 +14,6 @@
    viewBox="0 0 94.320938 12.272119"
    version="1.1"
    id="svg4075"
-   inkscape:export-filename="C:\Users\Juno\WebstormProjects\AskConsultantApp\ui\src\images\AskConsultingLogo.png"
    inkscape:export-xdpi="107.626"
    inkscape:export-ydpi="107.626"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
@@ -29,7 +28,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
-     inkscape:cx="157.94553"
+     inkscape:cx="99.07889"
      inkscape:cy="33.968997"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -53,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -123,19 +122,23 @@
            height="100"
            x="40"
            y="33.700806" /></flowRegion><flowPara
-         id="flowPara4113">A</flowPara></flowRoot>    <flowRoot
+         id="flowPara4113">A</flowPara></flowRoot>    <text
        xml:space="preserve"
-       id="flowRoot4123"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.24301999,0,0,0.26458333,27.834552,83.736762)"><flowRegion
-         id="flowRegion4125"><rect
-           id="rect4127"
-           width="890"
-           height="200"
-           x="80"
-           y="253.70081" /></flowRegion><flowPara
-         id="flowPara4129"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:-2px;word-spacing:0px">Ask Consulting</flowPara></flowRoot>    <circle
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.17148209px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.25357255"
+       x="49.329006"
+       y="155.68808"
+       id="text35"
+       transform="scale(0.95838445,1.0434226)"><tspan
+         sodipodi:role="line"
+         x="49.329006"
+         y="155.68808"
+         id="tspan33"
+         style="stroke-width:0.25357255"><tspan
+           x="49.329006"
+           y="155.68808"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:-0.50714511px;word-spacing:0px;stroke-width:0.25357255"
+           id="tspan31">Ask Consulting</tspan></tspan></text>
+    <circle
        style="fill:#86bc25;fill-opacity:1;stroke-width:0.14558204"
        id="path4937"
        cx="140.27797"
