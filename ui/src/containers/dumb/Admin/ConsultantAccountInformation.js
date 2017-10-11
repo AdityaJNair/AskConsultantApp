@@ -180,7 +180,7 @@ class RegistrationAccount extends Component {
           primarySubTopicListDisabled : false,
         })
         break;
-      case 'Strategy & Operations':
+      case 'Strategy and Operations':
         this.setState({
           primarySubTopicList : strategyAndOperations,
           primarySubTopicListDisabled : false,
