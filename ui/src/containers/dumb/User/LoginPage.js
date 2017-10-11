@@ -27,6 +27,7 @@ const loginSumbit = (e, dispatch, history) => {
 
 }
 
+//Holds all the UI for user login page
 class Login_panel extends Component {
     componentWillMount(){
         this.props.dispatch(resetErrorMsg())
@@ -107,13 +108,6 @@ class Login_buttons extends Component {
 }
 
 class Login extends Component {
-    componentDidMount(){
-        console.log(`Login: ${this.props.logged}`)
-        if (this.props.history !== undefined) {
-            console.log("history existing!")
-            //console.log(this.props.history)
-        }
-    }
     // due to the hierarchies of the component, the smart/User/LoginPage is the parent of Login,
     // Login is the parent of Login_panel, Login_panel is the parent of Login_button
     // So when we use the props from the smart/User/LoginPage, we should delivery via props one level of hierarchy after one

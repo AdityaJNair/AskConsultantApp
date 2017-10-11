@@ -12,6 +12,7 @@ import {initMessageFromServer} from "../../../actions/messengerAction";
 
 export let question, message, topic, subTopic;
 
+//Used to post the conversation to the server
 const postCon = (e, dispatch, quest, mess, top, sub, userid) => {
     e.preventDefault();
     console.log(`in the convo create`)
@@ -22,11 +23,10 @@ const postCon = (e, dispatch, quest, mess, top, sub, userid) => {
                 dispatch(setActiveConversation(response.id, response.question))
                 dispatch(initMessageFromServer(userid, response.id))
             }
-
         })
 }
 
-
+//This class holds the logic and ui for the conversation button and the dialog that pops up when pressed
 class CreateConversationButton extends Component {
     constructor () {
         super();
@@ -61,7 +61,7 @@ class CreateConversationButton extends Component {
         }
     };
 
-
+    //Checks whether the fields inside the question is valid
     verifyFields= (e) => {
         if(question.value.trim() !== "" && topic.value !== "" && subTopic.value !== "" ){
             var defaultString = message.value.trim();
@@ -105,7 +105,9 @@ class CreateConversationButton extends Component {
         }
 
     }
-    updatePrimaryList= (event, index, value) => {
+
+    //updates state of the secondary list depending on which primary topic the user has chosen
+    updatePrimaryList= (event) => {
         switch(event){
             case 'Development':
                 this.setState({
@@ -150,8 +152,6 @@ class CreateConversationButton extends Component {
         actions.push({ secondary: true, children: 'Cancel', onClick: this.hide });
         actions.push(<Button flat primary
                              onClick={this.verifyFields.bind(this)}>Confirm</Button>);
-
-
 
         return (
             <div id="conversation-button-container" class="conversationDialog">
@@ -208,5 +208,4 @@ class CreateConversationButton extends Component {
         );
     }
 }
-
 export default CreateConversationButton;

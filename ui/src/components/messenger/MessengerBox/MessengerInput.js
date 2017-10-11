@@ -4,6 +4,7 @@ import TextField from 'react-md/lib/TextFields';
 import './stylesheet/MessengerTextComponent.css'
 import './stylesheet/MessageWindow.css'
 
+//The UI for holding the user inputs and sending them
 class MessengerInput extends Component {
 
     constructor () {
@@ -30,8 +31,8 @@ class MessengerInput extends Component {
 
     }
 
+    //sends messages when enter is pressed
     handleSendWithEnter (event) {
-        console.log(`this.props.sentbydisplayname: ${this.props.sentbydisplayname}`)
         let key = event.which || event.keyCode || event.charCode
         // add the function that when the user press the Enter, and "shift Enter" to insert a 
         //  new line. 

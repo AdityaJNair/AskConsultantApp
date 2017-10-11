@@ -9,6 +9,7 @@ const initialState = {
 
 }
 
+//Reducer for setting the messenger state for the user or employee
 const messengerReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_CONVERSATIONS':

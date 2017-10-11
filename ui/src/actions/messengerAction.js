@@ -1,7 +1,5 @@
-// After receice a single message
+// This action file changes the states for messaging between the user and employee
 export const receiveMessage = (response) => {
-    console.log('receive message action')
-    console.log(response)
     let message = {
         message: response.message,
         user: response.user,
@@ -23,9 +21,7 @@ export const initMessages = (messages) => {
 
  export const initMessageFromServer = (userid, conversationid) => {
     return dispatch => {
-        console.log('START requesting messages')
         const url = `https://45.76.113.175:8443/askconsultant/rest/users/${userid}/conversation/${conversationid}/messages`
-        console.log(url)
         return fetch(url, {
             method: "GET",
             headers: {
@@ -34,7 +30,6 @@ export const initMessages = (messages) => {
         })
             .then(
                 response => {
-                    console.log(response)
                     return response.json()
                 },
                 error => {

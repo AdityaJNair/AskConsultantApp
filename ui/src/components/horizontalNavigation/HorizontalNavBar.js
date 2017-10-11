@@ -6,6 +6,7 @@ import {logout} from '../../actions/logoutActions'
 import Button from 'react-md/lib/Buttons/Button';
 import logo from "../../images/Deloitte_white.svg";
 
+//This class contains the design for the horizontal nav bar on top of the page, it contains a logout button
 class HorizontalNavBar extends Component {
     render(){
         return (
@@ -14,12 +15,6 @@ class HorizontalNavBar extends Component {
                     <img src={logo} width="230px" height="60px"/>
                 </div>
                 <div id="nav_container">
-                        {/*<div class="nav_item">*/}
-                            {/*<FontIcon id = "nav_icon_notification">notifications none</FontIcon>*/}
-                        {/*</div>*/}
-                        {/*<div class="nav_item">*/}
-                            {/*<FontIcon id = "nav_icon_sms">sms</FontIcon>*/}
-                        {/*</div>*/}
                     <div id="nav_item" >
                         <Button floating primary onClick={() => {this.props.logout()}}><FontIcon>exit_to_app</FontIcon></Button>
                     </div>

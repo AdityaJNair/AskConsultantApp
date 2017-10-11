@@ -5,16 +5,12 @@ import MessengerSendText from '../../../containers/smart/Messenger/MessengerSend
 import { connect } from 'react-redux'
 import MessageQuestion from './MessageQuestion'
 
-
+//This class is holds all the UI for the messenger section
 class MessageWindow extends Component {
-    componentWillMount () {
-        console.log("Message windows did mount")
 
-    }
     render(){
-        console.log(`Render And Get the activeConvo: ${this.props.activeConvo}`)
         return (
-            // If the activeConve is available, then the messenger view will display messages
+            // If the activeConvo is available, then the messenger view will display messages
             // in the active conversation.
             this.props.activeConvo !== '' ?
                 <div id="message-window">

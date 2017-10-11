@@ -6,6 +6,7 @@ const initialState = {
     successfulRegMsg: ''
 }
 
+//Setting the reducer for registration of either user or employee
 const registrationReducer = (state = initialState, action) => {
     switch (action.type){
         case 'SUCCESSFUL_REGISTRATION':

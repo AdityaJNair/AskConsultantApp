@@ -6,7 +6,7 @@ const initialState = {
     preferredname: ''
 
 }
-
+//Reducer for setting the login state
 const loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'USER_LOGIN':

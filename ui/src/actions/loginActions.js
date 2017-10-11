@@ -1,5 +1,4 @@
-// Use the login reducer
-// 'USER_LOGIN' is an action used for test
+//This action file changes the states for logging in both users and employees
 export const login = (userid, password, isEmployee) => {
     return {
         type: 'USER_LOGIN',

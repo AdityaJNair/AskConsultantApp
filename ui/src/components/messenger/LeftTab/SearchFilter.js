@@ -3,6 +3,7 @@ import SelectField from 'react-md/lib/SelectFields/SelectField'
 import TextField from 'react-md/lib/TextFields/TextField'
 import Style from './stylesheet/SearchFilter.css'
 
+//This is a search filter for the employee and user chat lists, however this is not yet implemented yet
 class SearchFilter extends Component {
     render(){
         return (

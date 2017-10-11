@@ -14,9 +14,9 @@ import Paper from 'react-md/lib/Papers/Paper'
 
 let useridInput, passwordInput
 
+//logic for submitting the employee info
 const loginSubmit = (e, dispatch, history) => {
     e.preventDefault()
-    console.log(`in the login Submit`)
     if (!useridInput.value.trim() || !passwordInput.value.trim()) {
         return
     }
@@ -24,7 +24,6 @@ const loginSubmit = (e, dispatch, history) => {
     dispatch(fetchPosts(useridInput.value, passwordInput.value, true))
         .then((success) => {
             //uses status returned by action creator
-            console.log(success + '')
             if(success)
                 history.push('/consultants_messenger')
         })
@@ -32,6 +31,7 @@ const loginSubmit = (e, dispatch, history) => {
 }
 
 
+//Holds all the UI for the employee login page
 class Employee_Login_input extends Component {
     componentWillMount(){
         this.props.dispatch(resetErrorMsg())

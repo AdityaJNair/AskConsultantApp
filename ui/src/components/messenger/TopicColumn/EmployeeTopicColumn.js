@@ -9,6 +9,7 @@ import {setEmployeePrefTopics,updateEmployeeConversations, setActiveTopics } fro
 import {initMessageFromServer} from "../../../actions/messengerAction";
 
 
+//This class holds the UI and logic for the topics column for employees
 class EmployeeTopicColumn extends Component {
     expandList() {
         var topicList = document.getElementById("topics_a");
@@ -19,11 +20,10 @@ class EmployeeTopicColumn extends Component {
         }
     };
 
+    //Before the UI has been shown, open the subtopic that the employees prefer
     componentWillMount(){
         this.props.dispatch(setEmployeePrefTopics(this.props.userID));
     }
-
-
 
     changeActiveTopics = (subTopic, topic) =>{
         this.props.dispatch(updateEmployeeConversations(this.props.userID, topic, subTopic.item, true))
@@ -43,9 +43,6 @@ class EmployeeTopicColumn extends Component {
 
 
     render(){
-
-        // var techItems =[];
-        // for{var i =0; i<technology.length; i++}
         return (
             <div id="employee_Topic_Column">
 
@@ -90,8 +87,6 @@ class EmployeeTopicColumn extends Component {
                                 })}
                             </List>
                         </ExpansionPanel>
-
-
                     </ExpansionList>
                 </div>
 
@@ -100,6 +95,4 @@ class EmployeeTopicColumn extends Component {
         );
     }
 }
-
-
 export default EmployeeTopicColumn;

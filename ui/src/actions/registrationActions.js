@@ -1,3 +1,4 @@
+//This action file is in charge of changing the states for user registration
 const successfulRegistration = () => {
     return {
         type: 'SUCCESSFUL_REGISTRATION',
@@ -64,7 +65,6 @@ export const postRegDetails = (firstName,
 
 
         }
-        console.log(regDetails)
         dispatch(resetErrorMsg())
         return fetch(url, {
             method: "POST",
@@ -75,7 +75,6 @@ export const postRegDetails = (firstName,
         })
             .then(
                 response => {
-                    console.log(response.status)
                     return response;
                 },
                 error => {
@@ -85,7 +84,6 @@ export const postRegDetails = (firstName,
             )
             .then(
                 response => {
-                    console.log(response)
                     if (response.status == 201) {
                         dispatch(successfulRegistration())
                         return true;

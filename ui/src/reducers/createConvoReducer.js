@@ -4,7 +4,7 @@ const initialState = {
     createConvoStatus: false,
     createConvoErrorMsg: ''
 }
-
+//Reducer for setting the conversation state
 const createConvoReducer = (state = initialState, action) => {
     switch (action.type){
         case 'SUCCESSFUL_CONVO':

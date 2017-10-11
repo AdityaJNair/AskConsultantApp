@@ -5,6 +5,7 @@ import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import Button from 'react-md/lib/Buttons/Button';
 import {Link} from 'react-router-dom'
 
+//Holds the submit button UI section for user registration
 class Submit extends Component {
     render() {
         return (

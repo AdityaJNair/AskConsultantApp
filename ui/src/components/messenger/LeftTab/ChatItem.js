@@ -9,27 +9,23 @@ import {setActiveConversation, archiveConvo, refreshConversationsAfterArchive} f
 import {initMessageFromServer} from "../../../actions/messengerAction";
 
 let ws;
+
+//Class that holds the logic and design for individual chat items
 class ChatItem extends Component {
 
+    //When a chat item is clicked open its conversation
     openConversation = () => {
         this.props.dispatch(setActiveConversation(this.props.convoDetails[1].id, this.props.convoDetails[1].question))
         this.props.dispatch(initMessageFromServer(this.props.userID, this.props.convoDetails[1].id))
 
     }
 
-    //only for employees
+    //only for employees, it archives conversations
     archiveConversation = () =>{
         this.openSocket(this.props.userID, this.props.convoDetails[1].id);
         this.archiveAndSendCloseMsg(this.sendClosingMessage, [this.props.userID, this.props.convoDetails[1].id])
-
-            // .then((archived) => {
-            //     if(archived)
-            //         this.props.dispatch(refreshConversationsAfterArchive());
-            // })/
-
     }
     render(){
-
         let menuOptions = null
         let title = null
         if(this.props.isEmployee == true){
@@ -95,13 +91,13 @@ class ChatItem extends Component {
 
     openSocket(userid, conversationid) {
         const uri = `wss://45.76.113.175:8443/askconsultant/interactive/users/${userid}/conversations/${conversationid}/chat`
-        console.log(uri)
+
         ws = new WebSocket(uri);
         ws.onopen = function() {
-            console.log('open');
+            console.log('open convo');
         };
         ws.onclose = function() {
-            console.log('close');
+            console.log('close convo');
         };
         ws.onmessage = function(e) {
             let response = JSON.parse(e.data);
@@ -118,7 +114,6 @@ class ChatItem extends Component {
 
     archiveAndSendCloseMsg = function (callback,args) {
         if (ws.readyState === 1) {
-            console.log('hit............')
             //sends closing message
             callback.apply(this,args);
 
@@ -129,7 +124,6 @@ class ChatItem extends Component {
                         this.props.updateConversations(true);
 
                         return true;
-                        console.log('convo archived..')
                     }
                     else {
                         return false;
@@ -140,7 +134,6 @@ class ChatItem extends Component {
 
         } else {
             var that = this;
-            console.log('waiting ............')
             setTimeout(()=> {
                 return that.archiveAndSendCloseMsg(callback,args);
             }, 100);
@@ -148,51 +141,17 @@ class ChatItem extends Component {
     };
 
     closeSocket() {
-        console.log('closing');
         if (ws !== undefined) {
             ws.close();
         }
     }
 
     sendClosingMessage(userid, conversationid) {
-        console.log("Click");
         let jsonString = { "message": "This conversation has now been closed, all further messages " +
         "wont be read or saved. Please create a new" +
         " conversation if you have further enquires, Thanks!", "userid": userid,  "conversationid": conversationid};
         let myJSON = JSON.stringify(jsonString);
-        console.log('sending: ' + myJSON);
         ws.send(myJSON);
     }
 }
-/*
-<div id = "avatar">
-    <a className="chat-avatar" href="#"><Avatar random>J</Avatar></a>
-</div>
-<div id = "question_title">
-    <h1>Title</h1>
-</div>
-<div id = "question_menu">
-    <MenuButton
-        className="chat-item-menu"
-        icon
-        buttonChildren="more_vert"
-        tooltipLabel="Open some menu"
-    >
-        <ListItem primaryText="Item One" />
-        <ListItem primaryText="Item Two" />
-        <ListItem primaryText="Item Three" />
-        <ListItem primaryText="Item Four" />
-    </MenuButton>
-    </div>
-    <div id = "question_content">
-        <p>Question content</p>
-
-        <div id = "question_timestamp">
-            <p>8:15 04/09/2017</p>
-        </div>
-    </div>
-
-    <div id = "question_hashtag">
-    <Chip className="chat-item-hashtags" label="#hashtag" />
-    </div>*/
 export default ChatItem;

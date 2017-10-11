@@ -16,7 +16,7 @@ const occupationOptions = ["Undergraduate Student", "Accounting"];
 const industryOptions = ["Accounting", "Consulting"];
 const genderOptions = ["Male", "Female", "Gender diverse"];
 
-
+//Registers user by sending the values added by the user.
 const registrationSubmit = (e, dispatch, history) => {
     e.preventDefault();
     let dobtest = dob;
@@ -34,7 +34,6 @@ const registrationSubmit = (e, dispatch, history) => {
         source.value))
         .then((updatedStatus) => {
         //uses status returned by action creator
-            console.log(updatedStatus + '')
             if(updatedStatus)
                 history.push('/')
         })
@@ -45,7 +44,7 @@ const registrationSubmit = (e, dispatch, history) => {
 
 }
 
-
+//Holds all the UI for the registration panel
 class RegisterPanel extends Component {
   constructor () {
     super();
@@ -71,8 +70,8 @@ class RegisterPanel extends Component {
     }
   }
 
+  //Makes sure that all the fields are not left empty and are valid
   verifyFields = (event) => {
-    console.log(dob.state.value);
     if(firstName.value !== "" && lastName.value !== ""  && email.value !== "" &&
         dob.state.value !== "" && industry.value !== "" && interest.value !== "" &&
         source.value !== "" && userName.value !== "" && gender.value !== "" &&

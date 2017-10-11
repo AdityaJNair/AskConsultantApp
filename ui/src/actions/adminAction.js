@@ -1,3 +1,4 @@
+//This action file holds the functions for changing the states when registering a new employee
 const successfulRegistration = () => {
     return {
         type: 'SUCCESSFUL_REGISTRATION',
@@ -53,17 +54,14 @@ export const postRegDetails = (name,
     })
     .then(
         response => {
-          console.log(response);
           return response
         },
         error => {
-            console.log('An error occured.', error)
             dispatch(failedRegistration("Server Error"))
         }
     )
     .then(
         response => {
-            console.log(response)
             if (response.status == 201) {
                 dispatch(successfulRegistration())
                 return true;

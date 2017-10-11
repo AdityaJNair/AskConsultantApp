@@ -8,6 +8,7 @@ import '../User/RegisterPage.css';
 
 export let name, email, password,passwordConfirm,role,primaryTopic,primarySubTopic;
 
+//Holds the current state for employee account information when registering an employee
 class RegistrationAccount extends Component {
 
   constructor () {
@@ -45,8 +46,6 @@ class RegistrationAccount extends Component {
            primaryTopicError : false,
            primarySubTopicError : false,
          })
-         //DO GOOD WORK HERE
-         console.log("CLICKED");
          this.props.dispatch(postRegDetails(name.value, email.value, password.value,role.value,primaryTopic.value,primarySubTopic.value))
              .then((success) => {
                  //uses status returned by action creator

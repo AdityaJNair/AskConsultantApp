@@ -8,6 +8,7 @@ const industryOptions = ["Accounting", "Consulting"];
 
 export let occupation, industry, interest, source;
 
+//Holds the Additional info UI for registeration for users
 export class AdditionalInformation extends Component {
     render() {
         return (

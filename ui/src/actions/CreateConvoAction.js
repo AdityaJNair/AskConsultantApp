@@ -1,10 +1,10 @@
+//This action file holds the functions for changing the states when a conversation has been created by the user
 const successfulConversation = () => {
     return{
         type: 'SUCCESSFUL_CONVERSATION',
         conversationStatus: true
     }
 }
-
 
 const resetErrorMsg = () => {
     return {
@@ -46,7 +46,6 @@ export const postConvoDetails = (question,
                                  userid) => {
     return dispatch => {
         const url = "https://45.76.113.175:8443/askconsultant/rest/users/"+userid+"/conversation";
-        console.log(url);
 
         const convoDetails = {
             question : question,
@@ -54,7 +53,7 @@ export const postConvoDetails = (question,
             topic : topic,
             subtopic : subtopic
         }
-        console.log(convoDetails)
+
         dispatch(resetErrorMsg())
         return fetch(url, {
             method: "POST",
@@ -65,17 +64,14 @@ export const postConvoDetails = (question,
         })
             .then(
                 response => {
-                    console.log(response.status)
                     return response;
                 },
                 error => {
-                    console.log('An error occured.', error)
                     dispatch(failedRegistration(error))
                 }
             )
             .then(
                 response => {
-                    console.log(response)
                     if (response.status === 201) {
                         dispatch(successfulConversation())
                         return response.json();

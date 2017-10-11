@@ -6,7 +6,7 @@ import MessageWindow from "../../../components/messenger/MessengerBox/MessageWin
 import EmployeeTopicColumnSmart from "../../smart/Employee/Messenger/EmployeeTopicColumnSmart"
 import EmployeeMessengerLeft from "../../../components/messenger/LeftTab/EmployeeMessengerLeft";
 
-
+//Holds all the Employee chat page together
 class EmployeeChatPage extends Component {
     render() {
         return (

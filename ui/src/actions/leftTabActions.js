@@ -1,4 +1,4 @@
-// Use the login reducer to test.
+// This action file updates the state of the left tab sections for both employee and user UI
 export const login = (userid, password, isEmployee) => {
     return {
         type: 'USER_LOGIN',
@@ -76,10 +76,6 @@ export const setEmployeePrefTopics = (userid) => {
                         return false;
                     }
                     else {
-                        console.log("THIS IS RESPONSE");
-                        console.log(userid);
-                        console.log(json.primaryTopic);
-                        console.log(json.primarySubtopic);
                         dispatch(setActiveTopics(json.primaryTopic,json.primarySubtopic))
                         dispatch(updateEmployeeConversations(userid,json.primaryTopic,json.primarySubtopic))
                         return true;
@@ -166,6 +162,7 @@ export const updateConversations = (userid) => {
     }
 }
 
+//updates employees conversation depending on the primary and secondary topic they selected
 export const updateEmployeeConversations = (employeeId, primaryTopic, secondaryTopic, isDefaultConversation=false) => {
     return dispatch => {
         var url;

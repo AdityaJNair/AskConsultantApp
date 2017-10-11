@@ -8,6 +8,7 @@ const genderOptions = ["Male", "Female", "Gender diverse"];
 
 export let firstName, lastName, userName, dob, email, gender, password;
 
+//Holds the personal info UI for registration for users
 export class PersonalInformation extends Component {
     render() {
         return (

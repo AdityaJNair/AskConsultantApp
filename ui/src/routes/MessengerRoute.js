@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 class MessengerRoute extends React.Component {
     render() {
         const {component: Component, pending, logged, ...rest } = this.props
-        console.log(`MessageRoute: ${logged}`)
         return (
             <Route {...rest} render={props => {
                 if (pending) {
