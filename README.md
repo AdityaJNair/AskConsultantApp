@@ -60,6 +60,8 @@ Secondly you have to have a "CORS" extension on your browser enabled (for Chrome
 ### UI web interface
 
 To view the consultants pages add http://localhost:3000/consultants '/consultants' path to the end of url after running NPM START
-By default it should be on the user chat.
 
+To create consultants on the admin page add http://localhost:3000/register_new_consultant '/register_new_consultant' path to the end of url after running NPM START
+
+By default it should be on the user chat.
 
